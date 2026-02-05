@@ -86,46 +86,74 @@ def fetch_aws_costs(start_date, end_date, profile='ucla-library-dsc'):
 def fetch_s3_storage_stats(profile='ucla-library-dsc'):
     """
     Retrieves storage size for all S3 buckets using CloudWatch metrics.
-    Note: These metrics are reported daily by AWS.
+    Automatically detects bucket regions to find the correct metrics.
     """
     try:
         session = get_session(profile)
         if not session: return pd.DataFrame()
         
         s3 = session.client('s3')
-        cloudwatch = session.client('cloudwatch')
-        
         buckets = s3.list_buckets()['Buckets']
         stats = []
         
         from datetime import datetime, timedelta
         end_time = datetime.now()
-        start_time = end_time - timedelta(days=2) # Get last 2 days to ensure we find a data point
+        start_time = end_time - timedelta(days=3) # Increased window to ensure we find a daily data point
         
         for bucket in buckets:
             bucket_name = bucket['Name']
             
-            # S3 reports BucketSizeBytes per storage type
-            response = cloudwatch.get_metric_statistics(
-                Namespace='AWS/S3',
-                MetricName='BucketSizeBytes',
-                Dimensions=[
-                    {'Name': 'BucketName', 'Value': bucket_name},
-                    {'Name': 'StorageType', 'Value': 'StandardStorage'}
-                ],
-                StartTime=start_time,
-                EndTime=end_time,
-                Period=86400,
-                Statistics=['Average']
-            )
-            
-            if response['Datapoints']:
-                latest_size = response['Datapoints'][-1]['Average']
-                stats.append({
-                    'bucket': bucket_name,
-                    'size_gb': latest_size / (1024**3),
-                    'last_updated': response['Datapoints'][-1]['Timestamp']
-                })
+            try:
+                # Find the bucket's region
+                region_resp = s3.get_bucket_location(Bucket=bucket_name)
+                region = region_resp.get('LocationConstraint')
+                # S3 returns None for us-east-1
+                if region is None: region = 'us-east-1'
+                # S3 returns 'EU' for eu-west-1, etc. but usually it's standard strings
+                
+                # Get CloudWatch client for THAT specific region
+                cw_region = session.client('cloudwatch', region_name=region)
+                
+                # Check StandardStorage first
+                response = cw_region.get_metric_statistics(
+                    Namespace='AWS/S3',
+                    MetricName='BucketSizeBytes',
+                    Dimensions=[
+                        {'Name': 'BucketName', 'Value': bucket_name},
+                        {'Name': 'StorageType', 'Value': 'StandardStorage'}
+                    ],
+                    StartTime=start_time,
+                    EndTime=end_time,
+                    Period=86400,
+                    Statistics=['Average']
+                )
+                
+                # If no standard storage, check all storage types
+                # (StandardStorage is the most common but some might be AllStorageTypes)
+                if not response['Datapoints']:
+                     response = cw_region.get_metric_statistics(
+                        Namespace='AWS/S3',
+                        MetricName='BucketSizeBytes',
+                        Dimensions=[
+                            {'Name': 'BucketName', 'Value': bucket_name},
+                            {'Name': 'StorageType', 'Value': 'AllStorageTypes'}
+                        ],
+                        StartTime=start_time,
+                        EndTime=end_time,
+                        Period=86400,
+                        Statistics=['Average']
+                    )
+
+                if response['Datapoints']:
+                    latest_size = response['Datapoints'][-1]['Average']
+                    stats.append({
+                        'bucket': bucket_name,
+                        'size_gb': latest_size / (1024**3),
+                        'last_updated': response['Datapoints'][-1]['Timestamp']
+                    })
+            except Exception as bucket_err:
+                print(f"Error fetching stats for {bucket_name}: {bucket_err}")
+                continue
         
         return pd.DataFrame(stats)
     except Exception as e:
