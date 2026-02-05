@@ -81,7 +81,7 @@
     "href": "infrastructure.html",
     "title": "Infrastructure Statistics",
     "section": "",
-    "text": "Error fetching live AWS data: The config profile (ucla-library-dsc) could not be found. Falling back to CSV only."
+    "text": "Session Error: The config profile (ucla-library-dsc) could not be found\nWarning: Live AWS data fetch returned empty.\nSession Error: The config profile (ucla-library-dsc) could not be found"
   },
   {
     "objectID": "infrastructure.html#monthly-departmental-charges-ledger",
@@ -103,5 +103,12 @@
     "title": "Infrastructure Statistics",
     "section": "Repository Growth",
     "text": "Repository Growth"
+  },
+  {
+    "objectID": "infrastructure.html#current-bucket-sizes",
+    "href": "infrastructure.html#current-bucket-sizes",
+    "title": "Infrastructure Statistics",
+    "section": "Current Bucket Sizes",
+    "text": "Current Bucket Sizes\n\n\nS3 storage data currently unavailable (Live AWS connection required)."
   }
 ]
