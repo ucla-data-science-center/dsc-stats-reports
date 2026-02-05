@@ -1,0 +1,27 @@
+# Pixi
+.pixi/
+pixi.lock
+
+# Quarto
+.quarto/
+*_files/
+*_cache/
+.ipynb_checkpoints/
+.Rproj.user/
+.Rhistory
+.RData
+.RDataTmp
+
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Output
+# We are currently committing docs/ for "easy" deployment, 
+# but if we use GitHub Actions to deploy to gh-pages branch, we could ignore it.
+# For now, let's keep it available if the user wants to push manually.
+# docs/

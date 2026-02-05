@@ -1,0 +1,105 @@
+---
+title: "Consulting Statistics"
+format:
+  html:
+    toc: true
+    code-fold: true
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(lubridate)
+library(scales)
+
+# Defined Paths (Robust Check)
+# We expect data in data/processed/consultations/
+possible_paths <- c(
+  "data/processed/consultations/dsc_consult_merged.rds",
+  "data/consultations/Data/dsc_consult_merged.rds",
+  "data/consultations/dsc_consult_merged.rds"
+)
+
+data_path <- NULL
+for (p in possible_paths) {
+  if (file.exists(p)) {
+    data_path <- p
+    break
+  }
+}
+
+if (is.null(data_path)) {
+  stop("Could not find dsc_consult_merged.rds. Please ensure data is in 'data/processed/consultations/'")
+}
+
+dsc_consult <- readRDS(data_path)
+
+# Basic cleaning for visualization
+dsc_consult <- dsc_consult %>%
+  mutate(ucla_affiliation = case_when(
+    ucla_affiliation %in% c("Graduate", "Graduate Student", "Visiting Graduate Student") ~ "Graduate Student",
+    ucla_affiliation %in% c("Undergrauate 3rd & Undergraduate", "Undergraduate") ~ "Undergraduate",
+    TRUE ~ ucla_affiliation
+  ))
+```
+
+# Overview
+
+The Data Science Center provides one-on-one consultations to help researchers with data-intensive projects. This service has grown significantly since its inception.
+
+## Consultations by Year
+
+```{r consulting_year, echo=FALSE}
+dsc_consult %>% 
+  filter(!is.na(start_date_time)) %>% 
+  group_by(year = year(start_date_time)) %>% 
+  summarize(consults = n()) %>% 
+  ggplot(aes(x = factor(year), y = consults)) + 
+    geom_col(fill = "#2774AE") + 
+    coord_flip() + 
+    labs(x = "Year", y = "Number of Consultations") +
+    theme_minimal() +
+    geom_text(aes(label = consults), color = "white", hjust = 1.2)
+```
+
+## Top Departments
+
+```{r consulting_dept, echo=FALSE}
+dsc_consult %>% 
+  filter(!is.na(department)) %>% 
+  count(department, sort = TRUE) %>% 
+  head(15) %>% 
+  ggplot(aes(x = reorder(department, n), y = n)) +
+    geom_col(fill = "#2774AE") +
+    coord_flip() +
+    labs(x = "Department", y = "Consults", title = "Top 15 Departments") +
+    theme_minimal() +
+    geom_text(aes(label = n), color = "white", hjust = 1.2)
+```
+
+## Researcher Status
+
+```{r consulting_status, echo=FALSE}
+dsc_consult %>%
+  filter(!is.na(ucla_affiliation)) %>%
+  count(ucla_affiliation, sort = TRUE) %>%
+  head(6) %>%
+  ggplot(aes(x = reorder(ucla_affiliation, n), y = n)) +
+    geom_col(fill = "#2774AE") +
+    coord_flip() +
+    labs(x = "Affiliation", y = "Number of Consultations") +
+    theme_minimal() +
+    geom_text(aes(label = n), color = "white", hjust = 1.2)
+```
+
+## DataSquad vs Staff
+
+```{r consulting_group, echo=FALSE}
+dsc_consult %>%
+  filter(!is.na(group)) %>%
+  count(group) %>%
+  ggplot(aes(x = group, y = n, fill = group)) +
+    geom_col() +
+    scale_fill_manual(values = c("DSC" = "#2774AE", "Datasquad" = "#FFD100")) +
+    labs(x = "Group", y = "Total Consultations") +
+    theme_minimal()
+```

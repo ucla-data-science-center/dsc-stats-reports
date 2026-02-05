@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - about.qmd
+    - consulting.qmd
+    - instruction.qmd
+    - infrastructure.qmd
+    - dsc_report2024.qmd
+
+website:
+  title: "DSC Statistics Dashboard"
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - text: "Statistics"
+        menu:
+          - href: consulting.qmd
+            text: Consulting
+          - href: instruction.qmd
+            text: Instruction
+          - href: infrastructure.qmd
+            text: Infrastructure
+      - href: about.qmd
+        text: About
+
+format:
+  html:
+    theme: 
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+
+editor: visual

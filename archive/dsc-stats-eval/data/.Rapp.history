@@ -1,0 +1,3 @@
+load("/Users/timdennis/Documents/dsc-stats/data/workshop_obs.RData")
+load("/Users/timdennis/Documents/dsc-stats/data/dsc_consult_standardized.rds")
+load("/Users/timdennis/Documents/dsc-stats/data/dsc_consult_standardized.rds")

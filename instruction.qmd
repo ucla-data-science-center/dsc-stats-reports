@@ -1,0 +1,83 @@
+---
+title: "Instruction Statistics"
+format:
+  html:
+    toc: true
+    code-fold: true
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(lubridate)
+
+# Defined Paths (Robust Check)
+# We expect data in data/processed/instruction/
+possible_paths <- c(
+  "data/processed/instruction/ucla_workshops.rda",
+  "data/instruction/ucla_workshops.rda",
+  "data/consultations/Data/ucla_workshops.rda"
+)
+
+data_path <- NULL
+for (p in possible_paths) {
+  if (file.exists(p)) {
+    data_path <- p
+    break
+  }
+}
+
+if (is.null(data_path)) {
+  stop("Could not find ucla_workshops.rda. Please ensure data is in 'data/processed/instruction/'")
+}
+
+load(data_path)
+```
+
+# Workshops and Events
+
+The Data Science Center offers workshops on foundational coding and data science skills, including the UCLA Carpentries program.
+
+## Workshop Attendance by Year
+
+```{r attendance_year, echo=FALSE}
+ucla_workshops %>%
+  filter(!is.na(date)) %>%
+  mutate(Year = year(date)) %>%
+  count(Year) %>%
+  ggplot(aes(x = factor(Year), y = n)) +
+    geom_col(fill = "#2774AE") +
+    coord_flip() +
+    labs(x = "Year", y = "Attendance", title = "DSC Event Attendance") +
+    theme_minimal() +
+    geom_text(aes(label = n), color = "white", hjust = 1.2)
+```
+
+## Top Departments (Workshops)
+
+```{r workshop_dept, echo=FALSE}
+ucla_workshops %>%
+  filter(!is.na(standardized_department), institution == "UCLA") %>%
+  count(standardized_department, sort = TRUE) %>%
+  head(15) %>%
+  ggplot(aes(x = reorder(standardized_department, n), y = n)) +
+    geom_col(fill = "#2774AE") +
+    coord_flip() +
+    labs(x = "Department", y = "Attendance", title = "Top Departments by Workshop Attendance") +
+    theme_minimal() +
+    geom_text(aes(label = n), color = "white", hjust = 1.2)
+```
+
+## Participant Affiliation
+
+```{r workshop_status, echo=FALSE}
+ucla_workshops %>%
+  filter(!is.na(status)) %>%
+  count(status, sort = TRUE) %>%
+  head(5) %>%
+  ggplot(aes(x = reorder(status, n), y = n)) +
+    geom_col(fill = "#2774AE") +
+    coord_flip() +
+    labs(x = "Status", y = "Attendance") +
+    theme_minimal() +
+    geom_text(aes(label = n), color = "white", hjust = 1.2)
+```

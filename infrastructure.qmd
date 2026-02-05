@@ -1,0 +1,110 @@
+---
+title: "Infrastructure Statistics"
+format:
+  html:
+    toc: true
+    code-fold: true
+jupyter: python3
+---
+
+```{python}
+#| echo: false
+#| message: false
+#| warning: false
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+import sys
+from IPython.display import display, Markdown
+
+# Add scripts directory to path so we can import our cleaning logic
+sys.path.append(os.path.abspath('src/etl'))
+import aws_processing
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+
+# Configuration
+DATA_DIR = "data/raw/infrastructure/AWS_Costs/"
+DATAVERSE_DIR = "data/raw/infrastructure/"
+charge_dir = os.path.join(DATA_DIR, 'aws-charges')
+
+# 1. Load Historical Data (CSV)
+df_history = aws_processing.process_aws_data(DATA_DIR)
+
+# 2. Fetch Live Data (Last 12 Months)
+# AWS allows retrieval within the last 14 months. We use 12 for safety.
+end_date = datetime.now().strftime('%Y-%m-01')
+start_date = (datetime.now() - relativedelta(months=12)).strftime('%Y-%m-01')
+
+try:
+    df_live = aws_processing.fetch_aws_costs(start_date, end_date)
+    if df_live.empty:
+        print("Warning: Live AWS data fetch returned empty.")
+        df_aws = df_history
+    else:
+        # 3. Merge: Filter history to exclude the period covered by live data
+        # Ensure we use live data for the overlap period as it's more accurate/dynamic
+        live_start = pd.to_datetime(start_date)
+        df_history_filtered = df_history[df_history['date'] < live_start]
+        
+        df_aws = pd.concat([df_history_filtered, df_live], ignore_index=True)
+        
+except Exception as e:
+    print(f"Error fetching live AWS data: {e}. Falling back to CSV only.")
+    df_aws = df_history
+
+df_ledger = aws_processing.extract_ledger_costs(charge_dir)
+
+def print_markdown_table(headers, rows):
+    table_str = "\n| " + " | ".join(headers) + " |\n"
+    table_str += "| " + " | ".join(["---"] * len(headers)) + " |\n"
+    for row in rows:
+        row_str = [str(cell) for cell in row]
+        table_str += "| " + " | ".join(row_str) + " |\n"
+    display(Markdown(table_str))
+```
+
+# AWS Cloud Costs
+
+## Monthly Departmental Charges (Ledger)
+```{python}
+#| echo: false
+#| results: asis
+if not df_ledger.empty:
+    table_data = [[r['month'], f"${r['ledger_cost']:,.2f}"] for _, r in df_ledger.sort_values('month', ascending=False).iterrows()]
+    print_markdown_table(["Month", "Actual Cost Charged"], table_data)
+else:
+    print("No ledger data found.")
+```
+
+## Monthly Trends
+```{python}
+#| echo: false
+if not df_aws.empty:
+    df_aws['month_label'] = df_aws['date'].dt.strftime('%Y-%m')
+    monthly = df_aws.groupby(['month_label', 'application'])['cost'].sum().unstack(fill_value=0)
+    monthly.plot(kind='bar', stacked=True, colormap='tab10', figsize=(10, 5))
+    plt.legend(title='Application', bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.title('Monthly AWS Costs')
+    plt.tight_layout()
+    plt.show()
+```
+
+# UCLA Dataverse Usage
+
+## Repository Growth
+```{python}
+#| echo: false
+try:
+    df_files = pd.read_csv(os.path.join(DATAVERSE_DIR, 'files_monthly.csv'))
+    df_files['date'] = pd.to_datetime(df_files['date'])
+    plt.figure(figsize=(10, 4))
+    plt.plot(df_files['date'], df_files['count'], color='#2ca02c')
+    plt.title('Total Files Over Time')
+    plt.grid(True, alpha=0.3)
+    plt.show()
+except Exception as e:
+    print(f"Dataverse data missing: {e}")
+```

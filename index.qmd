@@ -1,0 +1,34 @@
+---
+title: "DSC Statistics Dashboard"
+---
+
+Welcome to the unified statistics dashboard for the UCLA Library Data Science Center. This dashboard consolidates data from consultations, instructional workshops, and repository infrastructure into a single, reproducible platform.
+
+## Dashboard Sections
+
+::: {.grid}
+
+::: {.g-col-4}
+### [Consulting](consulting.qmd)
+One-on-one research support provided by DSC staff and the DataSquad.
+:::
+
+::: {.g-col-4}
+### [Instruction](instruction.qmd)
+Workshops, events, and community-led training like The Carpentries.
+:::
+
+::: {.g-col-4}
+### [Infrastructure](infrastructure.qmd)
+AWS cloud costs and UCLA Dataverse repository metrics.
+:::
+
+:::
+
+## Recent Trends
+
+*This section can be expanded to include high-level summary cards or a "Year in Review" infographic style summary.*
+
+---
+
+**Last Updated:** `r Sys.Date()`

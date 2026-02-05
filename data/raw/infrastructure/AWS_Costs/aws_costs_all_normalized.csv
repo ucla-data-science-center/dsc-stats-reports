@@ -1,0 +1,562 @@
+component_raw,cost,service,component,source,date
+Dataverse-production,221.7205350465,Dataverse,production,dataverse_costs,2025-01-01
+Dataverse-Production,116.8736885511,Dataverse,production,dataverse_costs,2025-01-01
+Dataverse Production ,12.4812156018,Dataverse,production,dataverse_costs,2025-01-01
+Dataverse-production,221.720535,Dataverse,production,rotated_costs,2025-01-01
+Dataverse-Production,116.8736886,Dataverse,production,rotated_costs,2025-01-01
+Dataverse Production,12.4812156,Dataverse,production,rotated_costs,2025-01-01
+Dataverse-production,217.2935800863,Dataverse,production,dataverse_costs,2025-02-01
+Dataverse-Production,120.5406258792,Dataverse,production,dataverse_costs,2025-02-01
+Dataverse Production ,12.1711008636,Dataverse,production,dataverse_costs,2025-02-01
+Dataverse-production,217.2935801,Dataverse,production,rotated_costs,2025-02-01
+Dataverse-Production,120.5406259,Dataverse,production,rotated_costs,2025-02-01
+Dataverse Production,12.17110086,Dataverse,production,rotated_costs,2025-02-01
+Dataverse-production,235.0993413082,Dataverse,production,dataverse_costs,2025-03-01
+Dataverse-Production,119.1389266303,Dataverse,production,dataverse_costs,2025-03-01
+Dataverse Production ,12.481185286,Dataverse,production,dataverse_costs,2025-03-01
+Dataverse-production,235.0993413,Dataverse,production,rotated_costs,2025-03-01
+Dataverse-Production,119.1389266,Dataverse,production,rotated_costs,2025-03-01
+Dataverse Production,12.48118529,Dataverse,production,rotated_costs,2025-03-01
+Dataverse-production,252.7489113012,Dataverse,production,dataverse_costs,2025-04-01
+Dataverse-Production,120.9174662494,Dataverse,production,dataverse_costs,2025-04-01
+Dataverse Production ,12.4811956776,Dataverse,production,dataverse_costs,2025-04-01
+Production-Dataverse,0.274431627,Dataverse,production,rotated_costs,2025-04-01
+Dataverse-production,252.7489113,Dataverse,production,rotated_costs,2025-04-01
+Dataverse-Production,120.9174662,Dataverse,production,rotated_costs,2025-04-01
+Dataverse Production,12.48119568,Dataverse,production,rotated_costs,2025-04-01
+Dataverse-Production,121.2990923434,Dataverse,production,dataverse_costs,2025-05-01
+Dataverse Production ,12.481181676,Dataverse,production,dataverse_costs,2025-05-01
+Production-Dataverse,347.3299798,Dataverse,production,rotated_costs,2025-05-01
+Dataverse-Production,121.2990923,Dataverse,production,rotated_costs,2025-05-01
+Dataverse Production,12.48118168,Dataverse,production,rotated_costs,2025-05-01
+Dataverse-Production,118.1762002697,Dataverse,production,dataverse_costs,2025-06-01
+Dataverse Production ,12.481174852,Dataverse,production,dataverse_costs,2025-06-01
+Production-Dataverse,268.0647862,Dataverse,production,rotated_costs,2025-06-01
+Dataverse-Production,118.1762003,Dataverse,production,rotated_costs,2025-06-01
+Dataverse Production,12.48117485,Dataverse,production,rotated_costs,2025-06-01
+Dataverse-Production,123.9904150061,Dataverse,production,dataverse_costs,2025-07-01
+Dataverse Production ,12.481192494,Dataverse,production,dataverse_costs,2025-07-01
+Production-Dataverse,292.2893828,Dataverse,production,rotated_costs,2025-07-01
+Dataverse-Production,123.990415,Dataverse,production,rotated_costs,2025-07-01
+Dataverse Production,12.48119249,Dataverse,production,rotated_costs,2025-07-01
+Dataverse-Production,83.4503679263,Dataverse,production,dataverse_costs,2025-08-01
+Dataverse Production ,8.455020308,Dataverse,production,dataverse_costs,2025-08-01
+Production-Dataverse,155.4591649,Dataverse,production,rotated_costs,2025-08-01
+Dataverse-Production,83.45036793,Dataverse,production,rotated_costs,2025-08-01
+Dataverse Production,8.455020308,Dataverse,production,rotated_costs,2025-08-01
+Dataverse-Test-storage,3.0929e-05,Dataverse,storage,dataverse_costs,2025-04-01
+Dataverse-Test-storage,3.0929e-05,Dataverse,storage,rotated_costs,2025-04-01
+Dataverse-Test-storage,3.0018303931,Dataverse,storage,dataverse_costs,2025-05-01
+Dataverse-Test-storage,3.001830393,Dataverse,storage,rotated_costs,2025-05-01
+Dataverse-Test-storage,2.8737508708,Dataverse,storage,dataverse_costs,2025-06-01
+Dataverse-Test-storage,2.873750871,Dataverse,storage,rotated_costs,2025-06-01
+Dataverse-Test-storage,2.8600866302,Dataverse,storage,dataverse_costs,2025-07-01
+Dataverse-Test-storage,2.86008663,Dataverse,storage,rotated_costs,2025-07-01
+Dataverse-Test-storage,1.957103871,Dataverse,storage,dataverse_costs,2025-08-01
+Dataverse-Test-storage,1.957103871,Dataverse,storage,rotated_costs,2025-08-01
+Dataverse-Test,3.3285856558,Dataverse,test,dataverse_costs,2025-01-01
+Dataverse-Test,3.328585656,Dataverse,test,rotated_costs,2025-01-01
+Dataverse-Test,3.3195755007,Dataverse,test,dataverse_costs,2025-02-01
+Dataverse-Test,3.319575501,Dataverse,test,rotated_costs,2025-02-01
+Dataverse-Test,3.3325876119,Dataverse,test,dataverse_costs,2025-03-01
+Dataverse-Test,3.332587612,Dataverse,test,rotated_costs,2025-03-01
+Dataverse-Test,5.8602302853,Dataverse,test,dataverse_costs,2025-04-01
+Test-Dataverse,0.08231114,Dataverse,test,rotated_costs,2025-04-01
+Dataverse-Test,5.860230285,Dataverse,test,rotated_costs,2025-04-01
+Test-Dataverse-Rocky9,0.092959261,Dataverse,test,rotated_costs,2025-04-01
+Dataverse-Test,12.9615426683,Dataverse,test,dataverse_costs,2025-05-01
+Test-Dataverse,90.71304001,Dataverse,test,rotated_costs,2025-05-01
+Dataverse-Test,12.96154267,Dataverse,test,rotated_costs,2025-05-01
+Test-Dataverse-Rocky9,69.52464838,Dataverse,test,rotated_costs,2025-05-01
+Dataverse-Test,87.9824499546,Dataverse,test,dataverse_costs,2025-06-01
+Test-Dataverse,87.63908794,Dataverse,test,rotated_costs,2025-06-01
+Dataverse-Test,87.98244995,Dataverse,test,rotated_costs,2025-06-01
+Test-Dataverse-Rocky9,66.84845208,Dataverse,test,rotated_costs,2025-06-01
+Dataverse-Test,90.9011704802,Dataverse,test,dataverse_costs,2025-07-01
+Test-Dataverse,90.52218367,Dataverse,test,rotated_costs,2025-07-01
+Dataverse-Test,90.90117048,Dataverse,test,rotated_costs,2025-07-01
+Test-Dataverse-Rocky9,69.10402809,Dataverse,test,rotated_costs,2025-07-01
+Dataverse-Test,61.7673119884,Dataverse,test,dataverse_costs,2025-08-01
+Test-Dataverse,61.47621586,Dataverse,test,rotated_costs,2025-08-01
+Dataverse-Test,61.76731199,Dataverse,test,rotated_costs,2025-08-01
+Test-Dataverse-Rocky9,46.90849824,Dataverse,test,rotated_costs,2025-08-01
+Total costs,354.4040248552,Dataverse,total,dataverse_costs,2025-01-01
+Total costs,353.3248823298,Dataverse,total,dataverse_costs,2025-02-01
+Total costs,370.0520408364,Dataverse,total,dataverse_costs,2025-03-01
+Total costs,392.0078344425,Dataverse,total,dataverse_costs,2025-04-01
+Total costs,149.7436470808,Dataverse,total,dataverse_costs,2025-05-01
+Total costs,221.5135759471,Dataverse,total,dataverse_costs,2025-06-01
+Total costs,230.2328646105,Dataverse,total,dataverse_costs,2025-07-01
+Total costs,155.6298040937,Dataverse,total,dataverse_costs,2025-08-01
+Potree-computing,0.5578113853,Potree,compute,potree_costs,2025-04-01
+Potree-computing,0.557811385,Potree,compute,rotated_costs,2025-04-01
+Potree-computing,69.0117762675,Potree,compute,potree_costs,2025-05-01
+Potree-computing,69.01177627,Potree,compute,rotated_costs,2025-05-01
+Potree-computing,66.8982884375,Potree,compute,potree_costs,2025-06-01
+Potree-computing,66.89828844,Potree,compute,rotated_costs,2025-06-01
+Potree-computing,69.1383275081,Potree,compute,potree_costs,2025-07-01
+Potree-computing,69.13832751,Potree,compute,rotated_costs,2025-07-01
+Potree-computing,46.9456172561,Potree,compute,potree_costs,2025-08-01
+Potree-computing,46.94561726,Potree,compute,rotated_costs,2025-08-01
+Potree-storage,0.0010421855,Potree,storage,potree_costs,2025-04-01
+Potree-storage,0.001042186,Potree,storage,rotated_costs,2025-04-01
+Potree-storage,243.2220861242,Potree,storage,potree_costs,2025-05-01
+Potree-storage,243.2220861,Potree,storage,rotated_costs,2025-05-01
+Potree-storage,242.8263521398,Potree,storage,potree_costs,2025-06-01
+Potree-storage,242.8263521,Potree,storage,rotated_costs,2025-06-01
+Potree-storage,241.9647776272,Potree,storage,potree_costs,2025-07-01
+Potree-storage,241.9647776,Potree,storage,rotated_costs,2025-07-01
+Potree-storage,165.4762840769,Potree,storage,potree_costs,2025-08-01
+Potree-storage,165.4762841,Potree,storage,rotated_costs,2025-08-01
+Potree,244.8676588746,Potree,total,potree_costs,2025-01-01
+Total costs,244.8676588746,Potree,total,potree_costs,2025-01-01
+Potree,244.8676589,Potree,total,rotated_costs,2025-01-01
+potree,69.10549594,Potree,total,rotated_costs,2025-01-01
+Potree,244.2583242616,Potree,total,potree_costs,2025-02-01
+Total costs,244.2583242616,Potree,total,potree_costs,2025-02-01
+Potree,244.2583243,Potree,total,rotated_costs,2025-02-01
+potree,62.43775675,Potree,total,rotated_costs,2025-02-01
+Potree,245.0086704523,Potree,total,potree_costs,2025-03-01
+Total costs,245.0086704523,Potree,total,potree_costs,2025-03-01
+Potree,245.0086705,Potree,total,rotated_costs,2025-03-01
+potree,69.12235022,Potree,total,rotated_costs,2025-03-01
+Potree,245.0671634242,Potree,total,potree_costs,2025-04-01
+Total costs,245.626016995,Potree,total,potree_costs,2025-04-01
+Potree,245.0671634,Potree,total,rotated_costs,2025-04-01
+potree,66.33416946,Potree,total,rotated_costs,2025-04-01
+Total costs,312.2338623917,Potree,total,potree_costs,2025-05-01
+Total costs,309.7246405773,Potree,total,potree_costs,2025-06-01
+Total costs,311.1031051353,Potree,total,potree_costs,2025-07-01
+Total costs,212.421901333,Potree,total,potree_costs,2025-08-01
+No tag key: application,261.0165634,Unknown,other,rotated_costs,2025-01-01
+LARIAC,0.660336972,Unknown,other,rotated_costs,2025-01-01
+LARIAC backup,0.074205541,Unknown,other,rotated_costs,2025-01-01
+SSDA,0.017602698,Unknown,other,rotated_costs,2025-01-01
+billing-info,0.015699281,Unknown,other,rotated_costs,2025-01-01
+No tag key: application,251.7848505,Unknown,other,rotated_costs,2025-02-01
+LARIAC,0.55964457,Unknown,other,rotated_costs,2025-02-01
+LARIAC backup,0.074095926,Unknown,other,rotated_costs,2025-02-01
+SSDA,0.013503045,Unknown,other,rotated_costs,2025-02-01
+billing-info,0.016160891,Unknown,other,rotated_costs,2025-02-01
+No tag key: application,251.7448851,Unknown,other,rotated_costs,2025-03-01
+LARIAC,0.548121861,Unknown,other,rotated_costs,2025-03-01
+LARIAC backup,0.074195919,Unknown,other,rotated_costs,2025-03-01
+SSDA,0.013482803,Unknown,other,rotated_costs,2025-03-01
+billing-info,0.017020944,Unknown,other,rotated_costs,2025-03-01
+No tag key: application,219.1995185,Unknown,other,rotated_costs,2025-04-01
+LARIAC,0.547062054,Unknown,other,rotated_costs,2025-04-01
+LARIAC backup,0.074426228,Unknown,other,rotated_costs,2025-04-01
+SSDA,0.020344031,Unknown,other,rotated_costs,2025-04-01
+billing-info,0.029160683,Unknown,other,rotated_costs,2025-04-01
+No tag key: application,-55.01819713,Unknown,other,rotated_costs,2025-05-01
+LARIAC,0.548861791,Unknown,other,rotated_costs,2025-05-01
+LARIAC backup,0.073761146,Unknown,other,rotated_costs,2025-05-01
+SSDA,0.040757722,Unknown,other,rotated_costs,2025-05-01
+billing-info,0.018419526,Unknown,other,rotated_costs,2025-05-01
+No tag key: application,-62.6414418,Unknown,other,rotated_costs,2025-06-01
+LARIAC,0.564980695,Unknown,other,rotated_costs,2025-06-01
+LARIAC backup,0.073528141,Unknown,other,rotated_costs,2025-06-01
+SSDA,0.033048345,Unknown,other,rotated_costs,2025-06-01
+billing-info,0.019102437,Unknown,other,rotated_costs,2025-06-01
+No tag key: application,-90.74951221,Unknown,other,rotated_costs,2025-07-01
+LARIAC,0.54376255,Unknown,other,rotated_costs,2025-07-01
+LARIAC backup,0.07333359,Unknown,other,rotated_costs,2025-07-01
+SSDA,0.014173516,Unknown,other,rotated_costs,2025-07-01
+billing-info,0.019891092,Unknown,other,rotated_costs,2025-07-01
+No tag key: application,7.082917687,Unknown,other,rotated_costs,2025-08-01
+LARIAC,0.369629646,Unknown,other,rotated_costs,2025-08-01
+LARIAC backup,0.050197614,Unknown,other,rotated_costs,2025-08-01
+SSDA,0.008931401,Unknown,other,rotated_costs,2025-08-01
+billing-info,0.014090245,Unknown,other,rotated_costs,2025-08-01
+Production-Processing,0.046400658,Unknown,production,rotated_costs,2025-04-01
+Production-Processing,34.52674871,Unknown,production,rotated_costs,2025-05-01
+Production-Processing,33.41236044,Unknown,production,rotated_costs,2025-06-01
+Production-Processing,34.52804352,Unknown,production,rotated_costs,2025-07-01
+Production-Processing,23.43533211,Unknown,production,rotated_costs,2025-08-01
+LARIAC test,0.213684517,Unknown,test,rotated_costs,2025-01-01
+test-3d,0.000326203,Unknown,test,rotated_costs,2025-01-01
+LARIAC test,0.213439772,Unknown,test,rotated_costs,2025-02-01
+test-3d,0.000290901,Unknown,test,rotated_costs,2025-02-01
+LARIAC test,0.213707793,Unknown,test,rotated_costs,2025-03-01
+test-3d,0.000330285,Unknown,test,rotated_costs,2025-03-01
+LARIAC test,0.213793991,Unknown,test,rotated_costs,2025-04-01
+test-3d,0.000320531,Unknown,test,rotated_costs,2025-04-01
+LARIAC test,0.21242581,Unknown,test,rotated_costs,2025-05-01
+test-3d,0.000312601,Unknown,test,rotated_costs,2025-05-01
+LARIAC test,0.211775855,Unknown,test,rotated_costs,2025-06-01
+test-3d,0.000305409,Unknown,test,rotated_costs,2025-06-01
+LARIAC test,0.211187011,Unknown,test,rotated_costs,2025-07-01
+test-3d,0.000319458,Unknown,test,rotated_costs,2025-07-01
+LARIAC test,0.14453985,Unknown,test,rotated_costs,2025-08-01
+test-3d,0.00022704,Unknown,test,rotated_costs,2025-08-01
+Total costs,930.3755983,Unknown,total,rotated_costs,2025-01-01
+Total costs,912.6829489,Unknown,total,rotated_costs,2025-02-01
+Total costs,936.7948062,Unknown,total,rotated_costs,2025-03-01
+Total costs,924.5487496,Unknown,total,rotated_costs,2025-04-01
+Total costs,949.9482678,Unknown,total,rotated_costs,2025-05-01
+Total costs,925.4642023,Unknown,total,rotated_costs,2025-06-01
+Total costs,937.8927628,Unknown,total,rotated_costs,2025-07-01
+Total costs,663.00145,Unknown,total,rotated_costs,2025-08-01
+Production-Dataverse,0.2744316273,Dataverse,production,jan_to_today,2025-01-01
+Production-Dataverse,347.3299797901,Dataverse,production,jan_to_today,2025-01-01
+Production-Dataverse,268.0647862219,Dataverse,production,jan_to_today,2025-01-01
+Production-Dataverse,292.2893828019,Dataverse,production,jan_to_today,2025-01-01
+Production-Dataverse,155.4591649275,Dataverse,production,jan_to_today,2025-01-01
+Potree,244.8676588746,Potree,total,jan_to_today,2025-01-01
+Potree,244.2583242616,Potree,total,jan_to_today,2025-01-01
+Potree,245.0086704523,Potree,total,jan_to_today,2025-01-01
+Potree,245.0671634242,Potree,total,jan_to_today,2025-01-01
+Dataverse-production,221.7205350465,Dataverse,production,jan_to_today,2025-01-01
+Dataverse-production,217.2935800863,Dataverse,production,jan_to_today,2025-01-01
+Dataverse-production,235.0993413082,Dataverse,production,jan_to_today,2025-01-01
+Dataverse-production,252.7489113012,Dataverse,production,jan_to_today,2025-01-01
+Dataverse-Production,116.8736885511,Dataverse,production,jan_to_today,2025-02-01
+Dataverse-Production,120.5406258792,Dataverse,production,jan_to_today,2025-02-01
+Dataverse-Production,119.1389266303,Dataverse,production,jan_to_today,2025-02-01
+Dataverse-Production,120.9174662494,Dataverse,production,jan_to_today,2025-02-01
+Dataverse-Production,121.2990923434,Dataverse,production,jan_to_today,2025-02-01
+Dataverse-Production,118.1762002697,Dataverse,production,jan_to_today,2025-02-01
+Dataverse-Production,123.9904150061,Dataverse,production,jan_to_today,2025-02-01
+Dataverse-Production,83.4503679263,Dataverse,production,jan_to_today,2025-02-01
+Potree-storage,0.0010421855,Potree,storage,jan_to_today,2025-02-01
+Potree-storage,243.2220861242,Potree,storage,jan_to_today,2025-02-01
+Potree-storage,242.8263521398,Potree,storage,jan_to_today,2025-02-01
+Potree-storage,241.9647776272,Potree,storage,jan_to_today,2025-02-01
+Potree-storage,165.4762840769,Potree,storage,jan_to_today,2025-02-01
+No tag key: application,261.016563417,Unknown,other,jan_to_today,2025-02-01
+No tag key: application,251.7848504971,Unknown,other,jan_to_today,2025-02-01
+No tag key: application,251.7448850566,Unknown,other,jan_to_today,2025-03-01
+No tag key: application,219.1995185009,Unknown,other,jan_to_today,2025-03-01
+No tag key: application,-55.0181971295,Unknown,other,jan_to_today,2025-03-01
+No tag key: application,-62.6414417957,Unknown,other,jan_to_today,2025-03-01
+No tag key: application,-90.7495122137,Unknown,other,jan_to_today,2025-03-01
+No tag key: application,7.0829176874,Unknown,other,jan_to_today,2025-03-01
+Test-Dataverse,0.0823111396,Dataverse,test,jan_to_today,2025-03-01
+Test-Dataverse,90.7130400145,Dataverse,test,jan_to_today,2025-03-01
+Test-Dataverse,87.6390879406,Dataverse,test,jan_to_today,2025-03-01
+Test-Dataverse,90.5221836709,Dataverse,test,jan_to_today,2025-03-01
+Test-Dataverse,61.4762158611,Dataverse,test,jan_to_today,2025-03-01
+Dataverse-Test,3.3285856558,Dataverse,test,jan_to_today,2025-03-01
+Dataverse-Test,3.3195755007,Dataverse,test,jan_to_today,2025-03-01
+Dataverse-Test,3.3325876119,Dataverse,test,jan_to_today,2025-03-01
+Dataverse-Test,5.8602302853,Dataverse,test,jan_to_today,2025-03-01
+Dataverse-Test,12.9615426683,Dataverse,test,jan_to_today,2025-03-01
+Dataverse-Test,87.9824499546,Dataverse,test,jan_to_today,2025-03-01
+Dataverse-Test,90.9011704802,Dataverse,test,jan_to_today,2025-03-01
+Dataverse-Test,61.7673119884,Dataverse,test,jan_to_today,2025-04-01
+potree,69.1054959363,Potree,total,jan_to_today,2025-04-01
+potree,62.437756748,Potree,total,jan_to_today,2025-04-01
+potree,69.122350218,Potree,total,jan_to_today,2025-04-01
+potree,66.33416946,Potree,total,jan_to_today,2025-04-01
+Potree-computing,0.5578113853,Potree,compute,jan_to_today,2025-04-01
+Potree-computing,69.0117762675,Potree,compute,jan_to_today,2025-04-01
+Potree-computing,66.8982884375,Potree,compute,jan_to_today,2025-04-01
+Potree-computing,69.1383275081,Potree,compute,jan_to_today,2025-04-01
+Potree-computing,46.9456172561,Potree,compute,jan_to_today,2025-04-01
+Test-Dataverse-Rocky9,0.0929592613,Dataverse,test,jan_to_today,2025-04-01
+Test-Dataverse-Rocky9,69.5246483761,Dataverse,test,jan_to_today,2025-05-01
+Test-Dataverse-Rocky9,66.8484520765,Dataverse,test,jan_to_today,2025-05-01
+Test-Dataverse-Rocky9,69.1040280877,Dataverse,test,jan_to_today,2025-05-01
+Test-Dataverse-Rocky9,46.9084982436,Dataverse,test,jan_to_today,2025-05-01
+Production-Processing,0.0464006582,Unknown,production,jan_to_today,2025-05-01
+Production-Processing,34.5267487053,Unknown,production,jan_to_today,2025-05-01
+Production-Processing,33.4123604365,Unknown,production,jan_to_today,2025-05-01
+Production-Processing,34.5280435206,Unknown,production,jan_to_today,2025-05-01
+Production-Processing,23.4353321058,Unknown,production,jan_to_today,2025-05-01
+Dataverse Production ,12.4812156018,Dataverse,production,jan_to_today,2025-05-01
+Dataverse Production ,12.1711008636,Dataverse,production,jan_to_today,2025-05-01
+Dataverse Production ,12.481185286,Dataverse,production,jan_to_today,2025-05-01
+Dataverse Production ,12.4811956776,Dataverse,production,jan_to_today,2025-05-01
+Dataverse Production ,12.481181676,Dataverse,production,jan_to_today,2025-05-01
+Dataverse Production ,12.481174852,Dataverse,production,jan_to_today,2025-05-01
+Dataverse Production ,12.481192494,Dataverse,production,jan_to_today,2025-05-01
+Dataverse Production ,8.455020308,Dataverse,production,jan_to_today,2025-05-01
+Dataverse-Test-storage,3.0929e-05,Dataverse,storage,jan_to_today,2025-06-01
+Dataverse-Test-storage,3.0018303931,Dataverse,storage,jan_to_today,2025-06-01
+Dataverse-Test-storage,2.8737508708,Dataverse,storage,jan_to_today,2025-06-01
+Dataverse-Test-storage,2.8600866302,Dataverse,storage,jan_to_today,2025-06-01
+Dataverse-Test-storage,1.957103871,Dataverse,storage,jan_to_today,2025-06-01
+LARIAC,0.6603369719,Unknown,other,jan_to_today,2025-06-01
+LARIAC,0.5596445695,Unknown,other,jan_to_today,2025-06-01
+LARIAC,0.5481218607,Unknown,other,jan_to_today,2025-06-01
+LARIAC,0.5470620541,Unknown,other,jan_to_today,2025-06-01
+LARIAC,0.5488617908,Unknown,other,jan_to_today,2025-06-01
+LARIAC,0.564980695,Unknown,other,jan_to_today,2025-06-01
+LARIAC,0.5437625502,Unknown,other,jan_to_today,2025-06-01
+LARIAC,0.3696296457,Unknown,other,jan_to_today,2025-06-01
+LARIAC test,0.2136845168,Unknown,test,jan_to_today,2025-06-01
+LARIAC test,0.2134397715,Unknown,test,jan_to_today,2025-06-01
+LARIAC test,0.2137077928,Unknown,test,jan_to_today,2025-06-01
+LARIAC test,0.2137939907,Unknown,test,jan_to_today,2025-06-01
+LARIAC test,0.21242581,Unknown,test,jan_to_today,2025-06-01
+LARIAC test,0.2117758552,Unknown,test,jan_to_today,2025-06-01
+LARIAC test,0.2111870107,Unknown,test,jan_to_today,2025-07-01
+LARIAC test,0.1445398501,Unknown,test,jan_to_today,2025-07-01
+LARIAC backup,0.0742055414,Unknown,other,jan_to_today,2025-07-01
+LARIAC backup,0.0740959261,Unknown,other,jan_to_today,2025-07-01
+LARIAC backup,0.0741959189,Unknown,other,jan_to_today,2025-07-01
+LARIAC backup,0.0744262276,Unknown,other,jan_to_today,2025-07-01
+LARIAC backup,0.0737611462,Unknown,other,jan_to_today,2025-07-01
+LARIAC backup,0.0735281408,Unknown,other,jan_to_today,2025-07-01
+LARIAC backup,0.0733335899,Unknown,other,jan_to_today,2025-07-01
+LARIAC backup,0.0501976142,Unknown,other,jan_to_today,2025-07-01
+SSDA,0.0176026981,Unknown,other,jan_to_today,2025-07-01
+SSDA,0.0135030448,Unknown,other,jan_to_today,2025-07-01
+SSDA,0.0134828027,Unknown,other,jan_to_today,2025-07-01
+SSDA,0.0203440307,Unknown,other,jan_to_today,2025-07-01
+SSDA,0.0407577223,Unknown,other,jan_to_today,2025-07-01
+SSDA,0.0330483451,Unknown,other,jan_to_today,2025-07-01
+SSDA,0.0141735159,Unknown,other,jan_to_today,2025-07-01
+SSDA,0.0089314005,Unknown,other,jan_to_today,2025-07-01
+billing-info,0.015699281,Unknown,other,jan_to_today,2025-07-01
+billing-info,0.0161608909,Unknown,other,jan_to_today,2025-07-01
+billing-info,0.0170209442,Unknown,other,jan_to_today,2025-07-01
+billing-info,0.0291606825,Unknown,other,jan_to_today,2025-08-01
+billing-info,0.0184195264,Unknown,other,jan_to_today,2025-08-01
+billing-info,0.0191024367,Unknown,other,jan_to_today,2025-08-01
+billing-info,0.0198910921,Unknown,other,jan_to_today,2025-08-01
+billing-info,0.0140902451,Unknown,other,jan_to_today,2025-08-01
+test-3d,0.0003262027,Unknown,test,jan_to_today,2025-08-01
+test-3d,0.0002909005,Unknown,test,jan_to_today,2025-08-01
+test-3d,0.0003302848,Unknown,test,jan_to_today,2025-08-01
+test-3d,0.0003205311,Unknown,test,jan_to_today,2025-08-01
+test-3d,0.0003126005,Unknown,test,jan_to_today,2025-08-01
+test-3d,0.0003054085,Unknown,test,jan_to_today,2025-08-01
+test-3d,0.0003194584,Unknown,test,jan_to_today,2025-08-01
+test-3d,0.0002270401,Unknown,test,jan_to_today,2025-08-01
+Total costs,930.375598295,Unknown,total,jan_to_today,2025-08-01
+Total costs,912.6829489398,Unknown,total,jan_to_today,2025-08-01
+Total costs,936.7948061674,Unknown,total,jan_to_today,2025-08-01
+Total costs,924.5487496015,Unknown,total,jan_to_today,2025-08-01
+Total costs,949.9482678252,Unknown,total,jan_to_today,2025-08-01
+Total costs,925.4642022855,Unknown,total,jan_to_today,2025-08-01
+Total costs,937.8927628304,Unknown,total,jan_to_today,2025-08-01
+Total costs,663.0014500478,Unknown,total,jan_to_today,2025-08-01
+Production-Dataverse,0.2743933217,Dataverse,production,usage_breakdown,2025-02-01
+Production-Dataverse,345.8535554056,Dataverse,production,usage_breakdown,2025-02-01
+Production-Dataverse,267.8174130176,Dataverse,production,usage_breakdown,2025-02-01
+Production-Dataverse,292.2128353004,Dataverse,production,usage_breakdown,2025-02-01
+Potree,244.2583242616,Potree,total,usage_breakdown,2025-02-01
+Potree,245.0086704523,Potree,total,usage_breakdown,2025-02-01
+Potree,245.0671634242,Potree,total,usage_breakdown,2025-02-01
+Potree-storage,0.0010421855,Potree,storage,usage_breakdown,2025-02-01
+Potree-storage,243.2220861242,Potree,storage,usage_breakdown,2025-02-01
+Potree-storage,242.8263521398,Potree,storage,usage_breakdown,2025-02-01
+Potree-storage,241.9647776272,Potree,storage,usage_breakdown,2025-02-01
+Dataverse-Production,120.5406258792,Dataverse,production,usage_breakdown,2025-02-01
+Dataverse-Production,119.1389266303,Dataverse,production,usage_breakdown,2025-02-01
+Dataverse-Production,120.917125543,Dataverse,production,usage_breakdown,2025-02-01
+Dataverse-Production,121.2990923434,Dataverse,production,usage_breakdown,2025-03-01
+Dataverse-Production,118.1762002697,Dataverse,production,usage_breakdown,2025-03-01
+Dataverse-Production,123.9904150061,Dataverse,production,usage_breakdown,2025-03-01
+Dataverse-production,217.1991937494,Dataverse,production,usage_breakdown,2025-03-01
+Dataverse-production,234.9892665033,Dataverse,production,usage_breakdown,2025-03-01
+Dataverse-production,252.369514094,Dataverse,production,usage_breakdown,2025-03-01
+Test-Dataverse,0.0823110617,Dataverse,test,usage_breakdown,2025-03-01
+Test-Dataverse,90.5994540849,Dataverse,test,usage_breakdown,2025-03-01
+Test-Dataverse,87.6362313939,Dataverse,test,usage_breakdown,2025-03-01
+Test-Dataverse,90.5187175852,Dataverse,test,usage_breakdown,2025-03-01
+Potree-computing,0.5578066941,Potree,compute,usage_breakdown,2025-03-01
+Potree-computing,69.0072253276,Potree,compute,usage_breakdown,2025-03-01
+Potree-computing,66.8942730554,Potree,compute,usage_breakdown,2025-03-01
+Potree-computing,69.133068302,Potree,compute,usage_breakdown,2025-03-01
+Test-Dataverse-Rocky9,0.0929592497,Dataverse,test,usage_breakdown,2025-04-01
+Test-Dataverse-Rocky9,69.0907578414,Dataverse,test,usage_breakdown,2025-04-01
+Test-Dataverse-Rocky9,66.8483273961,Dataverse,test,usage_breakdown,2025-04-01
+Test-Dataverse-Rocky9,69.0730924589,Dataverse,test,usage_breakdown,2025-04-01
+Dataverse-Test,3.3195755007,Dataverse,test,usage_breakdown,2025-04-01
+Dataverse-Test,3.3325876119,Dataverse,test,usage_breakdown,2025-04-01
+Dataverse-Test,5.860229927,Dataverse,test,usage_breakdown,2025-04-01
+Dataverse-Test,12.9615383444,Dataverse,test,usage_breakdown,2025-04-01
+Dataverse-Test,87.9824057239,Dataverse,test,usage_breakdown,2025-04-01
+Dataverse-Test,90.9011431518,Dataverse,test,usage_breakdown,2025-04-01
+potree,62.4370514848,Potree,total,usage_breakdown,2025-04-01
+potree,69.119743603,Potree,total,usage_breakdown,2025-04-01
+potree,66.3314524281,Potree,total,usage_breakdown,2025-04-01
+Production-Processing,0.0464006574,Unknown,production,usage_breakdown,2025-04-01
+Production-Processing,34.5239178027,Unknown,production,usage_breakdown,2025-05-01
+Production-Processing,33.410141168,Unknown,production,usage_breakdown,2025-05-01
+Production-Processing,34.5241985461,Unknown,production,usage_breakdown,2025-05-01
+Dataverse Production ,12.1711008636,Dataverse,production,usage_breakdown,2025-05-01
+Dataverse Production ,12.481185286,Dataverse,production,usage_breakdown,2025-05-01
+Dataverse Production ,12.4811956776,Dataverse,production,usage_breakdown,2025-05-01
+Dataverse Production ,12.481181676,Dataverse,production,usage_breakdown,2025-05-01
+Dataverse Production ,12.481174852,Dataverse,production,usage_breakdown,2025-05-01
+Dataverse Production ,12.481192494,Dataverse,production,usage_breakdown,2025-05-01
+Dataverse-Test-storage,3.0929e-05,Dataverse,storage,usage_breakdown,2025-05-01
+Dataverse-Test-storage,3.0018303931,Dataverse,storage,usage_breakdown,2025-05-01
+Dataverse-Test-storage,2.8737508708,Dataverse,storage,usage_breakdown,2025-05-01
+Dataverse-Test-storage,2.8600866302,Dataverse,storage,usage_breakdown,2025-05-01
+LARIAC,0.5596445695,Unknown,other,usage_breakdown,2025-05-01
+LARIAC,0.5481218607,Unknown,other,usage_breakdown,2025-05-01
+LARIAC,0.5470620541,Unknown,other,usage_breakdown,2025-05-01
+LARIAC,0.5488617908,Unknown,other,usage_breakdown,2025-05-01
+LARIAC,0.564980695,Unknown,other,usage_breakdown,2025-05-01
+LARIAC,0.5437625502,Unknown,other,usage_breakdown,2025-05-01
+LARIAC test,0.2134397715,Unknown,test,usage_breakdown,2025-06-01
+LARIAC test,0.2137077928,Unknown,test,usage_breakdown,2025-06-01
+LARIAC test,0.2137939907,Unknown,test,usage_breakdown,2025-06-01
+LARIAC test,0.21242581,Unknown,test,usage_breakdown,2025-06-01
+LARIAC test,0.2117758552,Unknown,test,usage_breakdown,2025-06-01
+LARIAC test,0.2111870107,Unknown,test,usage_breakdown,2025-06-01
+LARIAC backup,0.0740959261,Unknown,other,usage_breakdown,2025-06-01
+LARIAC backup,0.0741959189,Unknown,other,usage_breakdown,2025-06-01
+LARIAC backup,0.0744262276,Unknown,other,usage_breakdown,2025-06-01
+LARIAC backup,0.0737611462,Unknown,other,usage_breakdown,2025-06-01
+LARIAC backup,0.0735281408,Unknown,other,usage_breakdown,2025-06-01
+LARIAC backup,0.0733335899,Unknown,other,usage_breakdown,2025-06-01
+SSDA,0.0135030448,Unknown,other,usage_breakdown,2025-06-01
+SSDA,0.0134828027,Unknown,other,usage_breakdown,2025-06-01
+SSDA,0.0203440307,Unknown,other,usage_breakdown,2025-06-01
+SSDA,0.0407577223,Unknown,other,usage_breakdown,2025-06-01
+SSDA,0.0330483451,Unknown,other,usage_breakdown,2025-06-01
+SSDA,0.0141735159,Unknown,other,usage_breakdown,2025-06-01
+billing-info,0.0161608909,Unknown,other,usage_breakdown,2025-06-01
+billing-info,0.0170209442,Unknown,other,usage_breakdown,2025-06-01
+billing-info,0.0291606825,Unknown,other,usage_breakdown,2025-06-01
+billing-info,0.0184195264,Unknown,other,usage_breakdown,2025-07-01
+billing-info,0.0191024367,Unknown,other,usage_breakdown,2025-07-01
+billing-info,0.0198910921,Unknown,other,usage_breakdown,2025-07-01
+test-3d,0.0002909005,Unknown,test,usage_breakdown,2025-07-01
+test-3d,0.0003302848,Unknown,test,usage_breakdown,2025-07-01
+test-3d,0.0003205311,Unknown,test,usage_breakdown,2025-07-01
+test-3d,0.0003126005,Unknown,test,usage_breakdown,2025-07-01
+test-3d,0.0003054085,Unknown,test,usage_breakdown,2025-07-01
+test-3d,0.0003194584,Unknown,test,usage_breakdown,2025-07-01
+No tag key: application,-70.3882359316,Unknown,other,usage_breakdown,2025-07-01
+No tag key: application,-59.794638898,Unknown,other,usage_breakdown,2025-07-01
+No tag key: application,-69.4910852609,Unknown,other,usage_breakdown,2025-07-01
+No tag key: application,-285.7758291327,Unknown,other,usage_breakdown,2025-07-01
+No tag key: application,-343.4607929639,Unknown,other,usage_breakdown,2025-07-01
+No tag key: application,-353.33498429,Unknown,other,usage_breakdown,2025-07-01
+Total costs,590.414770911,Unknown,total,usage_breakdown,2025-07-01
+Total costs,625.1426007929,Unknown,total,usage_breakdown,2025-07-01
+Total costs,635.4756474488,Unknown,total,usage_breakdown,2025-07-01
+Total costs,717.1593488068,Unknown,total,usage_breakdown,2025-07-01
+Total costs,644.3882178046,Unknown,total,usage_breakdown,2025-07-01
+Total costs,675.1872100291,Unknown,total,usage_breakdown,2025-07-01
+Potree,244.2583242616,Potree,total,potree_aug21,2025-02-01
+Potree,245.0086704523,Potree,total,potree_aug21,2025-02-01
+Potree,245.0671634242,Potree,total,potree_aug21,2025-02-01
+Potree-storage,0.0010421855,Potree,storage,potree_aug21,2025-03-01
+Potree-storage,243.2220861242,Potree,storage,potree_aug21,2025-03-01
+Potree-storage,242.8263521398,Potree,storage,potree_aug21,2025-03-01
+Potree-storage,241.9647776272,Potree,storage,potree_aug21,2025-03-01
+Potree-computing,0.5578066941,Potree,compute,potree_aug21,2025-04-01
+Potree-computing,69.0072253276,Potree,compute,potree_aug21,2025-04-01
+Potree-computing,66.8942730554,Potree,compute,potree_aug21,2025-04-01
+Potree-computing,69.133068302,Potree,compute,potree_aug21,2025-04-01
+potree,62.4370514848,Potree,total,potree_aug21,2025-05-01
+potree,69.119743603,Potree,total,potree_aug21,2025-05-01
+potree,66.3314524281,Potree,total,potree_aug21,2025-05-01
+test-3d,0.0002909005,Unknown,test,potree_aug21,2025-06-01
+test-3d,0.0003302848,Unknown,test,potree_aug21,2025-06-01
+test-3d,0.0003205311,Unknown,test,potree_aug21,2025-06-01
+test-3d,0.0003126005,Unknown,test,potree_aug21,2025-06-01
+test-3d,0.0003054085,Unknown,test,potree_aug21,2025-06-01
+test-3d,0.0003194584,Unknown,test,potree_aug21,2025-06-01
+Total costs,306.6956666469,Unknown,total,potree_aug21,2025-07-01
+Total costs,314.1287443401,Unknown,total,potree_aug21,2025-07-01
+Total costs,311.957785263,Unknown,total,potree_aug21,2025-07-01
+Total costs,312.2296240523,Unknown,total,potree_aug21,2025-07-01
+Total costs,309.7209306037,Unknown,total,potree_aug21,2025-07-01
+Total costs,311.0981653876,Unknown,total,potree_aug21,2025-07-01
+Potree,244.8676588746,Potree,total,jan_thru_june,2025-01-01
+Potree,244.2583242616,Potree,total,jan_thru_june,2025-01-01
+Potree,245.0086704523,Potree,total,jan_thru_june,2025-01-01
+Potree,245.0671634242,Potree,total,jan_thru_june,2025-01-01
+Dataverse-production,221.7205350465,Dataverse,production,jan_thru_june,2025-01-01
+Dataverse-production,217.2935800863,Dataverse,production,jan_thru_june,2025-01-01
+Dataverse-production,235.0993413082,Dataverse,production,jan_thru_june,2025-01-01
+Dataverse-production,252.7489113012,Dataverse,production,jan_thru_june,2025-01-01
+No tag key: application,261.016563417,Unknown,other,jan_thru_june,2025-01-01
+No tag key: application,251.7848504971,Unknown,other,jan_thru_june,2025-01-01
+No tag key: application,251.7448850566,Unknown,other,jan_thru_june,2025-01-01
+No tag key: application,219.1995185009,Unknown,other,jan_thru_june,2025-01-01
+No tag key: application,-55.0181971295,Unknown,other,jan_thru_june,2025-01-01
+No tag key: application,-62.6414417957,Unknown,other,jan_thru_june,2025-01-01
+Dataverse-Production,116.8736885511,Dataverse,production,jan_thru_june,2025-01-01
+Dataverse-Production,120.5406258792,Dataverse,production,jan_thru_june,2025-01-01
+Dataverse-Production,119.1389266303,Dataverse,production,jan_thru_june,2025-01-01
+Dataverse-Production,120.9174662494,Dataverse,production,jan_thru_june,2025-02-01
+Dataverse-Production,121.2990923434,Dataverse,production,jan_thru_june,2025-02-01
+Dataverse-Production,118.1762002697,Dataverse,production,jan_thru_june,2025-02-01
+Production-Dataverse,0.2744316273,Dataverse,production,jan_thru_june,2025-02-01
+Production-Dataverse,347.3299797901,Dataverse,production,jan_thru_june,2025-02-01
+Production-Dataverse,268.0647862219,Dataverse,production,jan_thru_june,2025-02-01
+Potree-storage,0.0010421855,Potree,storage,jan_thru_june,2025-02-01
+Potree-storage,243.2220861242,Potree,storage,jan_thru_june,2025-02-01
+Potree-storage,242.8263521398,Potree,storage,jan_thru_june,2025-02-01
+potree,69.1054959363,Potree,total,jan_thru_june,2025-02-01
+potree,62.437756748,Potree,total,jan_thru_june,2025-02-01
+potree,69.122350218,Potree,total,jan_thru_june,2025-02-01
+potree,66.33416946,Potree,total,jan_thru_june,2025-02-01
+Test-Dataverse,0.0823111396,Dataverse,test,jan_thru_june,2025-03-01
+Test-Dataverse,90.7130400145,Dataverse,test,jan_thru_june,2025-03-01
+Test-Dataverse,87.6390879406,Dataverse,test,jan_thru_june,2025-03-01
+Potree-computing,0.5578113853,Potree,compute,jan_thru_june,2025-03-01
+Potree-computing,69.0117762675,Potree,compute,jan_thru_june,2025-03-01
+Potree-computing,66.8982884375,Potree,compute,jan_thru_june,2025-03-01
+Test-Dataverse-Rocky9,0.0929592613,Dataverse,test,jan_thru_june,2025-03-01
+Test-Dataverse-Rocky9,69.5246483761,Dataverse,test,jan_thru_june,2025-03-01
+Test-Dataverse-Rocky9,66.8484520765,Dataverse,test,jan_thru_june,2025-03-01
+Dataverse-Test,3.3285856558,Dataverse,test,jan_thru_june,2025-03-01
+Dataverse-Test,3.3195755007,Dataverse,test,jan_thru_june,2025-03-01
+Dataverse-Test,3.3325876119,Dataverse,test,jan_thru_june,2025-03-01
+Dataverse-Test,5.8602302853,Dataverse,test,jan_thru_june,2025-04-01
+Dataverse-Test,12.9615426683,Dataverse,test,jan_thru_june,2025-04-01
+Dataverse-Test,87.9824499546,Dataverse,test,jan_thru_june,2025-04-01
+Dataverse Production ,12.4812156018,Dataverse,production,jan_thru_june,2025-04-01
+Dataverse Production ,12.1711008636,Dataverse,production,jan_thru_june,2025-04-01
+Dataverse Production ,12.481185286,Dataverse,production,jan_thru_june,2025-04-01
+Dataverse Production ,12.4811956776,Dataverse,production,jan_thru_june,2025-04-01
+Dataverse Production ,12.481181676,Dataverse,production,jan_thru_june,2025-04-01
+Dataverse Production ,12.481174852,Dataverse,production,jan_thru_june,2025-04-01
+Production-Processing,0.0464006582,Unknown,production,jan_thru_june,2025-04-01
+Production-Processing,34.5267487053,Unknown,production,jan_thru_june,2025-04-01
+Production-Processing,33.4123604365,Unknown,production,jan_thru_june,2025-04-01
+Dataverse-Test-storage,3.0929e-05,Dataverse,storage,jan_thru_june,2025-04-01
+Dataverse-Test-storage,3.0018303931,Dataverse,storage,jan_thru_june,2025-04-01
+Dataverse-Test-storage,2.8737508708,Dataverse,storage,jan_thru_june,2025-04-01
+LARIAC,0.6603369719,Unknown,other,jan_thru_june,2025-05-01
+LARIAC,0.5596445695,Unknown,other,jan_thru_june,2025-05-01
+LARIAC,0.5481218607,Unknown,other,jan_thru_june,2025-05-01
+LARIAC,0.5470620541,Unknown,other,jan_thru_june,2025-05-01
+LARIAC,0.5488617908,Unknown,other,jan_thru_june,2025-05-01
+LARIAC,0.564980695,Unknown,other,jan_thru_june,2025-05-01
+LARIAC test,0.2136845168,Unknown,test,jan_thru_june,2025-05-01
+LARIAC test,0.2134397715,Unknown,test,jan_thru_june,2025-05-01
+LARIAC test,0.2137077928,Unknown,test,jan_thru_june,2025-05-01
+LARIAC test,0.2137939907,Unknown,test,jan_thru_june,2025-05-01
+LARIAC test,0.21242581,Unknown,test,jan_thru_june,2025-05-01
+LARIAC test,0.2117758552,Unknown,test,jan_thru_june,2025-05-01
+LARIAC backup,0.0742055414,Unknown,other,jan_thru_june,2025-05-01
+LARIAC backup,0.0740959261,Unknown,other,jan_thru_june,2025-05-01
+LARIAC backup,0.0741959189,Unknown,other,jan_thru_june,2025-05-01
+LARIAC backup,0.0744262276,Unknown,other,jan_thru_june,2025-05-01
+LARIAC backup,0.0737611462,Unknown,other,jan_thru_june,2025-05-01
+LARIAC backup,0.0735281408,Unknown,other,jan_thru_june,2025-05-01
+SSDA,0.0176026981,Unknown,other,jan_thru_june,2025-05-01
+SSDA,0.0135030448,Unknown,other,jan_thru_june,2025-05-01
+SSDA,0.0134828027,Unknown,other,jan_thru_june,2025-05-01
+SSDA,0.0203440307,Unknown,other,jan_thru_june,2025-06-01
+SSDA,0.0407577223,Unknown,other,jan_thru_june,2025-06-01
+SSDA,0.0330483451,Unknown,other,jan_thru_june,2025-06-01
+billing-info,0.015699281,Unknown,other,jan_thru_june,2025-06-01
+billing-info,0.0161608909,Unknown,other,jan_thru_june,2025-06-01
+billing-info,0.0170209442,Unknown,other,jan_thru_june,2025-06-01
+billing-info,0.0291606825,Unknown,other,jan_thru_june,2025-06-01
+billing-info,0.0184195264,Unknown,other,jan_thru_june,2025-06-01
+billing-info,0.0191024367,Unknown,other,jan_thru_june,2025-06-01
+test-3d,0.0003262027,Unknown,test,jan_thru_june,2025-06-01
+test-3d,0.0002909005,Unknown,test,jan_thru_june,2025-06-01
+test-3d,0.0003302848,Unknown,test,jan_thru_june,2025-06-01
+test-3d,0.0003205311,Unknown,test,jan_thru_june,2025-06-01
+test-3d,0.0003126005,Unknown,test,jan_thru_june,2025-06-01
+test-3d,0.0003054085,Unknown,test,jan_thru_june,2025-06-01
+Total costs,930.375598295,Unknown,total,jan_thru_june,2025-06-01
+Total costs,912.6829489398,Unknown,total,jan_thru_june,2025-06-01
+Total costs,936.7948061674,Unknown,total,jan_thru_june,2025-06-01
+Total costs,924.5487496015,Unknown,total,jan_thru_june,2025-06-01
+Total costs,949.9482678252,Unknown,total,jan_thru_june,2025-06-01
+Total costs,925.4642022855,Unknown,total,jan_thru_june,2025-06-01

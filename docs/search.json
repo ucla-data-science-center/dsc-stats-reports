@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "dsc_report2024.html",
+    "href": "dsc_report2024.html",
+    "title": "DSC Report: 2024",
+    "section": "",
+    "text": "The DSC puts on events for the UCLA community and for the larger UC system in collaboration with other campuses. We manage the UCLA Carpentries program and provide a community for over 15 instructors on campus. We have also catalyzed a UC-wide Carpentries community and, over the pandemic, developed collaborative programming and workshop events. The success of this model has led to collaborative work in the development of UC Love Data Week in 2021 and subsequent years. In a similar vein, UC GIS Week was started in 2020 by GIS professionals in the UC system. We think these UC collaborative educational events will be a permanent fixture even as we offer more traditional local instruction.\nOur workshops typically address skills gaps in data science and foundational coding for researchers, staff, and librarians. We also contribute to curricula and train-the-trainer best practices through a global network.\nTo get a sense of the growth of events organized, taught & designed by DSC instructors, let us look at attendance over time:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSince 2017, our workshops have been attended by 148 different departments, schools, centers or units from UCLA.\nWe can look at the top departments who attend our workshops:\n\n\n\n\n\n\n\n\n\n\n\n\nA look at the affiliation of learners who come to our workshops."
+  },
+  {
+    "objectID": "dsc_report2024.html#events-workshops",
+    "href": "dsc_report2024.html#events-workshops",
+    "title": "DSC Report: 2024",
+    "section": "",
+    "text": "The DSC puts on events for the UCLA community and for the larger UC system in collaboration with other campuses. We manage the UCLA Carpentries program and provide a community for over 15 instructors on campus. We have also catalyzed a UC-wide Carpentries community and, over the pandemic, developed collaborative programming and workshop events. The success of this model has led to collaborative work in the development of UC Love Data Week in 2021 and subsequent years. In a similar vein, UC GIS Week was started in 2020 by GIS professionals in the UC system. We think these UC collaborative educational events will be a permanent fixture even as we offer more traditional local instruction.\nOur workshops typically address skills gaps in data science and foundational coding for researchers, staff, and librarians. We also contribute to curricula and train-the-trainer best practices through a global network.\nTo get a sense of the growth of events organized, taught & designed by DSC instructors, let us look at attendance over time:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSince 2017, our workshops have been attended by 148 different departments, schools, centers or units from UCLA.\nWe can look at the top departments who attend our workshops:\n\n\n\n\n\n\n\n\n\n\n\n\nA look at the affiliation of learners who come to our workshops."
+  },
+  {
+    "objectID": "dsc_report2024.html#consultations",
+    "href": "dsc_report2024.html#consultations",
+    "title": "DSC Report: 2024",
+    "section": "Consultations",
+    "text": "Consultations\nWe work with researchers one-on-one to help them accomplish their research goals. Prior to the pandemic, we provided consultations both online and in-person, depending on the researchers’ preferences. We estimate that prior to March 2020, we provided consultations online approximately 10-15% of the time. During the pandemic, we moved our service to online only and restarted in-person consulting in 2023 on a smaller scale as a pilot. Regardless of how users access our service, it has shown growth over time. With the move to the first floor of YRL in 2024, we anticipate more business due to the improved visibility of our location and the addition of more walk-in hours.\n\n\n\n\n\n\n\n\n\n\nConsulting by Department\nSince 2019, when we started capturing more user information, our consultations have come from 115 different departments, schools, or centers. We include The Library in this number because, as a secondary and sometimes tertiary referral point, we often work with liaising librarians and internal units needing data support. For 2023, we provided data services to 51 campus departments.\nHistorically, we didn’t require patrons to provide departmental information in our appointment scheduler, so the data may be incomplete. While we’ve normalized departments, schools, and centers as much as possible, some variability remains. Despite this, the data shows that DSC services are interdisciplinary, aligning with our vision to broaden the library’s data services.\n\n\n\n\n\n\n\n\n\n\n\nResearcher Status\nWhen provided, we also collect information on our users’ status."
+  },
+  {
+    "objectID": "dsc_report2024.html#datasquad-work-overview",
+    "href": "dsc_report2024.html#datasquad-work-overview",
+    "title": "DSC Report: 2024",
+    "section": "DataSquad Work Overview",
+    "text": "DataSquad Work Overview\nThe DataSquad team engages in various activities, supporting data services at UCLA. Their work can be categorized into direct interactions with patrons and assigned tasks from DSC staff consultants, often managed through Trello boards.\n\nDirect Consults with Researchers\nDataSquad members frequently interact with faculty, staff, and students to provide consultations and support. The total number of consults provided by DataSquad is 187.\n\n\n\n\n\n\n\n\n\nThe following chart summarizes the number of consults by patron type for the top 4 categories:\n\n\n\n\n\n\n\n\n\n\n\nDataSquad Assigned Work via Trello\nIn addition to direct consultations with researchers, DataSquad handles a significant number of project tasks assigned by the DSC team via our Trello board. These tasks include various research support activities, managed and tracked by DSC staff who act as mentors. The following chart provides an overview of the tasks handled by DataSquad over the past year:\n\n# Plot for Monthly Tasks\nggplot(monthly_tasks, aes(x = month, y = total_tasks)) +\n  geom_bar(stat = \"identity\", fill = \"steelblue\") +\n  labs(title = \"Tasks Handled by DataSquad Over the Past Year\",\n       x = \"Month\",\n       y = \"Number of Tasks\") +\n  theme_minimal() +\n  scale_x_date(date_labels = \"%b %Y\", date_breaks = \"1 month\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +\n  coord_flip()"
+  },
+  {
+    "objectID": "dsc_report2024.html#data-repositories-infrastructure",
+    "href": "dsc_report2024.html#data-repositories-infrastructure",
+    "title": "DSC Report: 2024",
+    "section": "Data Repositories & Infrastructure",
+    "text": "Data Repositories & Infrastructure\n\nUCLA Dataverse\nDatasets in UCLA Dataverse are collections of files and this is a view of the growth of those collections since we started Dataverse in 2019. The big jump in 2020 is the addition of metadata from the existing Social Science Data Archive collection we had already curated previously in Dataverse.\n\n\n\n\n\n\n\n\n\nFile growth in Dataverse is another metric to consider when assessing the usage of UCLA Dataverse as a resource on campus. Each file in Dataverse is addressable by a unique DOI.\n\n\n\n\n\n\n\n\n\n\n\nGeospatial Services"
+  },
+  {
+    "objectID": "instruction.html",
+    "href": "instruction.html",
+    "title": "Instruction Statistics",
+    "section": "",
+    "text": "The Data Science Center offers workshops on foundational coding and data science skills, including the UCLA Carpentries program."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DSC Statistics Dashboard",
+    "section": "",
+    "text": "Welcome to the unified statistics dashboard for the UCLA Library Data Science Center. This dashboard consolidates data from consultations, instructional workshops, and repository infrastructure into a single, reproducible platform."
+  },
+  {
+    "objectID": "index.html#dashboard-sections",
+    "href": "index.html#dashboard-sections",
+    "title": "DSC Statistics Dashboard",
+    "section": "Dashboard Sections",
+    "text": "Dashboard Sections\n\n\nConsulting\nOne-on-one research support provided by DSC staff and the DataSquad.\n\n\nInstruction\nWorkshops, events, and community-led training like The Carpentries.\n\n\nInfrastructure\nAWS cloud costs and UCLA Dataverse repository metrics."
+  },
+  {
+    "objectID": "index.html#recent-trends",
+    "href": "index.html#recent-trends",
+    "title": "DSC Statistics Dashboard",
+    "section": "Recent Trends",
+    "text": "Recent Trends\nThis section can be expanded to include high-level summary cards or a “Year in Review” infographic style summary.\n\nLast Updated: r Sys.Date()"
+  },
+  {
+    "objectID": "consulting.html",
+    "href": "consulting.html",
+    "title": "Consulting Statistics",
+    "section": "",
+    "text": "The Data Science Center provides one-on-one consultations to help researchers with data-intensive projects. This service has grown significantly since its inception."
+  },
+  {
+    "objectID": "infrastructure.html",
+    "href": "infrastructure.html",
+    "title": "Infrastructure Statistics",
+    "section": "",
+    "text": "Month\nActual Cost Charged\n\n\n\n\n2025-09\n$1,000.58\n\n\n2025-08\n$937.90\n\n\n2025-07\n$1,001.50\n\n\n2025-06\n$1,019.57\n\n\n2025-04\n$990.96"
+  },
+  {
+    "objectID": "infrastructure.html#monthly-departmental-charges-ledger",
+    "href": "infrastructure.html#monthly-departmental-charges-ledger",
+    "title": "Infrastructure Statistics",
+    "section": "",
+    "text": "Month\nActual Cost Charged\n\n\n\n\n2025-09\n$1,000.58\n\n\n2025-08\n$937.90\n\n\n2025-07\n$1,001.50\n\n\n2025-06\n$1,019.57\n\n\n2025-04\n$990.96"
+  },
+  {
+    "objectID": "infrastructure.html#repository-growth",
+    "href": "infrastructure.html#repository-growth",
+    "title": "Infrastructure Statistics",
+    "section": "Repository Growth",
+    "text": "Repository Growth"
+  }
+]

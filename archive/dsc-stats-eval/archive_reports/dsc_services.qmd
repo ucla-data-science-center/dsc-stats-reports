@@ -1,0 +1,69 @@
+---
+title: "DSC Report: 2024"
+author: "Tim Dennis"
+date: "`r Sys.Date()`"
+format:
+  pdf:
+    toc: true
+    toc-depth: 2
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+```{r setup, include=FALSE}
+# Load necessary libraries
+library(dplyr)
+library(lubridate)
+library(sparkline)
+library(tidyr)
+```
+
+```{r read-data, include=FALSE, message=FALSE}
+# Source the R script
+source("data_cleaning.R")
+
+# Load the cleaned and merged data
+dsc_consult <- readRDS("data/dsc_consult_merged.rds")
+# Load the standardized data
+load("data/standardized_data.rda")
+load("data/ucla_workshops.rda")
+```
+
+## Email Draft
+
+Dear Todd,
+
+Thank you for your and Athena’s response and for considering our budget request. Thanks for the opportunity to provide more detailed information about the Data Science Center (DSC).
+
+The Data Science Center (DSC) supports the UCLA research community by offering a range of computational and data scholarship services and infrastructure, including:
+
+### Service Provision
+
+**Consultations**: We offer one-on-one and group consultations on the full data/research lifecycle: acquisition, preparation, analysis, statistical modeling, data visualization, management, sharing, and archiving. These sessions are usually short-term problem-solving assistance for specific phases in larger research projects. Our goal is to help improve research practices, advocate for emerging standards like Open Science, and teach researchers how to do something rather than just doing it for them.
+
+**Instruction**: We regularly offer Carpentries workshops on data science topics, including Python, R, Jupyter, Git, machine learning, and data cleaning. Additionally, we lead and program UC Carpentries instruction, UC GIS Week, and UC Love Data Week. We also provide traditional class-based instruction as requested. Lead the UCLA Carpentries program and provide curricular development as part of the Carpentries community as lesson authors or maintainers.
+
+### Infrastructure Services
+
+Administration and provision of essential data science infrastructure, such as:
+
+- **UCLA Dataverse**: A data repository for storing and sharing research data.
+- **Redivis**: A data platform for large datasets that also might need extra security protocols (HIPPA, etc.).
+- **PointClouds via Potree**: A platform for visualizing and interacting with large point cloud (3D) datasets.
+- **ESRI/ArcGIS Online**: A suite of tools for creating, sharing, and analyzing geographic information. The Spatial Data Science Librarian has led recent improvements in access and licensing and works across the UC system to improve access to GIS tools.
+- **Deep Learning Machine**: High-performance computing resources for deep learning and other advanced data science applications. This is a mid-tier computing service for researchers who first need more computing than a laptop can perform but are not ready to jump to HPC.
+
+### Roles and Responsibilities
+
+- **Leigh Phan, Data Scientist**: Provides consulting on computation and data projects, leads ML/AI support for the DSC, administers and mediates research access to the Deep Learning Machine, Carpentries instructor, and leads programming for UC Love Data Week.
+- **Jamie Jamison, Data Collections Manager**: Manages and administers UCLA Dataverse and Redivis, provides data consultations with focus on data management, sharing, and curation, serves as the point of contact with the Dataverse consortia, and is a Carpentries instructor.
+- **Dr. Zhiyuan Yao, Spatial Data Science Librarian**: Leads GIS services, provides spatial analysis/GIS consulting, is a Carpentries instructor and local coordinator, serves as the campus ESRI/ArcGIS Online representative and provisioner, and is the point person for UC GIS Week and related activities.
+- **Doug Daniels, Emerging Technologies Librarian**: Provides consulting and lifecycle support for 3D data, manages LuxLab operations (3D printing, scanning, etc.), identifies new emerging technologies and services, and is a Carpentries instructor and teacher of emerging tech tools and practices, administers Potree server for 3D in-browser visualization.
+- **UCLA DataSquad**: Provides data support to UCLA researchers on a range of topics, including data cleaning, management, analysis, visualization, and coding. Squad team members also help with computational and operational aspects of the LuxLab. Squad teammates work closely with DSC staff, who provide feedback and mentorship on projects and professionalization.
+
+I hope this provides a clearer picture of our service portfolio and what we are engaged in.
+
+Thanks,
+
+Tim

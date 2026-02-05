@@ -1,0 +1,172 @@
+dimension,value,type
+Social Sciences,40,subject
+Arts and Humanities,29,subject
+"Medicine, Health and Life Sciences",15,subject
+Earth and Environmental Sciences,14,subject
+Other,11,subject
+Physics,7,subject
+Computer and Information Science,6,subject
+Agricultural Sciences,5,subject
+Law,5,subject
+Astronomy and Astrophysics,4,subject
+Engineering,3,subject
+Business and Management,1,subject
+Research Project,41,category
+Research Group,13,category
+Researcher,8,category
+Organization or Institution,7,category
+Journal,6,category
+Department,5,category
+Laboratory,4,category
+application/dbf,1,filetype
+application/dwg,23,filetype
+application/fits,1787,filetype
+application/geo+json,4,filetype
+application/gzip,55,filetype
+application/javascript,12,filetype
+application/json,26,filetype
+application/matlab-mat,1948,filetype
+application/msword,181,filetype
+application/octet-stream,1166,filetype
+application/pdf,3864,filetype
+application/postscript,3,filetype
+application/prj,1,filetype
+application/rtf,9,filetype
+application/shp,10,filetype
+application/shx,1,filetype
+application/vnd.ms-excel,59,filetype
+application/vnd.ms-pki.stl,13,filetype
+application/vnd.ms-word,1,filetype
+application/vnd.oasis.opendocument.text,2,filetype
+application/vnd.openxmlformats-officedocument.presentationml.presentation,4,filetype
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,23,filetype
+application/vnd.openxmlformats-officedocument.wordprocessingml.document,90,filetype
+application/x-7z-compressed,9,filetype
+application/x-apple-diskimage,1,filetype
+application/x-gzip,52,filetype
+application/x-hdf5,26,filetype
+application/x-ipynb+json,8,filetype
+application/x-msdownload,58,filetype
+application/x-netcdf,3287,filetype
+application/x-research-info-systems,1,filetype
+application/x-Research-Info-Systems,1,filetype
+application/x-rlang-transport,1,filetype
+application/x-sas,2,filetype
+application/x-sas-syntax,2,filetype
+application/x-sas-system,51,filetype
+application/x-spss-por,336,filetype
+application/x-spss-sav,77,filetype
+application/x-spss-sps,6,filetype
+application/x-spss-syntax,43,filetype
+application/x-stata,460,filetype
+application/x-stata-syntax,4,filetype
+application/x-tar,190,filetype
+application/x-xfig,154,filetype
+application/zip,94,filetype
+application/zipped-shapefile,23,filetype
+audio/mpeg,8,filetype
+audio/wav,39,filetype
+image/fits,115,filetype
+image/gif,1,filetype
+image/jp2,20,filetype
+image/jpeg,4292,filetype
+image/png,1237,filetype
+image/RAW,2,filetype
+image/svg+xml,12,filetype
+image/tiff,2374,filetype
+image/vnd.adobe.photoshop,18,filetype
+model/obj,14,filetype
+text/css,12,filetype
+text/csv,52,filetype
+text/html,35,filetype
+text/markdown,4,filetype
+text/plain,2079,filetype
+text/plain; charset=US-ASCII,2184,filetype
+text/plain; charset=UTF-8,32,filetype
+text/rtf,5,filetype
+text/tab-separated-values,817,filetype
+text/x-fixed-field,41,filetype
+text/x-matlab,39,filetype
+text/xml,44,filetype
+text/x-objcsrc,11,filetype
+text/x-python,1,filetype
+text/x-r-notebook,1,filetype
+text/x-sas-syntax; charset=US-ASCII,47,filetype
+text/x-spss-syntax,1,filetype
+text/x-spss-syntax; charset=US-ASCII,444,filetype
+text/x-spss-syntax; charset=UTF-8,6,filetype
+text/x-stata-syntax; charset=US-ASCII,35,filetype
+type/x-r-syntax,17,filetype
+video/mp4,29,filetype
+2019-08,15,files_monthly
+2019-09,44,files_monthly
+2019-10,48,files_monthly
+2019-11,51,files_monthly
+2019-12,51,files_monthly
+2020-01,56,files_monthly
+2020-02,56,files_monthly
+2020-03,57,files_monthly
+2020-04,94,files_monthly
+2020-05,115,files_monthly
+2020-06,122,files_monthly
+2020-07,126,files_monthly
+2020-08,132,files_monthly
+2020-09,144,files_monthly
+2020-10,144,files_monthly
+2020-11,270,files_monthly
+2020-12,307,files_monthly
+2021-01,307,files_monthly
+2021-02,655,files_monthly
+2021-03,757,files_monthly
+2021-04,869,files_monthly
+2021-05,1303,files_monthly
+2021-06,1305,files_monthly
+2021-07,1417,files_monthly
+2021-08,1462,files_monthly
+2021-09,1709,files_monthly
+2021-10,4684,files_monthly
+2021-11,5305,files_monthly
+2021-12,5391,files_monthly
+2022-01,5481,files_monthly
+2022-02,5508,files_monthly
+2022-03,5518,files_monthly
+2022-04,5527,files_monthly
+2022-05,6105,files_monthly
+2022-06,12624,files_monthly
+2022-07,12661,files_monthly
+2022-08,12695,files_monthly
+2022-09,12729,files_monthly
+2022-10,21463,files_monthly
+2022-11,21489,files_monthly
+2022-12,22296,files_monthly
+2023-01,22337,files_monthly
+2023-02,31356,files_monthly
+2023-03,31523,files_monthly
+2023-04,34335,files_monthly
+2023-05,34370,files_monthly
+2023-06,34545,files_monthly
+2023-07,35616,files_monthly
+2023-08,35622,files_monthly
+2023-09,35622,files_monthly
+2023-10,35623,files_monthly
+2023-11,35623,files_monthly
+2023-12,35646,files_monthly
+2024-01,35669,files_monthly
+2024-02,35722,files_monthly
+2024-03,35754,files_monthly
+2024-04,35795,files_monthly
+2024-05,35877,files_monthly
+2024-06,35895,files_monthly
+2024-07,37476,files_monthly
+2024-08,38311,files_monthly
+2024-09,38488,files_monthly
+2024-10,39239,files_monthly
+2024-11,41610,files_monthly
+2024-12,43106,files_monthly
+2025-01,43996,files_monthly
+2025-02,45356,files_monthly
+2025-03,45433,files_monthly
+2025-04,45593,files_monthly
+2025-05,45593,files_monthly
+2025-06,45593,files_monthly
+2025-07,45595,files_monthly

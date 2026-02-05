@@ -1,0 +1,28 @@
+original_tag,mapped_tag
+Production-Dataverse,Dataverse
+Dataverse-Production,Dataverse
+Dataverse Production,Dataverse
+Dataverse-production,Dataverse
+Dataverse-Production-storage,Dataverse
+Dataverse-Test,Dataverse
+Dataverse (Prod),Dataverse
+Dataverse (Test),Dataverse
+Test-Dataverse,Dataverse
+Test-Dataverse-Rocky9,Dataverse
+Dataverse-Test-storage,Dataverse
+Dataverse-Test-storage-upgrade,Dataverse
+Potree,Potree
+potree,Potree
+Potree-storage,Potree
+Potree-computing,Potree
+LARIAC,LARIAC
+LARIAC test,LARIAC
+LARIAC backup,LARIAC
+Production-Processing,Other
+SSDA,Other
+billing-info,Other
+test-3d,Other
+Processing (Prod),Other
+No tag key: application,Shared / Untagged
+No Tag,Shared / Untagged
+Shared / Untagged,Shared / Untagged
