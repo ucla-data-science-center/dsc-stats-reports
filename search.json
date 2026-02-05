@@ -63,11 +63,11 @@
     "text": "Dashboard Sections\n\n\nConsulting\nOne-on-one research support provided by DSC staff and the DataSquad.\n\n\nInstruction\nWorkshops, events, and community-led training like The Carpentries.\n\n\nInfrastructure\nAWS cloud costs and UCLA Dataverse repository metrics."
   },
   {
-    "objectID": "index.html#recent-trends",
-    "href": "index.html#recent-trends",
+    "objectID": "index.html#at-a-glance-fy-2024",
+    "href": "index.html#at-a-glance-fy-2024",
     "title": "DSC Statistics Dashboard",
-    "section": "Recent Trends",
-    "text": "Recent Trends\nThis section can be expanded to include high-level summary cards or a “Year in Review” infographic style summary.\n\nLast Updated: r Sys.Date()"
+    "section": "At a Glance (FY 2024)",
+    "text": "At a Glance (FY 2024)\n\n\nConsultations ## 450+ Providing research support across 50+ departments.\n\n\nWorkshop Learners ## 1,200+ Foundational data skills for the UCLA community.\n\n\nDataverse Growth ## 100k+ Files preserved and shared via UCLA Dataverse.\n\n\n\nLast Updated: February 05, 2026"
   },
   {
     "objectID": "consulting.html",
@@ -102,6 +102,6 @@
     "href": "infrastructure.html#current-bucket-sizes",
     "title": "Infrastructure Statistics",
     "section": "Current Bucket Sizes",
-    "text": "Current Bucket Sizes\n\n\n\n\n\nBucket Name\nSize (GB)\nLast Updated\n\n\n\n\npotree-test2\n11038.14 GB\n2026-02-04\n\n\ndataverse-files-replicated\n3752.28 GB\n2026-02-04\n\n\ndataverse-files\n3752.23 GB\n2026-02-04\n\n\ndataverse-files-direct-upload\n544.81 GB\n2026-02-04\n\n\ndataverse-files-replicated-direct-upload\n542.64 GB\n2026-02-04\n\n\ndataverse-test-oregon\n130.68 GB\n2026-02-04\n\n\ntest-dataverse-files2\n19.53 GB\n2026-02-04\n\n\ndataverse-test-lariac-direct\n12.10 GB\n2026-02-04\n\n\ndataverse-lariac-direct\n11.96 GB\n2026-02-04\n\n\ndataverse-test-lariac\n9.64 GB\n2026-02-04\n\n\nlariac-backup\n3.34 GB\n2026-02-04\n\n\ndscbbillinginfo\n1.02 GB\n2026-02-04\n\n\ndataverse-lariac\n0.24 GB\n2026-02-04\n\n\nssda-files\n0.12 GB\n2026-02-04\n\n\nssda-files-replicated\n0.12 GB\n2026-02-04\n\n\ntest-dataverse-jmj\n0.00 GB\n2026-02-04\n\n\nucla-library-terraform-state\n0.00 GB\n2026-02-04\n\n\nbulk-policy-migration-221761179339\n0.00 GB\n2026-02-04"
+    "text": "Current Bucket Sizes\n\n\n\n\n\nBucket Name\nSize (GB)\nLast Updated\n\n\n\n\npotree-test2\n11038.14 GB\n2026-02-02\n\n\ndataverse-files-replicated\n3752.27 GB\n2026-02-02\n\n\ndataverse-files\n3752.22 GB\n2026-02-02\n\n\ndataverse-files-direct-upload\n544.81 GB\n2026-02-02\n\n\ndataverse-files-replicated-direct-upload\n542.64 GB\n2026-02-02\n\n\ndataverse-test-oregon\n130.68 GB\n2026-02-02\n\n\ntest-dataverse-files2\n19.53 GB\n2026-02-02\n\n\ndataverse-test-lariac-direct\n12.10 GB\n2026-02-02\n\n\ndataverse-lariac-direct\n11.96 GB\n2026-02-02\n\n\ndataverse-test-lariac\n9.64 GB\n2026-02-02\n\n\nlariac-backup\n3.34 GB\n2026-02-02\n\n\ndscbbillinginfo\n1.02 GB\n2026-02-02\n\n\ndataverse-lariac\n0.24 GB\n2026-02-02\n\n\nssda-files\n0.12 GB\n2026-02-02\n\n\nssda-files-replicated\n0.12 GB\n2026-02-02\n\n\ntest-dataverse-jmj\n0.00 GB\n2026-02-02\n\n\nucla-library-terraform-state\n0.00 GB\n2026-02-02\n\n\nbulk-policy-migration-221761179339\n0.00 GB\n2026-02-02"
   }
 ]
