@@ -56,6 +56,7 @@ except Exception as e:
     df_aws = df_history
 
 df_ledger = aws_processing.extract_ledger_costs(charge_dir)
+df_s3 = aws_processing.fetch_s3_storage_stats()
 
 def print_markdown_table(headers, rows):
     table_str = "\n| " + " | ".join(headers) + " |\n"
@@ -107,4 +108,17 @@ try:
     plt.show()
 except Exception as e:
     print(f"Dataverse data missing: {e}")
+```
+
+# S3 Bucket Storage
+
+## Current Bucket Sizes
+```{python}
+#| echo: false
+#| results: asis
+if not df_s3.empty:
+    table_data = [[r['bucket'], f"{r['size_gb']:.2f} GB", r['last_updated'].strftime('%Y-%m-%d')] for _, r in df_s3.sort_values('size_gb', ascending=False).iterrows()]
+    print_markdown_table(["Bucket Name", "Size (GB)", "Last Updated"], table_data)
+else:
+    print("S3 storage data currently unavailable (Live AWS connection required).")
 ```

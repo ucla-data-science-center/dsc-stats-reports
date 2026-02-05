@@ -21,13 +21,30 @@ def load_tag_mapping(config_path='config/aws_tags.csv'):
         print(f"Error loading tag mapping: {e}")
         return {}
 
+def get_session(profile='ucla-library-dsc'):
+    """
+    Creates a boto3 session, favoring environment variables if available.
+    """
+    try:
+        # If running in GitHub Actions or env vars are set, use them
+        if os.getenv('AWS_ACCESS_KEY_ID') and os.getenv('AWS_SECRET_ACCESS_KEY'):
+            return boto3.Session()
+        # Fallback to profile for local use
+        return boto3.Session(profile_name=profile)
+    except Exception as e:
+        print(f"Session Error: {e}")
+        return None
+
 def fetch_aws_costs(start_date, end_date, profile='ucla-library-dsc'):
     """
     Fetches AWS costs using the Cost Explorer API.
     Returns a DataFrame with columns: date, application, cost, AFY.
     """
     try:
-        session = boto3.Session(profile_name=profile)
+        session = get_session(profile)
+        if not session:
+            return pd.DataFrame()
+            
         client = session.client('ce')
         
         response = client.get_cost_and_usage(
@@ -62,8 +79,57 @@ def fetch_aws_costs(start_date, end_date, profile='ucla-library-dsc'):
         
         return df
 
-    except (NoCredentialsError, ClientError) as e:
-        print(f"AWS API Error: {e}. Please ensure AWS credentials are set.")
+    except Exception as e:
+        print(f"AWS API Error: {e}. Falling back to CSV only.")
+        return pd.DataFrame()
+
+def fetch_s3_storage_stats(profile='ucla-library-dsc'):
+    """
+    Retrieves storage size for all S3 buckets using CloudWatch metrics.
+    Note: These metrics are reported daily by AWS.
+    """
+    try:
+        session = get_session(profile)
+        if not session: return pd.DataFrame()
+        
+        s3 = session.client('s3')
+        cloudwatch = session.client('cloudwatch')
+        
+        buckets = s3.list_buckets()['Buckets']
+        stats = []
+        
+        from datetime import datetime, timedelta
+        end_time = datetime.now()
+        start_time = end_time - timedelta(days=2) # Get last 2 days to ensure we find a data point
+        
+        for bucket in buckets:
+            bucket_name = bucket['Name']
+            
+            # S3 reports BucketSizeBytes per storage type
+            response = cloudwatch.get_metric_statistics(
+                Namespace='AWS/S3',
+                MetricName='BucketSizeBytes',
+                Dimensions=[
+                    {'Name': 'BucketName', 'Value': bucket_name},
+                    {'Name': 'StorageType', 'Value': 'StandardStorage'}
+                ],
+                StartTime=start_time,
+                EndTime=end_time,
+                Period=86400,
+                Statistics=['Average']
+            )
+            
+            if response['Datapoints']:
+                latest_size = response['Datapoints'][-1]['Average']
+                stats.append({
+                    'bucket': bucket_name,
+                    'size_gb': latest_size / (1024**3),
+                    'last_updated': response['Datapoints'][-1]['Timestamp']
+                })
+        
+        return pd.DataFrame(stats)
+    except Exception as e:
+        print(f"S3 Stats Error: {e}")
         return pd.DataFrame()
 
 def process_aws_data(data_dir):
