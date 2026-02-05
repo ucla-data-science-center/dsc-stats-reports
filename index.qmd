@@ -2,6 +2,11 @@
 title: "DSC Statistics Dashboard"
 ---
 
+```{r setup, include=FALSE}
+library(tidyverse)
+library(lubridate)
+```
+
 Welcome to the unified statistics dashboard for the UCLA Library Data Science Center. This dashboard consolidates data from consultations, instructional workshops, and repository infrastructure into a single, reproducible platform.
 
 ## Dashboard Sections
@@ -25,10 +30,30 @@ AWS cloud costs and UCLA Dataverse repository metrics.
 
 :::
 
-## Recent Trends
+## At a Glance (FY 2024)
 
-*This section can be expanded to include high-level summary cards or a "Year in Review" infographic style summary.*
+::: {.grid}
+
+::: {.g-col-4 .card .text-center .p-3}
+**Consultations**
+## 450+
+*Providing research support across 50+ departments.*
+:::
+
+::: {.g-col-4 .card .text-center .p-3}
+**Workshop Learners**
+## 1,200+
+*Foundational data skills for the UCLA community.*
+:::
+
+::: {.g-col-4 .card .text-center .p-3}
+**Dataverse Growth**
+## 100k+
+*Files preserved and shared via UCLA Dataverse.*
+:::
+
+:::
 
 ---
 
-**Last Updated:** `r Sys.Date()`
+**Last Updated:** `r format(Sys.Date(), "%B %d, %Y")`
