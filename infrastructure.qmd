@@ -58,7 +58,6 @@ except Exception as e:
 df_ledger = aws_processing.extract_ledger_costs(charge_dir)
 df_s3 = aws_processing.fetch_s3_storage_stats()
 df_potree_growth = aws_processing.fetch_s3_historical_growth('potree-test2', days=180)
-df_lariac_growth = aws_processing.fetch_s3_historical_growth('lariac-backup', days=180)
 
 def print_markdown_table(headers, rows):
     table_str = "\n| " + " | ".join(headers) + " |\n"
@@ -155,40 +154,17 @@ else:
     print("S3 storage data currently unavailable (Live AWS connection required).")
 ```
 
-## Storage Growth Trends
-
-::: {.grid}
-
-::: {.g-col-6}
-### Potree Growth (180 Days)
+## Potree Storage Growth (180 Days)
 ```{python}
 #| echo: false
 if not df_potree_growth.empty:
-    plt.figure(figsize=(8, 4))
+    plt.figure(figsize=(10, 5))
     plt.plot(df_potree_growth['date'], df_potree_growth['size_gb'], color='#1f77b4', linewidth=2)
     plt.fill_between(df_potree_growth['date'], df_potree_growth['size_gb'], alpha=0.2)
     plt.title('Potree Storage Growth (GB)')
+    plt.ylabel('Size (GB)')
     plt.grid(True, alpha=0.3)
     plt.show()
 else:
     print("Growth data for Potree unavailable.")
 ```
-:::
-
-::: {.g-col-6}
-### LARIAC Growth (180 Days)
-```{python}
-#| echo: false
-if not df_lariac_growth.empty:
-    plt.figure(figsize=(8, 4))
-    plt.plot(df_lariac_growth['date'], df_lariac_growth['size_gb'], color='#d62728', linewidth=2)
-    plt.fill_between(df_lariac_growth['date'], df_lariac_growth['size_gb'], alpha=0.2)
-    plt.title('LARIAC Storage Growth (GB)')
-    plt.grid(True, alpha=0.3)
-    plt.show()
-else:
-    print("Growth data for LARIAC unavailable.")
-```
-:::
-
-:::
