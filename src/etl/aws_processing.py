@@ -83,11 +83,67 @@ def fetch_aws_costs(start_date, end_date, profile='ucla-library-dsc'):
         print(f"AWS API Error: {e}. Falling back to CSV only.")
         return pd.DataFrame()
 
-def fetch_s3_storage_stats(profile='ucla-library-dsc'):
+def fetch_s3_historical_growth(bucket_name, days=90, profile='ucla-library-dsc'):
     """
-    Retrieves storage size for all S3 buckets using CloudWatch metrics.
-    Automatically detects bucket regions to find the correct metrics.
+    Retrieves historical storage size for a specific bucket.
+    AWS CloudWatch stores S3 metrics for 15 months.
     """
+    try:
+        session = get_session(profile)
+        if not session: return pd.DataFrame()
+        
+        s3 = session.client('s3')
+        # Get region
+        region_resp = s3.get_bucket_location(Bucket=bucket_name)
+        region = region_resp.get('LocationConstraint')
+        if region is None: region = 'us-east-1'
+        
+        cw = session.client('cloudwatch', region_name=region)
+        
+        end_time = datetime.now()
+        start_time = end_time - timedelta(days=days)
+        
+        response = cw.get_metric_statistics(
+            Namespace='AWS/S3',
+            MetricName='BucketSizeBytes',
+            Dimensions=[
+                {'Name': 'BucketName', 'Value': bucket_name},
+                {'Name': 'StorageType', 'Value': 'StandardStorage'}
+            ],
+            StartTime=start_time,
+            EndTime=end_time,
+            Period=86400, # Daily points
+            Statistics=['Average']
+        )
+        
+        if not response['Datapoints']:
+             response = cw.get_metric_statistics(
+                Namespace='AWS/S3',
+                MetricName='BucketSizeBytes',
+                Dimensions=[
+                    {'Name': 'BucketName', 'Value': bucket_name},
+                    {'Name': 'StorageType', 'Value': 'AllStorageTypes'}
+                ],
+                StartTime=start_time,
+                EndTime=end_time,
+                Period=86400,
+                Statistics=['Average']
+            )
+
+        data = []
+        for dp in response['Datapoints']:
+            data.append({
+                'date': dp['Timestamp'],
+                'size_gb': dp['Average'] / (1024**3)
+            })
+            
+        df = pd.DataFrame(data)
+        if not df.empty:
+            df = df.sort_values('date')
+        return df
+    except Exception as e:
+        print(f"Error fetching historical growth for {bucket_name}: {e}")
+        return pd.DataFrame()
     try:
         session = get_session(profile)
         if not session: return pd.DataFrame()

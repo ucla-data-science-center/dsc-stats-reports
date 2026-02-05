@@ -57,6 +57,8 @@ except Exception as e:
 
 df_ledger = aws_processing.extract_ledger_costs(charge_dir)
 df_s3 = aws_processing.fetch_s3_storage_stats()
+df_potree_growth = aws_processing.fetch_s3_historical_growth('potree-test2', days=180)
+df_lariac_growth = aws_processing.fetch_s3_historical_growth('lariac-backup', days=180)
 
 def print_markdown_table(headers, rows):
     table_str = "\n| " + " | ".join(headers) + " |\n"
@@ -95,19 +97,49 @@ if not df_aws.empty:
 
 # UCLA Dataverse Usage
 
-## Repository Growth
+## Repository Growth (Cumulative)
 ```{python}
 #| echo: false
 try:
-    df_files = pd.read_csv(os.path.join(DATAVERSE_DIR, 'files_monthly.csv'))
-    df_files['date'] = pd.to_datetime(df_files['date'])
-    plt.figure(figsize=(10, 4))
-    plt.plot(df_files['date'], df_files['count'], color='#2ca02c')
-    plt.title('Total Files Over Time')
+    df_dv = pd.read_csv(os.path.join(DATAVERSE_DIR, 'datasets_files_published_monthly.csv'))
+    df_dv['date'] = pd.to_datetime(df_dv['date'], format='%Y-%m')
+    
+    plt.figure(figsize=(10, 5))
+    plt.plot(df_dv['date'], df_dv['datasets_published'], label='Datasets', color='#2774AE', linewidth=2)
+    plt.plot(df_dv['date'], df_dv['files_published'], label='Files', color='#FFD100', linewidth=2)
+    plt.yscale('log')
+    plt.title('Dataverse Growth (Log Scale)')
+    plt.legend()
     plt.grid(True, alpha=0.3)
     plt.show()
 except Exception as e:
     print(f"Dataverse data missing: {e}")
+```
+
+## Monthly Activity
+```{python}
+#| echo: false
+try:
+    df_dv['month_new_datasets'] = df_dv['datasets_published'].diff().fillna(0)
+    df_dv['month_new_files'] = df_dv['files_published'].diff().fillna(0)
+    
+    # Filter to last 2 years for activity
+    df_recent = df_dv.tail(24)
+    
+    fig, ax1 = plt.subplots(figsize=(10, 5))
+    
+    ax1.bar(df_recent['date'], df_recent['month_new_datasets'], color='#2774AE', alpha=0.7, width=20, label='New Datasets')
+    ax1.set_ylabel('New Datasets', color='#2774AE')
+    
+    ax2 = ax1.twinx()
+    ax2.plot(df_recent['date'], df_recent['month_new_files'], color='#8B6F00', marker='o', label='New Files')
+    ax2.set_ylabel('New Files', color='#8B6F00')
+    
+    plt.title('Dataverse Monthly Activity (Last 24 Months)')
+    fig.tight_layout()
+    plt.show()
+except Exception as e:
+    print(f"Error calculating monthly activity: {e}")
 ```
 
 # S3 Bucket Storage
@@ -122,3 +154,41 @@ if not df_s3.empty:
 else:
     print("S3 storage data currently unavailable (Live AWS connection required).")
 ```
+
+## Storage Growth Trends
+
+::: {.grid}
+
+::: {.g-col-6}
+### Potree Growth (180 Days)
+```{python}
+#| echo: false
+if not df_potree_growth.empty:
+    plt.figure(figsize=(8, 4))
+    plt.plot(df_potree_growth['date'], df_potree_growth['size_gb'], color='#1f77b4', linewidth=2)
+    plt.fill_between(df_potree_growth['date'], df_potree_growth['size_gb'], alpha=0.2)
+    plt.title('Potree Storage Growth (GB)')
+    plt.grid(True, alpha=0.3)
+    plt.show()
+else:
+    print("Growth data for Potree unavailable.")
+```
+:::
+
+::: {.g-col-6}
+### LARIAC Growth (180 Days)
+```{python}
+#| echo: false
+if not df_lariac_growth.empty:
+    plt.figure(figsize=(8, 4))
+    plt.plot(df_lariac_growth['date'], df_lariac_growth['size_gb'], color='#d62728', linewidth=2)
+    plt.fill_between(df_lariac_growth['date'], df_lariac_growth['size_gb'], alpha=0.2)
+    plt.title('LARIAC Storage Growth (GB)')
+    plt.grid(True, alpha=0.3)
+    plt.show()
+else:
+    print("Growth data for LARIAC unavailable.")
+```
+:::
+
+:::
