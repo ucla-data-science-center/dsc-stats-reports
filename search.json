@@ -81,21 +81,14 @@
     "href": "infrastructure.html",
     "title": "Infrastructure Statistics",
     "section": "",
-    "text": "Session Error: The config profile (ucla-library-dsc) could not be found\nWarning: Live AWS data fetch returned empty.\nSession Error: The config profile (ucla-library-dsc) could not be found"
+    "text": "Month\nActual Cost Charged\n\n\n\n\n2025-09\n$1,000.58\n\n\n2025-08\n$937.90\n\n\n2025-07\n$1,001.50\n\n\n2025-06\n$1,019.57\n\n\n2025-04\n$990.96"
   },
   {
     "objectID": "infrastructure.html#monthly-departmental-charges-ledger",
     "href": "infrastructure.html#monthly-departmental-charges-ledger",
     "title": "Infrastructure Statistics",
-    "section": "Monthly Departmental Charges (Ledger)",
-    "text": "Monthly Departmental Charges (Ledger)\n\n\n\n\n\nMonth\nActual Cost Charged\n\n\n\n\n2025-09\n$1,000.58\n\n\n2025-08\n$937.90\n\n\n2025-07\n$1,001.50\n\n\n2025-06\n$1,019.57\n\n\n2025-04\n$990.96"
-  },
-  {
-    "objectID": "infrastructure.html#monthly-trends",
-    "href": "infrastructure.html#monthly-trends",
-    "title": "Infrastructure Statistics",
-    "section": "Monthly Trends",
-    "text": "Monthly Trends"
+    "section": "",
+    "text": "Month\nActual Cost Charged\n\n\n\n\n2025-09\n$1,000.58\n\n\n2025-08\n$937.90\n\n\n2025-07\n$1,001.50\n\n\n2025-06\n$1,019.57\n\n\n2025-04\n$990.96"
   },
   {
     "objectID": "infrastructure.html#repository-growth",
@@ -109,6 +102,6 @@
     "href": "infrastructure.html#current-bucket-sizes",
     "title": "Infrastructure Statistics",
     "section": "Current Bucket Sizes",
-    "text": "Current Bucket Sizes\n\n\nS3 storage data currently unavailable (Live AWS connection required)."
+    "text": "Current Bucket Sizes\n\n\n\n\n\nBucket Name\nSize (GB)\nLast Updated\n\n\n\n\ndataverse-files-replicated\n3752.28 GB\n2026-02-04\n\n\ndataverse-files-replicated-direct-upload\n542.64 GB\n2026-02-04\n\n\nssda-files-replicated\n0.12 GB\n2026-02-04\n\n\nbulk-policy-migration-221761179339\n0.00 GB\n2026-02-04"
   }
 ]
