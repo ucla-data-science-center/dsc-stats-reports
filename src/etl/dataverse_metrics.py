@@ -40,7 +40,10 @@ def fetch_datasets_by_subject():
         response.raise_for_status()
         return response.json()['data']
     except Exception as e:
-        print(f"Error fetching datasets by subject: {e}")
+        if 'response' in locals():
+            print(f"Error fetching datasets by subject: {e}. Body: {response.text[:200]}")
+        else:
+            print(f"Error fetching datasets by subject: {e}")
         return []
 
 def update_metrics():
