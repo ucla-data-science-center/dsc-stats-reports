@@ -4,6 +4,7 @@ import glob
 import re
 import boto3
 from botocore.exceptions import NoCredentialsError, ClientError
+from datetime import datetime, timedelta
 
 def load_tag_mapping(config_path='config/aws_tags.csv'):
     try:
@@ -144,6 +145,12 @@ def fetch_s3_historical_growth(bucket_name, days=90, profile='ucla-library-dsc')
     except Exception as e:
         print(f"Error fetching historical growth for {bucket_name}: {e}")
         return pd.DataFrame()
+
+def fetch_s3_storage_stats(profile='ucla-library-dsc'):
+    """
+    Retrieves storage size for all S3 buckets using CloudWatch metrics.
+    Automatically detects bucket regions to find the correct metrics.
+    """
     try:
         session = get_session(profile)
         if not session: return pd.DataFrame()
@@ -152,7 +159,6 @@ def fetch_s3_historical_growth(bucket_name, days=90, profile='ucla-library-dsc')
         buckets = s3.list_buckets()['Buckets']
         stats = []
         
-        from datetime import datetime, timedelta
         end_time = datetime.now()
         start_time = end_time - timedelta(days=3) # Increased window to ensure we find a daily data point
         
@@ -165,7 +171,6 @@ def fetch_s3_historical_growth(bucket_name, days=90, profile='ucla-library-dsc')
                 region = region_resp.get('LocationConstraint')
                 # S3 returns None for us-east-1
                 if region is None: region = 'us-east-1'
-                # S3 returns 'EU' for eu-west-1, etc. but usually it's standard strings
                 
                 # Get CloudWatch client for THAT specific region
                 cw_region = session.client('cloudwatch', region_name=region)
@@ -185,7 +190,6 @@ def fetch_s3_historical_growth(bucket_name, days=90, profile='ucla-library-dsc')
                 )
                 
                 # If no standard storage, check all storage types
-                # (StandardStorage is the most common but some might be AllStorageTypes)
                 if not response['Datapoints']:
                      response = cw_region.get_metric_statistics(
                         Namespace='AWS/S3',
