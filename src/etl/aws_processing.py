@@ -104,32 +104,24 @@ def fetch_s3_historical_growth(bucket_name, days=90, profile='ucla-library-dsc')
         end_time = datetime.now()
         start_time = end_time - timedelta(days=days)
         
-        response = cw.get_metric_statistics(
-            Namespace='AWS/S3',
-            MetricName='BucketSizeBytes',
-            Dimensions=[
-                {'Name': 'BucketName', 'Value': bucket_name},
-                {'Name': 'StorageType', 'Value': 'StandardStorage'}
-            ],
-            StartTime=start_time,
-            EndTime=end_time,
-            Period=86400, # Daily points
-            Statistics=['Average']
-        )
-        
-        if not response['Datapoints']:
-             response = cw.get_metric_statistics(
+        # Helper to query metrics
+        def get_metrics(storage_type):
+            return cw.get_metric_statistics(
                 Namespace='AWS/S3',
                 MetricName='BucketSizeBytes',
                 Dimensions=[
                     {'Name': 'BucketName', 'Value': bucket_name},
-                    {'Name': 'StorageType', 'Value': 'AllStorageTypes'}
+                    {'Name': 'StorageType', 'Value': storage_type}
                 ],
                 StartTime=start_time,
                 EndTime=end_time,
-                Period=86400,
+                Period=86400, # Daily points
                 Statistics=['Average']
             )
+
+        response = get_metrics('StandardStorage')
+        if not response['Datapoints']:
+             response = get_metrics('AllStorageTypes')
 
         data = []
         for dp in response['Datapoints']:
@@ -141,6 +133,9 @@ def fetch_s3_historical_growth(bucket_name, days=90, profile='ucla-library-dsc')
         df = pd.DataFrame(data)
         if not df.empty:
             df = df.sort_values('date')
+        else:
+            print(f"No CloudWatch datapoints found for bucket: {bucket_name} in {region}")
+            
         return df
     except Exception as e:
         print(f"Error fetching historical growth for {bucket_name}: {e}")
