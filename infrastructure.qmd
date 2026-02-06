@@ -57,7 +57,7 @@ except Exception as e:
 
 df_ledger = aws_processing.extract_ledger_costs(charge_dir)
 df_s3 = aws_processing.fetch_s3_storage_stats()
-df_potree_growth = aws_processing.fetch_s3_historical_growth('potree-test2', days=180)
+df_potree_growth = aws_processing.fetch_s3_historical_growth('potree-test2', days=365)
 
 def print_markdown_table(headers, rows):
     table_str = "\n| " + " | ".join(headers) + " |\n"
@@ -103,13 +103,25 @@ try:
     df_dv = pd.read_csv(os.path.join(DATAVERSE_DIR, 'datasets_files_published_monthly.csv'))
     df_dv['date'] = pd.to_datetime(df_dv['date'], format='%Y-%m')
     
-    plt.figure(figsize=(10, 5))
-    plt.plot(df_dv['date'], df_dv['datasets_published'], label='Datasets', color='#2774AE', linewidth=2)
-    plt.plot(df_dv['date'], df_dv['files_published'], label='Files', color='#FFD100', linewidth=2)
-    plt.yscale('log')
-    plt.title('Dataverse Growth (Log Scale)')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
+    fig, ax1 = plt.subplots(figsize=(10, 5))
+    
+    # Linear scale with dual axis is clearer than log for non-technical audiences
+    ax1.plot(df_dv['date'], df_dv['datasets_published'], label='Total Datasets', color='#2774AE', linewidth=3)
+    ax1.set_ylabel('Total Datasets', color='#2774AE', fontsize=12, fontweight='bold')
+    ax1.tick_params(axis='y', labelcolor='#2774AE')
+    
+    ax2 = ax1.twinx()
+    ax2.plot(df_dv['date'], df_dv['files_published'], label='Total Files', color='#FFD100', linewidth=3)
+    ax2.set_ylabel('Total Files', color='#8B6F00', fontsize=12, fontweight='bold')
+    ax2.tick_params(axis='y', labelcolor='#8B6F00')
+    
+    # Format Y axis with commas
+    ax1.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
+    ax2.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
+
+    plt.title('UCLA Dataverse Cumulative Growth', fontsize=14, fontweight='bold')
+    ax1.grid(True, alpha=0.3)
+    fig.tight_layout()
     plt.show()
 except Exception as e:
     print(f"Dataverse data missing: {e}")
@@ -119,29 +131,38 @@ except Exception as e:
 ```{python}
 #| echo: false
 try:
-    df_dv['month_new_datasets'] = df_dv['datasets_published'].diff().fillna(0)
-    df_dv['month_new_files'] = df_dv['files_published'].diff().fillna(0)
-    df_dv['month_downloads'] = df_dv['downloads'].diff().fillna(0)
+    # Ensure no negative values from diff and set floor at 0
+    df_dv['month_new_datasets'] = df_dv['datasets_published'].diff().fillna(0).clip(lower=0)
+    df_dv['month_new_files'] = df_dv['files_published'].diff().fillna(0).clip(lower=0)
+    df_dv['month_downloads'] = df_dv['downloads'].diff().fillna(0).clip(lower=0)
     
-    # Filter to last 2 years for activity
+    # Filter to last 24 months
     df_recent = df_dv.tail(24)
     
-    fig, (ax1, ax3) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
+    fig, (ax1, ax3) = plt.subplots(2, 1, figsize=(10, 10), sharex=True)
     
     # Chart 1: Datasets and Files
-    ax1.bar(df_recent['date'], df_recent['month_new_datasets'], color='#2774AE', alpha=0.7, width=20, label='New Datasets')
-    ax1.set_ylabel('New Datasets', color='#2774AE')
+    ax1.bar(df_recent['date'], df_recent['month_new_datasets'], color='#2774AE', alpha=0.6, width=20, label='New Datasets')
+    ax1.set_ylabel('New Datasets', color='#2774AE', fontweight='bold')
+    ax1.set_ylim(bottom=0)
     
     ax2 = ax1.twinx()
-    ax2.plot(df_recent['date'], df_recent['month_new_files'], color='#FFD100', marker='o', label='New Files')
-    ax2.set_ylabel('New Files', color='#8B6F00')
-    ax1.set_title('Dataverse Monthly Activity (Datasets & Files)')
+    ax2.plot(df_recent['date'], df_recent['month_new_files'], color='#FFD100', marker='o', linewidth=2, label='New Files')
+    ax2.set_ylabel('New Files', color='#8B6F00', fontweight='bold')
+    ax2.set_ylim(bottom=0)
+    
+    ax1.set_title('Monthly Publication Activity (Last 24 Months)', fontsize=13, fontweight='bold')
+    ax1.legend(loc='upper left')
+    ax2.legend(loc='upper right')
     
     # Chart 2: Downloads
-    ax3.bar(df_recent['date'], df_recent['month_downloads'], color='#2ca02c', alpha=0.7, width=20, label='Downloads')
-    ax3.set_ylabel('Monthly Downloads', color='#2ca02c')
-    ax3.set_title('Dataverse Monthly Downloads')
+    ax3.bar(df_recent['date'], df_recent['month_downloads'], color='#2ca02c', alpha=0.6, width=20)
+    ax3.set_ylabel('Monthly Downloads', color='#2ca02c', fontweight='bold')
+    ax3.set_ylim(bottom=0)
+    ax3.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
+    ax3.set_title('Monthly Download Volume', fontsize=13, fontweight='bold')
     
+    plt.xticks(rotation=45)
     plt.tight_layout()
     plt.show()
 except Exception as e:
@@ -161,17 +182,19 @@ else:
     print("S3 storage data currently unavailable (Live AWS connection required).")
 ```
 
-## Potree Storage Growth (180 Days)
+## Potree Storage Growth (Last 365 Days)
 ```{python}
 #| echo: false
 if not df_potree_growth.empty:
+    print(f"DEBUG: Found {len(df_potree_growth)} storage datapoints.")
     plt.figure(figsize=(10, 5))
-    plt.plot(df_potree_growth['date'], df_potree_growth['size_gb'], color='#1f77b4', linewidth=2)
-    plt.fill_between(df_potree_growth['date'], df_potree_growth['size_gb'], alpha=0.2)
-    plt.title('Potree Storage Growth (GB)')
-    plt.ylabel('Size (GB)')
+    plt.plot(df_potree_growth['date'], df_potree_growth['size_gb'], color='#1f77b4', linewidth=3)
+    plt.fill_between(df_potree_growth['date'], df_potree_growth['size_gb'], color='#1f77b4', alpha=0.1)
+    plt.title('Potree Storage Growth (GB)', fontsize=14, fontweight='bold')
+    plt.ylabel('Size (GB)', fontweight='bold')
+    plt.ylim(bottom=0) # Always show 0 baseline
     plt.grid(True, alpha=0.3)
     plt.show()
 else:
-    print("Growth data for Potree unavailable.")
+    print("Growth data for Potree unavailable (CloudWatch may only report this metric once daily).")
 ```

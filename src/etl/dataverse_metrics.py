@@ -21,6 +21,19 @@ def fetch_metric(metric_type, to_month):
         print(f"Error fetching {metric_type} for {to_month}: {e}")
         return None
 
+def fetch_datasets_by_subject():
+    """
+    Fetches the distribution of datasets by subject.
+    """
+    endpoint = f"{DATAVERSE_URL}/api/info/metrics/datasets/bySubject"
+    try:
+        response = requests.get(endpoint)
+        response.raise_for_status()
+        return response.json()['data']
+    except Exception as e:
+        print(f"Error fetching datasets by subject: {e}")
+        return []
+
 def update_metrics():
     # 1. Generate month range from the end of existing data or a start date
     # Based on the file, it ends at 2024-05.
@@ -62,6 +75,15 @@ def update_metrics():
     # Save to CSV
     df.to_csv(OUTPUT_FILE, index=False)
     print(f"\nSuccessfully updated {OUTPUT_FILE}")
+
+    # 2. Fetch Datasets by Subject
+    print("Fetching datasets by subject...")
+    subject_data = fetch_datasets_by_subject()
+    if subject_data:
+        df_subj = pd.DataFrame(subject_data)
+        subj_file = OUTPUT_FILE.replace("datasets_files_published_monthly.csv", "datasets_by_subject.csv")
+        df_subj.to_csv(subj_file, index=False)
+        print(f"Successfully updated {subj_file}")
 
 if __name__ == "__main__":
     update_metrics()
