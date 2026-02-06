@@ -121,21 +121,28 @@ except Exception as e:
 try:
     df_dv['month_new_datasets'] = df_dv['datasets_published'].diff().fillna(0)
     df_dv['month_new_files'] = df_dv['files_published'].diff().fillna(0)
+    df_dv['month_downloads'] = df_dv['downloads'].diff().fillna(0)
     
     # Filter to last 2 years for activity
     df_recent = df_dv.tail(24)
     
-    fig, ax1 = plt.subplots(figsize=(10, 5))
+    fig, (ax1, ax3) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
     
+    # Chart 1: Datasets and Files
     ax1.bar(df_recent['date'], df_recent['month_new_datasets'], color='#2774AE', alpha=0.7, width=20, label='New Datasets')
     ax1.set_ylabel('New Datasets', color='#2774AE')
     
     ax2 = ax1.twinx()
-    ax2.plot(df_recent['date'], df_recent['month_new_files'], color='#8B6F00', marker='o', label='New Files')
+    ax2.plot(df_recent['date'], df_recent['month_new_files'], color='#FFD100', marker='o', label='New Files')
     ax2.set_ylabel('New Files', color='#8B6F00')
+    ax1.set_title('Dataverse Monthly Activity (Datasets & Files)')
     
-    plt.title('Dataverse Monthly Activity (Last 24 Months)')
-    fig.tight_layout()
+    # Chart 2: Downloads
+    ax3.bar(df_recent['date'], df_recent['month_downloads'], color='#2ca02c', alpha=0.7, width=20, label='Downloads')
+    ax3.set_ylabel('Monthly Downloads', color='#2ca02c')
+    ax3.set_title('Dataverse Monthly Downloads')
+    
+    plt.tight_layout()
     plt.show()
 except Exception as e:
     print(f"Error calculating monthly activity: {e}")

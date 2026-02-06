@@ -21,6 +21,9 @@ jobs:
           pixi-version: v0.39.5
           cache: true
 
+      - name: Update Dataverse Metrics
+        run: pixi run update-dataverse
+
       - name: Render Quarto
         # We pass AWS credentials if available as secrets
         # If missing, the script falls back to historical CSVs
