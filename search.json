@@ -67,7 +67,7 @@
     "href": "index.html#at-a-glance-fy-2024",
     "title": "DSC Statistics Dashboard",
     "section": "At a Glance (FY 2024)",
-    "text": "At a Glance (FY 2024)\n\n\nConsultations ## 450+ Providing research support across 50+ departments.\n\n\nWorkshop Learners ## 1,200+ Foundational data skills for the UCLA community.\n\n\nDataverse Growth ## 100k+ Files preserved and shared via UCLA Dataverse.\n\n\n\nLast Updated: February 05, 2026"
+    "text": "At a Glance (FY 2024)\n\n\nConsultations ## 450+ Providing research support across 50+ departments.\n\n\nWorkshop Learners ## 1,200+ Foundational data skills for the UCLA community.\n\n\nDataverse Growth ## 100k+ Files preserved and shared via UCLA Dataverse.\n\n\n\nLast Updated: February 06, 2026"
   },
   {
     "objectID": "consulting.html",
@@ -91,17 +91,31 @@
     "text": "Month\nActual Cost Charged\n\n\n\n\n2025-09\n$1,000.58\n\n\n2025-08\n$937.90\n\n\n2025-07\n$1,001.50\n\n\n2025-06\n$1,019.57\n\n\n2025-04\n$990.96"
   },
   {
-    "objectID": "infrastructure.html#repository-growth",
-    "href": "infrastructure.html#repository-growth",
+    "objectID": "infrastructure.html#repository-growth-cumulative",
+    "href": "infrastructure.html#repository-growth-cumulative",
     "title": "Infrastructure Statistics",
-    "section": "Repository Growth",
-    "text": "Repository Growth"
+    "section": "Repository Growth (Cumulative)",
+    "text": "Repository Growth (Cumulative)"
+  },
+  {
+    "objectID": "infrastructure.html#monthly-activity",
+    "href": "infrastructure.html#monthly-activity",
+    "title": "Infrastructure Statistics",
+    "section": "Monthly Activity",
+    "text": "Monthly Activity"
   },
   {
     "objectID": "infrastructure.html#current-bucket-sizes",
     "href": "infrastructure.html#current-bucket-sizes",
     "title": "Infrastructure Statistics",
     "section": "Current Bucket Sizes",
-    "text": "Current Bucket Sizes\n\n\n\n\n\nBucket Name\nSize (GB)\nLast Updated\n\n\n\n\npotree-test2\n11038.14 GB\n2026-02-02\n\n\ndataverse-files-replicated\n3752.27 GB\n2026-02-02\n\n\ndataverse-files\n3752.22 GB\n2026-02-02\n\n\ndataverse-files-direct-upload\n544.81 GB\n2026-02-02\n\n\ndataverse-files-replicated-direct-upload\n542.64 GB\n2026-02-02\n\n\ndataverse-test-oregon\n130.68 GB\n2026-02-02\n\n\ntest-dataverse-files2\n19.53 GB\n2026-02-02\n\n\ndataverse-test-lariac-direct\n12.10 GB\n2026-02-02\n\n\ndataverse-lariac-direct\n11.96 GB\n2026-02-02\n\n\ndataverse-test-lariac\n9.64 GB\n2026-02-02\n\n\nlariac-backup\n3.34 GB\n2026-02-02\n\n\ndscbbillinginfo\n1.02 GB\n2026-02-02\n\n\ndataverse-lariac\n0.24 GB\n2026-02-02\n\n\nssda-files\n0.12 GB\n2026-02-02\n\n\nssda-files-replicated\n0.12 GB\n2026-02-02\n\n\ntest-dataverse-jmj\n0.00 GB\n2026-02-02\n\n\nucla-library-terraform-state\n0.00 GB\n2026-02-02\n\n\nbulk-policy-migration-221761179339\n0.00 GB\n2026-02-02"
+    "text": "Current Bucket Sizes\n\n\n\n\n\nBucket Name\nSize (GB)\nLast Updated\n\n\n\n\npotree-test2\n11038.14 GB\n2026-02-03\n\n\ndataverse-files-replicated\n3752.27 GB\n2026-02-03\n\n\ndataverse-files\n3752.22 GB\n2026-02-03\n\n\ndataverse-files-direct-upload\n544.81 GB\n2026-02-03\n\n\ndataverse-files-replicated-direct-upload\n542.64 GB\n2026-02-03\n\n\ndataverse-test-oregon\n130.68 GB\n2026-02-03\n\n\ntest-dataverse-files2\n19.53 GB\n2026-02-03\n\n\ndataverse-test-lariac-direct\n12.10 GB\n2026-02-03\n\n\ndataverse-lariac-direct\n11.96 GB\n2026-02-03\n\n\ndataverse-test-lariac\n9.64 GB\n2026-02-03\n\n\nlariac-backup\n3.34 GB\n2026-02-03\n\n\ndscbbillinginfo\n1.02 GB\n2026-02-03\n\n\ndataverse-lariac\n0.24 GB\n2026-02-03\n\n\nssda-files\n0.12 GB\n2026-02-03\n\n\nssda-files-replicated\n0.12 GB\n2026-02-03\n\n\ntest-dataverse-jmj\n0.00 GB\n2026-02-03\n\n\nucla-library-terraform-state\n0.00 GB\n2026-02-03\n\n\nbulk-policy-migration-221761179339\n0.00 GB\n2026-02-03"
+  },
+  {
+    "objectID": "infrastructure.html#potree-storage-growth-180-days",
+    "href": "infrastructure.html#potree-storage-growth-180-days",
+    "title": "Infrastructure Statistics",
+    "section": "Potree Storage Growth (180 Days)",
+    "text": "Potree Storage Growth (180 Days)"
   }
 ]
