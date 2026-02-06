@@ -6,14 +6,19 @@ import os
 # Configuration
 DATAVERSE_URL = "https://dataverse.ucla.edu"
 OUTPUT_FILE = "data/raw/infrastructure/datasets_files_published_monthly.csv"
+API_TOKEN = os.getenv("DATAVERSE_TOKEN")
 
 def fetch_metric(metric_type, to_month):
     """
     Fetches a specific metric (datasets or files) up to a specific month.
     """
     endpoint = f"{DATAVERSE_URL}/api/info/metrics/{metric_type}/toMonth/{to_month}"
+    headers = {}
+    if API_TOKEN:
+        headers["X-Dataverse-key"] = API_TOKEN
+        
     try:
-        response = requests.get(endpoint)
+        response = requests.get(endpoint, headers=headers)
         response.raise_for_status()
         data = response.json()
         return data['data']['count']
@@ -26,8 +31,12 @@ def fetch_datasets_by_subject():
     Fetches the distribution of datasets by subject.
     """
     endpoint = f"{DATAVERSE_URL}/api/info/metrics/datasets/bySubject"
+    headers = {}
+    if API_TOKEN:
+        headers["X-Dataverse-key"] = API_TOKEN
+
     try:
-        response = requests.get(endpoint)
+        response = requests.get(endpoint, headers=headers)
         response.raise_for_status()
         return response.json()['data']
     except Exception as e:

@@ -22,6 +22,8 @@ jobs:
           cache: true
 
       - name: Update Dataverse Metrics
+        env:
+          DATAVERSE_TOKEN: ${{ secrets.DATAVERSE_TOKEN }}
         run: pixi run update-dataverse
 
       - name: Render Quarto
