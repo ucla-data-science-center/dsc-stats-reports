@@ -9,6 +9,9 @@ project:
     - infrastructure.qmd
     - dsc_report2024.qmd
 
+execute:
+  freeze: false
+
 website:
   title: "DSC Statistics Dashboard"
   navbar:
