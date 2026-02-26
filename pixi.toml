@@ -36,8 +36,35 @@ requests = ">=2.32.5,<3"
 # r-tm = ">=0.7"
 # r-topicmodels = ">=0.2"
 
+# Pixi env activation overrides all QUARTO_* vars to point at the pixi quarto
+# install, which has a broken deno/missing-path bug on aarch64. We use system
+# quarto (/Applications/quarto) instead, overriding each var back to the
+# system paths. Pixi Python/R still come first on PATH so kernels are correct.
+
+[tasks.render]
+cmd = "/usr/local/bin/quarto render"
+
+[tasks.render.env]
+QUARTO_SHARE_PATH = "/Applications/quarto/share"
+QUARTO_DENO       = "/Applications/quarto/bin/tools/aarch64/deno"
+QUARTO_DENO_DOM   = "/Applications/quarto/bin/tools/aarch64/deno_dom/libplugin.dylib"
+QUARTO_DART_SASS  = "/Applications/quarto/bin/tools/aarch64/dart-sass/sass"
+QUARTO_ESBUILD    = "/Applications/quarto/bin/tools/aarch64/esbuild"
+QUARTO_PANDOC     = "/Applications/quarto/bin/tools/aarch64/pandoc"
+QUARTO_TYPST      = "/Applications/quarto/bin/tools/aarch64/typst"
+
+[tasks.preview]
+cmd = "/usr/local/bin/quarto preview"
+
+[tasks.preview.env]
+QUARTO_SHARE_PATH = "/Applications/quarto/share"
+QUARTO_DENO       = "/Applications/quarto/bin/tools/aarch64/deno"
+QUARTO_DENO_DOM   = "/Applications/quarto/bin/tools/aarch64/deno_dom/libplugin.dylib"
+QUARTO_DART_SASS  = "/Applications/quarto/bin/tools/aarch64/dart-sass/sass"
+QUARTO_ESBUILD    = "/Applications/quarto/bin/tools/aarch64/esbuild"
+QUARTO_PANDOC     = "/Applications/quarto/bin/tools/aarch64/pandoc"
+QUARTO_TYPST      = "/Applications/quarto/bin/tools/aarch64/typst"
+
 [tasks]
-preview = "quarto preview"
-render = "quarto render"
-clean-aws = "python src/etl/aws_processing.py"
-update-dataverse = "python src/etl/dataverse_metrics.py"
+clean-aws         = "python src/etl/aws_processing.py"
+update-dataverse  = "python src/etl/dataverse_metrics.py"

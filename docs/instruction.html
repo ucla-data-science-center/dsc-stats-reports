@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Instruction Statistics – DSC Statistics Dashboard</title>
+<title>Instruction Statistics – DSC Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,14 +37,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-233bc372cf700afa34ee6956ddfa133e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5c8fce4346c58bda228be4bd0aa81c79.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-233bc372cf700afa34ee6956ddfa133e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f59cc608e70ce16b384b3e6fc30ca698.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-223a4d25e70bf6005a455c54fa72832d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-f59cc608e70ce16b384b3e6fc30ca698.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,6 +72,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -247,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">DSC Statistics Dashboard</span>
+    <span class="navbar-title">DSC Statistics</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -284,6 +285,13 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ucla-data-science-center/dsc-stats-reports"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -299,13 +307,9 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#workshops-and-events" id="toc-workshops-and-events" class="nav-link active" data-scroll-target="#workshops-and-events">Workshops and Events</a>
   <ul class="collapse">
-  <li><a href="#workshop-attendance-by-year" id="toc-workshop-attendance-by-year" class="nav-link" data-scroll-target="#workshop-attendance-by-year">Workshop Attendance by Year</a></li>
-  <li><a href="#top-departments-workshops" id="toc-top-departments-workshops" class="nav-link" data-scroll-target="#top-departments-workshops">Top Departments (Workshops)</a></li>
-  <li><a href="#participant-affiliation" id="toc-participant-affiliation" class="nav-link" data-scroll-target="#participant-affiliation">Participant Affiliation</a></li>
-  </ul></li>
+  <li><a href="#at-a-glance" id="toc-at-a-glance" class="nav-link active" data-scroll-target="#at-a-glance">At a Glance</a></li>
+  <li><a href="#workshop-attendance" id="toc-workshop-attendance" class="nav-link" data-scroll-target="#workshop-attendance">Workshop Attendance</a></li>
   </ul>
 </nav>
     </div>
@@ -332,47 +336,86 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="workshops-and-events" class="level1">
-<h1>Workshops and Events</h1>
-<p>The Data Science Center offers workshops on foundational coding and data science skills, including the UCLA Carpentries program.</p>
-<section id="workshop-attendance-by-year" class="level2">
-<h2 class="anchored" data-anchor-id="workshop-attendance-by-year">Workshop Attendance by Year</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="instruction_files/figure-html/attendance_year-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<section id="at-a-glance" class="level2">
+<h2 class="anchored" data-anchor-id="at-a-glance">At a Glance</h2>
+<div class="kpi-row grid">
+<div class="g-col-6 g-col-md-4 kpi-card">
+<p><span class="kpi-label">Total Attendance Records</span> <span class="kpi-value">1,676</span> <span class="kpi-note">All workshop participants, all years</span></p>
 </div>
+<div class="g-col-6 g-col-md-4 kpi-card">
+<p><span class="kpi-label">UCLA-Affiliated</span> <span class="kpi-value">1,575</span> <span class="kpi-note">institution == “UCLA”</span></p>
 </div>
-</div>
-</section>
-<section id="top-departments-workshops" class="level2">
-<h2 class="anchored" data-anchor-id="top-departments-workshops">Top Departments (Workshops)</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="instruction_files/figure-html/workshop_dept-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<div class="g-col-6 g-col-md-4 kpi-card">
+<p><span class="kpi-label">Years with Data</span> <span class="kpi-value">5</span> <span class="kpi-note">Distinct calendar years</span></p>
 </div>
 </div>
 </section>
-<section id="participant-affiliation" class="level2">
-<h2 class="anchored" data-anchor-id="participant-affiliation">Participant Affiliation</h2>
+<section id="workshop-attendance" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-attendance">Workshop Attendance</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">By Year</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">By Department</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">By Affiliation</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="instruction_files/figure-html/workshop_status-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="instruction_files/figure-html/chart_year-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="instruction_files/figure-html/chart_dept-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="instruction_files/figure-html/chart_affil-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="data-notes callout callout-style-default callout-note callout-titled" title="Data notes">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Data notes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Source</strong>: LibInsight workshop/event attendance exports</li>
+<li><strong>Unit</strong>: One row = one participant registration. A person attending three workshops is counted three times — totals reflect attendee-events, not unique individuals</li>
+<li><strong>UCLA attendees</strong>: filtered on <code>institution == "UCLA"</code>; external attendees included in totals but excluded from department breakdowns</li>
+<li><strong>Department</strong>: <code>standardized_department</code> field — mapped from raw free-text entries; unmapped values appear as-is</li>
+<li>Full rules: <a href="./metrics-governance.html">Metrics Governance</a> · <a href="./about.html">About</a></li>
+</ul>
+</div>
+</div>
+</div>
+<p><em>Last rendered: February 26, 2026</em></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -790,8 +833,22 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>UCLA Library Data Science Center</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Data baked in at render. <a href="./about.html">About &amp; methodology</a>.</p>
+</div>
+  </div>
+</footer>
 
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

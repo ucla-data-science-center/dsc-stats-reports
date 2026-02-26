@@ -4,56 +4,122 @@ title: "DSC Statistics Dashboard"
 
 ```{r setup, include=FALSE}
 library(tidyverse)
-library(lubridate)
+library(scales)
+
+audit_summary <- local({
+  p <- "data/processed/consultations/consultation_audit_2023_2025_summary_tagged.csv"
+  if (file.exists(p)) read_csv(p, show_col_types = FALSE) else tibble()
+})
+
+audit_coverage <- local({
+  p <- "data/processed/consultations/consultation_audit_source_coverage.csv"
+  if (file.exists(p)) read_csv(p, show_col_types = FALSE) else tibble()
+})
+
+kpi <- function(key) {
+  if (nrow(audit_summary) == 0) return("—")
+  x <- audit_summary |> filter(metric_id == key) |> pull(value)
+  if (length(x) == 0) "—" else comma(x[[1]])
+}
+
+direct_total     <- kpi("direct_consults_combined_deduped_count")
+dsc_direct       <- kpi("dsc_direct_consults_libinsights_count")
+datasquad_direct <- kpi("datasquad_direct_consults_count")
+task_cards       <- kpi("datasquad_trello_task_cards_reportable_count")
+
+data_range_label <- if (nrow(audit_coverage) > 0) {
+  yr_min <- format(min(as.Date(audit_coverage$min_date)), "%Y")
+  yr_max <- format(max(as.Date(audit_coverage$max_date)), "%Y")
+  if (yr_min == yr_max) yr_min else paste0(yr_min, "\u2013", yr_max)
+} else {
+  "All Time"
+}
 ```
 
-Welcome to the unified statistics dashboard for the UCLA Library Data Science Center. This dashboard consolidates data from consultations, instructional workshops, and repository infrastructure into a single, reproducible platform.
+UCLA Library Data Science Center unified service metrics — consultations, instruction, and infrastructure in one place.
+
+## At a Glance (`r data_range_label`)
+
+::: {.kpi-row .grid}
+
+::: {.g-col-6 .g-col-md-3 .kpi-card}
+[Direct Consultations]{.kpi-label}
+[`r direct_total`]{.kpi-value}
+[DSC + DataSquad combined; canceled excluded]{.kpi-note}
+:::
+
+::: {.g-col-6 .g-col-md-3 .kpi-card}
+[DSC Staff]{.kpi-label}
+[`r dsc_direct`]{.kpi-value}
+[LibInsight scheduled exports]{.kpi-note}
+:::
+
+::: {.g-col-6 .g-col-md-3 .kpi-card}
+[DataSquad]{.kpi-label}
+[`r datasquad_direct`]{.kpi-value}
+[Walk-in sign-ins]{.kpi-note}
+:::
+
+::: {.g-col-6 .g-col-md-3 .kpi-card}
+[Task Cards (Reportable)]{.kpi-label}
+[`r task_cards`]{.kpi-value}
+[Trello; backlog/admin lists excluded]{.kpi-note}
+:::
+
+:::
 
 ## Dashboard Sections
 
 ::: {.grid}
 
-::: {.g-col-4}
+::: {.g-col-4 .card .p-3}
 ### [Consulting](consulting.qmd)
-One-on-one research support provided by DSC staff and the DataSquad.
+One-on-one research support — DSC staff appointments and DataSquad walk-ins.
 :::
 
-::: {.g-col-4}
+::: {.g-col-4 .card .p-3}
 ### [Instruction](instruction.qmd)
-Workshops, events, and community-led training like The Carpentries.
+Workshops, Carpentries events, and community-led training sessions.
 :::
 
-::: {.g-col-4}
+::: {.g-col-4 .card .p-3}
 ### [Infrastructure](infrastructure.qmd)
-AWS cloud costs and UCLA Dataverse repository metrics.
+AWS cloud costs and UCLA Dataverse repository growth and download metrics.
 :::
 
 :::
 
-## At a Glance (FY 2024)
+## Reading These Metrics
 
-::: {.grid}
+- **Direct consultations** = one interaction record (appointment or walk-in). Canceled appointments excluded.
+- **Task cards** = Trello cards assigned to DataSquad project work. Not equivalent to consultations.
+- **Task activity (comment-weighted)** = comment count on task cards — a workload proxy, not hours or outputs.
 
-::: {.g-col-4 .card .text-center .p-3}
-**Consultations**
-## 450+
-*Providing research support across 50+ departments.*
+::: {.callout-note collapse="true" title="Data notes"}
+- Sources: LibInsight (scheduled exports + manual logs), DataSquad walk-in sign-in forms, Trello (historical task tracking)
+- Canceled appointments excluded from all direct consultation counts
+- Manual LibInsight logs deduplicated against scheduled exports using a same-provider/same-minute heuristic
+- Task metrics (Trello cards, comment-weighted activity) are **not** consultations — shown separately throughout
+- Full counting rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
 :::
 
-::: {.g-col-4 .card .text-center .p-3}
-**Workshop Learners**
-## 1,200+
-*Foundational data skills for the UCLA community.*
-:::
-
-::: {.g-col-4 .card .text-center .p-3}
-**Dataverse Growth**
-## 100k+
-*Files preserved and shared via UCLA Dataverse.*
-:::
-
-:::
+```{r coverage, echo=FALSE, results='asis'}
+if (nrow(audit_coverage) > 0) {
+  snap <- audit_coverage |>
+    mutate(max_date = as.Date(max_date)) |>
+    arrange(desc(max_date)) |>
+    slice_head(n = 4)
+  cat(
+    "**Data coverage:** ",
+    paste(
+      sprintf("%s through %s", snap$source, format(snap$max_date, "%Y-%m-%d")),
+      collapse = "; "
+    ),
+    "\n"
+  )
+}
+```
 
 ---
 
-**Last Updated:** `r format(Sys.Date(), "%B %d, %Y")`
+*Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*

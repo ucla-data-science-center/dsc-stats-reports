@@ -7,13 +7,15 @@ project:
     - consulting.qmd
     - instruction.qmd
     - infrastructure.qmd
-    - dsc_report2024.qmd
+    - metrics-governance.md
+    # dsc_report2024.qmd excluded from nav; render separately if needed
 
 execute:
   freeze: false
 
 website:
-  title: "DSC Statistics Dashboard"
+  title: "DSC Statistics"
+  description: "UCLA Library Data Science Center — service metrics and infrastructure reporting."
   navbar:
     background: primary
     left:
@@ -29,13 +31,20 @@ website:
             text: Infrastructure
       - href: about.qmd
         text: About
+    right:
+      - icon: github
+        href: https://github.com/ucla-data-science-center/dsc-stats-reports
+        aria-label: GitHub repository
+  page-footer:
+    left: "UCLA Library Data Science Center"
+    right: "Data baked in at render. [About & methodology](about.qmd)."
 
 format:
   html:
-    theme: 
+    theme:
       light: flatly
       dark: darkly
     css: styles.css
+    smooth-scroll: true
     toc: true
-
-editor: visual
+    toc-depth: 2

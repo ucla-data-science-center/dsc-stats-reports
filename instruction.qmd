@@ -9,75 +9,129 @@ format:
 ```{r setup, include=FALSE}
 library(tidyverse)
 library(lubridate)
+library(scales)
 
-# Defined Paths (Robust Check)
-# We expect data in data/processed/instruction/
-possible_paths <- c(
+# ── Workshop data (graceful fallback) ─────────────────────────
+data_loaded    <- FALSE
+ucla_workshops <- tibble()
+
+for (p in c(
   "data/processed/instruction/ucla_workshops.rda",
   "data/instruction/ucla_workshops.rda",
   "data/consultations/Data/ucla_workshops.rda"
-)
-
-data_path <- NULL
-for (p in possible_paths) {
+)) {
   if (file.exists(p)) {
-    data_path <- p
+    load(p)
+    data_loaded <- TRUE
     break
   }
 }
 
-if (is.null(data_path)) {
-  stop("Could not find ucla_workshops.rda. Please ensure data is in 'data/processed/instruction/'")
+if (!data_loaded) {
+  message("ucla_workshops.rda not found — charts will show placeholder text.")
 }
 
-load(data_path)
+no_data_msg <- function() {
+  cat("*Data file not loaded. Run the ETL scripts to populate this chart.*\n")
+}
+
+# ── KPIs ──────────────────────────────────────────────────────
+fmt <- function(x) if (is.na(x) || length(x) == 0) "—" else comma(x)
+
+kpi_total <- if (data_loaded) nrow(ucla_workshops)                                       else NA_integer_
+kpi_ucla  <- if (data_loaded) sum(ucla_workshops$institution == "UCLA", na.rm = TRUE)    else NA_integer_
+kpi_years <- if (data_loaded) n_distinct(year(ucla_workshops$date), na.rm = TRUE)        else NA_integer_
 ```
 
-# Workshops and Events
+## At a Glance
 
-The Data Science Center offers workshops on foundational coding and data science skills, including the UCLA Carpentries program.
+::: {.kpi-row .grid}
 
-## Workshop Attendance by Year
+::: {.g-col-6 .g-col-md-4 .kpi-card}
+[Total Attendance Records]{.kpi-label}
+[`r fmt(kpi_total)`]{.kpi-value}
+[All workshop participants, all years]{.kpi-note}
+:::
 
-```{r attendance_year, echo=FALSE}
-ucla_workshops %>%
-  filter(!is.na(date)) %>%
-  mutate(Year = year(date)) %>%
-  count(Year) %>%
-  ggplot(aes(x = factor(Year), y = n)) +
+::: {.g-col-6 .g-col-md-4 .kpi-card}
+[UCLA-Affiliated]{.kpi-label}
+[`r fmt(kpi_ucla)`]{.kpi-value}
+[institution == "UCLA"]{.kpi-note}
+:::
+
+::: {.g-col-6 .g-col-md-4 .kpi-card}
+[Years with Data]{.kpi-label}
+[`r fmt(kpi_years)`]{.kpi-value}
+[Distinct calendar years]{.kpi-note}
+:::
+
+:::
+
+## Workshop Attendance
+
+::: {.panel-tabset}
+
+### By Year
+
+```{r chart_year, echo=FALSE}
+if (data_loaded) {
+  ucla_workshops |>
+    filter(!is.na(date)) |>
+    mutate(Year = year(date)) |>
+    count(Year) |>
+    ggplot(aes(x = factor(Year), y = n)) +
     geom_col(fill = "#2774AE") +
     coord_flip() +
-    labs(x = "Year", y = "Attendance", title = "DSC Event Attendance") +
+    labs(x = NULL, y = "Attendance") +
     theme_minimal() +
     geom_text(aes(label = n), color = "white", hjust = 1.2)
+} else { no_data_msg() }
 ```
 
-## Top Departments (Workshops)
+### By Department
 
-```{r workshop_dept, echo=FALSE}
-ucla_workshops %>%
-  filter(!is.na(standardized_department), institution == "UCLA") %>%
-  count(standardized_department, sort = TRUE) %>%
-  head(15) %>%
-  ggplot(aes(x = reorder(standardized_department, n), y = n)) +
+```{r chart_dept, echo=FALSE}
+if (data_loaded) {
+  ucla_workshops |>
+    filter(!is.na(standardized_department), institution == "UCLA") |>
+    count(standardized_department, sort = TRUE) |>
+    head(15) |>
+    ggplot(aes(x = reorder(standardized_department, n), y = n)) +
     geom_col(fill = "#2774AE") +
     coord_flip() +
-    labs(x = "Department", y = "Attendance", title = "Top Departments by Workshop Attendance") +
+    labs(x = NULL, y = "Attendance", title = "Top 15 Departments (UCLA attendees)") +
     theme_minimal() +
     geom_text(aes(label = n), color = "white", hjust = 1.2)
+} else { no_data_msg() }
 ```
 
-## Participant Affiliation
+### By Affiliation
 
-```{r workshop_status, echo=FALSE}
-ucla_workshops %>%
-  filter(!is.na(status)) %>%
-  count(status, sort = TRUE) %>%
-  head(5) %>%
-  ggplot(aes(x = reorder(status, n), y = n)) +
+```{r chart_affil, echo=FALSE}
+if (data_loaded) {
+  ucla_workshops |>
+    filter(!is.na(status)) |>
+    count(status, sort = TRUE) |>
+    head(5) |>
+    ggplot(aes(x = reorder(status, n), y = n)) +
     geom_col(fill = "#2774AE") +
     coord_flip() +
-    labs(x = "Status", y = "Attendance") +
+    labs(x = NULL, y = "Attendance") +
     theme_minimal() +
     geom_text(aes(label = n), color = "white", hjust = 1.2)
+} else { no_data_msg() }
 ```
+
+:::
+
+---
+
+::: {.callout-note collapse="true" .data-notes title="Data notes"}
+- **Source**: LibInsight workshop/event attendance exports
+- **Unit**: One row = one participant registration. A person attending three workshops is counted three times — totals reflect attendee-events, not unique individuals
+- **UCLA attendees**: filtered on `institution == "UCLA"`; external attendees included in totals but excluded from department breakdowns
+- **Department**: `standardized_department` field — mapped from raw free-text entries; unmapped values appear as-is
+- Full rules: [Metrics Governance](metrics-governance.md) · [About](about.qmd)
+:::
+
+*Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*

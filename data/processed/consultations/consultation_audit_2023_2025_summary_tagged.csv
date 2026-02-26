@@ -1,0 +1,15 @@
+metric_id,metric,value,metric_family,unit_type,source_scope,reporting_use
+dsc_direct_consults_libinsights_count,DSC consultations (scheduled via LibInsights),462,direct_consultations,consultation_rows,libinsights,reportable
+direct_consults_combined_deduped_count,"Direct consultations (DSC + DataSquad, combined LibInsight + sign-in; canceled excluded; manual logs deduped where possible)",741,direct_consultations,consultation_rows,libinsights+datasquad_signin_deduped,reportable
+datasquad_direct_consults_count,DataSquad direct consultations (LibInsights + sign-in),142,direct_consultations,consultation_rows,libinsights+datasquad_signin,reportable
+datasquad_trello_task_cards_all_count,DataSquad Trello task cards (all),219,task_count,task_cards,trello,context
+datasquad_trello_task_cards_reportable_count,DataSquad Trello task cards (reportable; excludes backlog/admin lists),204,task_count,task_cards,trello_filtered,reportable
+datasquad_trello_task_activity_comment_weighted_all_count,DataSquad Trello task rows (comment-weighted),627,task_activity,comment_weighted_task_activity_rows,trello,context
+datasquad_trello_task_activity_comment_weighted_reportable_count,DataSquad Trello reportable task rows (comment-weighted; excludes backlog/admin lists),612,task_activity,comment_weighted_task_activity_rows,trello_filtered,reportable
+datasquad_total_with_trello_all_count,Datasquad total incl. Trello,769,composite_workload,mixed_rows,datasquad_direct+trello,context
+datasquad_total_with_trello_reportable_count,Datasquad total incl. reportable Trello tasks,754,composite_workload,mixed_rows,datasquad_direct+trello_filtered,reportable
+direct_consults_dsc_plus_datasquad_count,Combined DSC + Datasquad direct consultations only,604,direct_consultations,consultation_rows,direct_consult_sources_only,reportable
+libinsights_other_uncategorized_rows_count,Other/uncategorized LibInsights rows,154,data_quality,libinsights_rows,libinsights,audit
+libinsight_manual_logs_heuristic_duplicate_count,LibInsight manual logs flagged as likely duplicates of scheduled exports (heuristic),4,data_quality,libinsights_rows,libinsights_combined,audit
+libinsights_2025_rows_all_status_count,LibInsights rows in 2025 (all statuses),115,coverage_check,libinsights_rows,libinsights,audit
+libinsights_2025_rows_not_canceled_count,LibInsights rows in 2025 (not canceled),108,coverage_check,libinsights_rows,libinsights,audit

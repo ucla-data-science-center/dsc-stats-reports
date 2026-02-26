@@ -1,0 +1,4 @@
+period_label,workstream,audience,request_theme,work_performed,outcome,anonymized_case_title,include_in_dashboard
+2025 Q1,datasquad,faculty,data management,"Reviewed repository options, metadata needs, and access constraints for course use","Identified a workable publication/access path and follow-up implementation steps",Course data access planning support,TRUE
+2025 Q1,dsc,student,geospatial analysis,"Provided troubleshooting and workflow guidance for GIS data integration","Unblocked next analysis steps and clarified tool-specific workflow decisions",GIS integration troubleshooting,TRUE
+2025 Q1,datasquad,staff,programming workflow,"Investigated code/tooling options and documented a reproducible approach","Delivered a documented approach the requester could continue independently",Workflow investigation and documentation,TRUE

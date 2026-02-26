@@ -11,95 +11,301 @@ library(tidyverse)
 library(lubridate)
 library(scales)
 
-# Defined Paths (Robust Check)
-# We expect data in data/processed/consultations/
-possible_paths <- c(
+# ── Consultation records (graceful fallback) ──────────────────
+data_loaded <- FALSE
+dsc_consult  <- tibble()
+
+for (p in c(
   "data/processed/consultations/dsc_consult_merged.rds",
   "data/consultations/Data/dsc_consult_merged.rds",
   "data/consultations/dsc_consult_merged.rds"
-)
-
-data_path <- NULL
-for (p in possible_paths) {
+)) {
   if (file.exists(p)) {
-    data_path <- p
+    dsc_consult <- readRDS(p) |>
+      mutate(ucla_affiliation = case_when(
+        ucla_affiliation %in% c("Graduate", "Graduate Student",
+                                "Visiting Graduate Student") ~ "Graduate Student",
+        ucla_affiliation %in% c("Undergrauate 3rd & Undergraduate",
+                                "Undergraduate") ~ "Undergraduate",
+        TRUE ~ ucla_affiliation
+      ))
+    data_loaded <- TRUE
     break
   }
 }
 
-if (is.null(data_path)) {
-  stop("Could not find dsc_consult_merged.rds. Please ensure data is in 'data/processed/consultations/'")
+if (!data_loaded) {
+  message("dsc_consult_merged.rds not found — charts will show placeholder text.")
 }
 
-dsc_consult <- readRDS(data_path)
+# ── Audit outputs (all graceful) ──────────────────────────────
+read_if <- function(path) {
+  if (file.exists(path)) read_csv(path, show_col_types = FALSE) else tibble()
+}
 
-# Basic cleaning for visualization
-dsc_consult <- dsc_consult %>%
-  mutate(ucla_affiliation = case_when(
-    ucla_affiliation %in% c("Graduate", "Graduate Student", "Visiting Graduate Student") ~ "Graduate Student",
-    ucla_affiliation %in% c("Undergrauate 3rd & Undergraduate", "Undergraduate") ~ "Undergraduate",
-    TRUE ~ ucla_affiliation
-  ))
+audit_summary   <- read_if("data/processed/consultations/consultation_audit_2023_2025_summary_tagged.csv")
+audit_task_mode <- read_if("data/processed/consultations/consultation_audit_2023_2025_by_year_task_mode.csv")
+audit_coverage  <- read_if("data/processed/consultations/consultation_audit_source_coverage.csv")
+qual_highlights      <- read_if("data/processed/consultations/qualitative_highlights.csv")
+impact_case_studies  <- read_if("data/processed/consultations/impact_case_studies.csv")
+
+kpi <- function(key) {
+  if (nrow(audit_summary) == 0) return("—")
+  x <- audit_summary |> filter(metric_id == key) |> pull(value)
+  if (length(x) == 0) "—" else comma(x[[1]])
+}
+
+no_data_msg <- function() {
+  cat("*Data file not loaded. Run the ETL scripts to populate this chart.*\n")
+}
+
+data_range_label <- if (nrow(audit_coverage) > 0) {
+  yr_min <- format(min(as.Date(audit_coverage$min_date)), "%Y")
+  yr_max <- format(max(as.Date(audit_coverage$max_date)), "%Y")
+  if (yr_min == yr_max) yr_min else paste0(yr_min, "\u2013", yr_max)
+} else {
+  "All Time"
+}
 ```
 
-# Overview
+## At a Glance (`r data_range_label`)
 
-The Data Science Center provides one-on-one consultations to help researchers with data-intensive projects. This service has grown significantly since its inception.
+::: {.kpi-row .grid}
 
-## Consultations by Year
+::: {.g-col-6 .g-col-md-3 .kpi-card}
+[Direct Consultations]{.kpi-label}
+[`r kpi("direct_consults_combined_deduped_count")`]{.kpi-value}
+[DSC + DataSquad combined; canceled excluded]{.kpi-note}
+:::
 
-```{r consulting_year, echo=FALSE}
-dsc_consult %>% 
-  filter(!is.na(start_date_time)) %>% 
-  group_by(year = year(start_date_time)) %>% 
-  summarize(consults = n()) %>% 
-  ggplot(aes(x = factor(year), y = consults)) + 
-    geom_col(fill = "#2774AE") + 
-    coord_flip() + 
-    labs(x = "Year", y = "Number of Consultations") +
-    theme_minimal() +
-    geom_text(aes(label = consults), color = "white", hjust = 1.2)
-```
+::: {.g-col-6 .g-col-md-3 .kpi-card}
+[DSC Staff]{.kpi-label}
+[`r kpi("dsc_direct_consults_libinsights_count")`]{.kpi-value}
+[LibInsight scheduled exports]{.kpi-note}
+:::
 
-## Top Departments
+::: {.g-col-6 .g-col-md-3 .kpi-card}
+[DataSquad]{.kpi-label}
+[`r kpi("datasquad_direct_consults_count")`]{.kpi-value}
+[Walk-in sign-ins]{.kpi-note}
+:::
 
-```{r consulting_dept, echo=FALSE}
-dsc_consult %>% 
-  filter(!is.na(department)) %>% 
-  count(department, sort = TRUE) %>% 
-  head(15) %>% 
-  ggplot(aes(x = reorder(department, n), y = n)) +
+::: {.g-col-6 .g-col-md-3 .kpi-card}
+[Task Cards (Reportable)]{.kpi-label}
+[`r kpi("datasquad_trello_task_cards_reportable_count")`]{.kpi-value}
+[Trello; backlog/admin lists excluded]{.kpi-note}
+:::
+
+:::
+
+## Direct Consultations
+
+::: {.panel-tabset}
+
+### By Year
+
+```{r chart_year, echo=FALSE}
+if (data_loaded) {
+  dsc_consult |>
+    filter(!is.na(start_date_time)) |>
+    count(year = year(start_date_time)) |>
+    ggplot(aes(x = factor(year), y = n)) +
     geom_col(fill = "#2774AE") +
     coord_flip() +
-    labs(x = "Department", y = "Consults", title = "Top 15 Departments") +
+    labs(x = NULL, y = "Consultations") +
     theme_minimal() +
     geom_text(aes(label = n), color = "white", hjust = 1.2)
+} else { no_data_msg() }
 ```
 
-## Researcher Status
+### By Department
 
-```{r consulting_status, echo=FALSE}
-dsc_consult %>%
-  filter(!is.na(ucla_affiliation)) %>%
-  count(ucla_affiliation, sort = TRUE) %>%
-  head(6) %>%
-  ggplot(aes(x = reorder(ucla_affiliation, n), y = n)) +
+```{r chart_dept, echo=FALSE}
+if (data_loaded) {
+  # Exclude internal/staff entries — not external patron consultations
+  internal_depts <- c("DSC", "Library", "UCLA")
+  dsc_consult |>
+    filter(!is.na(department), !department %in% internal_depts) |>
+    count(department, sort = TRUE) |>
+    head(15) |>
+    ggplot(aes(x = reorder(department, n), y = n)) +
     geom_col(fill = "#2774AE") +
     coord_flip() +
-    labs(x = "Affiliation", y = "Number of Consultations") +
+    labs(x = NULL, y = "Consultations", title = "Top 15 Departments") +
     theme_minimal() +
     geom_text(aes(label = n), color = "white", hjust = 1.2)
+} else { no_data_msg() }
 ```
 
-## DataSquad vs Staff
+### By Affiliation
 
-```{r consulting_group, echo=FALSE}
-dsc_consult %>%
-  filter(!is.na(group)) %>%
-  count(group) %>%
-  ggplot(aes(x = group, y = n, fill = group)) +
+```{r chart_affil, echo=FALSE}
+if (data_loaded) {
+  dsc_consult |>
+    filter(!is.na(ucla_affiliation)) |>
+    count(ucla_affiliation, sort = TRUE) |>
+    head(6) |>
+    ggplot(aes(x = reorder(ucla_affiliation, n), y = n)) +
+    geom_col(fill = "#2774AE") +
+    coord_flip() +
+    labs(x = NULL, y = "Consultations") +
+    theme_minimal() +
+    geom_text(aes(label = n), color = "white", hjust = 1.2)
+} else { no_data_msg() }
+```
+
+### By Team
+
+```{r chart_group, echo=FALSE}
+if (data_loaded) {
+  dsc_consult |>
+    filter(!is.na(group)) |>
+    count(group) |>
+    ggplot(aes(x = group, y = n, fill = group)) +
     geom_col() +
     scale_fill_manual(values = c("DSC" = "#2774AE", "Datasquad" = "#FFD100")) +
-    labs(x = "Group", y = "Total Consultations") +
-    theme_minimal()
+    labs(x = NULL, y = "Consultations") +
+    theme_minimal() +
+    theme(legend.position = "none")
+} else { no_data_msg() }
 ```
+
+:::
+
+## Project Work & Task Metrics
+
+These metrics represent follow-on project work assigned to DataSquad members. They are **not** direct consultations.
+
+::: {.panel-tabset}
+
+### Summary
+
+```{r task_table, echo=FALSE}
+if (nrow(audit_summary) == 0) {
+  cat("*Run `Rscript src/etl/consultation_audit_summary.R` to generate task metrics.*\n")
+} else {
+  audit_summary |>
+    filter(metric_id %in% c(
+      "direct_consults_combined_deduped_count",
+      "datasquad_trello_task_cards_reportable_count",
+      "datasquad_trello_task_activity_comment_weighted_reportable_count",
+      "datasquad_total_with_trello_reportable_count"
+    )) |>
+    transmute(
+      Metric = recode(metric_id,
+        direct_consults_combined_deduped_count =
+          "Direct Consultations (Combined, Deduped)",
+        datasquad_trello_task_cards_reportable_count =
+          "DataSquad Task Cards (Reportable)",
+        datasquad_trello_task_activity_comment_weighted_reportable_count =
+          "DataSquad Task Activity (Reportable, Comment-Weighted)",
+        datasquad_total_with_trello_reportable_count =
+          "DataSquad Direct + Reportable Task Activity"
+      ),
+      Value = comma(value)
+    ) |>
+    knitr::kable(align = c("l", "r"))
+}
+```
+
+### Task Activity by Year
+
+```{r task_year, echo=FALSE}
+if (nrow(audit_task_mode) == 0) {
+  cat("*Task-mode audit file not found.*\n")
+} else {
+  audit_task_mode |>
+    filter(task_metric %in% c(
+      "trello_all_task_cards", "trello_reportable_task_cards",
+      "trello_all_comment_weighted", "trello_reportable_comment_weighted"
+    )) |>
+    mutate(
+      task_metric = recode(task_metric,
+        trello_all_comment_weighted        = "Activity (all)",
+        trello_reportable_comment_weighted = "Activity (reportable)",
+        trello_all_task_cards              = "Task cards (all)",
+        trello_reportable_task_cards       = "Task cards (reportable)"
+      ),
+      metric_family = if_else(
+        grepl("cards", task_metric), "Task cards (count)", "Task activity (comment-weighted)"
+      )
+    ) |>
+    ggplot(aes(x = factor(year), y = n, fill = task_metric)) +
+    geom_col(position = "dodge") +
+    facet_wrap(~metric_family, scales = "free_y") +
+    labs(
+      x = "Year", y = "Count", fill = NULL,
+      caption = "Trello historical. Reportable metric excludes backlog/admin/archived lists."
+    ) +
+    theme_minimal() +
+    theme(legend.position = "bottom")
+}
+```
+
+:::
+
+## Research Impact
+
+These examples show how DSC and DataSquad support extends into sustained technical collaboration beyond single consultations.
+
+```{r impact, echo=FALSE, results='asis'}
+if (nrow(impact_case_studies) == 0) {
+  cat("*Add rows to `data/processed/consultations/impact_case_studies.csv` to render case studies here.*\n")
+} else {
+  impact_case_studies |>
+    filter(coalesce(include_in_dashboard, TRUE)) |>
+    arrange(display_order) |>
+    pwalk(function(case_title, partners, summary,
+                   measurable_outcomes, impact_signals, ...) {
+      cat("### ", case_title, "\n\n", sep = "")
+      if (!is.na(partners) && partners != "")
+        cat("**Partners:** ", partners, "\n\n", sep = "")
+      if (!is.na(summary) && summary != "")
+        cat(summary, "\n\n")
+      if (!is.na(measurable_outcomes) && measurable_outcomes != "")
+        cat("**Measurable outcomes:** ", measurable_outcomes, "\n\n", sep = "")
+      if (!is.na(impact_signals) && impact_signals != "")
+        cat("**Impact signals:** ", impact_signals, "\n\n", sep = "")
+    })
+}
+```
+
+```{r qualitative, echo=FALSE}
+if (nrow(qual_highlights) > 0) {
+  display_cols <- c("period_label", "workstream", "audience",
+                    "request_theme", "work_performed", "outcome")
+  qual_highlights |>
+    select(all_of(intersect(display_cols, names(qual_highlights)))) |>
+    rename_with(~str_replace_all(., "_", " ")) |>
+    knitr::kable(align = "l")
+}
+```
+
+---
+
+::: {.callout-note collapse="true" .data-notes title="Data notes"}
+- **Direct consultations**: LibInsight scheduled exports + manual logs (DSC staff); DataSquad walk-in sign-in forms
+- **Canceled appointments** excluded from all direct consultation counts
+- **Deduplication**: manual LibInsight logs matched against scheduled exports using a same-provider/same-minute heuristic; ~`r kpi("libinsight_manual_logs_heuristic_duplicate_count")` duplicates removed
+- **Task metrics** (Trello cards, comment-weighted activity) are shown separately — not comparable to consultation counts
+- **Reportable filter**: excludes `Inbox`, `Future Projects/Ideas`, `Team Info` lists; includes archived completed cards
+- Full rules: [Metrics Governance](metrics-governance.md) · [About](about.qmd)
+:::
+
+```{r coverage, echo=FALSE, results='asis'}
+if (nrow(audit_coverage) > 0) {
+  audit_coverage |>
+    mutate(min_date = as.Date(min_date), max_date = as.Date(max_date)) |>
+    arrange(source, subtype) |>
+    transmute(
+      Source        = source,
+      `Record type` = subtype,
+      Rows          = comma(rows),
+      `Date range`  = paste(format(min_date, "%Y-%m-%d"), "–",
+                            format(max_date, "%Y-%m-%d"))
+    ) |>
+    knitr::kable(align = c("l", "l", "r", "l"))
+}
+```
+
+*Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*

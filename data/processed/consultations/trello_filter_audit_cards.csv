@@ -1,0 +1,17 @@
+list_name,archived_flag,task_reportable,cards
+Done!,TRUE,TRUE,181
+Inbox,TRUE,FALSE,9
+To Be Assigned/Started,TRUE,TRUE,8
+Done!,FALSE,TRUE,7
+Future Projects/Ideas,TRUE,FALSE,5
+Team Info,FALSE,FALSE,5
+To Be Assigned/Started,FALSE,TRUE,5
+In-Progress Projects,FALSE,TRUE,4
+Team Info,TRUE,FALSE,4
+Future Projects/Ideas,FALSE,FALSE,3
+In-Progress Projects,TRUE,TRUE,2
+Waiting/On Hold,TRUE,TRUE,2
+Completed,TRUE,TRUE,1
+In-Progress Solo Projects,TRUE,TRUE,1
+Inbox,FALSE,FALSE,1
+Waiting/On Hold,FALSE,TRUE,1
