@@ -1,1 +1,206 @@
-/* css styles */
+/* UCLA Library-inspired dashboard styling */
+
+:root {
+  --ucla-blue: #2774ae;
+  --ucla-blue-deep: #0b3c5d;
+  --ucla-gold: #ffd100;
+  --ucla-gold-ink: #7b6200;
+  --library-paper: #fbfaf6;
+  --library-surface: #f2f6fa;
+  --library-border: #d8e4ef;
+  --ink-strong: #122534;
+  --ink-soft: #4a6072;
+}
+
+body {
+  color: var(--ink-strong);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(39, 116, 174, 0.06), transparent 38%),
+    radial-gradient(circle at 100% 0%, rgba(255, 209, 0, 0.10), transparent 30%),
+    var(--library-paper);
+}
+
+.navbar {
+  border-bottom: 3px solid var(--ucla-gold);
+  box-shadow: 0 1px 0 rgba(11, 60, 93, 0.08);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.quarto-title-block .quarto-title-banner {
+  background: linear-gradient(180deg, rgba(39, 116, 174, 0.08), rgba(39, 116, 174, 0.02));
+  border-bottom: 1px solid rgba(39, 116, 174, 0.14);
+}
+
+h1, h2, h3 {
+  color: var(--ucla-blue-deep);
+}
+
+h2 {
+  border-bottom: 1px solid rgba(39, 116, 174, 0.14);
+  padding-bottom: 0.25rem;
+}
+
+a {
+  color: var(--ucla-blue);
+}
+
+a:hover {
+  color: var(--ucla-blue-deep);
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--library-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(18, 37, 52, 0.04);
+}
+
+.grid .card {
+  position: relative;
+  overflow: hidden;
+}
+
+.grid .card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ucla-blue), var(--ucla-gold));
+}
+
+.grid .card h2,
+.grid .card h3 {
+  color: var(--ucla-blue-deep);
+  margin-bottom: 0.2rem;
+}
+
+.grid .card p,
+.grid .card em {
+  color: var(--ink-soft);
+}
+
+.metric-note {
+  background: linear-gradient(180deg, #eef5fb, #f8fbfe);
+  border: 1px solid var(--library-border);
+  border-left: 5px solid var(--ucla-blue);
+  border-radius: 0.45rem;
+  padding: 0.9rem 1rem 0.7rem 1rem;
+  margin: 1rem 0 1.25rem 0;
+}
+
+.metric-note h2,
+.metric-note h3 {
+  margin-top: 0.15rem;
+  color: var(--ucla-blue-deep);
+}
+
+.metric-note ul {
+  margin-bottom: 0.35rem;
+}
+
+table {
+  font-size: 0.95rem;
+  background: #fff;
+  border: 1px solid var(--library-border);
+}
+
+table thead th {
+  color: var(--ucla-blue-deep);
+  background: rgba(39, 116, 174, 0.05);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: rgba(39, 116, 174, 0.02);
+}
+
+.callout-note,
+.callout-important {
+  border-radius: 0.45rem;
+}
+
+.callout-note .callout-header {
+  background: rgba(39, 116, 174, 0.06);
+}
+
+.callout-important .callout-header {
+  background: rgba(255, 209, 0, 0.12);
+}
+
+/* Make plot captions and helper text easier to read */
+.figure-caption,
+figcaption,
+.caption {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+/* ── KPI value cards ─────────────────────────────────────────── */
+
+.kpi-row {
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.kpi-card {
+  background: #fff;
+  border: 1px solid var(--library-border);
+  border-top: 3px solid var(--ucla-blue);
+  border-radius: 0.5rem;
+  padding: 1.1rem 1rem 0.9rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(18, 37, 52, 0.05);
+}
+
+/* suppress the gradient stripe that .grid .card::before adds */
+.kpi-card::before {
+  display: none !important;
+}
+
+.kpi-card .kpi-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+}
+
+.kpi-card .kpi-value {
+  display: block;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--ucla-blue-deep);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.kpi-card .kpi-note {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin-top: 0.3rem;
+}
+
+/* ── Data notes callout: tighter body text ───────────────────── */
+.callout-note.data-notes .callout-body > p {
+  margin-bottom: 0.3rem;
+  font-size: 0.88rem;
+}
+
+/* ── Panel tabset: tighten tab strip ────────────────────────── */
+.panel-tabset .nav-tabs {
+  border-bottom: 2px solid var(--library-border);
+  margin-bottom: 1rem;
+}
+
+.panel-tabset .nav-tabs .nav-link.active {
+  border-bottom: 2px solid var(--ucla-blue);
+  color: var(--ucla-blue-deep);
+  font-weight: 600;
+}

@@ -1,121 +1,247 @@
 [
   {
-    "objectID": "dsc_report2024.html",
-    "href": "dsc_report2024.html",
-    "title": "DSC Report: 2024",
+    "objectID": "metrics-governance.html",
+    "href": "metrics-governance.html",
+    "title": "Metrics Governance (DSC Stats)",
     "section": "",
-    "text": "The DSC puts on events for the UCLA community and for the larger UC system in collaboration with other campuses. We manage the UCLA Carpentries program and provide a community for over 15 instructors on campus. We have also catalyzed a UC-wide Carpentries community and, over the pandemic, developed collaborative programming and workshop events. The success of this model has led to collaborative work in the development of UC Love Data Week in 2021 and subsequent years. In a similar vein, UC GIS Week was started in 2020 by GIS professionals in the UC system. We think these UC collaborative educational events will be a permanent fixture even as we offer more traditional local instruction.\nOur workshops typically address skills gaps in data science and foundational coding for researchers, staff, and librarians. We also contribute to curricula and train-the-trainer best practices through a global network.\nTo get a sense of the growth of events organized, taught & designed by DSC instructors, let us look at attendance over time:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSince 2017, our workshops have been attended by 148 different departments, schools, centers or units from UCLA.\nWe can look at the top departments who attend our workshops:\n\n\n\n\n\n\n\n\n\n\n\n\nA look at the affiliation of learners who come to our workshops."
+    "text": "Define consistent, reproducible metrics for UCLA Data Science Center reporting across direct consultations, DataSquad task work, and service desk/ticket systems.\n\n\n\nDo not mix different units of work into a single metric without explicit labeling.\nExamples: - A consultation appointment is not the same as a Trello/GitHub/Jira task. - A task is not the same as a comment/update on a task. - A ticket is not the same as a completed resolution.\n\n\n\n\n\nThese represent direct interactions with patrons/researchers.\nExamples: - dsc_consultations_scheduled_count - datasquad_consultations_direct_count - consultations_total_direct_count\nPrimary sources: - LibInsights / Calendly exports - DataSquad sign-in forms (walk-ins)\nUnit: - One consultation record / event row (unless a different rule is explicitly documented)\n\n\n\n\nThese represent internal/assigned work performed by DSC/DataSquad, not direct consultations.\nExamples: - datasquad_tasks_created_count - datasquad_tasks_completed_count - datasquad_task_activity_comment_count - datasquad_task_activity_comment_weighted_count\nPrimary sources: - Trello (historical) - GitHub Projects (current/future) - Jira Service Desk / JSM (if used for service requests)\nUnit: - Task/card/issue (task_count_*) OR activity on a task (comment_count, update_count)\n\n\n\nThese represent service requests submitted and tracked in a ticketing system.\nExamples: - jsm_tickets_created_count - jsm_tickets_resolved_count - jsm_tickets_open_backlog_count - jsm_ticket_comment_count\nUnit: - Ticket/issue or ticket activity\n\n\n\nUse names that encode: - who/what (DSC, DataSquad, JSM) - domain (consultations, tasks, tickets) - behavior (created, completed, resolved, direct, activity) - unit (count, comment_count, days)\nExamples: - Good: datasquad_trello_task_activity_comment_weighted_count - Good: consultations_direct_count - Bad: total_work (ambiguous)\n\n\n\nEvery published metric should document: - Source system(s) - Grain/unit (row, card, issue, comment) - Date field used (start_date_time, last_activity_date, created_at, etc.) - Inclusion filters (archived cards, list/status filters, canceled appointments) - Deduplication logic (e.g., Event UUID for LibInsights backfills)\nIf a rule changes, version it or note the effective date.\n\n\n\nValid: - Direct consultations by year - Task workload by year - Ticket volume by month - Direct consultations vs task workload (side-by-side, separate metrics)\nUse caution: - Comparing task activity counts to consultation counts as if they are equivalent output\nNot valid (without explicit methodology): - Summing consultations + tasks + comments into one unlabeled “total work” metric\n\n\n\nFor each period (month/quarter/year), report at least:\n\n\n\nDSC direct consultations\nDataSquad direct consultations\nTotal direct consultations\n\n\n\n\n\nTask count (created/completed)\nTask activity (comment/update count or weighted count)\nBacklog snapshot (open tasks)\n\n\n\n\n\nTickets created\nTickets resolved\nOpen backlog\nMedian/average time to resolution (later phase)\n\n\n\n\n\nWhen changing systems: - Preserve historical source metrics as-is (Trello) - Add new source metrics (GitHub Projects) - Create a normalized cross-source task metric only after mapping fields and rules - Clearly mark transition dates in dashboards/reports\nDo not silently splice two systems together without documentation.\n\n\n\n\nRaw exports are immutable and stored with date-stamped filenames.\nProcessed datasets are reproducible from scripts.\nReference mappings (staff roster, department map, task filters) live in data/reference/.\nDashboard/report numbers must be traceable to a script and a processed output file.\n\n\n\n\n\nTrello “comment-weighted” metrics measure task activity, not direct consultations.\nDataSquad sign-in and task sources may have coverage gaps depending on available exports.\nManual consultation logs from Google Drive may overlap with LibInsights and should be used for reconciliation unless dedup rules are implemented."
   },
   {
-    "objectID": "dsc_report2024.html#events-workshops",
-    "href": "dsc_report2024.html#events-workshops",
-    "title": "DSC Report: 2024",
+    "objectID": "metrics-governance.html#purpose",
+    "href": "metrics-governance.html#purpose",
+    "title": "Metrics Governance (DSC Stats)",
     "section": "",
-    "text": "The DSC puts on events for the UCLA community and for the larger UC system in collaboration with other campuses. We manage the UCLA Carpentries program and provide a community for over 15 instructors on campus. We have also catalyzed a UC-wide Carpentries community and, over the pandemic, developed collaborative programming and workshop events. The success of this model has led to collaborative work in the development of UC Love Data Week in 2021 and subsequent years. In a similar vein, UC GIS Week was started in 2020 by GIS professionals in the UC system. We think these UC collaborative educational events will be a permanent fixture even as we offer more traditional local instruction.\nOur workshops typically address skills gaps in data science and foundational coding for researchers, staff, and librarians. We also contribute to curricula and train-the-trainer best practices through a global network.\nTo get a sense of the growth of events organized, taught & designed by DSC instructors, let us look at attendance over time:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSince 2017, our workshops have been attended by 148 different departments, schools, centers or units from UCLA.\nWe can look at the top departments who attend our workshops:\n\n\n\n\n\n\n\n\n\n\n\n\nA look at the affiliation of learners who come to our workshops."
+    "text": "Define consistent, reproducible metrics for UCLA Data Science Center reporting across direct consultations, DataSquad task work, and service desk/ticket systems."
   },
   {
-    "objectID": "dsc_report2024.html#consultations",
-    "href": "dsc_report2024.html#consultations",
-    "title": "DSC Report: 2024",
-    "section": "Consultations",
-    "text": "Consultations\nWe work with researchers one-on-one to help them accomplish their research goals. Prior to the pandemic, we provided consultations both online and in-person, depending on the researchers’ preferences. We estimate that prior to March 2020, we provided consultations online approximately 10-15% of the time. During the pandemic, we moved our service to online only and restarted in-person consulting in 2023 on a smaller scale as a pilot. Regardless of how users access our service, it has shown growth over time. With the move to the first floor of YRL in 2024, we anticipate more business due to the improved visibility of our location and the addition of more walk-in hours.\n\n\n\n\n\n\n\n\n\n\nConsulting by Department\nSince 2019, when we started capturing more user information, our consultations have come from 115 different departments, schools, or centers. We include The Library in this number because, as a secondary and sometimes tertiary referral point, we often work with liaising librarians and internal units needing data support. For 2023, we provided data services to 51 campus departments.\nHistorically, we didn’t require patrons to provide departmental information in our appointment scheduler, so the data may be incomplete. While we’ve normalized departments, schools, and centers as much as possible, some variability remains. Despite this, the data shows that DSC services are interdisciplinary, aligning with our vision to broaden the library’s data services.\n\n\n\n\n\n\n\n\n\n\n\nResearcher Status\nWhen provided, we also collect information on our users’ status."
+    "objectID": "metrics-governance.html#core-principle",
+    "href": "metrics-governance.html#core-principle",
+    "title": "Metrics Governance (DSC Stats)",
+    "section": "",
+    "text": "Do not mix different units of work into a single metric without explicit labeling.\nExamples: - A consultation appointment is not the same as a Trello/GitHub/Jira task. - A task is not the same as a comment/update on a task. - A ticket is not the same as a completed resolution."
   },
   {
-    "objectID": "dsc_report2024.html#datasquad-work-overview",
-    "href": "dsc_report2024.html#datasquad-work-overview",
-    "title": "DSC Report: 2024",
-    "section": "DataSquad Work Overview",
-    "text": "DataSquad Work Overview\nThe DataSquad team engages in various activities, supporting data services at UCLA. Their work can be categorized into direct interactions with patrons and assigned tasks from DSC staff consultants, often managed through Trello boards.\n\nDirect Consults with Researchers\nDataSquad members frequently interact with faculty, staff, and students to provide consultations and support. The total number of consults provided by DataSquad is 187.\n\n\n\n\n\n\n\n\n\nThe following chart summarizes the number of consults by patron type for the top 4 categories:\n\n\n\n\n\n\n\n\n\n\n\nDataSquad Assigned Work via Trello\nIn addition to direct consultations with researchers, DataSquad handles a significant number of project tasks assigned by the DSC team via our Trello board. These tasks include various research support activities, managed and tracked by DSC staff who act as mentors. The following chart provides an overview of the tasks handled by DataSquad over the past year:\n\n# Plot for Monthly Tasks\nggplot(monthly_tasks, aes(x = month, y = total_tasks)) +\n  geom_bar(stat = \"identity\", fill = \"steelblue\") +\n  labs(title = \"Tasks Handled by DataSquad Over the Past Year\",\n       x = \"Month\",\n       y = \"Number of Tasks\") +\n  theme_minimal() +\n  scale_x_date(date_labels = \"%b %Y\", date_breaks = \"1 month\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +\n  coord_flip()"
+    "objectID": "metrics-governance.html#metric-families",
+    "href": "metrics-governance.html#metric-families",
+    "title": "Metrics Governance (DSC Stats)",
+    "section": "",
+    "text": "These represent direct interactions with patrons/researchers.\nExamples: - dsc_consultations_scheduled_count - datasquad_consultations_direct_count - consultations_total_direct_count\nPrimary sources: - LibInsights / Calendly exports - DataSquad sign-in forms (walk-ins)\nUnit: - One consultation record / event row (unless a different rule is explicitly documented)"
   },
   {
-    "objectID": "dsc_report2024.html#data-repositories-infrastructure",
-    "href": "dsc_report2024.html#data-repositories-infrastructure",
-    "title": "DSC Report: 2024",
-    "section": "Data Repositories & Infrastructure",
-    "text": "Data Repositories & Infrastructure\n\nUCLA Dataverse\nDatasets in UCLA Dataverse are collections of files and this is a view of the growth of those collections since we started Dataverse in 2019. The big jump in 2020 is the addition of metadata from the existing Social Science Data Archive collection we had already curated previously in Dataverse.\n\n\n\n\n\n\n\n\n\nFile growth in Dataverse is another metric to consider when assessing the usage of UCLA Dataverse as a resource on campus. Each file in Dataverse is addressable by a unique DOI.\n\n\n\n\n\n\n\n\n\n\n\nGeospatial Services"
+    "objectID": "metrics-governance.html#task-workload-metrics-project-work",
+    "href": "metrics-governance.html#task-workload-metrics-project-work",
+    "title": "Metrics Governance (DSC Stats)",
+    "section": "",
+    "text": "These represent internal/assigned work performed by DSC/DataSquad, not direct consultations.\nExamples: - datasquad_tasks_created_count - datasquad_tasks_completed_count - datasquad_task_activity_comment_count - datasquad_task_activity_comment_weighted_count\nPrimary sources: - Trello (historical) - GitHub Projects (current/future) - Jira Service Desk / JSM (if used for service requests)\nUnit: - Task/card/issue (task_count_*) OR activity on a task (comment_count, update_count)"
+  },
+  {
+    "objectID": "metrics-governance.html#ticket-service-request-metrics-jira-service-desk",
+    "href": "metrics-governance.html#ticket-service-request-metrics-jira-service-desk",
+    "title": "Metrics Governance (DSC Stats)",
+    "section": "",
+    "text": "These represent service requests submitted and tracked in a ticketing system.\nExamples: - jsm_tickets_created_count - jsm_tickets_resolved_count - jsm_tickets_open_backlog_count - jsm_ticket_comment_count\nUnit: - Ticket/issue or ticket activity"
+  },
+  {
+    "objectID": "metrics-governance.html#metric-naming-guidelines",
+    "href": "metrics-governance.html#metric-naming-guidelines",
+    "title": "Metrics Governance (DSC Stats)",
+    "section": "",
+    "text": "Use names that encode: - who/what (DSC, DataSquad, JSM) - domain (consultations, tasks, tickets) - behavior (created, completed, resolved, direct, activity) - unit (count, comment_count, days)\nExamples: - Good: datasquad_trello_task_activity_comment_weighted_count - Good: consultations_direct_count - Bad: total_work (ambiguous)"
+  },
+  {
+    "objectID": "metrics-governance.html#counting-rules-required",
+    "href": "metrics-governance.html#counting-rules-required",
+    "title": "Metrics Governance (DSC Stats)",
+    "section": "",
+    "text": "Every published metric should document: - Source system(s) - Grain/unit (row, card, issue, comment) - Date field used (start_date_time, last_activity_date, created_at, etc.) - Inclusion filters (archived cards, list/status filters, canceled appointments) - Deduplication logic (e.g., Event UUID for LibInsights backfills)\nIf a rule changes, version it or note the effective date."
+  },
+  {
+    "objectID": "metrics-governance.html#approved-comparisons",
+    "href": "metrics-governance.html#approved-comparisons",
+    "title": "Metrics Governance (DSC Stats)",
+    "section": "",
+    "text": "Valid: - Direct consultations by year - Task workload by year - Ticket volume by month - Direct consultations vs task workload (side-by-side, separate metrics)\nUse caution: - Comparing task activity counts to consultation counts as if they are equivalent output\nNot valid (without explicit methodology): - Summing consultations + tasks + comments into one unlabeled “total work” metric"
+  },
+  {
+    "objectID": "metrics-governance.html#recommended-reporting-pattern",
+    "href": "metrics-governance.html#recommended-reporting-pattern",
+    "title": "Metrics Governance (DSC Stats)",
+    "section": "",
+    "text": "For each period (month/quarter/year), report at least:\n\n\n\nDSC direct consultations\nDataSquad direct consultations\nTotal direct consultations\n\n\n\n\n\nTask count (created/completed)\nTask activity (comment/update count or weighted count)\nBacklog snapshot (open tasks)\n\n\n\n\n\nTickets created\nTickets resolved\nOpen backlog\nMedian/average time to resolution (later phase)"
+  },
+  {
+    "objectID": "metrics-governance.html#source-transition-policy-trello---github-projects",
+    "href": "metrics-governance.html#source-transition-policy-trello---github-projects",
+    "title": "Metrics Governance (DSC Stats)",
+    "section": "",
+    "text": "When changing systems: - Preserve historical source metrics as-is (Trello) - Add new source metrics (GitHub Projects) - Create a normalized cross-source task metric only after mapping fields and rules - Clearly mark transition dates in dashboards/reports\nDo not silently splice two systems together without documentation."
+  },
+  {
+    "objectID": "metrics-governance.html#data-stewardship-rules",
+    "href": "metrics-governance.html#data-stewardship-rules",
+    "title": "Metrics Governance (DSC Stats)",
+    "section": "",
+    "text": "Raw exports are immutable and stored with date-stamped filenames.\nProcessed datasets are reproducible from scripts.\nReference mappings (staff roster, department map, task filters) live in data/reference/.\nDashboard/report numbers must be traceable to a script and a processed output file."
+  },
+  {
+    "objectID": "metrics-governance.html#current-known-caveats-this-repo",
+    "href": "metrics-governance.html#current-known-caveats-this-repo",
+    "title": "Metrics Governance (DSC Stats)",
+    "section": "",
+    "text": "Trello “comment-weighted” metrics measure task activity, not direct consultations.\nDataSquad sign-in and task sources may have coverage gaps depending on available exports.\nManual consultation logs from Google Drive may overlap with LibInsights and should be used for reconciliation unless dedup rules are implemented."
   },
   {
     "objectID": "instruction.html",
     "href": "instruction.html",
     "title": "Instruction Statistics",
     "section": "",
-    "text": "The Data Science Center offers workshops on foundational coding and data science skills, including the UCLA Carpentries program."
+    "text": "For DSC staff and library administration — workshop attendance records from LibInsight event exports.\nLast rendered: February 27, 2026"
+  },
+  {
+    "objectID": "instruction.html#at-a-glance-20202024",
+    "href": "instruction.html#at-a-glance-20202024",
+    "title": "Instruction Statistics",
+    "section": "At a Glance (2020–2024)",
+    "text": "At a Glance (2020–2024)\n\n\nTotal Attendance Records 1,676 All workshop participants, all years · ↓ -20% · 372 in 2024 vs 464 in 2023\n\n\nUCLA-Affiliated 1,575 institution == “UCLA”\n\n\nYears with Data 5 Distinct calendar years"
+  },
+  {
+    "objectID": "instruction.html#workshop-attendance",
+    "href": "instruction.html#workshop-attendance",
+    "title": "Instruction Statistics",
+    "section": "Workshop Attendance",
+    "text": "Workshop Attendance\n\nBy YearBy DepartmentBy Affiliation\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSee also: Consulting → one-on-one consultations · Infrastructure → Dataverse and AWS metrics · About & methodology\n\n\n\n\n\n\n\nNoteData notes\n\n\n\n\n\n\nSource: LibInsight workshop/event attendance exports\nUnit: One row = one participant registration. A person attending three workshops is counted three times — totals reflect attendee-events, not unique individuals\nUCLA attendees: filtered on institution == \"UCLA\"; external attendees included in totals but excluded from department breakdowns\nDepartment: standardized_department field — mapped from raw free-text entries; unmapped values appear as-is\nFull rules: Metrics Governance · About\n\n\n\n\n\n\n\nSource\nRecord type\nRows\nDate range\n\n\n\n\nLibInsight\nworkshop_attendance\n1,676\n2020-11-17 – 2024-04-19\n\n\n\n\n\n\n\n\n\nNoteCite this page\n\n\n\n\n\nUCLA Library Data Science Center. (2026). Instruction Statistics. Retrieved from https://ucla-data-science-center.github.io/dsc-stats-reports/instruction.html\n\n\n\nLast rendered: February 27, 2026"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About This Dashboard",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "This site consolidates service and infrastructure statistics for the UCLA Library Data Science Center (DSC). It is rendered from source data and published as a static site on GitHub Pages.\nPrimary audiences:\n\nDSC leadership and library administration — for annual reporting, program review, and resource planning\nDSC staff — to understand service load, trends, and data limitations\nResearchers and partners — who want to understand how DSC tracks and reports impact"
+  },
+  {
+    "objectID": "about.html#purpose",
+    "href": "about.html#purpose",
+    "title": "About This Dashboard",
+    "section": "",
+    "text": "This site consolidates service and infrastructure statistics for the UCLA Library Data Science Center (DSC). It is rendered from source data and published as a static site on GitHub Pages.\nPrimary audiences:\n\nDSC leadership and library administration — for annual reporting, program review, and resource planning\nDSC staff — to understand service load, trends, and data limitations\nResearchers and partners — who want to understand how DSC tracks and reports impact"
+  },
+  {
+    "objectID": "about.html#update-cadence",
+    "href": "about.html#update-cadence",
+    "title": "About This Dashboard",
+    "section": "Update Cadence",
+    "text": "Update Cadence\nEach page shows a “Last rendered” date at the bottom reflecting when data was baked in — this is not a live feed. The site is re-rendered manually when source data is refreshed.\n\n\n\nData stream\nTypical refresh\n\n\n\n\nConsulting (LibInsight)\nAt semester end or on request\n\n\nDataSquad walk-in sign-ins\nWith each form export\n\n\nInstruction (LibInsight workshops)\nAt end of academic year\n\n\nAWS costs\nMonthly (Cost Explorer API pull)\n\n\nUCLA Dataverse metrics\nMonthly (Dataverse API pull)\n\n\nS3 storage (CloudWatch)\nReal-time at render\n\n\n\nTo request a data refresh, open an issue in the GitHub repository or contact the site maintainer."
+  },
+  {
+    "objectID": "about.html#data-sources",
+    "href": "about.html#data-sources",
+    "title": "About This Dashboard",
+    "section": "Data Sources",
+    "text": "Data Sources\n\n\n\n\n\n\n\n\nSource\nWhat it tracks\nLocation\n\n\n\n\nLibInsight (Springshare)\nDSC scheduled consultations; workshop attendance\ndata/processed/consultations/\n\n\nManual LibInsight logs\nWalk-in and complex appointments entered manually\nMerged into LibInsight export\n\n\nDataSquad sign-in forms\nWalk-in consultations at the DataSquad desk\ndata/processed/consultations/\n\n\nTrello\nDataSquad project task cards and activity (2020–2024)\ndata/processed/consultations/\n\n\nGitHub Projects\nDataSquad task tracking (2024+; planned integration)\nNot yet integrated\n\n\nJira Service Desk\nService requests (planned integration)\nNot yet integrated\n\n\nAWS Cost Explorer API\nMonthly cloud spend by service/application\ndata/raw/infrastructure/AWS_Costs/\n\n\nUCLA Dataverse API\nCumulative datasets, files, and download counts\ndata/raw/infrastructure/\n\n\nAWS CloudWatch\nS3 bucket storage sizes\nFetched live at render"
+  },
+  {
+    "objectID": "about.html#definitions",
+    "href": "about.html#definitions",
+    "title": "About This Dashboard",
+    "section": "Definitions",
+    "text": "Definitions\nConsultation A direct interaction between a DSC staff member or DataSquad student and a researcher. Includes scheduled appointments tracked in LibInsight (Calendly-integrated) and walk-in sign-ins at the DataSquad desk. Excludes canceled appointments (status = Canceled in LibInsight).\nTask card A Trello card or GitHub Projects item representing a unit of assigned project work for a DataSquad member. Task cards are not consultations — they represent follow-on or project-based work, often without a direct patron interaction at the time of the task.\nTask activity (comment-weighted) A count of comments on task cards, used as a rough workload proxy. This is an activity signal, not equivalent to hours worked, tasks completed, or consultations.\nWorkshop attendee One participant registration record in a LibInsight event export. A single person attending three workshops is counted three times — this reflects total attendee-events, not unique individuals.\nDataset (Dataverse) A published data package in UCLA Dataverse — the native Dataverse object that groups related files under a single persistent identifier (DOI).\nFile (Dataverse) An individual file within a dataset. One dataset may contain one or many files.\nDownload (Dataverse) A file-level download event recorded by the Dataverse metrics API. Counts include both researcher-initiated and automated/programmatic downloads (e.g., crawlers, API clients) and are not filtered for human-only access."
+  },
+  {
+    "objectID": "about.html#limitations-and-caveats",
+    "href": "about.html#limitations-and-caveats",
+    "title": "About This Dashboard",
+    "section": "Limitations and Caveats",
+    "text": "Limitations and Caveats\n\nWalk-in undercounting: Walk-in consultations may be undercounted in periods where DataSquad sign-in forms were not consistently used.\nManual log deduplication: Manual LibInsight entries and scheduled exports are deduplicated with a same-provider/same-minute heuristic. A small number of genuine duplicates may remain.\nTrello coverage gap: Trello task metrics reflect the period when Trello was the primary DataSquad task system. The transition to GitHub Projects creates a data discontinuity; cross-system comparisons require care.\nAWS billing lag: Cost Explorer data for the most recent 1–2 months is an estimate; final billed amounts may differ after the billing period closes.\nDataverse bot downloads: Download counts are not filtered for automated access. Cumulative totals likely include a fraction of non-human downloads.\nInstruction completeness: Workshop attendance completeness depends on consistent LibInsight data entry. Some events may be missing from exports."
+  },
+  {
+    "objectID": "about.html#counting-rules-reference",
+    "href": "about.html#counting-rules-reference",
+    "title": "About This Dashboard",
+    "section": "Counting Rules Reference",
+    "text": "Counting Rules Reference\nThe Metrics Governance document defines:\n\nMetric naming conventions (encoding who, domain, behavior, and unit)\nApproved and prohibited metric combinations\nSource transition policy (Trello → GitHub Projects)\nData stewardship rules (immutable raw exports, reproducible processed data)"
+  },
+  {
+    "objectID": "about.html#how-to-cite-or-reuse-these-metrics",
+    "href": "about.html#how-to-cite-or-reuse-these-metrics",
+    "title": "About This Dashboard",
+    "section": "How to Cite or Reuse These Metrics",
+    "text": "How to Cite or Reuse These Metrics\nWhen referencing figures from this dashboard in reports or presentations:\n\nUCLA Library Data Science Center. (Year). DSC Statistics Dashboard. UCLA Library. Retrieved [date] from [site URL].\n\nInclude the data coverage period (e.g., “2021–present”) and note the source system (e.g., “LibInsight scheduled exports”) when quoting specific numbers. For methodology questions, consult the Metrics Governance document or contact the DSC."
+  },
+  {
+    "objectID": "about.html#repository-and-contact",
+    "href": "about.html#repository-and-contact",
+    "title": "About This Dashboard",
+    "section": "Repository and Contact",
+    "text": "Repository and Contact\n\nSource code: github.com/UCLALibrary/dsc-stats-reports (update to actual URL)\nIssues / contributions: Open a pull request or issue in the repository\nGeneral inquiries: dsc@library.ucla.edu (confirm address)\n\nBuilt with Quarto. Data processed with R and Python."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "DSC Statistics Dashboard",
     "section": "",
-    "text": "Welcome to the unified statistics dashboard for the UCLA Library Data Science Center. This dashboard consolidates data from consultations, instructional workshops, and repository infrastructure into a single, reproducible platform."
+    "text": "For UCLA Library administration and DSC staff — unified service metrics across consultations, instruction, and infrastructure."
+  },
+  {
+    "objectID": "index.html#at-a-glance-20212026",
+    "href": "index.html#at-a-glance-20212026",
+    "title": "DSC Statistics Dashboard",
+    "section": "At a Glance (2021–2026)",
+    "text": "At a Glance (2021–2026)\nLast rendered: February 27, 2026\n\n\nDirect Consultations 741 DSC + DataSquad combined; canceled excluded · ↓ -41% · 238 in 2024 vs 405 in 2023\n\n\nDSC Staff 462 LibInsight scheduled exports\n\n\nDataSquad 142 Walk-in sign-ins\n\n\nTask Cards (Reportable) 204 Trello; backlog/admin lists excluded · ↑ +1350% · 87 in 2024 vs 6 in 2023"
   },
   {
     "objectID": "index.html#dashboard-sections",
     "href": "index.html#dashboard-sections",
     "title": "DSC Statistics Dashboard",
     "section": "Dashboard Sections",
-    "text": "Dashboard Sections\n\n\nConsulting\nOne-on-one research support provided by DSC staff and the DataSquad.\n\n\nInstruction\nWorkshops, events, and community-led training like The Carpentries.\n\n\nInfrastructure\nAWS cloud costs and UCLA Dataverse repository metrics."
+    "text": "Dashboard Sections\n\n\nConsulting\nOne-on-one research support — DSC staff appointments and DataSquad walk-ins.\n\n\nInstruction\nWorkshops, Carpentries events, and community-led training sessions.\n\n\nInfrastructure\nAWS cloud costs and UCLA Dataverse repository growth and download metrics.\n\n\nExplore by section: Consulting → · Instruction → · Infrastructure → · About & methodology"
   },
   {
-    "objectID": "index.html#at-a-glance-fy-2024",
-    "href": "index.html#at-a-glance-fy-2024",
+    "objectID": "index.html#reading-these-metrics",
+    "href": "index.html#reading-these-metrics",
     "title": "DSC Statistics Dashboard",
-    "section": "At a Glance (FY 2024)",
-    "text": "At a Glance (FY 2024)\n\n\nConsultations ## 450+ Providing research support across 50+ departments.\n\n\nWorkshop Learners ## 1,200+ Foundational data skills for the UCLA community.\n\n\nDataverse Growth ## 100k+ Files preserved and shared via UCLA Dataverse.\n\n\n\nLast Updated: February 06, 2026"
+    "section": "Reading These Metrics",
+    "text": "Reading These Metrics\n\nDirect consultations = one interaction record (appointment or walk-in). Canceled appointments excluded.\nTask cards = Trello cards assigned to DataSquad project work. Not equivalent to consultations.\nTask activity (comment-weighted) = comment count on task cards — a workload proxy, not hours or outputs.\n\n\n\n\n\n\n\nNoteData notes\n\n\n\n\n\n\nSources: LibInsight (scheduled exports + manual logs), DataSquad walk-in sign-in forms, Trello (historical task tracking)\nCanceled appointments excluded from all direct consultation counts\nManual LibInsight logs deduplicated against scheduled exports using a same-provider/same-minute heuristic\nTask metrics (Trello cards, comment-weighted activity) are not consultations — shown separately throughout\nYoY comparisons (2023 → 2024): consultation decline reflects shifting data sources; task card growth reflects expanded Trello adoption, not proportional workload increase\nFull counting rules: Metrics Governance · About & methodology\n\n\n\n\nData coverage: libinsights through 2026-02-13; libinsights through 2025-03-27; trello through 2025-03-25; datasquad_signin through 2024-06-05\n\n\n\n\n\n\nNoteCite this page\n\n\n\n\n\nUCLA Library Data Science Center. (2026). DSC Statistics Dashboard. Retrieved from https://ucla-data-science-center.github.io/dsc-stats-reports/\n\n\n\n\nLast rendered: February 27, 2026"
   },
   {
     "objectID": "consulting.html",
     "href": "consulting.html",
     "title": "Consulting Statistics",
     "section": "",
-    "text": "The Data Science Center provides one-on-one consultations to help researchers with data-intensive projects. This service has grown significantly since its inception."
+    "text": "For DSC staff and library administration — direct consultation counts, project task metrics, and patron breakdowns."
+  },
+  {
+    "objectID": "consulting.html#at-a-glance-20212026",
+    "href": "consulting.html#at-a-glance-20212026",
+    "title": "Consulting Statistics",
+    "section": "At a Glance (2021–2026)",
+    "text": "At a Glance (2021–2026)\nLast rendered: February 27, 2026\n\n\nDirect Consultations 741 DSC + DataSquad combined; canceled excluded · ↓ -41% · 238 in 2024 vs 405 in 2023\n\n\nDSC Staff 462 LibInsight scheduled exports\n\n\nDataSquad 142 Walk-in sign-ins\n\n\nTask Cards (Reportable) 204 Trello; backlog/admin lists excluded · ↑ +1350% · 87 in 2024 vs 6 in 2023"
+  },
+  {
+    "objectID": "consulting.html#direct-consultations",
+    "href": "consulting.html#direct-consultations",
+    "title": "Consulting Statistics",
+    "section": "Direct Consultations",
+    "text": "Direct Consultations\n\nBy YearBy DepartmentBy AffiliationBy Team"
+  },
+  {
+    "objectID": "consulting.html#project-work-task-metrics",
+    "href": "consulting.html#project-work-task-metrics",
+    "title": "Consulting Statistics",
+    "section": "Project Work & Task Metrics",
+    "text": "Project Work & Task Metrics\nThese metrics represent follow-on project work assigned to DataSquad members. They are not direct consultations.\n\nSummaryTask Activity by Year\n\n\n\n\n\n\n\nMetric\nValue\n\n\n\n\nDirect Consultations (Combined, Deduped)\n741\n\n\nDataSquad Task Cards (Reportable)\n204\n\n\nDataSquad Task Activity (Reportable, Comment-Weighted)\n612\n\n\nDataSquad Direct + Reportable Task Activity\n754"
+  },
+  {
+    "objectID": "consulting.html#research-impact",
+    "href": "consulting.html#research-impact",
+    "title": "Consulting Statistics",
+    "section": "Research Impact",
+    "text": "Research Impact\nThese examples show how DSC and DataSquad support extends into sustained technical collaboration beyond single consultations.\n\nCarceral Ecologies\nPartners: UCLA Institute for Society and Genetics (Nicholas Shapiro)\nThe DSC and UCLA DataSquad provided multi-year research support for the Carceral Ecologies Lab, including R server infrastructure, data processing support, and student training for work on a helicopter surveillance dataset. In collaboration with DSC staff, DataSquad contributors helped build a workflow that made iterative analysis feasible at research scale.\nMeasurable outcomes: Reduced processing time from ~318 minutes to ~2 minutes (about a 99.4% reduction; ~159x faster). Built sustainable capacity by training a research student in R-based workflows.\nImpact signals: National media coverage (Los Angeles Times, The New Yorker, Bloomberg) and support for award-recognized UCLA public-impact research.\n\n\nBioCritical Studies Lab\nPartners: UCLA (Grace Sosa; Terence Keel)\nThe DSC and UCLA DataSquad supported the BioCritical Studies Lab through a multi-year collaboration focused on data integration, statistical analysis, and visualization for a large deaths-in-custody research dataset. DataSquad consultants worked with DSC staff to build sustainable tools and workflows that improved maintainability and ongoing use of the data.\nMeasurable outcomes: Substantial dataset cleanup and transformation for geographic analysis and visualization, with workflows designed for continued updates and reuse.\nImpact signals: Supported research recognized through UCLA’s 2024 Public Impact Research Awards and contributed to long-term public-facing scholarship and teaching outputs.\n\n\n\n\n\n\n\n\n\n\n\n\n\nperiod label\nworkstream\naudience\nrequest theme\nwork performed\noutcome\n\n\n\n\n2025 Q1\ndatasquad\nfaculty\ndata management\nReviewed repository options, metadata needs, and access constraints for course use\nIdentified a workable publication/access path and follow-up implementation steps\n\n\n2025 Q1\ndsc\nstudent\ngeospatial analysis\nProvided troubleshooting and workflow guidance for GIS data integration\nUnblocked next analysis steps and clarified tool-specific workflow decisions\n\n\n2025 Q1\ndatasquad\nstaff\nprogramming workflow\nInvestigated code/tooling options and documented a reproducible approach\nDelivered a documented approach the requester could continue independently\n\n\n\n\n\n\nSee also: Instruction → workshop attendance · Infrastructure → Dataverse and AWS metrics · About & methodology\n\n\n\n\n\n\n\nNoteData notes\n\n\n\n\n\n\nDirect consultations: LibInsight scheduled exports + manual logs (DSC staff); DataSquad walk-in sign-in forms\nCanceled appointments excluded from all direct consultation counts\nDeduplication: manual LibInsight logs matched against scheduled exports using a same-provider/same-minute heuristic; ~4 duplicates removed\nTask metrics (Trello cards, comment-weighted activity) are shown separately — not comparable to consultation counts\nReportable filter: excludes Inbox, Future Projects/Ideas, Team Info lists; includes archived completed cards\nYoY comparisons (2023 → 2024): direct consultation decline reflects shifting data sources and intake channels, not necessarily service volume; task card growth reflects expanded Trello adoption in 2024, not a proportional workload increase\nFull rules: Metrics Governance · About\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteCite this page\n\n\n\n\n\nUCLA Library Data Science Center. (2026). Consulting Statistics. Retrieved from https://ucla-data-science-center.github.io/dsc-stats-reports/consulting.html\n\n\n\nLast rendered: February 27, 2026"
   },
   {
     "objectID": "infrastructure.html",
     "href": "infrastructure.html",
     "title": "Infrastructure Statistics",
     "section": "",
-    "text": "Month\nActual Cost Charged\n\n\n\n\n2025-09\n$1,000.58\n\n\n2025-08\n$937.90\n\n\n2025-07\n$1,001.50\n\n\n2025-06\n$1,019.57\n\n\n2025-04\n$990.96"
-  },
-  {
-    "objectID": "infrastructure.html#monthly-departmental-charges-ledger",
-    "href": "infrastructure.html#monthly-departmental-charges-ledger",
-    "title": "Infrastructure Statistics",
-    "section": "",
-    "text": "Month\nActual Cost Charged\n\n\n\n\n2025-09\n$1,000.58\n\n\n2025-08\n$937.90\n\n\n2025-07\n$1,001.50\n\n\n2025-06\n$1,019.57\n\n\n2025-04\n$990.96"
-  },
-  {
-    "objectID": "infrastructure.html#repository-growth-cumulative",
-    "href": "infrastructure.html#repository-growth-cumulative",
-    "title": "Infrastructure Statistics",
-    "section": "Repository Growth (Cumulative)",
-    "text": "Repository Growth (Cumulative)"
-  },
-  {
-    "objectID": "infrastructure.html#monthly-activity",
-    "href": "infrastructure.html#monthly-activity",
-    "title": "Infrastructure Statistics",
-    "section": "Monthly Activity",
-    "text": "Monthly Activity"
-  },
-  {
-    "objectID": "infrastructure.html#current-bucket-sizes",
-    "href": "infrastructure.html#current-bucket-sizes",
-    "title": "Infrastructure Statistics",
-    "section": "Current Bucket Sizes",
-    "text": "Current Bucket Sizes\n\n\n\n\n\nBucket Name\nSize (GB)\nLast Updated\n\n\n\n\npotree-test2\n11038.14 GB\n2026-02-03\n\n\ndataverse-files-replicated\n3752.27 GB\n2026-02-03\n\n\ndataverse-files\n3752.22 GB\n2026-02-03\n\n\ndataverse-files-direct-upload\n544.81 GB\n2026-02-03\n\n\ndataverse-files-replicated-direct-upload\n542.64 GB\n2026-02-03\n\n\ndataverse-test-oregon\n130.68 GB\n2026-02-03\n\n\ntest-dataverse-files2\n19.53 GB\n2026-02-03\n\n\ndataverse-test-lariac-direct\n12.10 GB\n2026-02-03\n\n\ndataverse-lariac-direct\n11.96 GB\n2026-02-03\n\n\ndataverse-test-lariac\n9.64 GB\n2026-02-03\n\n\nlariac-backup\n3.34 GB\n2026-02-03\n\n\ndscbbillinginfo\n1.02 GB\n2026-02-03\n\n\ndataverse-lariac\n0.24 GB\n2026-02-03\n\n\nssda-files\n0.12 GB\n2026-02-03\n\n\nssda-files-replicated\n0.12 GB\n2026-02-03\n\n\ntest-dataverse-jmj\n0.00 GB\n2026-02-03\n\n\nucla-library-terraform-state\n0.00 GB\n2026-02-03\n\n\nbulk-policy-migration-221761179339\n0.00 GB\n2026-02-03"
-  },
-  {
-    "objectID": "infrastructure.html#potree-storage-growth-last-365-days",
-    "href": "infrastructure.html#potree-storage-growth-last-365-days",
-    "title": "Infrastructure Statistics",
-    "section": "Potree Storage Growth (Last 365 Days)",
-    "text": "Potree Storage Growth (Last 365 Days)\n\n\nDEBUG: Found 364 storage datapoints."
+    "text": "For DSC staff and library administration — AWS cloud costs, UCLA Dataverse repository metrics, and S3 storage trends.\n\n\nLast rendered: February 27, 2026\n\n\n\n&lt;span class=\"kpi-label\"&gt;Dataverse Datasets&lt;/span&gt;\n&lt;span class=\"kpi-value\"&gt;380&lt;/span&gt;\n&lt;span class=\"kpi-note\"&gt;Cumulative published, as of 2026-02&lt;/span&gt;\n\n\n&lt;span class=\"kpi-label\"&gt;Dataverse Files&lt;/span&gt;\n&lt;span class=\"kpi-value\"&gt;25,360&lt;/span&gt;\n&lt;span class=\"kpi-note\"&gt;Cumulative published&lt;/span&gt;\n\n\n&lt;span class=\"kpi-label\"&gt;Total Downloads&lt;/span&gt;\n&lt;span class=\"kpi-value\"&gt;153,761&lt;/span&gt;\n&lt;span class=\"kpi-note\"&gt;Cumulative file-level download events&lt;/span&gt;\n\n\n&lt;span class=\"kpi-label\"&gt;AWS Spend&lt;/span&gt;\n&lt;span class=\"kpi-value\"&gt;$965&lt;/span&gt;\n&lt;span class=\"kpi-note\"&gt;Jan 2026 estimate; billing lags ~1–2 mo.&lt;/span&gt;\n\n\n\nAWS CostsDataverse UsageS3 Storage\n\n\n\nMonthly Departmental Charges (Ledger)\n\n\n\n\n\nMonth\nActual Cost Charged\n\n\n\n\n2025-09\n$1,000.58\n\n\n2025-08\n$937.90\n\n\n2025-07\n$1,001.50\n\n\n2025-06\n$1,019.57\n\n\n2025-04\n$990.96\n\n\n\n\n\n\n\nMonthly Trends\n\n\n\n\n\n\n\n\n\n\n\n\n\nRepository Growth (Cumulative)\n\n\n\n\n\n\n\n\n\n\n\nMonthly Activity\n\n\n\n\n\n\n\n\n\n\n\n\n\nCurrent Bucket Sizes\n\n\n\n\n\nBucket Name\nSize (GB)\nLast Updated\n\n\n\n\npotree-test2\n11038.14 GB\n2026-02-24\n\n\ndataverse-files-replicated\n3755.73 GB\n2026-02-24\n\n\ndataverse-files\n3755.68 GB\n2026-02-24\n\n\ndataverse-files-direct-upload\n544.81 GB\n2026-02-24\n\n\ndataverse-files-replicated-direct-upload\n542.64 GB\n2026-02-24\n\n\ndataverse-test-oregon\n130.68 GB\n2026-02-24\n\n\ntest-dataverse-files2\n19.53 GB\n2026-02-24\n\n\ndataverse-test-lariac-direct\n12.10 GB\n2026-02-24\n\n\ndataverse-lariac-direct\n11.96 GB\n2026-02-24\n\n\ndataverse-test-lariac\n9.64 GB\n2026-02-24\n\n\nlariac-backup\n3.34 GB\n2026-02-24\n\n\ndscbbillinginfo\n1.04 GB\n2026-02-24\n\n\ndataverse-lariac\n0.24 GB\n2026-02-24\n\n\nssda-files\n0.12 GB\n2026-02-24\n\n\nssda-files-replicated\n0.12 GB\n2026-02-24\n\n\ntest-dataverse-jmj\n0.00 GB\n2026-02-24\n\n\nucla-library-terraform-state\n0.00 GB\n2026-02-24\n\n\nbulk-policy-migration-221761179339\n0.00 GB\n2026-02-24\n\n\n\n\n\n\n\nPotree Storage Growth\n\n\n\n\n\n\n\n\n\n\n\n\n\nSee also: Consulting → one-on-one consultations · Instruction → workshop attendance · About & methodology\n\n\n\n\n\n\n\nNoteData notes\n\n\n\n\n\n\nAWS costs: Cost Explorer API (last 12 months) merged with historical CSV exports. Most recent 1–2 months are estimates; final billing may differ\nDataverse datasets/files/downloads: Cumulative counts from the UCLA Dataverse /api/info/metrics endpoint — stored in data/raw/infrastructure/datasets_files_published_monthly.csv\nDownloads: File-level events as reported by Dataverse. Includes automated and bot traffic; not filtered for human-only access\nS3 storage: Fetched live from AWS CloudWatch at render time. May be unavailable without valid AWS credentials; CloudWatch reports storage metrics once daily\nFull rules: Metrics Governance · About\n\n\n\n\n\n\n\n\n\n\nNoteCite this page\n\n\n\n\n\nUCLA Library Data Science Center. (2026). Infrastructure Statistics. Retrieved from https://ucla-data-science-center.github.io/dsc-stats-reports/infrastructure.html\n\n\n\nLast rendered:\n\n\nFebruary 27, 2026"
   }
 ]

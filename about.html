@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – DSC Statistics Dashboard</title>
+<title>About This Dashboard – DSC Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,41 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -77,9 +42,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6457b5646f0f6027685ab53bb38b23c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-feadf0bfd3f54624ec68e70c2335de3c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-6457b5646f0f6027685ab53bb38b23c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2dd59c42b9095ae996cdfe5f8b69aa47.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-e5e6166c1f33ac5a6678b33901df45e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-2dd59c42b9095ae996cdfe5f8b69aa47.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -107,6 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -282,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">DSC Statistics Dashboard</span>
+    <span class="navbar-title">DSC Statistics</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -319,6 +285,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ucla-data-science-center/dsc-stats-reports"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -330,8 +303,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#purpose" id="toc-purpose" class="nav-link active" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#update-cadence" id="toc-update-cadence" class="nav-link" data-scroll-target="#update-cadence">Update Cadence</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data Sources</a></li>
+  <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions">Definitions</a></li>
+  <li><a href="#limitations-and-caveats" id="toc-limitations-and-caveats" class="nav-link" data-scroll-target="#limitations-and-caveats">Limitations and Caveats</a></li>
+  <li><a href="#counting-rules-reference" id="toc-counting-rules-reference" class="nav-link" data-scroll-target="#counting-rules-reference">Counting Rules Reference</a></li>
+  <li><a href="#how-to-cite-or-reuse-these-metrics" id="toc-how-to-cite-or-reuse-these-metrics" class="nav-link" data-scroll-target="#how-to-cite-or-reuse-these-metrics">How to Cite or Reuse These Metrics</a></li>
+  <li><a href="#repository-and-contact" id="toc-repository-and-contact" class="nav-link" data-scroll-target="#repository-and-contact">Repository and Contact</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -339,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">About This Dashboard</h1>
 </div>
 
 
@@ -356,15 +342,176 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>About this site</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+<section id="purpose" class="level2">
+<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
+<p>This site consolidates service and infrastructure statistics for the UCLA Library Data Science Center (DSC). It is rendered from source data and published as a static site on GitHub Pages.</p>
+<p><strong>Primary audiences:</strong></p>
+<ul>
+<li>DSC leadership and library administration — for annual reporting, program review, and resource planning</li>
+<li>DSC staff — to understand service load, trends, and data limitations</li>
+<li>Researchers and partners — who want to understand how DSC tracks and reports impact</li>
+</ul>
+<hr>
+</section>
+<section id="update-cadence" class="level2">
+<h2 class="anchored" data-anchor-id="update-cadence">Update Cadence</h2>
+<p>Each page shows a “Last rendered” date at the bottom reflecting when data was baked in — this is not a live feed. The site is re-rendered manually when source data is refreshed.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Data stream</th>
+<th>Typical refresh</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Consulting (LibInsight)</td>
+<td>At semester end or on request</td>
+</tr>
+<tr class="even">
+<td>DataSquad walk-in sign-ins</td>
+<td>With each form export</td>
+</tr>
+<tr class="odd">
+<td>Instruction (LibInsight workshops)</td>
+<td>At end of academic year</td>
+</tr>
+<tr class="even">
+<td>AWS costs</td>
+<td>Monthly (Cost Explorer API pull)</td>
+</tr>
+<tr class="odd">
+<td>UCLA Dataverse metrics</td>
+<td>Monthly (Dataverse API pull)</td>
+</tr>
+<tr class="even">
+<td>S3 storage (CloudWatch)</td>
+<td>Real-time at render</td>
+</tr>
+</tbody>
+</table>
+<p>To request a data refresh, open an issue in the <a href="https://github.com/ucla-data-science-center/dsc-stats-reports">GitHub repository</a> or contact the site maintainer.</p>
+<hr>
+</section>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">Data Sources</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>What it tracks</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>LibInsight</strong> (Springshare)</td>
+<td>DSC scheduled consultations; workshop attendance</td>
+<td><code>data/processed/consultations/</code></td>
+</tr>
+<tr class="even">
+<td><strong>Manual LibInsight logs</strong></td>
+<td>Walk-in and complex appointments entered manually</td>
+<td>Merged into LibInsight export</td>
+</tr>
+<tr class="odd">
+<td><strong>DataSquad sign-in forms</strong></td>
+<td>Walk-in consultations at the DataSquad desk</td>
+<td><code>data/processed/consultations/</code></td>
+</tr>
+<tr class="even">
+<td><strong>Trello</strong></td>
+<td>DataSquad project task cards and activity (2020–2024)</td>
+<td><code>data/processed/consultations/</code></td>
+</tr>
+<tr class="odd">
+<td><strong>GitHub Projects</strong></td>
+<td>DataSquad task tracking (2024+; planned integration)</td>
+<td>Not yet integrated</td>
+</tr>
+<tr class="even">
+<td><strong>Jira Service Desk</strong></td>
+<td>Service requests (planned integration)</td>
+<td>Not yet integrated</td>
+</tr>
+<tr class="odd">
+<td><strong>AWS Cost Explorer API</strong></td>
+<td>Monthly cloud spend by service/application</td>
+<td><code>data/raw/infrastructure/AWS_Costs/</code></td>
+</tr>
+<tr class="even">
+<td><strong>UCLA Dataverse API</strong></td>
+<td>Cumulative datasets, files, and download counts</td>
+<td><code>data/raw/infrastructure/</code></td>
+</tr>
+<tr class="odd">
+<td><strong>AWS CloudWatch</strong></td>
+<td>S3 bucket storage sizes</td>
+<td>Fetched live at render</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="definitions" class="level2">
+<h2 class="anchored" data-anchor-id="definitions">Definitions</h2>
+<p><strong>Consultation</strong> A direct interaction between a DSC staff member or DataSquad student and a researcher. Includes scheduled appointments tracked in LibInsight (Calendly-integrated) and walk-in sign-ins at the DataSquad desk. Excludes canceled appointments (status = <code>Canceled</code> in LibInsight).</p>
+<p><strong>Task card</strong> A Trello card or GitHub Projects item representing a unit of assigned project work for a DataSquad member. Task cards are <strong>not</strong> consultations — they represent follow-on or project-based work, often without a direct patron interaction at the time of the task.</p>
+<p><strong>Task activity (comment-weighted)</strong> A count of comments on task cards, used as a rough workload proxy. This is an activity signal, not equivalent to hours worked, tasks completed, or consultations.</p>
+<p><strong>Workshop attendee</strong> One participant registration record in a LibInsight event export. A single person attending three workshops is counted three times — this reflects total attendee-events, not unique individuals.</p>
+<p><strong>Dataset</strong> (Dataverse) A published data package in UCLA Dataverse — the native Dataverse object that groups related files under a single persistent identifier (DOI).</p>
+<p><strong>File</strong> (Dataverse) An individual file within a dataset. One dataset may contain one or many files.</p>
+<p><strong>Download</strong> (Dataverse) A file-level download event recorded by the Dataverse metrics API. Counts include both researcher-initiated and automated/programmatic downloads (e.g., crawlers, API clients) and are not filtered for human-only access.</p>
+<hr>
+</section>
+<section id="limitations-and-caveats" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-and-caveats">Limitations and Caveats</h2>
+<ul>
+<li><strong>Walk-in undercounting</strong>: Walk-in consultations may be undercounted in periods where DataSquad sign-in forms were not consistently used.</li>
+<li><strong>Manual log deduplication</strong>: Manual LibInsight entries and scheduled exports are deduplicated with a same-provider/same-minute heuristic. A small number of genuine duplicates may remain.</li>
+<li><strong>Trello coverage gap</strong>: Trello task metrics reflect the period when Trello was the primary DataSquad task system. The transition to GitHub Projects creates a data discontinuity; cross-system comparisons require care.</li>
+<li><strong>AWS billing lag</strong>: Cost Explorer data for the most recent 1–2 months is an estimate; final billed amounts may differ after the billing period closes.</li>
+<li><strong>Dataverse bot downloads</strong>: Download counts are not filtered for automated access. Cumulative totals likely include a fraction of non-human downloads.</li>
+<li><strong>Instruction completeness</strong>: Workshop attendance completeness depends on consistent LibInsight data entry. Some events may be missing from exports.</li>
+</ul>
+<hr>
+</section>
+<section id="counting-rules-reference" class="level2">
+<h2 class="anchored" data-anchor-id="counting-rules-reference">Counting Rules Reference</h2>
+<p>The <a href="./metrics-governance.html">Metrics Governance</a> document defines:</p>
+<ul>
+<li>Metric naming conventions (encoding who, domain, behavior, and unit)</li>
+<li>Approved and prohibited metric combinations</li>
+<li>Source transition policy (Trello → GitHub Projects)</li>
+<li>Data stewardship rules (immutable raw exports, reproducible processed data)</li>
+</ul>
+<hr>
+</section>
+<section id="how-to-cite-or-reuse-these-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-cite-or-reuse-these-metrics">How to Cite or Reuse These Metrics</h2>
+<p>When referencing figures from this dashboard in reports or presentations:</p>
+<blockquote class="blockquote">
+<p>UCLA Library Data Science Center. (<em>Year</em>). <em>DSC Statistics Dashboard</em>. UCLA Library. Retrieved [date] from [site URL].</p>
+</blockquote>
+<p>Include the data coverage period (e.g., “2021–present”) and note the source system (e.g., “LibInsight scheduled exports”) when quoting specific numbers. For methodology questions, consult the Metrics Governance document or contact the DSC.</p>
+<hr>
+</section>
+<section id="repository-and-contact" class="level2">
+<h2 class="anchored" data-anchor-id="repository-and-contact">Repository and Contact</h2>
+<ul>
+<li><strong>Source code</strong>: <a href="https://github.com/ucla-data-science-center/dsc-stats-reports">github.com/UCLALibrary/dsc-stats-reports</a> <em>(update to actual URL)</em></li>
+<li><strong>Issues / contributions</strong>: Open a pull request or issue in the repository</li>
+<li><strong>General inquiries</strong>: <a href="mailto:dsc@library.ucla.edu">dsc@library.ucla.edu</a> <em>(confirm address)</em></li>
+</ul>
+<p><em>Built with <a href="https://quarto.org">Quarto</a>. Data processed with R and Python.</em></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -781,8 +928,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>UCLA Library Data Science Center</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Data baked in at render. <a href="./about.html">About &amp; methodology</a>.</p>
+</div>
+  </div>
+</footer>
 
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

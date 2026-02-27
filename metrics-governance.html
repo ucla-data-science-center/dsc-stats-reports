@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSC Statistics Dashboard – DSC Statistics</title>
+<title>metrics-governance – DSC Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -258,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -308,123 +308,134 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#at-a-glance-20212026" id="toc-at-a-glance-20212026" class="nav-link active" data-scroll-target="#at-a-glance-20212026">At a Glance (2021–2026)</a></li>
-  <li><a href="#dashboard-sections" id="toc-dashboard-sections" class="nav-link" data-scroll-target="#dashboard-sections">Dashboard Sections</a></li>
-  <li><a href="#reading-these-metrics" id="toc-reading-these-metrics" class="nav-link" data-scroll-target="#reading-these-metrics">Reading These Metrics</a></li>
+  <li><a href="#metrics-governance-dsc-stats" id="toc-metrics-governance-dsc-stats" class="nav-link active" data-scroll-target="#metrics-governance-dsc-stats">Metrics Governance (DSC Stats)</a>
+  <ul class="collapse">
+  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a></li>
+  <li><a href="#core-principle" id="toc-core-principle" class="nav-link" data-scroll-target="#core-principle">Core Principle</a></li>
+  <li><a href="#metric-families" id="toc-metric-families" class="nav-link" data-scroll-target="#metric-families">Metric Families</a></li>
+  <li><a href="#task-workload-metrics-project-work" id="toc-task-workload-metrics-project-work" class="nav-link" data-scroll-target="#task-workload-metrics-project-work">2) Task / Workload Metrics (Project Work)</a></li>
+  <li><a href="#ticket-service-request-metrics-jira-service-desk" id="toc-ticket-service-request-metrics-jira-service-desk" class="nav-link" data-scroll-target="#ticket-service-request-metrics-jira-service-desk">3) Ticket / Service Request Metrics (Jira Service Desk)</a></li>
+  <li><a href="#metric-naming-guidelines" id="toc-metric-naming-guidelines" class="nav-link" data-scroll-target="#metric-naming-guidelines">Metric Naming Guidelines</a></li>
+  <li><a href="#counting-rules-required" id="toc-counting-rules-required" class="nav-link" data-scroll-target="#counting-rules-required">Counting Rules (Required)</a></li>
+  <li><a href="#approved-comparisons" id="toc-approved-comparisons" class="nav-link" data-scroll-target="#approved-comparisons">Approved Comparisons</a></li>
+  <li><a href="#recommended-reporting-pattern" id="toc-recommended-reporting-pattern" class="nav-link" data-scroll-target="#recommended-reporting-pattern">Recommended Reporting Pattern</a></li>
+  <li><a href="#source-transition-policy-trello---github-projects" id="toc-source-transition-policy-trello---github-projects" class="nav-link" data-scroll-target="#source-transition-policy-trello---github-projects">Source Transition Policy (Trello -&gt; GitHub Projects)</a></li>
+  <li><a href="#data-stewardship-rules" id="toc-data-stewardship-rules" class="nav-link" data-scroll-target="#data-stewardship-rules">Data Stewardship Rules</a></li>
+  <li><a href="#current-known-caveats-this-repo" id="toc-current-known-caveats-this-repo" class="nav-link" data-scroll-target="#current-known-caveats-this-repo">Current Known Caveats (This Repo)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">DSC Statistics Dashboard</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
 
 
-</header>
-
-
-<p><em>For UCLA Library administration and DSC staff — unified service metrics across consultations, instruction, and infrastructure.</em></p>
-<section id="at-a-glance-20212026" class="level2">
-<h2 class="anchored" data-anchor-id="at-a-glance-20212026">At a Glance (2021–2026)</h2>
-<p><em>Last rendered: February 27, 2026</em></p>
-<div class="kpi-row grid">
-<div class="g-col-6 g-col-md-3 kpi-card">
-<p><span class="kpi-label">Direct Consultations</span> <span class="kpi-value">741</span> <span class="kpi-note">DSC + DataSquad combined; canceled excluded · ↓ -41% · 238 in 2024 vs 405 in 2023</span></p>
-</div>
-<div class="g-col-6 g-col-md-3 kpi-card">
-<p><span class="kpi-label">DSC Staff</span> <span class="kpi-value">462</span> <span class="kpi-note">LibInsight scheduled exports</span></p>
-</div>
-<div class="g-col-6 g-col-md-3 kpi-card">
-<p><span class="kpi-label">DataSquad</span> <span class="kpi-value">142</span> <span class="kpi-note">Walk-in sign-ins</span></p>
-</div>
-<div class="g-col-6 g-col-md-3 kpi-card">
-<p><span class="kpi-label">Task Cards (Reportable)</span> <span class="kpi-value">204</span> <span class="kpi-note">Trello; backlog/admin lists excluded · ↑ +1350% · 87 in 2024 vs 6 in 2023</span></p>
-</div>
-</div>
+<section id="metrics-governance-dsc-stats" class="level1">
+<h1>Metrics Governance (DSC Stats)</h1>
+<section id="purpose" class="level2">
+<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
+<p>Define consistent, reproducible metrics for UCLA Data Science Center reporting across direct consultations, DataSquad task work, and service desk/ticket systems.</p>
 </section>
-<section id="dashboard-sections" class="level2">
-<h2 class="anchored" data-anchor-id="dashboard-sections">Dashboard Sections</h2>
-<div class="grid">
-<section id="consulting" class="level3 g-col-4 card p-3">
-<h3 class="anchored" data-anchor-id="consulting"><a href="./consulting.html">Consulting</a></h3>
-<p>One-on-one research support — DSC staff appointments and DataSquad walk-ins.</p>
+<section id="core-principle" class="level2">
+<h2 class="anchored" data-anchor-id="core-principle">Core Principle</h2>
+<p>Do not mix different units of work into a single metric without explicit labeling.</p>
+<p>Examples: - A consultation appointment is not the same as a Trello/GitHub/Jira task. - A task is not the same as a comment/update on a task. - A ticket is not the same as a completed resolution.</p>
 </section>
-<section id="instruction" class="level3 g-col-4 card p-3">
-<h3 class="anchored" data-anchor-id="instruction"><a href="./instruction.html">Instruction</a></h3>
-<p>Workshops, Carpentries events, and community-led training sessions.</p>
+<section id="metric-families" class="level2">
+<h2 class="anchored" data-anchor-id="metric-families">Metric Families</h2>
+<section id="direct-service-metrics-consultations" class="level3">
+<h3 class="anchored" data-anchor-id="direct-service-metrics-consultations">1) Direct Service Metrics (Consultations)</h3>
+<p>These represent direct interactions with patrons/researchers.</p>
+<p>Examples: - <code>dsc_consultations_scheduled_count</code> - <code>datasquad_consultations_direct_count</code> - <code>consultations_total_direct_count</code></p>
+<p>Primary sources: - LibInsights / Calendly exports - DataSquad sign-in forms (walk-ins)</p>
+<p>Unit: - One consultation record / event row (unless a different rule is explicitly documented)</p>
 </section>
-<section id="infrastructure" class="level3 g-col-4 card p-3">
-<h3 class="anchored" data-anchor-id="infrastructure"><a href="./infrastructure.html">Infrastructure</a></h3>
-<p>AWS cloud costs and UCLA Dataverse repository growth and download metrics.</p>
 </section>
-</div>
-<p><strong>Explore by section:</strong> <a href="./consulting.html">Consulting →</a> · <a href="./instruction.html">Instruction →</a> · <a href="./infrastructure.html">Infrastructure →</a> · <a href="./about.html">About &amp; methodology</a></p>
+<section id="task-workload-metrics-project-work" class="level2">
+<h2 class="anchored" data-anchor-id="task-workload-metrics-project-work">2) Task / Workload Metrics (Project Work)</h2>
+<p>These represent internal/assigned work performed by DSC/DataSquad, not direct consultations.</p>
+<p>Examples: - <code>datasquad_tasks_created_count</code> - <code>datasquad_tasks_completed_count</code> - <code>datasquad_task_activity_comment_count</code> - <code>datasquad_task_activity_comment_weighted_count</code></p>
+<p>Primary sources: - Trello (historical) - GitHub Projects (current/future) - Jira Service Desk / JSM (if used for service requests)</p>
+<p>Unit: - Task/card/issue (<code>task_count_*</code>) OR activity on a task (<code>comment_count</code>, <code>update_count</code>)</p>
 </section>
-<section id="reading-these-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="reading-these-metrics">Reading These Metrics</h2>
+<section id="ticket-service-request-metrics-jira-service-desk" class="level2">
+<h2 class="anchored" data-anchor-id="ticket-service-request-metrics-jira-service-desk">3) Ticket / Service Request Metrics (Jira Service Desk)</h2>
+<p>These represent service requests submitted and tracked in a ticketing system.</p>
+<p>Examples: - <code>jsm_tickets_created_count</code> - <code>jsm_tickets_resolved_count</code> - <code>jsm_tickets_open_backlog_count</code> - <code>jsm_ticket_comment_count</code></p>
+<p>Unit: - Ticket/issue or ticket activity</p>
+</section>
+<section id="metric-naming-guidelines" class="level2">
+<h2 class="anchored" data-anchor-id="metric-naming-guidelines">Metric Naming Guidelines</h2>
+<p>Use names that encode: - <code>who/what</code> (DSC, DataSquad, JSM) - <code>domain</code> (consultations, tasks, tickets) - <code>behavior</code> (created, completed, resolved, direct, activity) - <code>unit</code> (<code>count</code>, <code>comment_count</code>, <code>days</code>)</p>
+<p>Examples: - Good: <code>datasquad_trello_task_activity_comment_weighted_count</code> - Good: <code>consultations_direct_count</code> - Bad: <code>total_work</code> (ambiguous)</p>
+</section>
+<section id="counting-rules-required" class="level2">
+<h2 class="anchored" data-anchor-id="counting-rules-required">Counting Rules (Required)</h2>
+<p>Every published metric should document: - Source system(s) - Grain/unit (row, card, issue, comment) - Date field used (<code>start_date_time</code>, <code>last_activity_date</code>, <code>created_at</code>, etc.) - Inclusion filters (archived cards, list/status filters, canceled appointments) - Deduplication logic (e.g., <code>Event UUID</code> for LibInsights backfills)</p>
+<p>If a rule changes, version it or note the effective date.</p>
+</section>
+<section id="approved-comparisons" class="level2">
+<h2 class="anchored" data-anchor-id="approved-comparisons">Approved Comparisons</h2>
+<p>Valid: - Direct consultations by year - Task workload by year - Ticket volume by month - Direct consultations vs task workload (side-by-side, separate metrics)</p>
+<p>Use caution: - Comparing task activity counts to consultation counts as if they are equivalent output</p>
+<p>Not valid (without explicit methodology): - Summing consultations + tasks + comments into one unlabeled “total work” metric</p>
+</section>
+<section id="recommended-reporting-pattern" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-reporting-pattern">Recommended Reporting Pattern</h2>
+<p>For each period (month/quarter/year), report at least:</p>
+<section id="direct-service" class="level3">
+<h3 class="anchored" data-anchor-id="direct-service">Direct Service</h3>
 <ul>
-<li><strong>Direct consultations</strong> = one interaction record (appointment or walk-in). Canceled appointments excluded.</li>
-<li><strong>Task cards</strong> = Trello cards assigned to DataSquad project work. Not equivalent to consultations.</li>
-<li><strong>Task activity (comment-weighted)</strong> = comment count on task cards — a workload proxy, not hours or outputs.</li>
+<li>DSC direct consultations</li>
+<li>DataSquad direct consultations</li>
+<li>Total direct consultations</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Data notes">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Data notes
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+</section>
+<section id="workload-tasks" class="level3">
+<h3 class="anchored" data-anchor-id="workload-tasks">Workload / Tasks</h3>
 <ul>
-<li>Sources: LibInsight (scheduled exports + manual logs), DataSquad walk-in sign-in forms, Trello (historical task tracking)</li>
-<li>Canceled appointments excluded from all direct consultation counts</li>
-<li>Manual LibInsight logs deduplicated against scheduled exports using a same-provider/same-minute heuristic</li>
-<li>Task metrics (Trello cards, comment-weighted activity) are <strong>not</strong> consultations — shown separately throughout</li>
-<li><strong>YoY comparisons</strong> (2023 → 2024): consultation decline reflects shifting data sources; task card growth reflects expanded Trello adoption, not proportional workload increase</li>
-<li>Full counting rules: <a href="./metrics-governance.html">Metrics Governance</a> · <a href="./about.html">About &amp; methodology</a></li>
+<li>Task count (created/completed)</li>
+<li>Task activity (comment/update count or weighted count)</li>
+<li>Backlog snapshot (open tasks)</li>
 </ul>
-</div>
-</div>
-</div>
-<p><strong>Data coverage:</strong> libinsights through 2026-02-13; libinsights through 2025-03-27; trello through 2025-03-25; datasquad_signin through 2024-06-05</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Cite this page">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Cite this page
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>UCLA Library Data Science Center. (2026). <em>DSC Statistics Dashboard</em>. Retrieved from <a href="https://ucla-data-science-center.github.io/dsc-stats-reports/" class="uri">https://ucla-data-science-center.github.io/dsc-stats-reports/</a></p>
-</div>
-</div>
-</div>
-<hr>
-<p><em>Last rendered: February 27, 2026</em></p>
+</section>
+<section id="tickets-if-jira-service-desk-is-in-use" class="level3">
+<h3 class="anchored" data-anchor-id="tickets-if-jira-service-desk-is-in-use">Tickets (if Jira Service Desk is in use)</h3>
+<ul>
+<li>Tickets created</li>
+<li>Tickets resolved</li>
+<li>Open backlog</li>
+<li>Median/average time to resolution (later phase)</li>
+</ul>
+</section>
+</section>
+<section id="source-transition-policy-trello---github-projects" class="level2">
+<h2 class="anchored" data-anchor-id="source-transition-policy-trello---github-projects">Source Transition Policy (Trello -&gt; GitHub Projects)</h2>
+<p>When changing systems: - Preserve historical source metrics as-is (Trello) - Add new source metrics (GitHub Projects) - Create a normalized cross-source task metric only after mapping fields and rules - Clearly mark transition dates in dashboards/reports</p>
+<p>Do not silently splice two systems together without documentation.</p>
+</section>
+<section id="data-stewardship-rules" class="level2">
+<h2 class="anchored" data-anchor-id="data-stewardship-rules">Data Stewardship Rules</h2>
+<ul>
+<li>Raw exports are immutable and stored with date-stamped filenames.</li>
+<li>Processed datasets are reproducible from scripts.</li>
+<li>Reference mappings (staff roster, department map, task filters) live in <code>data/reference/</code>.</li>
+<li>Dashboard/report numbers must be traceable to a script and a processed output file.</li>
+</ul>
+</section>
+<section id="current-known-caveats-this-repo" class="level2">
+<h2 class="anchored" data-anchor-id="current-known-caveats-this-repo">Current Known Caveats (This Repo)</h2>
+<ul>
+<li>Trello “comment-weighted” metrics measure task activity, not direct consultations.</li>
+<li>DataSquad sign-in and task sources may have coverage gaps depending on available exports.</li>
+<li>Manual consultation logs from Google Drive may overlap with LibInsights and should be used for reconciliation unless dedup rules are implemented.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

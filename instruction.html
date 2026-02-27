@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Instruction Statistics – DSC Statistics Dashboard</title>
+<title>Instruction Statistics – DSC Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -42,9 +42,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6457b5646f0f6027685ab53bb38b23c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-feadf0bfd3f54624ec68e70c2335de3c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-6457b5646f0f6027685ab53bb38b23c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2dd59c42b9095ae996cdfe5f8b69aa47.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-e5e6166c1f33ac5a6678b33901df45e7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-2dd59c42b9095ae996cdfe5f8b69aa47.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,6 +72,17 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.34.0/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -247,7 +258,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">DSC Statistics Dashboard</span>
+    <span class="navbar-title">DSC Statistics</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -284,6 +295,13 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ucla-data-science-center/dsc-stats-reports"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -299,13 +317,9 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#workshops-and-events" id="toc-workshops-and-events" class="nav-link active" data-scroll-target="#workshops-and-events">Workshops and Events</a>
   <ul class="collapse">
-  <li><a href="#workshop-attendance-by-year" id="toc-workshop-attendance-by-year" class="nav-link" data-scroll-target="#workshop-attendance-by-year">Workshop Attendance by Year</a></li>
-  <li><a href="#top-departments-workshops" id="toc-top-departments-workshops" class="nav-link" data-scroll-target="#top-departments-workshops">Top Departments (Workshops)</a></li>
-  <li><a href="#participant-affiliation" id="toc-participant-affiliation" class="nav-link" data-scroll-target="#participant-affiliation">Participant Affiliation</a></li>
-  </ul></li>
+  <li><a href="#at-a-glance-20202024" id="toc-at-a-glance-20202024" class="nav-link active" data-scroll-target="#at-a-glance-20202024">At a Glance (2020–2024)</a></li>
+  <li><a href="#workshop-attendance" id="toc-workshop-attendance" class="nav-link" data-scroll-target="#workshop-attendance">Workshop Attendance</a></li>
   </ul>
 </nav>
     </div>
@@ -332,47 +346,135 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="workshops-and-events" class="level1">
-<h1>Workshops and Events</h1>
-<p>The Data Science Center offers workshops on foundational coding and data science skills, including the UCLA Carpentries program.</p>
-<section id="workshop-attendance-by-year" class="level2">
-<h2 class="anchored" data-anchor-id="workshop-attendance-by-year">Workshop Attendance by Year</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="instruction_files/figure-html/attendance_year-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<p><em>For DSC staff and library administration — workshop attendance records from LibInsight event exports.</em></p>
+<p><em>Last rendered: February 27, 2026</em></p>
+<section id="at-a-glance-20202024" class="level2">
+<h2 class="anchored" data-anchor-id="at-a-glance-20202024">At a Glance (2020–2024)</h2>
+<div class="kpi-row grid">
+<div class="g-col-6 g-col-md-4 kpi-card">
+<p><span class="kpi-label">Total Attendance Records</span> <span class="kpi-value">1,676</span> <span class="kpi-note">All workshop participants, all years · ↓ -20% · 372 in 2024 vs 464 in 2023</span></p>
 </div>
+<div class="g-col-6 g-col-md-4 kpi-card">
+<p><span class="kpi-label">UCLA-Affiliated</span> <span class="kpi-value">1,575</span> <span class="kpi-note">institution == “UCLA”</span></p>
 </div>
-</div>
-</section>
-<section id="top-departments-workshops" class="level2">
-<h2 class="anchored" data-anchor-id="top-departments-workshops">Top Departments (Workshops)</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="instruction_files/figure-html/workshop_dept-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<div class="g-col-6 g-col-md-4 kpi-card">
+<p><span class="kpi-label">Years with Data</span> <span class="kpi-value">5</span> <span class="kpi-note">Distinct calendar years</span></p>
 </div>
 </div>
 </section>
-<section id="participant-affiliation" class="level2">
-<h2 class="anchored" data-anchor-id="participant-affiliation">Participant Affiliation</h2>
+<section id="workshop-attendance" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-attendance">Workshop Attendance</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">By Year</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">By Department</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">By Affiliation</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="instruction_files/figure-html/workshop_status-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="instruction_files/figure-html/chart_year-1.png" class="img-fluid figure-img" alt="Horizontal bar chart: workshop attendance by year from 2020 to 2024. 2020: 208; 2021: 218; 2022: 414; 2023: 464; 2024: 372." width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="instruction_files/figure-html/chart_dept-1.png" class="img-fluid figure-img" alt="Horizontal bar chart: top 15 UCLA departments by workshop attendance. Highest: Geography (64)." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-744053ad782e7411ea1f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-744053ad782e7411ea1f">{"x":{"filter":"none","vertical":false,"caption":"<caption>All UCLA departments — search or sort to find a specific unit<\/caption>","data":[["Geography","Information Studies","Library","Multiple Departments","NA","Social Science","Environment and Sustainability","Psychology","Urban Planning","Atmospheric and Oceanic Sciences","Biostatistics","Chemistry and Biochemistry","Mathematics","Education","Epidemiology","Political Science","Institute of the Environment and Sustainability","Statistics","UCLA Health","Economics","Management","Sociology","IT Services","Public Policy","Anthropology","Civil and Environmental Engineering","Computer Science","Health","Asian Languages and Cultures","English","History","Institute of Transportation Studies","Law","Architecture and Urban Design","Art History","Community Health Sciences","Library Special Collections","Linguistics","East Asian Studies","Ecology and Evolutionary Biology","International Institute","Semel Institute for Neuroscience and Human Behavior","Teaching and Learning Center","Engineering Schoolwide Programs","Faculty Practice Group","Health Policy and Management","Humanities Technology","Life Sciences","Pediatrics","Pritzker Center for Strengthening Children and Families","Public Health","Archaeology","Asian American Studies","Clinical and Translational Science Institute","Earth, Planetary, and Space Sciences","Electrical and Computer Engineering","Events and Transportation","Gender Studies","Human Genetics","Master of Social Science","Medicine","Molecular, Cell, and Developmental Biology","Neuroscience (Graduate)","American Indian Studies","Bioinformatics","Biological Chemistry","Biology","French and Francophone Studies","Luskin School of Public Affairs","Mechanical and Aerospace Engineering","Molecular Biology","Nursing","Physics and Astronomy","Anesthesiology and Perioperative Medicine","Art","Bioengineering","Biomedical Research","California Center for Population Research","Center for Health Policy Research","Clinical Research Information Systems","College of Letters and Science","Communication","Conservation of Archaeological and Ethnographic Materials","Digital Humanities","Environmental Health Sciences","Facilities Management","Getty Conservation Institute","Graduate Medical Education","Institute for Digital Research and Education","Institute for Society and Genetics","Materials Science and Engineering","Molecular and Medical Pharmacology","Near Eastern Languages and Cultures","Psychiatry and Biobehavioral Sciences","Public Affairs","Social Welfare","Southern Regional Library Facility","Spanish and Portuguese","Aerospace Studies","Applied Geospatial Information Systems &amp; Technologies","Asian American Studies Center","Athletics","Center for Education Innovation and Learning in the Sciences","Central Resource Unit","Chemical and Biomolecular Engineering","Chicana and Chicano Studies","Chicana/o and Central American Studies","Clinical Research","Cognitive Science","Comparative Literature","Cotsen Institute of Archaeology","Daily Bruin","Data Science Engineering","Data Science in Health","David Geffen School of Medicine","Dean's Office","Dentistry","Design Media Arts","Digital Library Program","East Asian Library","Ecological Society of America","Emergency Medicine","European Languages and Transcultural Studies","Fielding School of Public Health","Film, Television, and Digital Media","Forestry","Global Studies","Humanities","Institute of American Cultures","Insurance and Risk","Labor Center","Music","NEED TO LOOKUP","National Environmental Satellite, Data, and Information Service ","Neurobiology","Office of Health Informatics and Analytics","Office of Research Information Systems","Office of the Vice Chancellor for Research","Philosophy","Population Health","Ralph J. Bunche Center for African American Studies","School of Education &amp; Information Studies ","School of Education and Information Studies","School of Medicine","Slavic, East European, and Eurasian Languages and Cultures","Social Sciences","UCLA Extension","Undergraduate Education"],[64,60,58,29,27,27,26,26,23,17,16,16,15,14,14,14,13,12,12,11,11,11,10,10,9,9,9,9,8,8,8,8,8,7,7,7,7,7,6,6,6,6,6,5,5,5,5,5,5,5,5,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Department<\/th>\n      <th>Attendance<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"dom":"ftp","columnDefs":[{"className":"dt-right","targets":1},{"name":"Department","targets":0},{"name":"Attendance","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="instruction_files/figure-html/chart_affil-1.png" class="img-fluid figure-img" alt="Horizontal bar chart: workshop attendance by participant affiliation. Top group: Staff (388)." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-e6fbedc361c06afa64eb" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-e6fbedc361c06afa64eb">{"x":{"filter":"none","vertical":false,"caption":"<caption>All participant affiliations<\/caption>","data":[["Staff","Graduate","Graduate Student","UnderGraduate Student","Other","Undergrad","Faculty","Librarian","PostDoc","Professional Researcher","Postdoc","Alumni","Undergraduate","UC Alumni","Graduate, Other","Student, gradaute","Librarian, Other","Visiting Scholar","Faculty, Staff","Graduate, Staff","Student","Consultant","Data Analyst","Extension","Faculty, Librarian","Fire Department","Graduate Medical Education","ITS","NELC","Office of Population Health and Accountable Care","Perioperative Services for UCLA Health","Population Health","Public","USC (spouse)","Visiting Scholar, Other","donor","epidemiology"],[388,245,215,112,82,79,55,40,35,19,17,16,10,7,5,5,3,3,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Affiliation<\/th>\n      <th>Attendance<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"dom":"ftp","columnDefs":[{"className":"dt-right","targets":1},{"name":"Affiliation","targets":0},{"name":"Attendance","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>See also:</strong> <a href="./consulting.html">Consulting →</a> one-on-one consultations · <a href="./infrastructure.html">Infrastructure →</a> Dataverse and AWS metrics · <a href="./about.html">About &amp; methodology</a></p>
+<hr>
+<div class="data-notes callout callout-style-default callout-note callout-titled" title="Data notes">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Data notes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Source</strong>: LibInsight workshop/event attendance exports</li>
+<li><strong>Unit</strong>: One row = one participant registration. A person attending three workshops is counted three times — totals reflect attendee-events, not unique individuals</li>
+<li><strong>UCLA attendees</strong>: filtered on <code>institution == "UCLA"</code>; external attendees included in totals but excluded from department breakdowns</li>
+<li><strong>Department</strong>: <code>standardized_department</code> field — mapped from raw free-text entries; unmapped values appear as-is</li>
+<li>Full rules: <a href="./metrics-governance.html">Metrics Governance</a> · <a href="./about.html">About</a></li>
+</ul>
+</div>
+</div>
+</div>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Record type</th>
+<th style="text-align: right;">Rows</th>
+<th style="text-align: left;">Date range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">LibInsight</td>
+<td style="text-align: left;">workshop_attendance</td>
+<td style="text-align: right;">1,676</td>
+<td style="text-align: left;">2020-11-17 – 2024-04-19</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled" title="Cite this page">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Cite this page
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>UCLA Library Data Science Center. (2026). <em>Instruction Statistics</em>. Retrieved from <a href="https://ucla-data-science-center.github.io/dsc-stats-reports/instruction.html" class="uri">https://ucla-data-science-center.github.io/dsc-stats-reports/instruction.html</a></p>
+</div>
+</div>
+</div>
+<p><em>Last rendered: February 27, 2026</em></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -790,8 +892,22 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>UCLA Library Data Science Center</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Data baked in at render. <a href="./about.html">About &amp; methodology</a>.</p>
+</div>
+  </div>
+</footer>
 
 
 
 
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
