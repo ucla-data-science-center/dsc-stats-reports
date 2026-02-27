@@ -71,6 +71,10 @@ if (data_loaded) {
 }
 ```
 
+*For DSC staff and library administration — workshop attendance records from LibInsight event exports.*
+
+*Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
+
 ## At a Glance
 
 ::: {.kpi-row .grid}

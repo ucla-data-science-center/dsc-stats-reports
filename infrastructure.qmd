@@ -89,6 +89,7 @@ else:
     kpi_aws = '—'; kpi_aws_month = '—'
 
 print(f"""
+<p><em>For DSC staff and library administration — AWS cloud costs, UCLA Dataverse repository metrics, and S3 storage trends.</em></p>
 <p><em>Last rendered: {datetime.now().strftime("%B %d, %Y")}</em></p>
 <div class="kpi-row grid">
   <div class="g-col-6 g-col-md-3 kpi-card">

@@ -61,7 +61,7 @@ yoy_tasks <- local({
 })
 ```
 
-UCLA Library Data Science Center unified service metrics — consultations, instruction, and infrastructure in one place.
+*For UCLA Library administration and DSC staff — unified service metrics across consultations, instruction, and infrastructure.*
 
 ## At a Glance (`r data_range_label`)
 

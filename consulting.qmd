@@ -126,6 +126,8 @@ yoy_tasks <- local({
 })
 ```
 
+*For DSC staff and library administration — direct consultation counts, project task metrics, and patron breakdowns.*
+
 ## At a Glance (`r data_range_label`)
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
@@ -353,7 +355,7 @@ if (nrow(qual_highlights) > 0) {
 - Full rules: [Metrics Governance](metrics-governance.md) · [About](about.qmd)
 :::
 
-```{r coverage, echo=FALSE, results='asis'}
+```{r coverage, echo=FALSE}
 if (nrow(audit_coverage) > 0) {
   audit_coverage |>
     mutate(min_date = as.Date(min_date), max_date = as.Date(max_date)) |>
@@ -362,10 +364,14 @@ if (nrow(audit_coverage) > 0) {
       Source        = source,
       `Record type` = subtype,
       Rows          = comma(rows),
-      `Date range`  = paste(format(min_date, "%Y-%m-%d"), "–",
+      `Date range`  = paste(format(min_date, "%Y-%m-%d"), "\u2013",
                             format(max_date, "%Y-%m-%d"))
     ) |>
-    knitr::kable(align = c("l", "l", "r", "l"))
+    DT::datatable(
+      rownames = FALSE,
+      options  = list(pageLength = 10, dom = "tp"),
+      caption  = "Source coverage: rows and date ranges per data system"
+    )
 }
 ```
 
