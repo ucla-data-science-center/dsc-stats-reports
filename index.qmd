@@ -4,17 +4,17 @@ title: "DSC Statistics Dashboard"
 
 ```{r setup, include=FALSE}
 library(tidyverse)
+library(lubridate)
 library(scales)
 
-audit_summary <- local({
-  p <- "data/processed/consultations/consultation_audit_2023_2025_summary_tagged.csv"
-  if (file.exists(p)) read_csv(p, show_col_types = FALSE) else tibble()
-})
+read_if <- function(path) {
+  if (file.exists(path)) read_csv(path, show_col_types = FALSE) else tibble()
+}
 
-audit_coverage <- local({
-  p <- "data/processed/consultations/consultation_audit_source_coverage.csv"
-  if (file.exists(p)) read_csv(p, show_col_types = FALSE) else tibble()
-})
+audit_summary  <- read_if("data/processed/consultations/consultation_audit_2023_2025_summary_tagged.csv")
+audit_coverage <- read_if("data/processed/consultations/consultation_audit_source_coverage.csv")
+by_year_src    <- read_if("data/processed/consultations/consultation_audit_2023_2025_by_year_source.csv")
+by_year_task   <- read_if("data/processed/consultations/consultation_audit_2023_2025_by_year_task_mode.csv")
 
 kpi <- function(key) {
   if (nrow(audit_summary) == 0) return("—")
@@ -34,18 +34,45 @@ data_range_label <- if (nrow(audit_coverage) > 0) {
 } else {
   "All Time"
 }
+
+# YoY comparison: 2023 → 2024 (two complete calendar years in this audit)
+# 2025 data is partial (libinsights export ends March 2025) — excluded from YoY
+yoy_fmt <- function(n_recent, n_prior, yr_recent = 2024, yr_prior = 2023) {
+  if (is.na(n_recent) || is.na(n_prior) || n_prior == 0) return("")
+  pct   <- round((n_recent - n_prior) / n_prior * 100)
+  arrow <- if (pct > 0) "\u2191" else if (pct < 0) "\u2193" else "\u2192"
+  sprintf("%s %+d%% \u00b7 %s in %d vs %s in %d",
+          arrow, pct, comma(n_recent), yr_recent, comma(n_prior), yr_prior)
+}
+
+yoy_direct <- local({
+  if (nrow(by_year_src) == 0) return("")
+  d   <- by_year_src |> filter(source != "trello") |>
+         group_by(year) |> summarise(n = sum(n), .groups = "drop")
+  n24 <- d$n[d$year == 2024]; n23 <- d$n[d$year == 2023]
+  yoy_fmt(n24[1], n23[1])
+})
+
+yoy_tasks <- local({
+  if (nrow(by_year_task) == 0) return("")
+  d   <- by_year_task |> filter(task_metric == "trello_reportable_task_cards")
+  n24 <- d$n[d$year == 2024]; n23 <- d$n[d$year == 2023]
+  yoy_fmt(n24[1], n23[1])
+})
 ```
 
 UCLA Library Data Science Center unified service metrics — consultations, instruction, and infrastructure in one place.
 
 ## At a Glance (`r data_range_label`)
 
+*Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
+
 ::: {.kpi-row .grid}
 
 ::: {.g-col-6 .g-col-md-3 .kpi-card}
 [Direct Consultations]{.kpi-label}
 [`r direct_total`]{.kpi-value}
-[DSC + DataSquad combined; canceled excluded]{.kpi-note}
+[DSC + DataSquad combined; canceled excluded`r if (nchar(yoy_direct) > 0) paste0(" \u00b7 ", yoy_direct)`]{.kpi-note}
 :::
 
 ::: {.g-col-6 .g-col-md-3 .kpi-card}
@@ -63,7 +90,7 @@ UCLA Library Data Science Center unified service metrics — consultations, inst
 ::: {.g-col-6 .g-col-md-3 .kpi-card}
 [Task Cards (Reportable)]{.kpi-label}
 [`r task_cards`]{.kpi-value}
-[Trello; backlog/admin lists excluded]{.kpi-note}
+[Trello; backlog/admin lists excluded`r if (nchar(yoy_tasks) > 0) paste0(" \u00b7 ", yoy_tasks)`]{.kpi-note}
 :::
 
 :::
@@ -100,6 +127,7 @@ AWS cloud costs and UCLA Dataverse repository growth and download metrics.
 - Canceled appointments excluded from all direct consultation counts
 - Manual LibInsight logs deduplicated against scheduled exports using a same-provider/same-minute heuristic
 - Task metrics (Trello cards, comment-weighted activity) are **not** consultations — shown separately throughout
+- **YoY comparisons** (2023 → 2024): consultation decline reflects shifting data sources; task card growth reflects expanded Trello adoption, not proportional workload increase
 - Full counting rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
 :::
 
