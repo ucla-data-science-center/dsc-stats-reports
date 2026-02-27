@@ -137,6 +137,7 @@ else:
 
 ```{python aws_trends}
 #| echo: false
+#| fig-alt: "Stacked bar chart showing monthly AWS costs by application over the past 12 months."
 if not df_aws.empty:
     df_aws['month_label'] = df_aws['date'].dt.strftime('%Y-%m')
     monthly = df_aws.groupby(['month_label', 'application'])['cost'].sum().unstack(fill_value=0)
@@ -153,6 +154,7 @@ if not df_aws.empty:
 
 ```{python dv_growth}
 #| echo: false
+#| fig-alt: "Dual-axis line chart showing cumulative growth of UCLA Dataverse datasets (left axis, blue) and files (right axis, gold) over time."
 try:
     df_dv = pd.read_csv(os.path.join(DATAVERSE_DIR, 'datasets_files_published_monthly.csv'))
     df_dv['date'] = pd.to_datetime(df_dv['date'], format='%Y-%m')
@@ -185,6 +187,7 @@ except Exception as e:
 
 ```{python dv_monthly}
 #| echo: false
+#| fig-alt: "Two-panel chart. Top: bar and line chart of new datasets and files added per month over the last 24 months. Bottom: bar chart of monthly download volume."
 try:
     df_dv['month_new_datasets'] = df_dv['datasets_published'].diff().fillna(0).clip(lower=0)
     df_dv['month_new_files']    = df_dv['files_published'].diff().fillna(0).clip(lower=0)
@@ -244,6 +247,7 @@ else:
 
 ```{python potree}
 #| echo: false
+#| fig-alt: "Line chart with shaded area showing Potree S3 bucket storage growth in gigabytes over the last 365 days."
 if not df_potree_growth.empty:
     plt.figure(figsize=(10, 5))
     plt.plot(df_potree_growth['date'], df_potree_growth['size_gb'],

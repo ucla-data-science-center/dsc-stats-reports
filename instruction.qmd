@@ -41,6 +41,34 @@ fmt <- function(x) if (is.na(x) || length(x) == 0) "—" else comma(x)
 kpi_total <- if (data_loaded) nrow(ucla_workshops)                                       else NA_integer_
 kpi_ucla  <- if (data_loaded) sum(ucla_workshops$institution == "UCLA", na.rm = TRUE)    else NA_integer_
 kpi_years <- if (data_loaded) n_distinct(year(ucla_workshops$date), na.rm = TRUE)        else NA_integer_
+
+# ── Pre-computed alt text ─────────────────────────────────────
+if (data_loaded) {
+  .yr <- ucla_workshops |> filter(!is.na(date)) |>
+    mutate(Year = year(date)) |> count(Year) |> arrange(Year)
+  alt_year <- sprintf(
+    "Horizontal bar chart: workshop attendance by year from %d to %d. %s.",
+    min(.yr$Year), max(.yr$Year),
+    paste(.yr$Year, .yr$n, sep = ": ", collapse = "; ")
+  )
+  .dept <- ucla_workshops |>
+    filter(!is.na(standardized_department), institution == "UCLA") |>
+    count(standardized_department, sort = TRUE) |> head(15)
+  alt_dept <- sprintf(
+    "Horizontal bar chart: top %d UCLA departments by workshop attendance. Highest: %s (%d).",
+    nrow(.dept), .dept$standardized_department[1], .dept$n[1]
+  )
+  .affil <- ucla_workshops |> filter(!is.na(status)) |>
+    count(status, sort = TRUE) |> head(5)
+  alt_affil <- sprintf(
+    "Horizontal bar chart: workshop attendance by participant affiliation. Top group: %s (%d).",
+    .affil$status[1], .affil$n[1]
+  )
+} else {
+  alt_year  <- "Workshop attendance by year (data not loaded)"
+  alt_dept  <- "Top departments by workshop attendance (data not loaded)"
+  alt_affil <- "Attendance by affiliation (data not loaded)"
+}
 ```
 
 ## At a Glance
@@ -73,7 +101,7 @@ kpi_years <- if (data_loaded) n_distinct(year(ucla_workshops$date), na.rm = TRUE
 
 ### By Year
 
-```{r chart_year, echo=FALSE}
+```{r chart_year, echo=FALSE, fig.alt=alt_year}
 if (data_loaded) {
   ucla_workshops |>
     filter(!is.na(date)) |>
@@ -90,7 +118,7 @@ if (data_loaded) {
 
 ### By Department
 
-```{r chart_dept, echo=FALSE}
+```{r chart_dept, echo=FALSE, fig.alt=alt_dept}
 if (data_loaded) {
   ucla_workshops |>
     filter(!is.na(standardized_department), institution == "UCLA") |>
@@ -107,7 +135,7 @@ if (data_loaded) {
 
 ### By Affiliation
 
-```{r chart_affil, echo=FALSE}
+```{r chart_affil, echo=FALSE, fig.alt=alt_affil}
 if (data_loaded) {
   ucla_workshops |>
     filter(!is.na(status)) |>

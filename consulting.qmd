@@ -59,6 +59,40 @@ no_data_msg <- function() {
   cat("*Data file not loaded. Run the ETL scripts to populate this chart.*\n")
 }
 
+# ── Pre-computed alt text for charts ─────────────────────────
+if (data_loaded) {
+  .yr <- dsc_consult |> filter(!is.na(start_date_time)) |>
+    count(year = year(start_date_time)) |> arrange(year)
+  alt_year <- sprintf(
+    "Horizontal bar chart: DSC consultations by year from %d to %d. %s.",
+    min(.yr$year), max(.yr$year),
+    paste(.yr$year, .yr$n, sep = ": ", collapse = "; ")
+  )
+  .dept <- dsc_consult |>
+    filter(!is.na(department), !department %in% c("DSC", "Library", "UCLA")) |>
+    count(department, sort = TRUE) |> head(15)
+  alt_dept <- sprintf(
+    "Horizontal bar chart: top %d departments by consultation count. Highest: %s (%d).",
+    nrow(.dept), .dept$department[1], .dept$n[1]
+  )
+  .affil <- dsc_consult |> filter(!is.na(ucla_affiliation)) |>
+    count(ucla_affiliation, sort = TRUE) |> head(6)
+  alt_affil <- sprintf(
+    "Horizontal bar chart: consultations by researcher affiliation. Top group: %s (%d).",
+    .affil$ucla_affiliation[1], .affil$n[1]
+  )
+  .grp <- dsc_consult |> filter(!is.na(group)) |> count(group)
+  alt_group <- sprintf(
+    "Bar chart: consultations by team. %s.",
+    paste(.grp$group, .grp$n, sep = " = ", collapse = "; ")
+  )
+} else {
+  alt_year  <- "Consultations by year (data not loaded)"
+  alt_dept  <- "Top departments by consultations (data not loaded)"
+  alt_affil <- "Consultations by affiliation (data not loaded)"
+  alt_group <- "DSC vs DataSquad split (data not loaded)"
+}
+
 data_range_label <- if (nrow(audit_coverage) > 0) {
   yr_min <- format(min(as.Date(audit_coverage$min_date)), "%Y")
   yr_max <- format(max(as.Date(audit_coverage$max_date)), "%Y")
@@ -104,7 +138,7 @@ data_range_label <- if (nrow(audit_coverage) > 0) {
 
 ### By Year
 
-```{r chart_year, echo=FALSE}
+```{r chart_year, echo=FALSE, fig.alt=alt_year}
 if (data_loaded) {
   dsc_consult |>
     filter(!is.na(start_date_time)) |>
@@ -120,7 +154,7 @@ if (data_loaded) {
 
 ### By Department
 
-```{r chart_dept, echo=FALSE}
+```{r chart_dept, echo=FALSE, fig.alt=alt_dept}
 if (data_loaded) {
   # Exclude internal/staff entries — not external patron consultations
   internal_depts <- c("DSC", "Library", "UCLA")
@@ -139,7 +173,7 @@ if (data_loaded) {
 
 ### By Affiliation
 
-```{r chart_affil, echo=FALSE}
+```{r chart_affil, echo=FALSE, fig.alt=alt_affil}
 if (data_loaded) {
   dsc_consult |>
     filter(!is.na(ucla_affiliation)) |>
@@ -156,7 +190,7 @@ if (data_loaded) {
 
 ### By Team
 
-```{r chart_group, echo=FALSE}
+```{r chart_group, echo=FALSE, fig.alt=alt_group}
 if (data_loaded) {
   dsc_consult |>
     filter(!is.na(group)) |>
@@ -210,7 +244,7 @@ if (nrow(audit_summary) == 0) {
 
 ### Task Activity by Year
 
-```{r task_year, echo=FALSE}
+```{r task_year, echo=FALSE, fig.alt="Grouped bar chart showing Trello task card counts and comment-weighted activity by year, split by all cards vs reportable-filtered cards."}
 if (nrow(audit_task_mode) == 0) {
   cat("*Task-mode audit file not found.*\n")
 } else {

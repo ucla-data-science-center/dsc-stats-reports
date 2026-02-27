@@ -177,30 +177,30 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Consulting Statistics",
+    "title": "DSC Statistics Dashboard",
     "section": "",
     "text": "UCLA Library Data Science Center unified service metrics — consultations, instruction, and infrastructure in one place."
   },
   {
-    "objectID": "index.html#at-a-glance-20232025",
-    "href": "index.html#at-a-glance-20232025",
+    "objectID": "index.html#at-a-glance-20212026",
+    "href": "index.html#at-a-glance-20212026",
     "title": "DSC Statistics Dashboard",
-    "section": "At a Glance (2023–2025)",
-    "text": "At a Glance (2023–2025)\n\n\nDirect Consultations 741 DSC + DataSquad combined; canceled excluded\n\n\nDSC Staff 462 LibInsight scheduled exports\n\n\nDataSquad 142 Walk-in sign-ins\n\n\nTask Cards (Reportable) 204 Trello; backlog/admin lists excluded"
+    "section": "At a Glance (2021–2026)",
+    "text": "At a Glance (2021–2026)\n\n\nDirect Consultations 741 DSC + DataSquad combined; canceled excluded\n\n\nDSC Staff 462 LibInsight scheduled exports\n\n\nDataSquad 142 Walk-in sign-ins\n\n\nTask Cards (Reportable) 204 Trello; backlog/admin lists excluded"
   },
   {
     "objectID": "index.html#dashboard-sections",
     "href": "index.html#dashboard-sections",
-    "title": "Consulting Statistics",
+    "title": "DSC Statistics Dashboard",
     "section": "Dashboard Sections",
     "text": "Dashboard Sections\n\n\nConsulting\nOne-on-one research support — DSC staff appointments and DataSquad walk-ins.\n\n\nInstruction\nWorkshops, Carpentries events, and community-led training sessions.\n\n\nInfrastructure\nAWS cloud costs and UCLA Dataverse repository growth and download metrics."
   },
   {
     "objectID": "index.html#reading-these-metrics",
     "href": "index.html#reading-these-metrics",
-    "title": "Consulting Statistics",
+    "title": "DSC Statistics Dashboard",
     "section": "Reading These Metrics",
-    "text": "Reading These Metrics\n\nDirect consultations = one interaction record (appointment or walk-in). Canceled appointments excluded.\nTask cards = Trello cards assigned to DataSquad project work. Not equivalent to consultations.\nTask activity (comment-weighted) = comment count on task cards — a workload proxy, not hours or outputs.\n\n\n\n\n\n\n\nNoteData notes\n\n\n\n\n\n\nSources: LibInsight (scheduled exports + manual logs), DataSquad walk-in sign-in forms, Trello (historical task tracking)\nCanceled appointments excluded from all direct consultation counts\nManual LibInsight logs deduplicated against scheduled exports using a same-provider/same-minute heuristic\nTask metrics (Trello cards, comment-weighted activity) are not consultations — shown separately throughout\nFull counting rules: Metrics Governance · About & methodology\n\n\n\n\nData coverage: libinsights through 2026-02-13; libinsights through 2025-03-27; trello through 2025-03-25; datasquad_signin through 2024-06-05\n\nLast rendered: February 26, 2026\n\n\n```{r setup, include=FALSE} library(tidyverse) library(lubridate) library(scales)"
+    "text": "Reading These Metrics\n\nDirect consultations = one interaction record (appointment or walk-in). Canceled appointments excluded.\nTask cards = Trello cards assigned to DataSquad project work. Not equivalent to consultations.\nTask activity (comment-weighted) = comment count on task cards — a workload proxy, not hours or outputs.\n\n\n\n\n\n\n\nNoteData notes\n\n\n\n\n\n\nSources: LibInsight (scheduled exports + manual logs), DataSquad walk-in sign-in forms, Trello (historical task tracking)\nCanceled appointments excluded from all direct consultation counts\nManual LibInsight logs deduplicated against scheduled exports using a same-provider/same-minute heuristic\nTask metrics (Trello cards, comment-weighted activity) are not consultations — shown separately throughout\nFull counting rules: Metrics Governance · About & methodology\n\n\n\n\nData coverage: libinsights through 2026-02-13; libinsights through 2025-03-27; trello through 2025-03-25; datasquad_signin through 2024-06-05\n\nLast rendered: February 26, 2026"
   },
   {
     "objectID": "consulting.html",
@@ -210,8 +210,8 @@
     "text": "Direct Consultations 741 DSC + DataSquad combined; canceled excluded\n\n\nDSC Staff 462 LibInsight scheduled exports\n\n\nDataSquad 142 Walk-in sign-ins\n\n\nTask Cards (Reportable) 204 Trello; backlog/admin lists excluded"
   },
   {
-    "objectID": "consulting.html#at-a-glance-20232025",
-    "href": "consulting.html#at-a-glance-20232025",
+    "objectID": "consulting.html#at-a-glance-20212026",
+    "href": "consulting.html#at-a-glance-20212026",
     "title": "Consulting Statistics",
     "section": "",
     "text": "Direct Consultations 741 DSC + DataSquad combined; canceled excluded\n\n\nDSC Staff 462 LibInsight scheduled exports\n\n\nDataSquad 142 Walk-in sign-ins\n\n\nTask Cards (Reportable) 204 Trello; backlog/admin lists excluded"
@@ -242,34 +242,6 @@
     "href": "infrastructure.html",
     "title": "Infrastructure Statistics",
     "section": "",
-    "text": "&lt;span class=\"kpi-label\"&gt;Dataverse Datasets&lt;/span&gt;\n&lt;span class=\"kpi-value\"&gt;377&lt;/span&gt;\n&lt;span class=\"kpi-note\"&gt;Cumulative published, as of 2026-02&lt;/span&gt;\n\n\n&lt;span class=\"kpi-label\"&gt;Dataverse Files&lt;/span&gt;\n&lt;span class=\"kpi-value\"&gt;25,330&lt;/span&gt;\n&lt;span class=\"kpi-note\"&gt;Cumulative published&lt;/span&gt;\n\n\n&lt;span class=\"kpi-label\"&gt;Total Downloads&lt;/span&gt;\n&lt;span class=\"kpi-value\"&gt;143,414&lt;/span&gt;\n&lt;span class=\"kpi-note\"&gt;Cumulative file-level download events&lt;/span&gt;\n\n\n&lt;span class=\"kpi-label\"&gt;AWS Spend&lt;/span&gt;\n&lt;span class=\"kpi-value\"&gt;$965&lt;/span&gt;\n&lt;span class=\"kpi-note\"&gt;Jan 2026 estimate; billing lags ~1–2 mo.&lt;/span&gt;\n\n\n\nAWS CostsDataverse UsageS3 Storage\n\n\n\nMonthly Departmental Charges (Ledger)\n\n\n\n\n\nMonth\nActual Cost Charged\n\n\n\n\n2025-09\n$1,000.58\n\n\n2025-08\n$937.90\n\n\n2025-07\n$1,001.50\n\n\n2025-06\n$1,019.57\n\n\n2025-04\n$990.96\n\n\n\n\n\n\n\nMonthly Trends\n\n\n\n\n\n\n\n\n\n\n\n\n\nRepository Growth (Cumulative)\n\n\n\n\n\n\n\n\n\n\n\nMonthly Activity\n\n\n\n\n\n\n\n\n\n\n\n\n\nCurrent Bucket Sizes\n\n\n\n\n\nBucket Name\nSize (GB)\nLast Updated\n\n\n\n\npotree-test2\n11038.14 GB\n2026-02-24\n\n\ndataverse-files-replicated\n3755.73 GB\n2026-02-24\n\n\ndataverse-files\n3755.68 GB\n2026-02-24\n\n\ndataverse-files-direct-upload\n544.81 GB\n2026-02-24\n\n\ndataverse-files-replicated-direct-upload\n542.64 GB\n2026-02-24\n\n\ndataverse-test-oregon\n130.68 GB\n2026-02-24\n\n\ntest-dataverse-files2\n19.53 GB\n2026-02-24\n\n\ndataverse-test-lariac-direct\n12.10 GB\n2026-02-24\n\n\ndataverse-lariac-direct\n11.96 GB\n2026-02-24\n\n\ndataverse-test-lariac\n9.64 GB\n2026-02-24\n\n\nlariac-backup\n3.34 GB\n2026-02-24\n\n\ndscbbillinginfo\n1.04 GB\n2026-02-24\n\n\ndataverse-lariac\n0.24 GB\n2026-02-24\n\n\nssda-files\n0.12 GB\n2026-02-24\n\n\nssda-files-replicated\n0.12 GB\n2026-02-24\n\n\ntest-dataverse-jmj\n0.00 GB\n2026-02-24\n\n\nucla-library-terraform-state\n0.00 GB\n2026-02-24\n\n\nbulk-policy-migration-221761179339\n0.00 GB\n2026-02-24\n\n\n\n\n\n\n\nPotree Storage Growth\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteData notes\n\n\n\n\n\n\nAWS costs: Cost Explorer API (last 12 months) merged with historical CSV exports. Most recent 1–2 months are estimates; final billing may differ\nDataverse datasets/files/downloads: Cumulative counts from the UCLA Dataverse /api/info/metrics endpoint — stored in data/raw/infrastructure/datasets_files_published_monthly.csv\nDownloads: File-level events as reported by Dataverse. Includes automated and bot traffic; not filtered for human-only access\nS3 storage: Fetched live from AWS CloudWatch at render time. May be unavailable without valid AWS credentials; CloudWatch reports storage metrics once daily\nFull rules: Metrics Governance · About\n\n\n\n\nLast rendered:\n\n\nFebruary 26, 2026"
-  },
-  {
-    "objectID": "index.html#at-a-glance-20212026",
-    "href": "index.html#at-a-glance-20212026",
-    "title": "Consulting Statistics",
-    "section": "At a Glance (2021–2026)",
-    "text": "At a Glance (2021–2026)\n\n\nDirect Consultations 741 DSC + DataSquad combined; canceled excluded\n\n\nDSC Staff 462 LibInsight scheduled exports\n\n\nDataSquad 142 Walk-in sign-ins\n\n\nTask Cards (Reportable) 204 Trello; backlog/admin lists excluded"
-  },
-  {
-    "objectID": "index.html#project-work-task-metrics",
-    "href": "index.html#project-work-task-metrics",
-    "title": "Consulting Statistics",
-    "section": "Project Work & Task Metrics",
-    "text": "Project Work & Task Metrics\nThese metrics represent follow-on project work assigned to DataSquad members. They are not direct consultations.\n\nSummaryTask Activity by Year\n\n\n{r task_table, echo=FALSE} if (nrow(audit_summary) == 0) {   cat(\"*Run `Rscript src/etl/consultation_audit_summary.R` to generate task metrics.*\\n\") } else {   audit_summary |&gt;     filter(metric_id %in% c(       \"direct_consults_combined_deduped_count\",       \"datasquad_trello_task_cards_reportable_count\",       \"datasquad_trello_task_activity_comment_weighted_reportable_count\",       \"datasquad_total_with_trello_reportable_count\"     )) |&gt;     transmute(       Metric = recode(metric_id,         direct_consults_combined_deduped_count =           \"Direct Consultations (Combined, Deduped)\",         datasquad_trello_task_cards_reportable_count =           \"DataSquad Task Cards (Reportable)\",         datasquad_trello_task_activity_comment_weighted_reportable_count =           \"DataSquad Task Activity (Reportable, Comment-Weighted)\",         datasquad_total_with_trello_reportable_count =           \"DataSquad Direct + Reportable Task Activity\"       ),       Value = comma(value)     ) |&gt;     knitr::kable(align = c(\"l\", \"r\")) }\n\n\n{r task_year, echo=FALSE} if (nrow(audit_task_mode) == 0) {   cat(\"*Task-mode audit file not found.*\\n\") } else {   audit_task_mode |&gt;     filter(task_metric %in% c(       \"trello_all_task_cards\", \"trello_reportable_task_cards\",       \"trello_all_comment_weighted\", \"trello_reportable_comment_weighted\"     )) |&gt;     mutate(       task_metric = recode(task_metric,         trello_all_comment_weighted        = \"Activity (all)\",         trello_reportable_comment_weighted = \"Activity (reportable)\",         trello_all_task_cards              = \"Task cards (all)\",         trello_reportable_task_cards       = \"Task cards (reportable)\"       ),       metric_family = if_else(         grepl(\"cards\", task_metric), \"Task cards (count)\", \"Task activity (comment-weighted)\"       )     ) |&gt;     ggplot(aes(x = factor(year), y = n, fill = task_metric)) +     geom_col(position = \"dodge\") +     facet_wrap(~metric_family, scales = \"free_y\") +     labs(       x = \"Year\", y = \"Count\", fill = NULL,       caption = \"Trello historical. Reportable metric excludes backlog/admin/archived lists.\"     ) +     theme_minimal() +     theme(legend.position = \"bottom\") }"
-  },
-  {
-    "objectID": "index.html#research-impact",
-    "href": "index.html#research-impact",
-    "title": "Consulting Statistics",
-    "section": "Research Impact",
-    "text": "Research Impact\nThese examples show how DSC and DataSquad support extends into sustained technical collaboration beyond single consultations.\n{r impact, echo=FALSE, results='asis'} if (nrow(impact_case_studies) == 0) {   cat(\"*Add rows to `data/processed/consultations/impact_case_studies.csv` to render case studies here.*\\n\") } else {   impact_case_studies |&gt;     filter(coalesce(include_in_dashboard, TRUE)) |&gt;     arrange(display_order) |&gt;     pwalk(function(case_title, partners, summary,                    measurable_outcomes, impact_signals, ...) {       cat(\"### \", case_title, \"\\n\\n\", sep = \"\")       if (!is.na(partners) && partners != \"\")         cat(\"**Partners:** \", partners, \"\\n\\n\", sep = \"\")       if (!is.na(summary) && summary != \"\")         cat(summary, \"\\n\\n\")       if (!is.na(measurable_outcomes) && measurable_outcomes != \"\")         cat(\"**Measurable outcomes:** \", measurable_outcomes, \"\\n\\n\", sep = \"\")       if (!is.na(impact_signals) && impact_signals != \"\")         cat(\"**Impact signals:** \", impact_signals, \"\\n\\n\", sep = \"\")     }) }\n{r qualitative, echo=FALSE} if (nrow(qual_highlights) &gt; 0) {   display_cols &lt;- c(\"period_label\", \"workstream\", \"audience\",                     \"request_theme\", \"work_performed\", \"outcome\")   qual_highlights |&gt;     select(all_of(intersect(display_cols, names(qual_highlights)))) |&gt;     rename_with(~str_replace_all(., \"_\", \" \")) |&gt;     knitr::kable(align = \"l\") }\n\n\n\n\n\n\n\nNoteData notes\n\n\n\n\n\n\nDirect consultations: LibInsight scheduled exports + manual logs (DSC staff); DataSquad walk-in sign-in forms\nCanceled appointments excluded from all direct consultation counts\nDeduplication: manual LibInsight logs matched against scheduled exports using a same-provider/same-minute heuristic; ~r kpi(\"libinsight_manual_logs_heuristic_duplicate_count\") duplicates removed\nTask metrics (Trello cards, comment-weighted activity) are shown separately — not comparable to consultation counts\nReportable filter: excludes Inbox, Future Projects/Ideas, Team Info lists; includes archived completed cards\nFull rules: Metrics Governance · About\n\n\n\n\n{r coverage, echo=FALSE, results='asis'} if (nrow(audit_coverage) &gt; 0) {   audit_coverage |&gt;     mutate(min_date = as.Date(min_date), max_date = as.Date(max_date)) |&gt;     arrange(source, subtype) |&gt;     transmute(       Source        = source,       `Record type` = subtype,       Rows          = comma(rows),       `Date range`  = paste(format(min_date, \"%Y-%m-%d\"), \"–\",                             format(max_date, \"%Y-%m-%d\"))     ) |&gt;     knitr::kable(align = c(\"l\", \"l\", \"r\", \"l\")) }\nLast rendered: r format(Sys.Date(), \"%B %d, %Y\")"
-  },
-  {
-    "objectID": "consulting.html#at-a-glance-20212026",
-    "href": "consulting.html#at-a-glance-20212026",
-    "title": "Consulting Statistics",
-    "section": "",
-    "text": "Direct Consultations 741 DSC + DataSquad combined; canceled excluded\n\n\nDSC Staff 462 LibInsight scheduled exports\n\n\nDataSquad 142 Walk-in sign-ins\n\n\nTask Cards (Reportable) 204 Trello; backlog/admin lists excluded"
+    "text": "S3 Stats Error: Could not connect to the endpoint URL: \"https://s3.us-west-2.amazonaws.com/\"\n\n\n\n\n&lt;span class=\"kpi-label\"&gt;Dataverse Datasets&lt;/span&gt;\n&lt;span class=\"kpi-value\"&gt;377&lt;/span&gt;\n&lt;span class=\"kpi-note\"&gt;Cumulative published, as of 2026-02&lt;/span&gt;\n\n\n&lt;span class=\"kpi-label\"&gt;Dataverse Files&lt;/span&gt;\n&lt;span class=\"kpi-value\"&gt;25,330&lt;/span&gt;\n&lt;span class=\"kpi-note\"&gt;Cumulative published&lt;/span&gt;\n\n\n&lt;span class=\"kpi-label\"&gt;Total Downloads&lt;/span&gt;\n&lt;span class=\"kpi-value\"&gt;143,414&lt;/span&gt;\n&lt;span class=\"kpi-note\"&gt;Cumulative file-level download events&lt;/span&gt;\n\n\n&lt;span class=\"kpi-label\"&gt;AWS Spend&lt;/span&gt;\n&lt;span class=\"kpi-value\"&gt;$965&lt;/span&gt;\n&lt;span class=\"kpi-note\"&gt;Jan 2026 estimate; billing lags ~1–2 mo.&lt;/span&gt;\n\n\n\nAWS CostsDataverse UsageS3 Storage\n\n\n\nMonthly Departmental Charges (Ledger)\n\n\n\n\n\nMonth\nActual Cost Charged\n\n\n\n\n2025-09\n$1,000.58\n\n\n2025-08\n$937.90\n\n\n2025-07\n$1,001.50\n\n\n2025-06\n$1,019.57\n\n\n2025-04\n$990.96\n\n\n\n\n\n\n\nMonthly Trends\n\n\n\n\n\n\n\n\n\n\n\n\n\nRepository Growth (Cumulative)\n\n\n\n\n\n\n\n\n\n\n\nMonthly Activity\n\n\n\n\n\n\n\n\n\n\n\n\n\nCurrent Bucket Sizes\n\n\nS3 storage data unavailable (live AWS connection required).\n\n\n\n\nPotree Storage Growth\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteData notes\n\n\n\n\n\n\nAWS costs: Cost Explorer API (last 12 months) merged with historical CSV exports. Most recent 1–2 months are estimates; final billing may differ\nDataverse datasets/files/downloads: Cumulative counts from the UCLA Dataverse /api/info/metrics endpoint — stored in data/raw/infrastructure/datasets_files_published_monthly.csv\nDownloads: File-level events as reported by Dataverse. Includes automated and bot traffic; not filtered for human-only access\nS3 storage: Fetched live from AWS CloudWatch at render time. May be unavailable without valid AWS credentials; CloudWatch reports storage metrics once daily\nFull rules: Metrics Governance · About\n\n\n\n\nLast rendered:\n\n\nFebruary 26, 2026"
   }
 ]

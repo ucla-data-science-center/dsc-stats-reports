@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Consulting Statistics – DSC Statistics</title>
+<title>DSC Statistics Dashboard – DSC Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,35 +74,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -340,12 +311,6 @@ window.Quarto = {
   <li><a href="#at-a-glance-20212026" id="toc-at-a-glance-20212026" class="nav-link active" data-scroll-target="#at-a-glance-20212026">At a Glance (2021–2026)</a></li>
   <li><a href="#dashboard-sections" id="toc-dashboard-sections" class="nav-link" data-scroll-target="#dashboard-sections">Dashboard Sections</a></li>
   <li><a href="#reading-these-metrics" id="toc-reading-these-metrics" class="nav-link" data-scroll-target="#reading-these-metrics">Reading These Metrics</a></li>
-  <li><a href="#consultation-records-graceful-fallback" id="toc-consultation-records-graceful-fallback" class="nav-link" data-scroll-target="#consultation-records-graceful-fallback">── Consultation records (graceful fallback) ──────────────────</a></li>
-  <li><a href="#audit-outputs-all-graceful" id="toc-audit-outputs-all-graceful" class="nav-link" data-scroll-target="#audit-outputs-all-graceful">── Audit outputs (all graceful) ──────────────────────────────</a>
-  <ul class="collapse">
-  <li><a href="#project-work-task-metrics" id="toc-project-work-task-metrics" class="nav-link" data-scroll-target="#project-work-task-metrics">Project Work &amp; Task Metrics</a></li>
-  <li><a href="#research-impact" id="toc-research-impact" class="nav-link" data-scroll-target="#research-impact">Research Impact</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -355,7 +320,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Consulting Statistics</h1>
+<h1 class="title">DSC Statistics Dashboard</h1>
 </div>
 
 
@@ -441,131 +406,6 @@ window.Quarto = {
 <p><em>Last rendered: February 26, 2026</em></p>
 
 
-<p>```{r setup, include=FALSE} library(tidyverse) library(lubridate) library(scales)</p>
-</section>
-<section id="consultation-records-graceful-fallback" class="level1">
-<h1>── Consultation records (graceful fallback) ──────────────────</h1>
-<p>data_loaded &lt;- FALSE dsc_consult &lt;- tibble()</p>
-<p>for (p in c( “data/processed/consultations/dsc_consult_merged.rds”, “data/consultations/Data/dsc_consult_merged.rds”, “data/consultations/dsc_consult_merged.rds” )) { if (file.exists(p)) { dsc_consult &lt;- readRDS(p) |&gt; mutate(ucla_affiliation = case_when( ucla_affiliation %in% c(“Graduate”, “Graduate Student”, “Visiting Graduate Student”) ~ “Graduate Student”, ucla_affiliation %in% c(“Undergrauate 3rd &amp; Undergraduate”, “Undergraduate”) ~ “Undergraduate”, TRUE ~ ucla_affiliation )) data_loaded &lt;- TRUE break } }</p>
-<p>if (!data_loaded) { message(“dsc_consult_merged.rds not found — charts will show placeholder text.”) }</p>
-</section>
-<section id="audit-outputs-all-graceful" class="level1">
-<h1>── Audit outputs (all graceful) ──────────────────────────────</h1>
-<p>read_if &lt;- function(path) { if (file.exists(path)) read_csv(path, show_col_types = FALSE) else tibble() }</p>
-<p>audit_summary &lt;- read_if(“data/processed/consultations/consultation_audit_2023_2025_summary_tagged.csv”) audit_task_mode &lt;- read_if(“data/processed/consultations/consultation_audit_2023_2025_by_year_task_mode.csv”) audit_coverage &lt;- read_if(“data/processed/consultations/consultation_audit_source_coverage.csv”) qual_highlights &lt;- read_if(“data/processed/consultations/qualitative_highlights.csv”) impact_case_studies &lt;- read_if(“data/processed/consultations/impact_case_studies.csv”)</p>
-<p>kpi &lt;- function(key) { if (nrow(audit_summary) == 0) return(“—”) x &lt;- audit_summary |&gt; filter(metric_id == key) |&gt; pull(value) if (length(x) == 0) “—” else comma(x[[1]]) }</p>
-<p>no_data_msg &lt;- function() { cat(“<em>Data file not loaded. Run the ETL scripts to populate this chart.</em>”) }</p>
-<p>data_range_label &lt;- if (nrow(audit_coverage) &gt; 0) { yr_min &lt;- format(min(as.Date(audit_coverage<span class="math inline">\(min_date)), "%Y")
-  yr_max &lt;- format(max(as.Date(audit_coverage\)</span>max_date)), “%Y”) if (yr_min == yr_max) yr_min else paste0(yr_min, “013”, yr_max) } else { “All Time” }</p>
-<pre><code>
-## At a Glance (`r data_range_label`)
-
-::: {.kpi-row .grid}
-
-::: {.g-col-6 .g-col-md-3 .kpi-card}
-[Direct Consultations]{.kpi-label}
-[`r kpi("direct_consults_combined_deduped_count")`]{.kpi-value}
-[DSC + DataSquad combined; canceled excluded]{.kpi-note}
-:::
-
-::: {.g-col-6 .g-col-md-3 .kpi-card}
-[DSC Staff]{.kpi-label}
-[`r kpi("dsc_direct_consults_libinsights_count")`]{.kpi-value}
-[LibInsight scheduled exports]{.kpi-note}
-:::
-
-::: {.g-col-6 .g-col-md-3 .kpi-card}
-[DataSquad]{.kpi-label}
-[`r kpi("datasquad_direct_consults_count")`]{.kpi-value}
-[Walk-in sign-ins]{.kpi-note}
-:::
-
-::: {.g-col-6 .g-col-md-3 .kpi-card}
-[Task Cards (Reportable)]{.kpi-label}
-[`r kpi("datasquad_trello_task_cards_reportable_count")`]{.kpi-value}
-[Trello; backlog/admin lists excluded]{.kpi-note}
-:::
-
-:::
-
-## Direct Consultations
-
-::: {.panel-tabset}
-
-### By Year
-
-```{r chart_year, echo=FALSE}
-if (data_loaded) {
-  dsc_consult |&gt;
-    filter(!is.na(start_date_time)) |&gt;
-    count(year = year(start_date_time)) |&gt;
-    ggplot(aes(x = factor(year), y = n)) +
-    geom_col(fill = "#2774AE") +
-    coord_flip() +
-    labs(x = NULL, y = "Consultations") +
-    theme_minimal() +
-    geom_text(aes(label = n), color = "white", hjust = 1.2)
-} else { no_data_msg() }</code></pre>
-<section id="by-department" class="level3">
-<h3 class="anchored" data-anchor-id="by-department">By Department</h3>
-<p><code>{r chart_dept, echo=FALSE} if (data_loaded) {   # Exclude internal/staff entries — not external patron consultations   internal_depts &lt;- c("DSC", "Library", "UCLA")   dsc_consult |&gt;     filter(!is.na(department), !department %in% internal_depts) |&gt;     count(department, sort = TRUE) |&gt;     head(15) |&gt;     ggplot(aes(x = reorder(department, n), y = n)) +     geom_col(fill = "#2774AE") +     coord_flip() +     labs(x = NULL, y = "Consultations", title = "Top 15 Departments") +     theme_minimal() +     geom_text(aes(label = n), color = "white", hjust = 1.2) } else { no_data_msg() }</code></p>
-</section>
-<section id="by-affiliation" class="level3">
-<h3 class="anchored" data-anchor-id="by-affiliation">By Affiliation</h3>
-<p><code>{r chart_affil, echo=FALSE} if (data_loaded) {   dsc_consult |&gt;     filter(!is.na(ucla_affiliation)) |&gt;     count(ucla_affiliation, sort = TRUE) |&gt;     head(6) |&gt;     ggplot(aes(x = reorder(ucla_affiliation, n), y = n)) +     geom_col(fill = "#2774AE") +     coord_flip() +     labs(x = NULL, y = "Consultations") +     theme_minimal() +     geom_text(aes(label = n), color = "white", hjust = 1.2) } else { no_data_msg() }</code></p>
-</section>
-<section id="by-team" class="level3">
-<h3 class="anchored" data-anchor-id="by-team">By Team</h3>
-<p><code>{r chart_group, echo=FALSE} if (data_loaded) {   dsc_consult |&gt;     filter(!is.na(group)) |&gt;     count(group) |&gt;     ggplot(aes(x = group, y = n, fill = group)) +     geom_col() +     scale_fill_manual(values = c("DSC" = "#2774AE", "Datasquad" = "#FFD100")) +     labs(x = NULL, y = "Consultations") +     theme_minimal() +     theme(legend.position = "none") } else { no_data_msg() }</code></p>
-<p>:::</p>
-</section>
-<section id="project-work-task-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="project-work-task-metrics">Project Work &amp; Task Metrics</h2>
-<p>These metrics represent follow-on project work assigned to DataSquad members. They are <strong>not</strong> direct consultations.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Summary</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Task Activity by Year</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><code>{r task_table, echo=FALSE} if (nrow(audit_summary) == 0) {   cat("*Run `Rscript src/etl/consultation_audit_summary.R` to generate task metrics.*\n") } else {   audit_summary |&gt;     filter(metric_id %in% c(       "direct_consults_combined_deduped_count",       "datasquad_trello_task_cards_reportable_count",       "datasquad_trello_task_activity_comment_weighted_reportable_count",       "datasquad_total_with_trello_reportable_count"     )) |&gt;     transmute(       Metric = recode(metric_id,         direct_consults_combined_deduped_count =           "Direct Consultations (Combined, Deduped)",         datasquad_trello_task_cards_reportable_count =           "DataSquad Task Cards (Reportable)",         datasquad_trello_task_activity_comment_weighted_reportable_count =           "DataSquad Task Activity (Reportable, Comment-Weighted)",         datasquad_total_with_trello_reportable_count =           "DataSquad Direct + Reportable Task Activity"       ),       Value = comma(value)     ) |&gt;     knitr::kable(align = c("l", "r")) }</code></p>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><code>{r task_year, echo=FALSE} if (nrow(audit_task_mode) == 0) {   cat("*Task-mode audit file not found.*\n") } else {   audit_task_mode |&gt;     filter(task_metric %in% c(       "trello_all_task_cards", "trello_reportable_task_cards",       "trello_all_comment_weighted", "trello_reportable_comment_weighted"     )) |&gt;     mutate(       task_metric = recode(task_metric,         trello_all_comment_weighted        = "Activity (all)",         trello_reportable_comment_weighted = "Activity (reportable)",         trello_all_task_cards              = "Task cards (all)",         trello_reportable_task_cards       = "Task cards (reportable)"       ),       metric_family = if_else(         grepl("cards", task_metric), "Task cards (count)", "Task activity (comment-weighted)"       )     ) |&gt;     ggplot(aes(x = factor(year), y = n, fill = task_metric)) +     geom_col(position = "dodge") +     facet_wrap(~metric_family, scales = "free_y") +     labs(       x = "Year", y = "Count", fill = NULL,       caption = "Trello historical. Reportable metric excludes backlog/admin/archived lists."     ) +     theme_minimal() +     theme(legend.position = "bottom") }</code></p>
-</div>
-</div>
-</div>
-</section>
-<section id="research-impact" class="level2">
-<h2 class="anchored" data-anchor-id="research-impact">Research Impact</h2>
-<p>These examples show how DSC and DataSquad support extends into sustained technical collaboration beyond single consultations.</p>
-<p><code>{r impact, echo=FALSE, results='asis'} if (nrow(impact_case_studies) == 0) {   cat("*Add rows to `data/processed/consultations/impact_case_studies.csv` to render case studies here.*\n") } else {   impact_case_studies |&gt;     filter(coalesce(include_in_dashboard, TRUE)) |&gt;     arrange(display_order) |&gt;     pwalk(function(case_title, partners, summary,                    measurable_outcomes, impact_signals, ...) {       cat("### ", case_title, "\n\n", sep = "")       if (!is.na(partners) &amp;&amp; partners != "")         cat("**Partners:** ", partners, "\n\n", sep = "")       if (!is.na(summary) &amp;&amp; summary != "")         cat(summary, "\n\n")       if (!is.na(measurable_outcomes) &amp;&amp; measurable_outcomes != "")         cat("**Measurable outcomes:** ", measurable_outcomes, "\n\n", sep = "")       if (!is.na(impact_signals) &amp;&amp; impact_signals != "")         cat("**Impact signals:** ", impact_signals, "\n\n", sep = "")     }) }</code></p>
-<p><code>{r qualitative, echo=FALSE} if (nrow(qual_highlights) &gt; 0) {   display_cols &lt;- c("period_label", "workstream", "audience",                     "request_theme", "work_performed", "outcome")   qual_highlights |&gt;     select(all_of(intersect(display_cols, names(qual_highlights)))) |&gt;     rename_with(~str_replace_all(., "_", " ")) |&gt;     knitr::kable(align = "l") }</code></p>
-<hr>
-<div class="data-notes callout callout-style-default callout-note callout-titled" title="Data notes">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Data notes
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li><strong>Direct consultations</strong>: LibInsight scheduled exports + manual logs (DSC staff); DataSquad walk-in sign-in forms</li>
-<li><strong>Canceled appointments</strong> excluded from all direct consultation counts</li>
-<li><strong>Deduplication</strong>: manual LibInsight logs matched against scheduled exports using a same-provider/same-minute heuristic; ~<code>r kpi("libinsight_manual_logs_heuristic_duplicate_count")</code> duplicates removed</li>
-<li><strong>Task metrics</strong> (Trello cards, comment-weighted activity) are shown separately — not comparable to consultation counts</li>
-<li><strong>Reportable filter</strong>: excludes <code>Inbox</code>, <code>Future Projects/Ideas</code>, <code>Team Info</code> lists; includes archived completed cards</li>
-<li>Full rules: <a href="./metrics-governance.html">Metrics Governance</a> · <a href="./about.html">About</a></li>
-</ul>
-</div>
-</div>
-</div>
-<p><code>{r coverage, echo=FALSE, results='asis'} if (nrow(audit_coverage) &gt; 0) {   audit_coverage |&gt;     mutate(min_date = as.Date(min_date), max_date = as.Date(max_date)) |&gt;     arrange(source, subtype) |&gt;     transmute(       Source        = source,       `Record type` = subtype,       Rows          = comma(rows),       `Date range`  = paste(format(min_date, "%Y-%m-%d"), "–",                             format(max_date, "%Y-%m-%d"))     ) |&gt;     knitr::kable(align = c("l", "l", "r", "l")) }</code></p>
-<p><em>Last rendered: <code>r format(Sys.Date(), "%B %d, %Y")</code></em></p>
-</section>
 </section>
 
 </main> <!-- /main -->
