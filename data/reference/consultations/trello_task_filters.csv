@@ -1,0 +1,4 @@
+source,list_name,include_in_report,exclude_reason
+trello,Team Info,FALSE,admin_metadata
+trello,Inbox,FALSE,intake_not_worked
+trello,Future Projects/Ideas,FALSE,backlog_idea_stage

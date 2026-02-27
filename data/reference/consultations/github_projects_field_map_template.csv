@@ -1,0 +1,14 @@
+source_system,source_field,canonical_field,required,notes
+github_projects,item_id,source_item_id,TRUE,Project item id
+github_projects,issue_id,source_issue_id,FALSE,Linked issue id if present
+github_projects,title,title,TRUE,Item or issue title
+github_projects,status,status,FALSE,Project status field
+github_projects,created_at,created_at,TRUE,Item or issue created timestamp
+github_projects,updated_at,updated_at,FALSE,Last updated timestamp
+github_projects,closed_at,completed_at,FALSE,Close/completion timestamp if available
+github_projects,assignees,assignee,FALSE,Delimited assignees
+github_projects,labels,labels,FALSE,Delimited labels
+github_projects,project_name,project_name,TRUE,Project board name
+github_projects,organization,organization,TRUE,Owning org (e.g., ucla-data-science-center)
+github_projects,workstream,workstream,TRUE,"dsc, datasquad, education, or grant-specific stream"
+github_projects,student_involved,student_involved,FALSE,TRUE/FALSE if inferable

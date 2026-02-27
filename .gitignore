@@ -28,3 +28,17 @@ __pycache__/
 
 /.quarto/
 **/*.quarto_ipynb
+
+# ── Raw data containing PII ───────────────────────────────────
+# Calendly / scheduling exports (patron names, emails, phone numbers)
+data/raw/consultations/event-data-*.csv
+# LibInsight exports imported from Google Drive (patron details)
+data/raw/consultations/imported_gdrive/
+# Trello backup snapshots (treat as raw data)
+data/raw/consultations/*.backup-*.csv
+# General raw intake inbox (assume PII until vetted)
+data/inbox/
+
+# ── Machine-specific analysis outputs ────────────────────────
+# Filesystem inventory with local absolute paths — not portable
+data/processed/repo_cleanup/

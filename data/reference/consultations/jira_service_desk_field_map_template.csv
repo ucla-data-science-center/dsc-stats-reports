@@ -1,0 +1,12 @@
+source_field,canonical_field,required,notes
+Issue key,source_issue_id,TRUE,Unique Jira issue key (e.g. JSD-123)
+Summary,title,TRUE,Issue summary/title
+Status,status,TRUE,Current issue status
+Created,created_at,TRUE,Issue creation timestamp
+Updated,updated_at,FALSE,Last update timestamp
+Resolved,resolved_at,FALSE,Resolution timestamp
+Assignee,assignee,FALSE,Assigned staff/student
+Reporter,requester,FALSE,Issue requester
+Request type,request_type,FALSE,Service desk request type
+Labels,labels,FALSE,Delimited labels
+Comments,comment_count,FALSE,Numeric comment count if export includes it
