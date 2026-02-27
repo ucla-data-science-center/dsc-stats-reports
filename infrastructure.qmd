@@ -156,29 +156,28 @@ if not df_aws.empty:
 
 ```{python dv_growth}
 #| echo: false
-#| fig-alt: "Dual-axis line chart showing cumulative growth of UCLA Dataverse datasets (left axis, blue) and files (right axis, gold) over time."
+#| fig-alt: "Two stacked line charts showing cumulative growth of UCLA Dataverse over time. Top panel: total datasets published (blue). Bottom panel: total files published (gold)."
 try:
     df_dv = pd.read_csv(os.path.join(DATAVERSE_DIR, 'datasets_files_published_monthly.csv'))
     df_dv['date'] = pd.to_datetime(df_dv['date'], format='%Y-%m')
 
-    fig, ax1 = plt.subplots(figsize=(10, 5))
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 7), sharex=True)
 
     ax1.plot(df_dv['date'], df_dv['datasets_published'],
-             label='Total Datasets', color='#2774AE', linewidth=3)
-    ax1.set_ylabel('Total Datasets', color='#2774AE', fontsize=12, fontweight='bold')
-    ax1.tick_params(axis='y', labelcolor='#2774AE')
-
-    ax2 = ax1.twinx()
-    ax2.plot(df_dv['date'], df_dv['files_published'],
-             label='Total Files', color='#FFD100', linewidth=3)
-    ax2.set_ylabel('Total Files', color='#8B6F00', fontsize=12, fontweight='bold')
-    ax2.tick_params(axis='y', labelcolor='#8B6F00')
-
+             color='#2774AE', linewidth=3)
+    ax1.set_ylabel('Total Datasets', fontsize=11, fontweight='bold')
+    ax1.set_title('UCLA Dataverse Cumulative Growth', fontsize=14, fontweight='bold')
     ax1.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
-    ax2.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
-
-    plt.title('UCLA Dataverse Cumulative Growth', fontsize=14, fontweight='bold')
     ax1.grid(True, alpha=0.3)
+    ax1.set_ylim(bottom=0)
+
+    ax2.plot(df_dv['date'], df_dv['files_published'],
+             color='#FFD100', linewidth=3)
+    ax2.set_ylabel('Total Files', fontsize=11, fontweight='bold')
+    ax2.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
+    ax2.grid(True, alpha=0.3)
+    ax2.set_ylim(bottom=0)
+
     fig.tight_layout()
     plt.show()
 except Exception as e:
@@ -189,7 +188,7 @@ except Exception as e:
 
 ```{python dv_monthly}
 #| echo: false
-#| fig-alt: "Two-panel chart. Top: bar and line chart of new datasets and files added per month over the last 24 months. Bottom: bar chart of monthly download volume."
+#| fig-alt: "Three stacked bar charts showing monthly Dataverse activity over the last 24 months. Top: new datasets per month (blue). Middle: new files per month (gold). Bottom: monthly download volume (green)."
 try:
     df_dv['month_new_datasets'] = df_dv['datasets_published'].diff().fillna(0).clip(lower=0)
     df_dv['month_new_files']    = df_dv['files_published'].diff().fillna(0).clip(lower=0)
@@ -197,32 +196,28 @@ try:
 
     df_recent = df_dv.tail(24)
 
-    fig, (ax1, ax3) = plt.subplots(2, 1, figsize=(10, 10), sharex=True)
+    fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(10, 12), sharex=True)
 
     ax1.bar(df_recent['date'], df_recent['month_new_datasets'],
-            color='#2774AE', alpha=0.6, width=20, label='New Datasets')
-    ax1.set_ylabel('New Datasets', color='#2774AE', fontweight='bold')
+            color='#2774AE', alpha=0.8, width=20)
+    ax1.set_ylabel('New Datasets', fontweight='bold')
     ax1.set_ylim(bottom=0)
+    ax1.set_title('Monthly Publication Activity (Last 24 Months)', fontsize=13, fontweight='bold')
 
-    ax2 = ax1.twinx()
-    ax2.plot(df_recent['date'], df_recent['month_new_files'],
-             color='#FFD100', marker='o', linewidth=2, label='New Files')
-    ax2.set_ylabel('New Files', color='#8B6F00', fontweight='bold')
+    ax2.bar(df_recent['date'], df_recent['month_new_files'],
+            color='#FFD100', alpha=0.8, width=20)
+    ax2.set_ylabel('New Files', fontweight='bold')
     ax2.set_ylim(bottom=0)
 
-    ax1.set_title('Monthly Publication Activity (Last 24 Months)', fontsize=13, fontweight='bold')
-    ax1.legend(loc='upper left')
-    ax2.legend(loc='upper right')
-
     ax3.bar(df_recent['date'], df_recent['month_downloads'],
-            color='#2ca02c', alpha=0.6, width=20)
-    ax3.set_ylabel('Monthly Downloads', color='#2ca02c', fontweight='bold')
+            color='#2ca02c', alpha=0.8, width=20)
+    ax3.set_ylabel('Monthly Downloads', fontweight='bold')
     ax3.set_ylim(bottom=0)
     ax3.get_yaxis().set_major_formatter(plt.FuncFormatter(lambda x, p: format(int(x), ',')))
     ax3.set_title('Monthly Download Volume', fontsize=13, fontweight='bold')
 
     plt.xticks(rotation=45)
-    plt.tight_layout()
+    fig.tight_layout()
     plt.show()
 except Exception as e:
     print(f"Error calculating monthly activity: {e}")
@@ -266,6 +261,8 @@ else:
 ```
 
 :::
+
+**See also:** [Consulting →](consulting.qmd) one-on-one consultations · [Instruction →](instruction.qmd) workshop attendance · [About & methodology](about.qmd)
 
 ---
 

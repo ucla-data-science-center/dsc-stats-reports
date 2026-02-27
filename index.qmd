@@ -116,6 +116,8 @@ AWS cloud costs and UCLA Dataverse repository growth and download metrics.
 
 :::
 
+**Explore by section:** [Consulting →](consulting.qmd) · [Instruction →](instruction.qmd) · [Infrastructure →](infrastructure.qmd) · [About & methodology](about.qmd)
+
 ## Reading These Metrics
 
 - **Direct consultations** = one interaction record (appointment or walk-in). Canceled appointments excluded.

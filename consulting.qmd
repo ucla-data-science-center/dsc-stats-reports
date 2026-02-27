@@ -199,6 +199,21 @@ if (data_loaded) {
 } else { no_data_msg() }
 ```
 
+```{r dept_table, echo=FALSE}
+if (data_loaded) {
+  internal_depts <- c("DSC", "Library", "UCLA")
+  dsc_consult |>
+    filter(!is.na(department), !department %in% internal_depts) |>
+    count(department, sort = TRUE) |>
+    rename(Department = department, Consultations = n) |>
+    DT::datatable(
+      rownames = FALSE,
+      options  = list(pageLength = 10, dom = "ftp"),
+      caption  = "All departments — search or sort to find a specific unit"
+    )
+}
+```
+
 ### By Affiliation
 
 ```{r chart_affil, echo=FALSE, fig.alt=alt_affil}
@@ -214,6 +229,20 @@ if (data_loaded) {
     theme_minimal() +
     geom_text(aes(label = n), color = "white", hjust = 1.2)
 } else { no_data_msg() }
+```
+
+```{r affil_table, echo=FALSE}
+if (data_loaded) {
+  dsc_consult |>
+    filter(!is.na(ucla_affiliation)) |>
+    count(ucla_affiliation, sort = TRUE) |>
+    rename(Affiliation = ucla_affiliation, Consultations = n) |>
+    DT::datatable(
+      rownames = FALSE,
+      options  = list(pageLength = 10, dom = "ftp"),
+      caption  = "All researcher affiliations"
+    )
+}
 ```
 
 ### By Team
@@ -342,6 +371,10 @@ if (nrow(qual_highlights) > 0) {
     knitr::kable(align = "l")
 }
 ```
+
+---
+
+**See also:** [Instruction →](instruction.qmd) workshop attendance · [Infrastructure →](infrastructure.qmd) Dataverse and AWS metrics · [About & methodology](about.qmd)
 
 ---
 

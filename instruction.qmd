@@ -137,6 +137,20 @@ if (data_loaded) {
 } else { no_data_msg() }
 ```
 
+```{r dept_table, echo=FALSE}
+if (data_loaded) {
+  ucla_workshops |>
+    filter(!is.na(standardized_department), institution == "UCLA") |>
+    count(standardized_department, sort = TRUE) |>
+    rename(Department = standardized_department, Attendance = n) |>
+    DT::datatable(
+      rownames = FALSE,
+      options  = list(pageLength = 10, dom = "ftp"),
+      caption  = "All UCLA departments — search or sort to find a specific unit"
+    )
+}
+```
+
 ### By Affiliation
 
 ```{r chart_affil, echo=FALSE, fig.alt=alt_affil}
@@ -154,7 +168,23 @@ if (data_loaded) {
 } else { no_data_msg() }
 ```
 
+```{r affil_table, echo=FALSE}
+if (data_loaded) {
+  ucla_workshops |>
+    filter(!is.na(status)) |>
+    count(status, sort = TRUE) |>
+    rename(Affiliation = status, Attendance = n) |>
+    DT::datatable(
+      rownames = FALSE,
+      options  = list(pageLength = 10, dom = "ftp"),
+      caption  = "All participant affiliations"
+    )
+}
+```
+
 :::
+
+**See also:** [Consulting →](consulting.qmd) one-on-one consultations · [Infrastructure →](infrastructure.qmd) Dataverse and AWS metrics · [About & methodology](about.qmd)
 
 ---
 
