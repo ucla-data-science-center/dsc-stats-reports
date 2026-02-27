@@ -42,10 +42,19 @@ requests = ">=2.32.5,<3"
 # quarto (/Applications/quarto) instead, overriding each var back to the
 # system paths. Pixi Python/R still come first on PATH so kernels are correct.
 
+# Linux/CI: pixi's quarto works fine on linux-64 — use it directly
 [tasks.render]
+cmd = "quarto render"
+
+[tasks.preview]
+cmd = "quarto preview"
+
+# Mac (aarch64): pixi's quarto has a broken deno binary; use system quarto
+# and override all QUARTO_* env vars back to the system install paths.
+[target.osx-arm64.tasks.render]
 cmd = "/usr/local/bin/quarto render"
 
-[tasks.render.env]
+[target.osx-arm64.tasks.render.env]
 QUARTO_SHARE_PATH = "/Applications/quarto/share"
 QUARTO_DENO       = "/Applications/quarto/bin/tools/aarch64/deno"
 QUARTO_DENO_DOM   = "/Applications/quarto/bin/tools/aarch64/deno_dom/libplugin.dylib"
@@ -54,10 +63,10 @@ QUARTO_ESBUILD    = "/Applications/quarto/bin/tools/aarch64/esbuild"
 QUARTO_PANDOC     = "/Applications/quarto/bin/tools/aarch64/pandoc"
 QUARTO_TYPST      = "/Applications/quarto/bin/tools/aarch64/typst"
 
-[tasks.preview]
+[target.osx-arm64.tasks.preview]
 cmd = "/usr/local/bin/quarto preview"
 
-[tasks.preview.env]
+[target.osx-arm64.tasks.preview.env]
 QUARTO_SHARE_PATH = "/Applications/quarto/share"
 QUARTO_DENO       = "/Applications/quarto/bin/tools/aarch64/deno"
 QUARTO_DENO_DOM   = "/Applications/quarto/bin/tools/aarch64/deno_dom/libplugin.dylib"
