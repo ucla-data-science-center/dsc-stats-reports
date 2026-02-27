@@ -89,6 +89,7 @@ else:
     kpi_aws = '—'; kpi_aws_month = '—'
 
 print(f"""
+<p><em>Last rendered: {datetime.now().strftime("%B %d, %Y")}</em></p>
 <div class="kpi-row grid">
   <div class="g-col-6 g-col-md-3 kpi-card">
     <span class="kpi-label">Dataverse Datasets</span>
@@ -274,6 +275,16 @@ else:
 - **S3 storage**: Fetched live from AWS CloudWatch at render time. May be unavailable without valid AWS credentials; CloudWatch reports storage metrics once daily
 - Full rules: [Metrics Governance](metrics-governance.md) · [About](about.qmd)
 :::
+
+```{python cite}
+#| echo: false
+#| output: asis
+print(f"""
+::: {{.callout-note collapse="true" title="Cite this page"}}
+UCLA Library Data Science Center. ({datetime.now().year}). *Infrastructure Statistics*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/infrastructure.html>
+:::
+""")
+```
 
 *Last rendered:*
 ```{python last_rendered}

@@ -148,6 +148,10 @@ if (nrow(audit_coverage) > 0) {
 }
 ```
 
+::: {.callout-note collapse="true" title="Cite this page"}
+UCLA Library Data Science Center. (`r year(Sys.Date())`). *DSC Statistics Dashboard*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/>
+:::
+
 ---
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*

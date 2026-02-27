@@ -162,4 +162,23 @@ if (data_loaded) {
 - Full rules: [Metrics Governance](metrics-governance.md) · [About](about.qmd)
 :::
 
+```{r coverage, echo=FALSE, results='asis'}
+if (data_loaded && !is.null(ucla_workshops$date)) {
+  tibble(
+    Source        = "LibInsight",
+    `Record type` = "workshop_attendance",
+    Rows          = scales::comma(nrow(ucla_workshops)),
+    `Date range`  = paste(
+      format(min(ucla_workshops$date, na.rm = TRUE), "%Y-%m-%d"), "\u2013",
+      format(max(ucla_workshops$date, na.rm = TRUE), "%Y-%m-%d")
+    )
+  ) |>
+    knitr::kable(align = c("l", "l", "r", "l"))
+}
+```
+
+::: {.callout-note collapse="true" title="Cite this page"}
+UCLA Library Data Science Center. (`r year(Sys.Date())`). *Instruction Statistics*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/instruction.html>
+:::
+
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
