@@ -67,67 +67,69 @@ Target: no page below 28/40 in a release. No individual section below 4/8.
 | infrastructure.qmd | 5 | 4 | 6 | 6 | 6 | **27** | B2 (no YoY on KPIs), C2 (dual-axis charts ambiguous), E2 (bot download caveat buried) |
 | about.qmd | 7 | n/a | n/a | 6 | 8 | **—** | A4 (audience described but not framed per section) |
 
-### Scoring notes
+## Updated Scores (post Phase 2 accessibility + rubric improvements)
+
+*Scored: 2026-02-26*
+
+| Page | A | B | C | D | E | **Total** | Changes |
+|---|---|---|---|---|---|---|---|
+| index.qmd | 7 | 5 | 8 | 6 | 7 | **33** | A2+1 (date badge), A4+2 (audience framing), B2+2 (YoY on 2 KPIs), E4+2 (citation) |
+| consulting.qmd | 7 | 5 | 7 | 7 | 8 | **34** | A2+1, A4+2, B2+2, D2+2 (DT table), E4+2 (citation) |
+| instruction.qmd | 7 | 3 | 7 | 5 | 8 | **30** | A2+2 (date badge added), A4+2, E3+2 (coverage table), E4+2 (citation) |
+| infrastructure.qmd | 7 | 4 | 6 | 6 | 8 | **31** | A2+1 (date badge), A4+2, E4+2 (citation) |
+| about.qmd | 7 | n/a | n/a | 6 | 8 | **—** | unchanged |
+
+### Scoring notes (updated)
 
 **A — Orientation**
-- All pages: -1 on A2 because date range appears in KPI sub-notes (small text) not a visible banner; -1 or -2 on A4 because audience framing is implicit at best
-- about.qmd scores well because it was written explicitly for this rubric
+- All pages now have audience framing (+2 on A4) and visible date badge (+1 A2)
+- A1 still -1 on some pages (purpose statement exists but not framed as decision-support)
 
 **B — KPI quality**
-- All pages score 1/2 on B1 (units present, denominators partial)
-- All pages score 0/2 on B2 — no comparisons exist yet (YoY or T12M). This is the single highest-ROI gap.
-- infrastructure.qmd gets +1 on B2 because the Dataverse charts show trend implicitly
+- index.qmd + consulting.qmd: B2 now +2 (YoY on direct consultations + task cards)
+- instruction.qmd: still 0/2 on B2 — no prior-year workshop data available for comparison
+- infrastructure.qmd: still +1 on B2 (trend charts exist; no explicit KPI comparison)
 
 **C — Visual clarity**
-- Consulting/instruction: -1 on C1 (bar labels can be small on mobile)
-- Infrastructure: -2 on C2 (dual-axis matplotlib charts are hard to read; left/right Y-axes use different colors with no legend on one of them)
+- Unchanged; dual-axis infrastructure charts still ambiguous (C2 gap remains)
 
 **D — Navigability**
-- All pages: -1 on D1 (tabsets help but there's no "see also" or cross-page link from charts)
-- Consulting/instruction: -2 on D2 (all tables are kable; no sort/filter on the coverage table which has 10+ rows)
+- consulting.qmd: D2 +2 (DT::datatable() on coverage table — sortable/searchable)
+- instruction.qmd: D2 still -2 (coverage table uses kable; DT upgrade would help but workshop data is small)
 
 **E — Trust and governance**
-- All pages: 0/2 on E4 (no citation block on individual pages, only in about.qmd)
-- instruction.qmd: -2 on E3 (no coverage table at all; only consulting.qmd has one)
+- All pages: E4 +2 (citation callout added to every page)
+- instruction.qmd: E3 +2 (coverage table computed from loaded data)
+- Remaining E4 gap closed; E3 gap closed on all pages with data
 
 ---
 
 ## Recommended Next Actions (by ROI)
 
-### High impact, low effort
+### High impact, low effort — COMPLETED
 
-1. **Add YoY comparison to all KPI cards** (B2 +2 across all pages)
-   - Requires by-year data to already exist (it does in `audit_summary` and `audit_task_mode`)
-   - Pattern: show current period value + `↑ +12% vs prior year` in `.kpi-note`
+1. ~~**Add YoY comparison to all KPI cards**~~ ✓ Done (index + consulting; instruction needs data)
+2. ~~**Add date-range badge near KPIs**~~ ✓ Done (all pages)
+3. ~~**Add coverage table to instruction.qmd**~~ ✓ Done
+4. ~~**Add citation block to each page footer**~~ ✓ Done (all pages)
+5. ~~**Audience framing on each page**~~ ✓ Done
+6. ~~**Replace kable coverage table with DT**~~ ✓ Done (consulting.qmd)
+7. ~~**Alt text for all chart images**~~ ✓ Done (WCAG 2.1 AA, all pages)
 
-2. **Add date-range badge near KPIs** (A2 +1 across all pages)
-   - A single line like `Data: Jan 2021 – Feb 2026` directly below the KPI row
-   - Already computed in audit_coverage; just needs surfacing higher on the page
+### Remaining gaps
 
-3. **Add coverage table to instruction.qmd** (E3 +2)
-   - Straightforward: same pattern as consulting.qmd coverage chunk
+- **Fix infrastructure dual-axis charts** (C2 +1–2 on infrastructure)
+  - Separate into two stacked panels instead of dual Y-axes; easier to read on mobile
 
-4. **Add citation block to each page footer** (E4 +1–2 across all pages)
-   - One-liner callout: "To cite: UCLA Library DSC. (Year). *Page title*. Retrieved from [URL]."
+- **YoY KPI comparisons for instruction** — needs prior-year workshop data structured by year
 
-### Medium impact, medium effort
+- **DT tables for department/affiliation breakdowns** — large enough to benefit from search (consulting, instruction)
 
-5. **Replace kable coverage table with DT** (D2 +1–2 on consulting/instruction)
-   - `DT::datatable()` — already in pixi dependencies (`r-dt >= 0.30`)
-   - Sortable, searchable, no extra dependency to add
+- **D1: "See also" cross-page links** — no "next step" link from charts on any page
 
-6. **Fix infrastructure dual-axis charts** (C2 +1–2 on infrastructure)
-   - Separate into two stacked panels instead of dual Y-axes
-   - Easier to read, especially on mobile
-
-7. **Audience framing on each page** (A4 +1–2 across all pages)
-   - One sentence at top: "This page is for library administration and DSC staff."
-
-### Requires new data or significant work
-
-8. **YoY KPI comparisons for instruction** — needs prior-year workshop data structured the same way
-9. **DT tables for department/affiliation breakdowns** — large enough to benefit from search
-10. **Alt text for all ggplot/matplotlib charts** — requires `fig.alt=` chunk option or post-render injection
+- **Quarto framework accessibility bugs** (unfixable without upstream fix):
+  - WCAG 4.1.1: Duplicate IDs (`quarto-text-highlighting-styles`, `quarto-bootstrap`)
+  - WCAG 4.1.2: GitHub nav icon anchor has no accessible name on `<a>`
 
 ---
 
