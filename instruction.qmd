@@ -42,6 +42,30 @@ kpi_total <- if (data_loaded) nrow(ucla_workshops)                              
 kpi_ucla  <- if (data_loaded) sum(ucla_workshops$institution == "UCLA", na.rm = TRUE)    else NA_integer_
 kpi_years <- if (data_loaded) n_distinct(year(ucla_workshops$date), na.rm = TRUE)        else NA_integer_
 
+# ── Date range label and YoY comparison ───────────────────────
+data_range_label <- if (data_loaded) {
+  yr_min <- min(year(ucla_workshops$date), na.rm = TRUE)
+  yr_max <- max(year(ucla_workshops$date), na.rm = TRUE)
+  if (yr_min == yr_max) as.character(yr_min) else paste0(yr_min, "\u2013", yr_max)
+} else "All Time"
+
+yoy_attendance <- if (data_loaded) {
+  by_year <- ucla_workshops |>
+    filter(!is.na(date)) |>
+    mutate(year = year(date)) |>
+    count(year) |>
+    arrange(desc(year)) |>
+    head(2)
+  if (nrow(by_year) >= 2) {
+    n_recent <- by_year$n[1];  yr_recent <- by_year$year[1]
+    n_prior  <- by_year$n[2];  yr_prior  <- by_year$year[2]
+    pct   <- round((n_recent - n_prior) / n_prior * 100)
+    arrow <- if (pct > 0) "\u2191" else if (pct < 0) "\u2193" else "\u2192"
+    sprintf("%s %+d%% \u00b7 %s in %d vs %s in %d",
+            arrow, pct, comma(n_recent), yr_recent, comma(n_prior), yr_prior)
+  } else ""
+} else ""
+
 # ── Pre-computed alt text ─────────────────────────────────────
 if (data_loaded) {
   .yr <- ucla_workshops |> filter(!is.na(date)) |>
@@ -75,14 +99,14 @@ if (data_loaded) {
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
 
-## At a Glance
+## At a Glance (`r data_range_label`)
 
 ::: {.kpi-row .grid}
 
 ::: {.g-col-6 .g-col-md-4 .kpi-card}
 [Total Attendance Records]{.kpi-label}
 [`r fmt(kpi_total)`]{.kpi-value}
-[All workshop participants, all years]{.kpi-note}
+[All workshop participants, all years`r if (nchar(yoy_attendance) > 0) paste0(" \u00b7 ", yoy_attendance)`]{.kpi-note}
 :::
 
 ::: {.g-col-6 .g-col-md-4 .kpi-card}
