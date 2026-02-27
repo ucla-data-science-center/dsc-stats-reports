@@ -10,6 +10,8 @@ format:
 library(tidyverse)
 library(lubridate)
 library(scales)
+library(plotly)
+library(crosstalk)
 
 # ── Consultation records (graceful fallback) ──────────────────
 data_loaded <- FALSE
@@ -182,67 +184,64 @@ if (data_loaded) {
 
 ### By Department
 
-```{r chart_dept, echo=FALSE, fig.alt=alt_dept}
+```{r chart_dept, echo=FALSE}
 if (data_loaded) {
-  # Exclude internal/staff entries — not external patron consultations
   internal_depts <- c("DSC", "Library", "UCLA")
-  dsc_consult |>
+  dept_counts <- dsc_consult |>
     filter(!is.na(department), !department %in% internal_depts) |>
     count(department, sort = TRUE) |>
-    head(15) |>
-    ggplot(aes(x = reorder(department, n), y = n)) +
-    geom_col(fill = "#2774AE") +
-    coord_flip() +
-    labs(x = NULL, y = "Consultations", title = "Top 15 Departments") +
-    theme_minimal() +
-    geom_text(aes(label = n), color = "white", hjust = 1.2)
-} else { no_data_msg() }
-```
+    rename(Department = department, Consultations = n)
 
-```{r dept_table, echo=FALSE}
-if (data_loaded) {
-  internal_depts <- c("DSC", "Library", "UCLA")
-  dsc_consult |>
-    filter(!is.na(department), !department %in% internal_depts) |>
-    count(department, sort = TRUE) |>
-    rename(Department = department, Consultations = n) |>
-    DT::datatable(
-      rownames = FALSE,
-      options  = list(pageLength = 10, dom = "ftp"),
-      caption  = "All departments — search or sort to find a specific unit"
-    )
-}
+  sd_dept <- SharedData$new(dept_counts)
+
+  # Filter widget + linked chart + linked table
+  filter_select("dept_filter", "Search department:", sd_dept, ~Department,
+                multiple = FALSE)
+
+  bscols(
+    plot_ly(sd_dept, x = ~Consultations, y = ~reorder(Department, Consultations),
+            type = "bar", orientation = "h",
+            marker = list(color = "#2774AE"),
+            hovertemplate = "<b>%{y}</b><br>Consultations: %{x}<extra></extra>") |>
+      layout(yaxis = list(title = ""),
+             xaxis = list(title = "Consultations"),
+             margin = list(l = 5)),
+    DT::datatable(sd_dept, rownames = FALSE,
+                  colnames = c("Department", "Consultations"),
+                  options = list(pageLength = 10, dom = "tp"),
+                  caption = "All departments — linked to chart above")
+  )
+} else { no_data_msg() }
 ```
 
 ### By Affiliation
 
-```{r chart_affil, echo=FALSE, fig.alt=alt_affil}
+```{r chart_affil, echo=FALSE}
 if (data_loaded) {
-  dsc_consult |>
+  affil_counts <- dsc_consult |>
     filter(!is.na(ucla_affiliation)) |>
     count(ucla_affiliation, sort = TRUE) |>
-    head(6) |>
-    ggplot(aes(x = reorder(ucla_affiliation, n), y = n)) +
-    geom_col(fill = "#2774AE") +
-    coord_flip() +
-    labs(x = NULL, y = "Consultations") +
-    theme_minimal() +
-    geom_text(aes(label = n), color = "white", hjust = 1.2)
-} else { no_data_msg() }
-```
+    filter(n >= 3) |>   # drop obvious data-entry noise (phone numbers, names)
+    rename(Affiliation = ucla_affiliation, Consultations = n)
 
-```{r affil_table, echo=FALSE}
-if (data_loaded) {
-  dsc_consult |>
-    filter(!is.na(ucla_affiliation)) |>
-    count(ucla_affiliation, sort = TRUE) |>
-    rename(Affiliation = ucla_affiliation, Consultations = n) |>
-    DT::datatable(
-      rownames = FALSE,
-      options  = list(pageLength = 10, dom = "ftp"),
-      caption  = "All researcher affiliations"
-    )
-}
+  sd_affil <- SharedData$new(affil_counts)
+
+  filter_checkbox("affil_filter", "Filter affiliation:", sd_affil, ~Affiliation)
+
+  bscols(
+    plot_ly(sd_affil, x = ~Consultations, y = ~reorder(Affiliation, Consultations),
+            type = "bar", orientation = "h",
+            marker = list(color = "#2774AE"),
+            hovertemplate = "<b>%{y}</b><br>Consultations: %{x}<extra></extra>") |>
+      layout(yaxis = list(title = ""),
+             xaxis = list(title = "Consultations"),
+             margin = list(l = 5)),
+    DT::datatable(sd_affil, rownames = FALSE,
+                  colnames = c("Affiliation", "Consultations"),
+                  options = list(pageLength = 10, dom = "t"),
+                  caption = "Linked to chart above")
+  )
+} else { no_data_msg() }
 ```
 
 ### By Team
