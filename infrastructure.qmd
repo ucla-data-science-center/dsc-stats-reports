@@ -268,6 +268,93 @@ else:
 
 :::
 
+## Dataverse Scholarship Impact
+
+UCLA Dataverse datasets linked to peer-reviewed publications, traced via depositor-supplied DOIs and enriched with citation data from OpenAlex.
+
+```{python impact_load}
+#| echo: false
+import glob
+
+_impact_files = sorted(glob.glob('data/raw/infrastructure/dataverse_impact/linked_papers_*.csv'))
+df_impact = pd.read_csv(_impact_files[-1]) if _impact_files else pd.DataFrame()
+
+_links_files = sorted(glob.glob('data/raw/infrastructure/dataverse_impact/dataset_pub_links_*.csv'))
+df_links = pd.read_csv(_links_files[-1]) if _links_files else pd.DataFrame()
+```
+
+```{python impact_kpis}
+#| echo: false
+#| output: asis
+if df_impact.empty or df_links.empty:
+    print("*Run `pixi run update-dataverse-impact` to generate scholarship impact data.*")
+else:
+    found       = df_impact[df_impact['openalex_id'] != 'not_found']
+    n_papers    = len(found)
+    n_datasets  = df_links[df_links['link_status'] == 'linked'].shape[0]
+    total_cites = int(found['cited_by'].sum())
+    n_journals  = found['journal'].nunique()
+    n_isbn      = df_links[df_links['pub_types'].str.contains('isbn', na=False)].shape[0]
+
+    print(f"""
+<div class="kpi-row grid">
+<div class="g-col-6 g-col-md-3 kpi-card">
+<span class="kpi-label">Linked Publications</span>
+<span class="kpi-value">{n_papers}</span>
+<span class="kpi-note">Peer-reviewed papers with traceable DOIs in OpenAlex</span>
+</div>
+<div class="g-col-6 g-col-md-3 kpi-card">
+<span class="kpi-label">Total Citations</span>
+<span class="kpi-value">{total_cites:,}</span>
+<span class="kpi-note">Cumulative citations across linked papers</span>
+</div>
+<div class="g-col-6 g-col-md-3 kpi-card">
+<span class="kpi-label">Journals & Venues</span>
+<span class="kpi-value">{n_journals}</span>
+<span class="kpi-note">Distinct publication venues</span>
+</div>
+<div class="g-col-6 g-col-md-3 kpi-card">
+<span class="kpi-label">Book-Chapter Links</span>
+<span class="kpi-value">{n_isbn}</span>
+<span class="kpi-note">Additional datasets linked to edited volumes (ISBN); citations not tracked</span>
+</div>
+</div>
+""")
+```
+
+```{python impact_table}
+#| echo: false
+#| results: asis
+if not df_impact.empty:
+    found = (df_impact[df_impact['openalex_id'] != 'not_found']
+             .sort_values('cited_by', ascending=False))
+    if not found.empty:
+        rows = [
+            [r['title'][:75] + ('…' if len(str(r['title'])) > 75 else ''),
+             int(r['year']) if pd.notna(r['year']) else '—',
+             str(r['journal'])[:40],
+             int(r['cited_by']),
+             int(r['dataset_count'])]
+            for _, r in found.iterrows()
+        ]
+        print_markdown_table(
+            ['Title', 'Year', 'Journal / Venue', 'Citations', 'Datasets'],
+            rows
+        )
+```
+
+::: {.callout-warning collapse="true" title="Known limitations — Dataverse infrastructure (migration in progress)"}
+These impact metrics **undercount real scholarly reach** due to known infrastructure issues being addressed in an ongoing Dataverse migration:
+
+- **Dataverse 5.14 DataCite export bug**: The `publication` metadata field (paper DOI linked by depositors) is not exported to DataCite as `relatedIdentifiers`. As a result, UCLA Dataverse datasets show **0 citations in DataCite**, even when they are cited. Citation counts here are retrieved directly from OpenAlex as a workaround.
+- **Make Data Count (MDC) not enabled**: Per-dataset view and download metrics are unavailable. Only aggregate download totals are reported.
+- **Restricted and draft datasets excluded**: ~562 of 942 datasets in the index are inaccessible without authentication and are not included in this analysis.
+- **ISBN-linked datasets not tracked**: 160 datasets are linked to book chapters (via ISBN). These represent real scholarship connections — primarily from large archaeology collections — but citation counts are not retrievable via OpenAlex.
+- **Depositor coverage gap**: ~200 publicly accessible datasets have no publication link at all. Improving intake guidance for depositors would increase coverage.
+
+**Expected improvements after migration to Dataverse 6.x**: DataCite relatedIdentifiers export fixed, MDC enablement possible.
+:::
+
 **See also:** [Consulting →](consulting.qmd) one-on-one consultations · [Instruction →](instruction.qmd) workshop attendance · [About & methodology](about.qmd)
 
 ---
@@ -277,6 +364,7 @@ else:
 - **Dataverse datasets/files/downloads**: Cumulative counts from the UCLA Dataverse `/api/info/metrics` endpoint — stored in `data/raw/infrastructure/datasets_files_published_monthly.csv`
 - **Downloads**: File-level events as reported by Dataverse. Includes automated and bot traffic; not filtered for human-only access
 - **S3 storage**: Fetched live from AWS CloudWatch at render time. May be unavailable without valid AWS credentials; CloudWatch reports storage metrics once daily
+- **Scholarship impact**: Publication DOIs from Dataverse metadata API; citation counts from OpenAlex. Undercounts real impact — see limitations callout above.
 - Full rules: [Metrics Governance](metrics-governance.md) · [About](about.qmd)
 :::
 
