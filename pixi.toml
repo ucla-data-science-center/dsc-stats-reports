@@ -78,3 +78,4 @@ QUARTO_TYPST      = "/Applications/quarto/bin/tools/aarch64/typst"
 [tasks]
 clean-aws         = "python src/etl/aws_processing.py"
 update-dataverse  = "python src/etl/dataverse_metrics.py"
+update-jira       = "python src/etl/jira_jsm.py"
