@@ -79,7 +79,29 @@ Target: no page below 28/40 in a release. No individual section below 4/8.
 | infrastructure.qmd | 7 | 4 | 6 | 6 | 8 | **31** | A2+1 (date badge), A4+2, E4+2 (citation) |
 | about.qmd | 7 | n/a | n/a | 6 | 8 | **—** | unchanged |
 
-### Scoring notes (updated)
+## Updated Scores (post Phase 3 — DT tables, dual-axis fix, cross-page nav)
+
+*Scored: 2026-03-09*
+
+| Page | A | B | C | D | E | **Total** | Changes from Phase 2 |
+|---|---|---|---|---|---|---|---|
+| index.qmd | 7 | 5 | 8 | 7 | 7 | **34** | D1+1 ("See also" cross-page nav) |
+| consulting.qmd | 7 | 5 | 7 | 8 | 8 | **35** | D1+1 ("See also" nav), DT on dept/affiliation tables |
+| instruction.qmd | 7 | 3 | 7 | 8 | 8 | **33** | D2+2 (DT on dept/affiliation tables), D1+1 ("See also" nav) |
+| infrastructure.qmd | 7 | 4 | 7 | 7 | 8 | **33** | C2+1 (dual-axis → stacked panels), D1+1 ("See also" nav) |
+| about.qmd | 7 | n/a | n/a | 6 | 8 | **—** | unchanged |
+
+### Scoring notes (Phase 3)
+
+**C — Visual clarity**
+- infrastructure.qmd: C2 gap closed — dual-axis charts replaced with stacked single-axis panels
+
+**D — Navigability**
+- All pages: D1 +1 — "See also / Explore by section" footer nav added to every page
+- consulting.qmd + instruction.qmd: D2 improvements — DT::datatable() added below dept/affiliation charts
+- instruction.qmd: D2 was 0/2 in Phase 2 (kable only); now 2/2
+
+### Scoring notes (Phase 2)
 
 **A — Orientation**
 - All pages now have audience framing (+2 on A4) and visible date badge (+1 A2)
@@ -91,7 +113,7 @@ Target: no page below 28/40 in a release. No individual section below 4/8.
 - infrastructure.qmd: still +1 on B2 (trend charts exist; no explicit KPI comparison)
 
 **C — Visual clarity**
-- Unchanged; dual-axis infrastructure charts still ambiguous (C2 gap remains)
+- Unchanged from Phase 1; dual-axis infrastructure charts still ambiguous (C2 gap remains)
 
 **D — Navigability**
 - consulting.qmd: D2 +2 (DT::datatable() on coverage table — sortable/searchable)
@@ -118,18 +140,19 @@ Target: no page below 28/40 in a release. No individual section below 4/8.
 
 ### Remaining gaps
 
-- **Fix infrastructure dual-axis charts** (C2 +1–2 on infrastructure)
-  - Separate into two stacked panels instead of dual Y-axes; easier to read on mobile
+- **YoY KPI comparisons for instruction** — needs prior-year workshop data structured by year (B2 still 0/2 on instruction.qmd)
 
-- **YoY KPI comparisons for instruction** — needs prior-year workshop data structured by year
-
-- **DT tables for department/affiliation breakdowns** — large enough to benefit from search (consulting, instruction)
-
-- **D1: "See also" cross-page links** — no "next step" link from charts on any page
+- **Qualitative highlights / impact case studies** — data exists in CSVs, not yet shown on dashboard (D1 opportunity)
 
 - **Quarto framework accessibility bugs** (unfixable without upstream fix):
   - WCAG 4.1.1: Duplicate IDs (`quarto-text-highlighting-styles`, `quarto-bootstrap`)
   - WCAG 4.1.2: GitHub nav icon anchor has no accessible name on `<a>`
+
+### Closed in Phase 3
+
+- ~~**Fix infrastructure dual-axis charts**~~ ✓ Done (stacked single-axis panels)
+- ~~**DT tables for department/affiliation breakdowns**~~ ✓ Done (consulting + instruction)
+- ~~**D1: "See also" cross-page links**~~ ✓ Done (all pages)
 
 ---
 
