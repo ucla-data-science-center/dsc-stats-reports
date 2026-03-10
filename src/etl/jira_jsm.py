@@ -63,35 +63,37 @@ def get_session():
         sys.exit(1)
     session = requests.Session()
     session.auth = (JIRA_EMAIL, JIRA_API_TOKEN)
-    session.headers.update({"Accept": "application/json"})
+    session.headers.update({"Accept": "application/json", "Content-Type": "application/json"})
     return session
 
 # ── Fetch ──────────────────────────────────────────────────────────────────────
 
 def fetch_all_issues(session, jql, fields):
-    """Paginate through all issues matching JQL and return list of raw issue dicts."""
-    base_url = f"https://{JIRA_SITE}/rest/api/3/search"
-    issues   = []
-    start_at = 0
+    """Paginate through all issues matching JQL and return list of raw issue dicts.
+
+    Uses POST /rest/api/3/search/jql with nextPageToken pagination
+    (replaces deprecated GET /rest/api/3/search with startAt offset).
+    """
+    base_url   = f"https://{JIRA_SITE}/rest/api/3/search/jql"
+    issues     = []
+    next_token = None
 
     while True:
-        resp = session.get(base_url, params={
-            "jql":        jql,
-            "startAt":    start_at,
-            "maxResults": PAGE_SIZE,
-            "fields":     ",".join(fields),
-        })
+        body = {"jql": jql, "maxResults": PAGE_SIZE, "fields": fields}
+        if next_token:
+            body["nextPageToken"] = next_token
+
+        resp = session.post(base_url, json=body)
         resp.raise_for_status()
-        data   = resp.json()
-        batch  = data.get("issues", [])
+        data  = resp.json()
+        batch = data.get("issues", [])
         issues.extend(batch)
-        total  = data.get("total", 0)
 
-        print(f"  Fetched {len(issues)}/{total}...", end="\r")
+        print(f"  Fetched {len(issues)}...", end="\r")
 
-        if start_at + len(batch) >= total:
+        next_token = data.get("nextPageToken")
+        if not next_token or not batch:
             break
-        start_at += PAGE_SIZE
 
     print()
     return issues
