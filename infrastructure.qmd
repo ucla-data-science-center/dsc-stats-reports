@@ -92,26 +92,26 @@ print(f"""
 <p><em>For DSC staff and library administration — AWS cloud costs, UCLA Dataverse repository metrics, and S3 storage trends.</em></p>
 <p><em>Last rendered: {datetime.now().strftime("%B %d, %Y")}</em></p>
 <div class="kpi-row grid">
-  <div class="g-col-6 g-col-md-3 kpi-card">
-    <span class="kpi-label">Dataverse Datasets</span>
-    <span class="kpi-value">{kpi_datasets}</span>
-    <span class="kpi-note">Cumulative published, as of {kpi_dv_date}</span>
-  </div>
-  <div class="g-col-6 g-col-md-3 kpi-card">
-    <span class="kpi-label">Dataverse Files</span>
-    <span class="kpi-value">{kpi_files}</span>
-    <span class="kpi-note">Cumulative published</span>
-  </div>
-  <div class="g-col-6 g-col-md-3 kpi-card">
-    <span class="kpi-label">Total Downloads</span>
-    <span class="kpi-value">{kpi_downloads}</span>
-    <span class="kpi-note">Cumulative file-level download events</span>
-  </div>
-  <div class="g-col-6 g-col-md-3 kpi-card">
-    <span class="kpi-label">AWS Spend</span>
-    <span class="kpi-value">{kpi_aws}</span>
-    <span class="kpi-note">{kpi_aws_month} estimate; billing lags ~1–2 mo.</span>
-  </div>
+<div class="g-col-6 g-col-md-3 kpi-card">
+<span class="kpi-label">Dataverse Datasets</span>
+<span class="kpi-value">{kpi_datasets}</span>
+<span class="kpi-note">Cumulative published, as of {kpi_dv_date}</span>
+</div>
+<div class="g-col-6 g-col-md-3 kpi-card">
+<span class="kpi-label">Dataverse Files</span>
+<span class="kpi-value">{kpi_files}</span>
+<span class="kpi-note">Cumulative published</span>
+</div>
+<div class="g-col-6 g-col-md-3 kpi-card">
+<span class="kpi-label">Total Downloads</span>
+<span class="kpi-value">{kpi_downloads}</span>
+<span class="kpi-note">Cumulative file-level download events</span>
+</div>
+<div class="g-col-6 g-col-md-3 kpi-card">
+<span class="kpi-label">AWS Spend</span>
+<span class="kpi-value">{kpi_aws}</span>
+<span class="kpi-note">{kpi_aws_month} estimate; billing lags ~1–2 mo.</span>
+</div>
 </div>
 """)
 ```
