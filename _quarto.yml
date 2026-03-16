@@ -45,6 +45,7 @@ format:
       light: flatly
       dark: darkly
     css: styles.css
+    include-in-header: _head.html
     smooth-scroll: true
     toc: true
     toc-depth: 2

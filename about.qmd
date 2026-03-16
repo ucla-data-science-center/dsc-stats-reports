@@ -106,8 +106,8 @@ Include the data coverage period (e.g., "2021–present") and note the source sy
 
 ## Repository and Contact
 
-- **Source code**: [github.com/UCLALibrary/dsc-stats-reports](https://github.com/ucla-data-science-center/dsc-stats-reports) *(update to actual URL)*
+- **Source code**: [github.com/ucla-data-science-center/dsc-stats-reports](https://github.com/ucla-data-science-center/dsc-stats-reports)
 - **Issues / contributions**: Open a pull request or issue in the repository
-- **General inquiries**: [dsc@library.ucla.edu](mailto:dsc@library.ucla.edu) *(confirm address)*
+- **General inquiries**: [dsc@library.ucla.edu](mailto:dsc@library.ucla.edu)
 
 *Built with [Quarto](https://quarto.org). Data processed with R and Python.*

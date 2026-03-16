@@ -208,7 +208,7 @@ if (data_loaded) {
 
 :::
 
-**See also:** [Consulting →](consulting.qmd) one-on-one consultations · [Infrastructure →](infrastructure.qmd) Dataverse and AWS metrics · [About & methodology](about.qmd)
+**See also:** [Consulting <span aria-hidden="true">→</span>](consulting.qmd) one-on-one consultations · [Infrastructure <span aria-hidden="true">→</span>](infrastructure.qmd) Dataverse and AWS metrics · [About & methodology](about.qmd)
 
 ---
 
@@ -217,7 +217,7 @@ if (data_loaded) {
 - **Unit**: One row = one participant registration. A person attending three workshops is counted three times — totals reflect attendee-events, not unique individuals
 - **UCLA attendees**: filtered on `institution == "UCLA"`; external attendees included in totals but excluded from department breakdowns
 - **Department**: `standardized_department` field — mapped from raw free-text entries; unmapped values appear as-is
-- Full rules: [Metrics Governance](metrics-governance.md) · [About](about.qmd)
+- Full rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
 :::
 
 ```{r coverage, echo=FALSE, results='asis'}

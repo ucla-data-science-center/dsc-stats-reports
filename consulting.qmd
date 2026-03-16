@@ -373,7 +373,7 @@ if (nrow(qual_highlights) > 0) {
 
 ---
 
-**See also:** [Instruction →](instruction.qmd) workshop attendance · [Infrastructure →](infrastructure.qmd) Dataverse and AWS metrics · [About & methodology](about.qmd)
+**See also:** [Instruction <span aria-hidden="true">→</span>](instruction.qmd) workshop attendance · [Infrastructure <span aria-hidden="true">→</span>](infrastructure.qmd) Dataverse and AWS metrics · [About & methodology](about.qmd)
 
 ---
 
@@ -384,7 +384,7 @@ if (nrow(qual_highlights) > 0) {
 - **Task metrics** (Trello cards, comment-weighted activity) are shown separately — not comparable to consultation counts
 - **Reportable filter**: excludes `Inbox`, `Future Projects/Ideas`, `Team Info` lists; includes archived completed cards
 - **YoY comparisons** (2023 → 2024): direct consultation decline reflects shifting data sources and intake channels, not necessarily service volume; task card growth reflects expanded Trello adoption in 2024, not a proportional workload increase
-- Full rules: [Metrics Governance](metrics-governance.md) · [About](about.qmd)
+- Full rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
 :::
 
 ```{r coverage, echo=FALSE}

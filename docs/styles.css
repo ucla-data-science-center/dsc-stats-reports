@@ -1,7 +1,7 @@
 /* UCLA Library-inspired dashboard styling */
 
 :root {
-  --ucla-blue: #2774ae;
+  --ucla-blue: #2774ae; /* WARNING: Do not lighten — contrast on --library-paper is 4.79:1 (AA min 4.5:1) */
   --ucla-blue-deep: #0b3c5d;
   --ucla-gold: #ffd100;
   --ucla-gold-ink: #7b6200;
@@ -37,6 +37,12 @@ body {
 
 h1, h2, h3 {
   color: var(--ucla-blue-deep);
+  text-wrap: balance;
+}
+
+/* Prevent headings from scrolling under the sticky navbar */
+h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
+  scroll-margin-top: 4.5rem;
 }
 
 h2 {
@@ -109,6 +115,10 @@ table {
   border: 1px solid var(--library-border);
 }
 
+table td {
+  font-variant-numeric: tabular-nums;
+}
+
 table thead th {
   color: var(--ucla-blue-deep);
   background: rgba(39, 116, 174, 0.05);
@@ -178,6 +188,7 @@ figcaption,
   color: var(--ucla-blue-deep);
   line-height: 1.1;
   margin: 0;
+  font-variant-numeric: tabular-nums;
 }
 
 .kpi-card .kpi-note {

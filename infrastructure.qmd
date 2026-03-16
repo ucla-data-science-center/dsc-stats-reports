@@ -355,7 +355,7 @@ These impact metrics **undercount real scholarly reach** due to known infrastruc
 **Expected improvements after migration to Dataverse 6.x**: DataCite relatedIdentifiers export fixed, MDC enablement possible.
 :::
 
-**See also:** [Consulting →](consulting.qmd) one-on-one consultations · [Instruction →](instruction.qmd) workshop attendance · [About & methodology](about.qmd)
+**See also:** [Consulting <span aria-hidden="true">→</span>](consulting.qmd) one-on-one consultations · [Instruction <span aria-hidden="true">→</span>](instruction.qmd) workshop attendance · [About & methodology](about.qmd)
 
 ---
 
@@ -365,7 +365,7 @@ These impact metrics **undercount real scholarly reach** due to known infrastruc
 - **Downloads**: File-level events as reported by Dataverse. Includes automated and bot traffic; not filtered for human-only access
 - **S3 storage**: Fetched live from AWS CloudWatch at render time. May be unavailable without valid AWS credentials; CloudWatch reports storage metrics once daily
 - **Scholarship impact**: Publication DOIs from Dataverse metadata API; citation counts from OpenAlex. Undercounts real impact — see limitations callout above.
-- Full rules: [Metrics Governance](metrics-governance.md) · [About](about.qmd)
+- Full rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
 :::
 
 ```{python cite}
