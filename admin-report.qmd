@@ -1,0 +1,202 @@
+---
+title: "UCLA Library Data Science Center"
+subtitle: "Annual Service Report"
+date: today
+format:
+  html:
+    embed-resources: true
+    toc: false
+    css: styles-report.css
+    theme: flatly
+params:
+  report_year: 2024
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r setup}
+library(tidyverse)
+library(knitr)
+
+report_year   <- params$report_year
+prev_year     <- report_year - 1
+
+summary   <- read_csv("data/processed/consultations/consultation_audit_2023_2025_summary_tagged.csv",
+                      show_col_types = FALSE)
+by_year   <- read_csv("data/processed/consultations/consultation_audit_2023_2025_by_year_group.csv",
+                      show_col_types = FALSE)
+coverage  <- read_csv("data/processed/consultations/consultation_audit_source_coverage.csv",
+                      show_col_types = FALSE)
+highlights <- read_csv("data/processed/consultations/qualitative_highlights.csv",
+                       show_col_types = FALSE)
+case_studies <- read_csv("data/processed/consultations/impact_case_studies.csv",
+                         show_col_types = FALSE)
+
+# Helper: pull a single KPI value by metric_id
+kpi <- function(id) {
+  v <- summary |> filter(metric_id == id) |> pull(value)
+  if (length(v) == 0) return("—")
+  as.character(v)
+}
+
+# Year-filtered helpers
+consults_year <- function(yr) {
+  by_year |> filter(year == yr) |> pull(n) |> sum()
+}
+```
+
+---
+
+## Executive Summary
+
+This report summarizes service activity and infrastructure for the UCLA Library Data
+Science Center (DSC) for `r report_year`. DSC provides consulting, instruction, and
+research infrastructure support to UCLA researchers, students, and staff.
+
+::: {.callout-note}
+**Data coverage note:** Figures reflect available source data through
+`r format(max(as.Date(coverage$max_date)), "%B %Y")`.
+Full methodology and counting rules are in the
+[Metrics Governance document](https://ucla-data-science-center.github.io/dsc-stats-reports/metrics-governance.html).
+:::
+
+### At a Glance — `r report_year`
+
+```{r kpi-table}
+# Filter by_year for report_year; compute DSC and DataSquad splits
+yr_data <- by_year |> filter(year == report_year)
+dsc_n   <- yr_data |> filter(group == "DSC")    |> pull(n) |> sum()
+dsq_n   <- yr_data |> filter(group == "Datasquad") |> pull(n) |> sum()
+total_n <- yr_data |> pull(n) |> sum()
+
+# TODO: wire in workshop attendance from instruction data when available
+# TODO: wire in Dataverse download count from infrastructure data
+
+tribble(
+  ~Metric,                              ~Value,
+  "Direct consultations (total)",       format(total_n, big.mark = ","),
+  "  — DSC staff consultations",        format(dsc_n,   big.mark = ","),
+  "  — DataSquad consultations",        format(dsq_n,   big.mark = ","),
+  "Workshop attendees",                 "— (TODO: wire in instruction data)",
+  "Dataverse dataset downloads",        "— (TODO: wire in infrastructure data)",
+  "AWS infrastructure spend",           "— (TODO: wire in cost data)"
+) |>
+  kable(col.names = c("Metric", report_year), align = c("l", "r"))
+```
+
+---
+
+## Direct Service
+
+DSC and DataSquad staff provided direct consultations to UCLA researchers across
+schools and departments. Consultations include scheduled appointments tracked in
+LibInsight and walk-in sessions at the DataSquad desk.
+
+```{r consults-yoy}
+# Year-over-year comparison
+yoy <- by_year |>
+  filter(year %in% c(prev_year, report_year)) |>
+  group_by(year) |>
+  summarise(total = sum(n), .groups = "drop") |>
+  pivot_wider(names_from = year, values_from = total) |>
+  mutate(change = .data[[as.character(report_year)]] - .data[[as.character(prev_year)]],
+         pct    = round(change / .data[[as.character(prev_year)]] * 100, 1))
+
+by_year |>
+  filter(year %in% c(prev_year, report_year)) |>
+  pivot_wider(names_from = year, values_from = n, values_fill = 0) |>
+  rename(Group = group) |>
+  kable(align = c("l", "r", "r"),
+        caption = paste("Consultations by service area:", prev_year, "vs", report_year))
+```
+
+*Year-over-year change: `r if(nrow(yoy) > 0 && !is.na(yoy$change[1])) paste0(ifelse(yoy$change[1] >= 0, "+", ""), yoy$change[1], " (", yoy$pct[1], "%)") else "—"`*
+
+---
+
+## DataSquad Project Work
+
+Beyond direct consultations, DataSquad student consultants provide sustained project
+support tracked via Trello task cards. Task cards represent assigned work units and
+are not equivalent to consultations.
+
+```{r task-cards}
+# TODO: expand when GitHub Projects data is integrated
+tribble(
+  ~Metric,                                   ~Value,
+  "Reportable task cards (all years)",       kpi("datasquad_trello_task_cards_reportable_count"),
+  "Comment-weighted task activity (reportable)", kpi("datasquad_trello_task_activity_comment_weighted_reportable_count")
+) |>
+  kable(col.names = c("Metric", "Count"), align = c("l", "r"))
+```
+
+*Note: Task card data reflects Trello (2021–2024). GitHub Projects integration
+is planned for 2025 onwards.*
+
+---
+
+## Research Infrastructure
+
+```{r infrastructure-placeholder}
+# TODO: pull from infrastructure data files once refreshed
+# Key metrics to wire in:
+#   - Dataverse: total datasets, files, cumulative downloads (datasets_files_published_monthly.csv)
+#   - AWS: annual total cost (aws_costs_all_normalized.csv)
+#   - Potree: current S3 storage size (live CloudWatch / AWS MCP)
+```
+
+*Infrastructure metrics (Dataverse growth, AWS costs, S3 storage) to be wired in
+after data refresh. See [Infrastructure page](https://ucla-data-science-center.github.io/dsc-stats-reports/infrastructure.html) for current figures.*
+
+---
+
+## Impact Highlights
+
+```{r case-studies}
+active_cases <- case_studies |>
+  filter(include_in_dashboard == TRUE) |>
+  arrange(display_order)
+
+for (i in seq_len(nrow(active_cases))) {
+  row <- active_cases[i, ]
+  cat(paste0("### ", row$case_title, "\n\n"))
+  cat(paste0("**Partners:** ", row$partners, "\n\n"))
+  cat(paste0(row$summary, "\n\n"))
+  if (!is.na(row$measurable_outcomes) && nchar(row$measurable_outcomes) > 0) {
+    cat(paste0("**Outcomes:** ", row$measurable_outcomes, "\n\n"))
+  }
+  if (!is.na(row$impact_signals) && nchar(row$impact_signals) > 0) {
+    cat(paste0("**Impact:** ", row$impact_signals, "\n\n"))
+  }
+  cat("---\n\n")
+}
+```
+
+```{r highlights}
+active_highlights <- highlights |>
+  filter(include_in_dashboard == TRUE)
+
+if (nrow(active_highlights) > 0) {
+  cat("### Selected Service Highlights\n\n")
+  for (i in seq_len(nrow(active_highlights))) {
+    row <- active_highlights[i, ]
+    cat(paste0("- **", row$period_label, " — ", row$request_theme, ":** ",
+               row$outcome, "\n"))
+  }
+}
+```
+
+---
+
+## About This Report
+
+This report is generated from the same data pipeline that powers the
+[DSC Statistics Dashboard](https://ucla-data-science-center.github.io/dsc-stats-reports/).
+All figures reflect data baked in at render time — this is not a live feed.
+
+For methodology, counting rules, and data limitations see the
+[About & methodology page](https://ucla-data-science-center.github.io/dsc-stats-reports/about.html).
+
+*Rendered: `r format(Sys.Date(), "%B %d, %Y")`*
