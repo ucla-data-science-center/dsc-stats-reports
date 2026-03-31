@@ -45,3 +45,8 @@ data/inbox/
 # ── Machine-specific analysis outputs ────────────────────────
 # Filesystem inventory with local absolute paths — not portable
 data/processed/repo_cleanup/
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key
