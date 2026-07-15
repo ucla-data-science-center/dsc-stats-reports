@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Infrastructure Statistics – DSC Statistics</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -32,19 +35,18 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f59cc608e70ce16b384b3e6fc30ca698.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-223a4d25e70bf6005a455c54fa72832d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f59cc608e70ce16b384b3e6fc30ca698.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-7d090a7e39110af4430c0129adf67a43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-5f9b8195238223f6a7c4550320230f79.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-7d090a7e39110af4430c0129adf67a43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -341,7 +343,7 @@ ul.task-list li input[type="checkbox"] {
 <em>For DSC staff and library administration — AWS cloud costs, UCLA Dataverse repository metrics, and S3 storage trends.</em>
 </p>
 <p>
-<em>Last rendered: March 15, 2026</em>
+<em>Last rendered: July 15, 2026</em>
 </p>
 <div class="kpi-row grid">
 <div class="g-col-6 g-col-md-3 kpi-card">
@@ -354,7 +356,7 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="kpi-label">Total Downloads</span> <span class="kpi-value">143,414</span> <span class="kpi-note">Cumulative file-level download events</span></p>
 </div>
 <div class="g-col-6 g-col-md-3 kpi-card">
-<p><span class="kpi-label">AWS Spend</span> <span class="kpi-value">$923</span> <span class="kpi-note">Feb 2026 estimate; billing lags ~1–2 mo.</span></p>
+<p><span class="kpi-label">AWS Spend</span> <span class="kpi-value">$967</span> <span class="kpi-note">Jun 2026 estimate; billing lags ~1–2 mo.</span></p>
 </div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -363,7 +365,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <section id="monthly-departmental-charges-ledger" class="level3">
 <h3 class="anchored" data-anchor-id="monthly-departmental-charges-ledger">Monthly Departmental Charges (Ledger)</h3>
-<div id="e5c50b9a" class="cell" data-results="asis" data-execution_count="3">
+<div id="bf9cf843" class="cell" data-results="asis" data-execution_count="3">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -400,7 +402,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="monthly-trends" class="level3">
 <h3 class="anchored" data-anchor-id="monthly-trends">Monthly Trends</h3>
-<div id="414aeda1" class="cell" data-execution_count="4">
+<div id="0b5ba8d6" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -414,7 +416,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <section id="repository-growth-cumulative" class="level3">
 <h3 class="anchored" data-anchor-id="repository-growth-cumulative">Repository Growth (Cumulative)</h3>
-<div id="0bab240b" class="cell" data-execution_count="5">
+<div id="3f19f0ca" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -426,7 +428,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="monthly-activity" class="level3">
 <h3 class="anchored" data-anchor-id="monthly-activity">Monthly Activity</h3>
-<div id="ffc0ce60" class="cell" data-execution_count="6">
+<div id="748b2d9b" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -440,7 +442,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <section id="current-bucket-sizes" class="level3">
 <h3 class="anchored" data-anchor-id="current-bucket-sizes">Current Bucket Sizes</h3>
-<div id="148625ec" class="cell" data-results="asis" data-execution_count="7">
+<div id="21b0b0ca" class="cell" data-results="asis" data-execution_count="7">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -453,93 +455,58 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>potree-test2</td>
-<td>11050.87 GB</td>
-<td>2026-03-13</td>
+<td>11079.24 GB</td>
+<td>2026-07-12</td>
 </tr>
 <tr class="even">
 <td>dataverse-files-replicated</td>
-<td>3773.48 GB</td>
-<td>2026-03-13</td>
+<td>4255.50 GB</td>
+<td>2026-07-12</td>
 </tr>
 <tr class="odd">
 <td>dataverse-files</td>
-<td>3773.43 GB</td>
-<td>2026-03-13</td>
+<td>4255.45 GB</td>
+<td>2026-07-12</td>
 </tr>
 <tr class="even">
-<td>dataverse-files-direct-upload</td>
-<td>544.81 GB</td>
-<td>2026-03-13</td>
+<td>ucla-dataverse-migration-assets</td>
+<td>369.73 GB</td>
+<td>2026-07-12</td>
 </tr>
 <tr class="odd">
-<td>dataverse-files-replicated-direct-upload</td>
-<td>542.64 GB</td>
-<td>2026-03-13</td>
-</tr>
-<tr class="even">
 <td>dataverse-test-oregon</td>
-<td>130.68 GB</td>
-<td>2026-03-13</td>
+<td>196.47 GB</td>
+<td>2026-07-12</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>test-dataverse-files2</td>
 <td>19.53 GB</td>
-<td>2026-03-13</td>
-</tr>
-<tr class="even">
-<td>dataverse-test-lariac-direct</td>
-<td>12.10 GB</td>
-<td>2026-03-13</td>
-</tr>
-<tr class="odd">
-<td>dataverse-lariac-direct</td>
-<td>11.96 GB</td>
-<td>2026-03-13</td>
-</tr>
-<tr class="even">
-<td>dataverse-test-lariac</td>
-<td>9.64 GB</td>
-<td>2026-03-13</td>
+<td>2026-07-12</td>
 </tr>
 <tr class="odd">
 <td>lariac-backup</td>
 <td>3.34 GB</td>
-<td>2026-03-13</td>
+<td>2026-07-12</td>
 </tr>
 <tr class="even">
 <td>dscbbillinginfo</td>
-<td>1.05 GB</td>
-<td>2026-03-13</td>
+<td>1.15 GB</td>
+<td>2026-07-12</td>
 </tr>
 <tr class="odd">
-<td>dataverse-lariac</td>
-<td>0.24 GB</td>
-<td>2026-03-13</td>
-</tr>
-<tr class="even">
-<td>ssda-files</td>
-<td>0.12 GB</td>
-<td>2026-03-13</td>
-</tr>
-<tr class="odd">
-<td>ssda-files-replicated</td>
-<td>0.12 GB</td>
-<td>2026-03-13</td>
-</tr>
-<tr class="even">
 <td>test-dataverse-jmj</td>
 <td>0.00 GB</td>
-<td>2026-03-13</td>
-</tr>
-<tr class="odd">
-<td>ucla-library-terraform-state</td>
-<td>0.00 GB</td>
-<td>2026-03-13</td>
+<td>2026-07-12</td>
 </tr>
 <tr class="even">
+<td>ucla-library-terraform-state</td>
+<td>0.00 GB</td>
+<td>2026-07-12</td>
+</tr>
+<tr class="odd">
 <td>bulk-policy-migration-221761179339</td>
 <td>0.00 GB</td>
-<td>2026-03-13</td>
+<td>2026-07-12</td>
 </tr>
 </tbody>
 </table>
@@ -548,7 +515,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="potree-storage-growth" class="level3">
 <h3 class="anchored" data-anchor-id="potree-storage-growth">Potree Storage Growth</h3>
-<div id="881f0866" class="cell" data-execution_count="8">
+<div id="a8fc7b78" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -578,7 +545,7 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="kpi-label">Book-Chapter Links</span> <span class="kpi-value">160</span> <span class="kpi-note">Additional datasets linked to edited volumes (ISBN); citations not tracked</span></p>
 </div>
 </div>
-<div id="d41bb1d4" class="cell" data-results="asis" data-execution_count="11">
+<div id="08da00ff" class="cell" data-results="asis" data-execution_count="11">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -752,9 +719,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p><em>Last rendered:</em></p>
-<div id="3370ba32" class="cell" data-execution_count="13">
+<div id="41b60d32" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-stdout">
-<pre><code>March 15, 2026</code></pre>
+<pre><code>July 15, 2026</code></pre>
 </div>
 </div>
 
