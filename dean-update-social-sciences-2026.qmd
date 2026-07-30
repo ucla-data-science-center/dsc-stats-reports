@@ -1,0 +1,255 @@
+---
+title: "UCLA Library Data Science Center"
+subtitle: "A 2026 update for the Division of Social Sciences"
+date: today
+format:
+  html:
+    embed-resources: true
+    toc: false
+    css: styles-dean-update.css
+    theme: none
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+It's been a while since we last connected on how the Social Science Data Archive's
+successor is doing. Here's a short update on what DSC has built since then, with an eye
+toward the parts that touch the social sciences directly.
+
+::: {.tldr}
+**In short:** Dataverse has grown from 9 datasets in 2020 to over 1,600 today. DSC's
+Redivis platform, built around an unusable 10-terabyte national voter file, has since
+processed 4.8 petabytes of restricted research data. About 1 in 8 workshop attendees
+since 2020 have come from social science departments. And GIS support disappeared in
+2024, even though the demand for it never did.
+:::
+
+## A 65-year lineage
+
+::: {.timeline}
+::: {.timeline-node}
+[**1961**]{.year}
+[Political Behavior Archive founded by Dwaine Marvick]{.event}
+:::
+::: {.timeline-node}
+[**1962**]{.year}
+[Founding member, Inter-university Consortium for Political and Social Research (ICPSR)]{.event}
+:::
+::: {.timeline-node}
+[**1977**]{.year}
+[Becomes the Social Science Data Archive under the Institute for Social Science Research]{.event}
+:::
+::: {.timeline-node}
+[**2014–15**]{.year}
+[MOU transfers the Archive to UCLA Library (Dean Duranti / UL Steel)]{.event}
+:::
+::: {.timeline-node}
+[**2017–18**]{.year}
+[Regular check-ins with Social Sciences (Dean Hunt, Jim Stigler) shape hub-and-spoke planning for the Archive's next chapter]{.event}
+:::
+::: {.timeline-node}
+[**2018**]{.year}
+[Data Science Center founded as the Archive's institutional home]{.event}
+:::
+::: {.timeline-node}
+[**2026**]{.year}
+[This update]{.event}
+:::
+:::
+
+These check-ins were a regular practice in the Archive's early years at the Library.
+This update is an attempt to pick that back up. One person bridges nearly the whole
+modern era: **Jamie Jamison**, who transferred with the Archive in 2014, is still on
+the DSC team today.
+
+## DSC today, by the numbers
+
+::: {.kpi-row}
+::: {.kpi-card}
+[1,603]{.kpi-value}
+[Datasets in UCLA Dataverse]{.kpi-label}
+[up from 9 in Jan 2020]{.kpi-note}
+:::
+::: {.kpi-card}
+[143,000+]{.kpi-value}
+[Dataset downloads since 2020]{.kpi-label}
+[229 in Jan 2020 → 143,000+ today]{.kpi-note}
+:::
+::: {.kpi-card}
+[1,676]{.kpi-value}
+[Workshop attendees, 2020–2024]{.kpi-label}
+[across 148 distinct UCLA departments]{.kpi-note}
+:::
+::: {.kpi-card}
+[604]{.kpi-value}
+[Direct consultations]{.kpi-label}
+[DSC + DataSquad, most recent audit]{.kpi-note}
+:::
+:::
+
+::: {.data-note}
+**Data currency:** Consultation records are audited through early-to-mid 2025 and
+workshop records through spring 2024; a refresh covering the past year is in progress.
+Dataverse infrastructure figures are current through February 2026. Full methodology:
+[dsc-stats-reports/about](https://ucla-data-science-center.github.io/dsc-stats-reports/about.html).
+:::
+
+## Social sciences remain a core constituency
+
+[About 1 in 8 workshop attendees since 2020 came from social science departments.]{.lede}
+
+Workshop attendance since 2020 includes roughly **200 participants**, about 1 in 8 of
+all UCLA attendees, from social science and social-science-adjacent departments:
+Geography, Psychology, Political Science, Sociology, Economics, Anthropology, Urban
+Planning, Public Policy, and Gender Studies, plus people who registered simply as
+"Social Science." The Archive's original subscriptions from the 2014 transfer,
+including ICPSR (~$47K/year) and the Roper Center (~$8K/year), are still funded
+through the Archive's original gift fund (FAU 605000-DA-56972), the same fund that
+came over with the transfer.
+
+## Redivis and the L2 voter file
+
+[DSC turned an unusable 10-terabyte national voter file into a resource social scientists across campus now use directly.]{.lede}
+
+DSC piloted **Redivis**, a secure platform for restricted research data, initially
+supported by University Librarian discretionary funds. It's since grown into a
+sustained subscription, about $47K/year as of 2026, paid through Library central
+finance alongside ICPSR and Roper. The platform holds about 20TB of P3/P4-compliant
+data (FERPA, PII, HIPAA) across 50 registered users and over 150 workflows, and has
+processed **4.8 petabytes** cumulatively since it launched in 2022.
+
+The flagship dataset is the **L2 historic voter file**, over 10TB of national voter
+history purchased by DSC and a Library subject selector through the same gift fund
+that covers ICPSR and Roper. It arrived as thousands of fragmented, state-level files,
+too large to store locally and too inconsistent to analyze as-is. DSC consolidated it
+into a single, version-controlled, analysis-ready dataset, cited by Redivis's own CEO
+as a flagship use case at FORCE11 2024.
+
+Researchers are using it directly: gentrification patterns in Inglewood, election
+administration, Latino voting behavior, and a project merging the voter file with UCLA
+medical records to study health and voting, led by faculty across Political Science,
+Economics, and Health. As the graduate student who curated the dataset put it:
+
+> *"Professors and students in a social sciences department are able to instantly work with a large, rich dataset in a secure environment."*
+> — Graham Straus, UCLA Political Science PhD student, FORCE11 2024
+
+## GIS and geospatial support
+
+[UCLA cut its GIS librarian position in 2024. Demand didn't go with it.]{.lede}
+
+Geography has consistently been DSC's single largest workshop constituency: 64 of the
+roughly 1,575 UCLA workshop attendees since 2020, more than any other department.
+
+Before the position was eliminated in 2024, DSC's GIS librarian handled 72 to 82
+booked consultations a year (2021 to 2023) across Urban Planning, Public Affairs,
+Environment and Sustainability, and Digital Humanities. They also co-taught a graduate
+Public Health course, ran systemwide UC GIS workshops that reached 617 participants in
+2023 alone, and managed key research datasets, including the LARIAC aerial imagery
+acquired through the Archive's gift fund. That demand hasn't gone away. DSC still
+fields GIS requests, just without the specialist capacity to meet them.
+
+Nationally, 81 of 187 Carnegie R1 institutions (43%) maintain a dedicated GIS
+librarian, rising to 81% among the top 25 R&D-spending universities. UCLA has the
+highest research expenditure of any UC campus, yet is one of only two UC R1 campuses
+without one. The other, Santa Cruz, spends a fraction of what UCLA does on research.
+(UCSF also lacks one, but it's a health-sciences-only campus with no undergraduates,
+not a fair comparison; most medical centers don't staff GIS librarians.) Lower-spending
+UC peers like Berkeley and San Diego both maintain dedicated GIS staff.
+
+Campus-wide, UCLA's ArcGIS Online platform, used across Geography, Luskin, Fielding,
+Digital Humanities, Political Science, and Social Data Science, has over 7,100
+accounts and more than 3,000 active users in the past year, per an OARC governance
+report from December 2025. Without a designated administrator, it's now running at
+over 200% of its licensed storage.
+
+## Consulting spotlights
+
+::: {.spotlight}
+### Carceral Ecologies
+[Partner: UCLA Institute for Society and Genetics (Nicholas Shapiro)]{.partners}
+
+DSC and DataSquad provided multi-year research support, including R server
+infrastructure, data processing, and training for a research student who later joined
+the lab as staff, for work on a massive helicopter surveillance dataset that outstripped
+the lab's ability to host locally. That work became the pilot study behind a $5 million
+grant that established the Dana Center for Neuroscience and Society.
+
+> *"This work wouldn't have happened without your team!"*
+> — Dr. Nicholas Shapiro, UCLA Institute for Society and Genetics
+
+[**Outcome:** processing time cut from ~318 minutes to ~2 minutes (~159x faster), with a research student trained in the resulting R workflow. **Impact:** coverage in the *Los Angeles Times*, *The New Yorker*, and *Bloomberg*.]{.impact}
+:::
+
+::: {.spotlight}
+### BioCritical Studies Lab
+[Partner: UCLA (Grace Sosa; Terence Keel)]{.partners}
+
+A multi-year collaboration (2021 to 2024) on data integration, statistical analysis,
+and visualization for a comprehensive U.S. deaths-in-custody dataset, with tools built
+for the lab to maintain independently. The dataset has supported projects funded by
+NIH, NSF, and the Robert Wood Johnson Foundation, and Prof. Keel's resulting book is
+now published.
+
+> *"It is one of the most impactful resources I have engaged with [...] at UCLA."*
+> — Grace Sosa, Assistant Director, BioCritical Studies Lab
+
+[**Impact:** supported research recognized through UCLA's 2024 Public Impact Research Awards, contributing to public-facing scholarship and teaching.]{.impact}
+:::
+
+## DataSquad
+
+[DataSquad's project work grew from 6 tasks in 2023 to 111 in 2025.]{.lede}
+
+DataSquad is DSC's peer-consulting model: undergraduate and graduate student
+consultants providing sustained project support alongside DSC staff's direct
+consultations. Reportable project work grew from **6 tasks in 2023 to 111 in 2025**,
+as demand shifted from one-off consultations toward sustained, hands-on project
+support.
+
+The program started in 2020 on a gift from **Norman Powell**, which funded student
+salaries and laptops for the first cohort. The Library added funding in 2023 to
+expand the team and add in-person hours. In 2024, DataSquad absorbed the LuxLab
+student program after its funding source, CLICC funds, became restricted, merging two
+student-support lines into one.
+
+## Instruction
+
+| Year | Attendees |
+|---|---:|
+| 2020 | 208 |
+| 2021 | 218 |
+| 2022 | 414 |
+| 2023 | 464 |
+| 2024* | 372 |
+
+*2024 partial (data through April).*
+
+Workshops reach far beyond the social sciences, covering geospatial methods,
+programming, reproducibility, and data management. But the social science
+departments above are consistently among the top participants.
+
+## Infrastructure
+
+[Dataverse has grown from 9 datasets in 2020 to 1,603 today.]{.lede}
+
+Dataverse, UCLA's institutional repository, which DSC operates, has grown from 9
+datasets and 229 downloads in January 2020 to **1,603 datasets and over 143,000
+downloads** today. This is the same hosting commitment the Library made in the 2014
+transfer ("necessary technological infrastructure for continued hosting of software,
+data, and data analysis tools"), grown considerably since.
+
+Dataverse, Redivis, and the Archive's core subscriptions (ICPSR, Roper) are funded
+through a mix of the Library's central budget, University Librarian discretionary
+funds, and the original SSDA gift fund, the same combination of sources that has
+supported most of DSC's growth.
+
+---
+
+I'd welcome the chance to walk through any of this in person. The full public
+dashboard, with current figures and methodology, is at
+[ucla-data-science-center.github.io/dsc-stats-reports](https://ucla-data-science-center.github.io/dsc-stats-reports/).
+
+Tim Dennis
+Director, Data Science Center, UCLA Library
