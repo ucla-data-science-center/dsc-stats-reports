@@ -16,3 +16,5 @@ These counts must not be added again from the restricted workbooks.
 Aggregate records may contribute to compatible overall, year, event, and topic attendance totals. They must not be assigned to UCLA affiliation, department, school, participant affiliation, or unique-person metrics when those dimensions are blank. Blank means unknown, not non-UCLA.
 
 Row-level Zoom exports, participant names, email addresses, meeting identifiers, and row fingerprints remain in restricted provenance storage outside this repository.
+
+Validated UCLA departments are mapped to the broader reporting field `organizational_parent` through `data/reference/instruction/department_to_organizational_parent_v2.tsv`. This broader label is intentional: parents include College divisions, professional schools, the Library, UCLA Health, institutes, and administrative groups. Unresolved or missing departments remain unknown.

@@ -62,6 +62,9 @@ A count of comments on task cards, used as a rough workload proxy. This is an ac
 **Workshop attendance instance**
 One attendee-event record or one participant-session included in a validated aggregate event count. A person attending three workshops contributes three attendance instances. Aggregate sources without validated affiliation data contribute to overall totals but not UCLA, department, school/division, participant-affiliation, or unique-person metrics.
 
+**Organizational parent**
+A broader reporting group assigned only when a record has validated UCLA affiliation and a mapped standardized department. Parents may be a College division, professional school, the Library, UCLA Health, an institute, or an administrative group. Missing and unresolved departments remain unknown.
+
 **Dataset** (Dataverse)
 A published data package in UCLA Dataverse — the native Dataverse object that groups related files under a single persistent identifier (DOI).
 

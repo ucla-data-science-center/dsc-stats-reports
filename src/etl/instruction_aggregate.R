@@ -46,7 +46,8 @@ load_instruction_attendee_data <- function(
 
 load_instruction_attendance <- function(
     attendee_data,
-    aggregate_path = "data/raw/instruction/workshop_attendance_aggregate.csv") {
+    aggregate_path = "data/raw/instruction/workshop_attendance_aggregate.csv",
+    organizational_parent_path = "data/reference/instruction/department_to_organizational_parent_v2.tsv") {
   attendee_records <- attendee_data |>
     mutate(
       attendance_count = 1L,
@@ -57,6 +58,38 @@ load_instruction_attendance <- function(
       source_period = NA_character_,
       record_granularity = "attendee"
     )
+
+  if (file.exists(organizational_parent_path)) {
+    organizational_parent_map <- read_tsv(
+      organizational_parent_path,
+      show_col_types = FALSE,
+      na = c("", "NA", "N/A"),
+      col_types = cols(.default = col_character())
+    )
+    if (anyDuplicated(str_to_lower(str_squish(organizational_parent_map$standardized_department)))) {
+      stop("Organizational-parent crosswalk departments must be unique.")
+    }
+    attendee_records <- attendee_records |>
+      mutate(organizational_parent_key = str_to_lower(str_squish(standardized_department))) |>
+      left_join(
+        organizational_parent_map |>
+          filter(mapping_status == "active") |>
+          transmute(
+            organizational_parent_key = str_to_lower(str_squish(standardized_department)),
+            organizational_parent,
+            parent_type
+          ),
+        by = "organizational_parent_key"
+      ) |>
+      mutate(
+        organizational_parent = if_else(institution == "UCLA", organizational_parent, NA_character_),
+        parent_type = if_else(institution == "UCLA", parent_type, NA_character_)
+      ) |>
+      select(-organizational_parent_key)
+  } else {
+    attendee_records <- attendee_records |>
+      mutate(organizational_parent = NA_character_, parent_type = NA_character_)
+  }
 
   if (!file.exists(aggregate_path)) {
     return(attendee_records)
@@ -84,6 +117,8 @@ load_instruction_attendance <- function(
     mutate(
       status = NA_character_,
       standardized_department = NA_character_,
+      organizational_parent = NA_character_,
+      parent_type = NA_character_,
       record_granularity = "aggregate"
     )
 

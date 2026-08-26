@@ -75,6 +75,8 @@ Unit:
 
 Aggregate event summaries may contribute to overall, year, event, and compatible topic totals. They must not contribute to UCLA affiliation, department, school/division, participant affiliation, or unique-person metrics unless those dimensions are directly supported by validated source data. Missing institution is unknown, not non-UCLA.
 
+Department-level UCLA records may be grouped by `organizational_parent` using the versioned instruction crosswalk. This broader field includes College divisions, professional schools, the Library, UCLA Health, institutes, external organizations, and administrative groups. Reports must retain `parent_type` and must not relabel every parent as a school. Missing or unresolved departments remain unknown.
+
 ## Metric Naming Guidelines
 
 Use names that encode:

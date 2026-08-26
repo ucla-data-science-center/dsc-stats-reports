@@ -58,6 +58,12 @@ kpi_ucla  <- if (data_loaded) {
 kpi_unknown_affiliation <- if (data_loaded) {
   sum(instruction_attendance$attendance_count[is.na(instruction_attendance$institution)])
 } else NA_integer_
+kpi_organizational_parent <- if (data_loaded) {
+  sum(instruction_attendance$attendance_count[
+    instruction_attendance$institution == "UCLA" &
+      !is.na(instruction_attendance$organizational_parent)
+  ], na.rm = TRUE)
+} else NA_integer_
 kpi_years <- if (data_loaded) n_distinct(year(instruction_attendance$date), na.rm = TRUE) else NA_integer_
 
 # ── Date range label and YoY comparison ───────────────────────
@@ -148,6 +154,12 @@ if (data_loaded) {
 [Included in totals; excluded from affiliation, department, and school metrics]{.kpi-note}
 :::
 
+::: {.g-col-6 .g-col-md-4 .kpi-card}
+[UCLA Organizational Parent Known]{.kpi-label}
+[`r fmt(kpi_organizational_parent)`]{.kpi-value}
+[`r percent(kpi_organizational_parent / kpi_ucla, accuracy = 0.1)` of validated UCLA attendance]{.kpi-note}
+:::
+
 :::
 
 ## Workshop Attendance
@@ -227,6 +239,23 @@ if (data_loaded) {
 }
 ```
 
+### By Organizational Parent
+
+```{r organizational_parent_table, echo=FALSE}
+if (data_loaded) {
+  instruction_attendance |>
+    filter(institution == "UCLA", !is.na(organizational_parent)) |>
+    summarise(Attendance = sum(attendance_count), .by = c(organizational_parent, parent_type)) |>
+    arrange(desc(Attendance)) |>
+    rename(`Organizational parent` = organizational_parent, `Parent type` = parent_type) |>
+    DT::datatable(
+      rownames = FALSE,
+      options = list(pageLength = 15, dom = "ftp"),
+      caption = "Validated UCLA attendance by broader organizational parent"
+    )
+}
+```
+
 ### By Affiliation
 
 ```{r chart_affil, echo=FALSE, fig.alt=alt_affil}
@@ -271,7 +300,8 @@ if (data_loaded) {
 - **Unit**: Attendance instances. LibInsight uses one attendee-event row; aggregate sources provide a validated count for each event. A person attending three workshops contributes three attendance instances
 - **UCLA attendees**: filtered on `institution == "UCLA"`. Records with unknown institution remain in overall/year/topic totals but are excluded from UCLA, department, and school metrics
 - **Department**: `standardized_department` field — mapped from raw free-text entries; unmapped values appear as-is
-- **School/division**: not inferred when the source lacks a validated department or school. Unknown is never treated as non-UCLA
+- **Organizational parent**: versioned mapping from validated UCLA departments to College divisions, professional schools, the Library, UCLA Health, institutes, or administrative groups. Missing and unresolved departments remain unknown
+- **School/division**: not inferred when the source lacks a validated department. Unknown is never treated as non-UCLA
 - **UC-wide series**: GIS Week and Love Data Week are included from the consolidated attendee source; their upstream workbooks are retained as provenance and are not added again
 - Full rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
 :::
