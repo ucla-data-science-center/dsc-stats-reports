@@ -1,5 +1,48 @@
 library(dplyr)
 library(readr)
+library(stringr)
+
+load_instruction_attendee_data <- function(
+    raw_path = "data/raw/instruction/dsc_workshops.csv") {
+  source("src/etl/standardize_map.R", local = TRUE)
+
+  standardize_department <- function(value) {
+    if (is.na(value) || str_trim(value) == "") {
+      return(NA_character_)
+    }
+    mapped <- standardize_map[[str_to_lower(str_trim(value))]]
+    if (is.null(mapped) || mapped %in% c("NA", "NEED TO LOOKUP")) {
+      return(NA_character_)
+    }
+    mapped
+  }
+
+  read_csv(
+    raw_path,
+    na = c("", "NA", "N/A"),
+    show_col_types = FALSE,
+    col_types = cols(
+      event = col_character(),
+      date = col_datetime(),
+      status = col_character(),
+      department = col_character(),
+      institution = col_character(),
+      categories = col_character()
+    )
+  ) |>
+    mutate(
+      status = str_replace_all(
+        status,
+        regex("graduate student|grad student|grad\\. student", ignore_case = TRUE),
+        "Graduate Student"
+      ),
+      standardized_department = vapply(
+        department,
+        standardize_department,
+        character(1)
+      )
+    )
+}
 
 load_instruction_attendance <- function(
     attendee_data,
@@ -8,9 +51,9 @@ load_instruction_attendance <- function(
     mutate(
       attendance_count = 1L,
       counting_unit = "attendee_event",
-      attendance_rule = "libinsight_attendee_record",
+      attendance_rule = "consolidated_attendee_record",
       school = NA_character_,
-      source_system = "LibInsight",
+      source_system = "Consolidated instruction",
       source_period = NA_character_,
       record_granularity = "attendee"
     )

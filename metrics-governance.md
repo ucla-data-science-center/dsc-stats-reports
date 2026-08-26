@@ -67,7 +67,7 @@ Unit:
 These represent attendance instances at DSC-supported workshops and instructional events.
 
 Primary sources:
-- LibInsight attendee-event exports
+- Consolidated attendee-level workshop data, including LibInsight and UC-wide event sources
 - Validated aggregate event summaries when row-level participant data cannot be published
 
 Unit:

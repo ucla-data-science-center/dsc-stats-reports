@@ -12,19 +12,25 @@ library(lubridate)
 library(scales)
 source("src/etl/instruction_aggregate.R")
 
-# ── Workshop data (graceful fallback) ─────────────────────────
+# ── Workshop data (full attendee source; graceful fallback) ───
 data_loaded    <- FALSE
 ucla_workshops <- tibble()
 
-for (p in c(
-  "data/processed/instruction/ucla_workshops.rda",
-  "data/instruction/ucla_workshops.rda",
-  "data/consultations/Data/ucla_workshops.rda"
-)) {
-  if (file.exists(p)) {
-    load(p)
-    data_loaded <- TRUE
-    break
+raw_workshop_path <- "data/raw/instruction/dsc_workshops.csv"
+if (file.exists(raw_workshop_path)) {
+  ucla_workshops <- load_instruction_attendee_data(raw_workshop_path)
+  data_loaded <- TRUE
+} else {
+  for (p in c(
+    "data/processed/instruction/ucla_workshops.rda",
+    "data/instruction/ucla_workshops.rda",
+    "data/consultations/Data/ucla_workshops.rda"
+  )) {
+    if (file.exists(p)) {
+      load(p)
+      data_loaded <- TRUE
+      break
+    }
   }
 }
 
@@ -165,6 +171,29 @@ if (data_loaded) {
 } else { no_data_msg() }
 ```
 
+### UC-Wide Series
+
+```{r uc_series_table, echo=FALSE}
+if (data_loaded) {
+  instruction_attendance |>
+    mutate(
+      Series = case_when(
+        str_detect(str_to_lower(coalesce(event, "")), "love data|ldw") ~ "Love Data Week",
+        str_detect(str_to_lower(coalesce(event, "")), "gis week|uc gis") ~ "GIS Week",
+        TRUE ~ NA_character_
+      ),
+      Year = year(date)
+    ) |>
+    filter(!is.na(Series), !is.na(Year)) |>
+    summarise(Attendance = sum(attendance_count), .by = c(Series, Year)) |>
+    arrange(Series, Year) |>
+    knitr::kable(
+      align = c("l", "r", "r"),
+      caption = "Attendance instances in the consolidated UC-wide workshop series"
+    )
+}
+```
+
 ### By Department
 
 ```{r chart_dept, echo=FALSE, fig.alt=alt_dept}
@@ -238,11 +267,12 @@ if (data_loaded) {
 ---
 
 ::: {.callout-note collapse="true" .data-notes title="Data notes"}
-- **Sources**: LibInsight attendee records and privacy-safe aggregate workshop summaries
+- **Sources**: Consolidated workshop attendee records (including UC-wide GIS Week and Love Data Week) and privacy-safe aggregate workshop summaries
 - **Unit**: Attendance instances. LibInsight uses one attendee-event row; aggregate sources provide a validated count for each event. A person attending three workshops contributes three attendance instances
 - **UCLA attendees**: filtered on `institution == "UCLA"`. Records with unknown institution remain in overall/year/topic totals but are excluded from UCLA, department, and school metrics
 - **Department**: `standardized_department` field — mapped from raw free-text entries; unmapped values appear as-is
 - **School/division**: not inferred when the source lacks a validated department or school. Unknown is never treated as non-UCLA
+- **UC-wide series**: GIS Week and Love Data Week are included from the consolidated attendee source; their upstream workbooks are retained as provenance and are not added again
 - Full rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
 :::
 

@@ -35,7 +35,8 @@ To request a data refresh, open an issue in the [GitHub repository](https://gith
 
 | Source | What it tracks | Location |
 |---|---|---|
-| **LibInsight** (Springshare) | DSC scheduled consultations; workshop attendance | `data/processed/consultations/` |
+| **LibInsight** (Springshare) | DSC scheduled consultations | `data/processed/consultations/` |
+| **Consolidated instruction sources** | Workshop attendance, including UC GIS Week and Love Data Week | `data/raw/instruction/` |
 | **Manual LibInsight logs** | Walk-in and complex appointments entered manually | Merged into LibInsight export |
 | **DataSquad sign-in forms** | Walk-in consultations at the DataSquad desk | `data/processed/consultations/` |
 | **Trello** | DataSquad project task cards and activity (2020–2024) | `data/processed/consultations/` |
