@@ -317,6 +317,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#metric-families" id="toc-metric-families" class="nav-link" data-scroll-target="#metric-families">Metric Families</a></li>
   <li><a href="#task-workload-metrics-project-work" id="toc-task-workload-metrics-project-work" class="nav-link" data-scroll-target="#task-workload-metrics-project-work">2) Task / Workload Metrics (Project Work)</a></li>
   <li><a href="#ticket-service-request-metrics-jira-service-desk" id="toc-ticket-service-request-metrics-jira-service-desk" class="nav-link" data-scroll-target="#ticket-service-request-metrics-jira-service-desk">3) Ticket / Service Request Metrics (Jira Service Desk)</a></li>
+  <li><a href="#instruction-attendance-metrics" id="toc-instruction-attendance-metrics" class="nav-link" data-scroll-target="#instruction-attendance-metrics">4) Instruction Attendance Metrics</a></li>
   <li><a href="#metric-naming-guidelines" id="toc-metric-naming-guidelines" class="nav-link" data-scroll-target="#metric-naming-guidelines">Metric Naming Guidelines</a></li>
   <li><a href="#counting-rules-required" id="toc-counting-rules-required" class="nav-link" data-scroll-target="#counting-rules-required">Counting Rules (Required)</a></li>
   <li><a href="#approved-comparisons" id="toc-approved-comparisons" class="nav-link" data-scroll-target="#approved-comparisons">Approved Comparisons</a></li>
@@ -368,6 +369,13 @@ ul.task-list li input[type="checkbox"] {
 <p>These represent service requests submitted and tracked in a ticketing system.</p>
 <p>Examples: - <code>jsm_tickets_created_count</code> - <code>jsm_tickets_resolved_count</code> - <code>jsm_tickets_open_backlog_count</code> - <code>jsm_ticket_comment_count</code></p>
 <p>Unit: - Ticket/issue or ticket activity</p>
+</section>
+<section id="instruction-attendance-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="instruction-attendance-metrics">4) Instruction Attendance Metrics</h2>
+<p>These represent attendance instances at DSC-supported workshops and instructional events.</p>
+<p>Primary sources: - LibInsight attendee-event exports - Validated aggregate event summaries when row-level participant data cannot be published</p>
+<p>Unit: - One attendee-event row, or one participant-session included in a documented aggregate attendance count</p>
+<p>Aggregate event summaries may contribute to overall, year, event, and compatible topic totals. They must not contribute to UCLA affiliation, department, school/division, participant affiliation, or unique-person metrics unless those dimensions are directly supported by validated source data. Missing institution is unknown, not non-UCLA.</p>
 </section>
 <section id="metric-naming-guidelines" class="level2">
 <h2 class="anchored" data-anchor-id="metric-naming-guidelines">Metric Naming Guidelines</h2>
@@ -426,6 +434,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Processed datasets are reproducible from scripts.</li>
 <li>Reference mappings (staff roster, department map, task filters) live in <code>data/reference/</code>.</li>
 <li>Dashboard/report numbers must be traceable to a script and a processed output file.</li>
+<li>Restricted participant identifiers must not be copied into public aggregate instruction sources.</li>
 </ul>
 </section>
 <section id="current-known-caveats-this-repo" class="level2">
