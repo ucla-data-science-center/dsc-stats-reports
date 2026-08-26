@@ -10,6 +10,7 @@ format:
 library(tidyverse)
 library(lubridate)
 library(scales)
+source("src/etl/instruction_aggregate.R")
 
 # ── Workshop data (graceful fallback) ─────────────────────────
 data_loaded    <- FALSE
@@ -31,6 +32,12 @@ if (!data_loaded) {
   message("ucla_workshops.rda not found — charts will show placeholder text.")
 }
 
+instruction_attendance <- if (data_loaded) {
+  load_instruction_attendance(ucla_workshops)
+} else {
+  tibble()
+}
+
 no_data_msg <- function() {
   cat("*Data file not loaded. Run the ETL scripts to populate this chart.*\n")
 }
@@ -38,22 +45,27 @@ no_data_msg <- function() {
 # ── KPIs ──────────────────────────────────────────────────────
 fmt <- function(x) if (is.na(x) || length(x) == 0) "—" else comma(x)
 
-kpi_total <- if (data_loaded) nrow(ucla_workshops)                                       else NA_integer_
-kpi_ucla  <- if (data_loaded) sum(ucla_workshops$institution == "UCLA", na.rm = TRUE)    else NA_integer_
-kpi_years <- if (data_loaded) n_distinct(year(ucla_workshops$date), na.rm = TRUE)        else NA_integer_
+kpi_total <- if (data_loaded) sum(instruction_attendance$attendance_count) else NA_integer_
+kpi_ucla  <- if (data_loaded) {
+  sum(instruction_attendance$attendance_count[instruction_attendance$institution == "UCLA"], na.rm = TRUE)
+} else NA_integer_
+kpi_unknown_affiliation <- if (data_loaded) {
+  sum(instruction_attendance$attendance_count[is.na(instruction_attendance$institution)])
+} else NA_integer_
+kpi_years <- if (data_loaded) n_distinct(year(instruction_attendance$date), na.rm = TRUE) else NA_integer_
 
 # ── Date range label and YoY comparison ───────────────────────
 data_range_label <- if (data_loaded) {
-  yr_min <- min(year(ucla_workshops$date), na.rm = TRUE)
-  yr_max <- max(year(ucla_workshops$date), na.rm = TRUE)
+  yr_min <- min(year(instruction_attendance$date), na.rm = TRUE)
+  yr_max <- max(year(instruction_attendance$date), na.rm = TRUE)
   if (yr_min == yr_max) as.character(yr_min) else paste0(yr_min, "\u2013", yr_max)
 } else "All Time"
 
 yoy_attendance <- if (data_loaded) {
-  by_year <- ucla_workshops |>
+  by_year <- instruction_attendance |>
     filter(!is.na(date)) |>
     mutate(year = year(date)) |>
-    count(year) |>
+    summarise(n = sum(attendance_count), .by = year) |>
     arrange(desc(year)) |>
     head(2)
   if (nrow(by_year) >= 2) {
@@ -68,26 +80,29 @@ yoy_attendance <- if (data_loaded) {
 
 # ── Pre-computed alt text ─────────────────────────────────────
 if (data_loaded) {
-  .yr <- ucla_workshops |> filter(!is.na(date)) |>
-    mutate(Year = year(date)) |> count(Year) |> arrange(Year)
+  .yr <- instruction_attendance |> filter(!is.na(date)) |>
+    mutate(Year = year(date)) |>
+    summarise(n = sum(attendance_count), .by = Year) |> arrange(Year)
   alt_year <- sprintf(
     "Horizontal bar chart: workshop attendance by year from %d to %d. %s.",
     min(.yr$Year), max(.yr$Year),
     paste(.yr$Year, .yr$n, sep = ": ", collapse = "; ")
   )
-  .dept <- ucla_workshops |>
+  .dept <- instruction_attendance |>
     filter(!is.na(standardized_department), institution == "UCLA") |>
-    count(standardized_department, sort = TRUE) |> head(15)
-  alt_dept <- sprintf(
-    "Horizontal bar chart: top %d UCLA departments by workshop attendance. Highest: %s (%d).",
-    nrow(.dept), .dept$standardized_department[1], .dept$n[1]
-  )
-  .affil <- ucla_workshops |> filter(!is.na(status)) |>
-    count(status, sort = TRUE) |> head(5)
-  alt_affil <- sprintf(
-    "Horizontal bar chart: workshop attendance by participant affiliation. Top group: %s (%d).",
-    .affil$status[1], .affil$n[1]
-  )
+    summarise(n = sum(attendance_count), .by = standardized_department) |>
+    arrange(desc(n)) |> head(15)
+  alt_dept <- if (nrow(.dept) > 0) sprintf(
+      "Horizontal bar chart: top %d UCLA departments by workshop attendance. Highest: %s (%d).",
+      nrow(.dept), .dept$standardized_department[1], .dept$n[1]
+    ) else "Workshop attendance by UCLA department (no known departments)"
+  .affil <- instruction_attendance |> filter(!is.na(status)) |>
+    summarise(n = sum(attendance_count), .by = status) |>
+    arrange(desc(n)) |> head(5)
+  alt_affil <- if (nrow(.affil) > 0) sprintf(
+      "Horizontal bar chart: workshop attendance by participant affiliation. Top group: %s (%d).",
+      .affil$status[1], .affil$n[1]
+    ) else "Workshop attendance by affiliation (no known affiliations)"
 } else {
   alt_year  <- "Workshop attendance by year (data not loaded)"
   alt_dept  <- "Top departments by workshop attendance (data not loaded)"
@@ -95,7 +110,7 @@ if (data_loaded) {
 }
 ```
 
-*For DSC staff and library administration — workshop attendance records from LibInsight event exports.*
+*For DSC staff and library administration — workshop attendance from attendee-level and validated aggregate sources.*
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
 
@@ -121,6 +136,12 @@ if (data_loaded) {
 [Distinct calendar years]{.kpi-note}
 :::
 
+::: {.g-col-6 .g-col-md-4 .kpi-card}
+[UCLA Affiliation Unknown]{.kpi-label}
+[`r fmt(kpi_unknown_affiliation)`]{.kpi-value}
+[Included in totals; excluded from affiliation, department, and school metrics]{.kpi-note}
+:::
+
 :::
 
 ## Workshop Attendance
@@ -131,10 +152,10 @@ if (data_loaded) {
 
 ```{r chart_year, echo=FALSE, fig.alt=alt_year}
 if (data_loaded) {
-  ucla_workshops |>
+  instruction_attendance |>
     filter(!is.na(date)) |>
     mutate(Year = year(date)) |>
-    count(Year) |>
+    summarise(n = sum(attendance_count), .by = Year) |>
     ggplot(aes(x = factor(Year), y = n)) +
     geom_col(fill = "#2774AE") +
     coord_flip() +
@@ -148,9 +169,10 @@ if (data_loaded) {
 
 ```{r chart_dept, echo=FALSE, fig.alt=alt_dept}
 if (data_loaded) {
-  ucla_workshops |>
+  instruction_attendance |>
     filter(!is.na(standardized_department), institution == "UCLA") |>
-    count(standardized_department, sort = TRUE) |>
+    summarise(n = sum(attendance_count), .by = standardized_department) |>
+    arrange(desc(n)) |>
     head(15) |>
     ggplot(aes(x = reorder(standardized_department, n), y = n)) +
     geom_col(fill = "#2774AE") +
@@ -163,9 +185,10 @@ if (data_loaded) {
 
 ```{r dept_table, echo=FALSE}
 if (data_loaded) {
-  ucla_workshops |>
+  instruction_attendance |>
     filter(!is.na(standardized_department), institution == "UCLA") |>
-    count(standardized_department, sort = TRUE) |>
+    summarise(n = sum(attendance_count), .by = standardized_department) |>
+    arrange(desc(n)) |>
     rename(Department = standardized_department, Attendance = n) |>
     DT::datatable(
       rownames = FALSE,
@@ -179,9 +202,10 @@ if (data_loaded) {
 
 ```{r chart_affil, echo=FALSE, fig.alt=alt_affil}
 if (data_loaded) {
-  ucla_workshops |>
+  instruction_attendance |>
     filter(!is.na(status)) |>
-    count(status, sort = TRUE) |>
+    summarise(n = sum(attendance_count), .by = status) |>
+    arrange(desc(n)) |>
     head(5) |>
     ggplot(aes(x = reorder(status, n), y = n)) +
     geom_col(fill = "#2774AE") +
@@ -194,9 +218,10 @@ if (data_loaded) {
 
 ```{r affil_table, echo=FALSE}
 if (data_loaded) {
-  ucla_workshops |>
+  instruction_attendance |>
     filter(!is.na(status)) |>
-    count(status, sort = TRUE) |>
+    summarise(n = sum(attendance_count), .by = status) |>
+    arrange(desc(n)) |>
     rename(Affiliation = status, Attendance = n) |>
     DT::datatable(
       rownames = FALSE,
@@ -213,25 +238,28 @@ if (data_loaded) {
 ---
 
 ::: {.callout-note collapse="true" .data-notes title="Data notes"}
-- **Source**: LibInsight workshop/event attendance exports
-- **Unit**: One row = one participant registration. A person attending three workshops is counted three times — totals reflect attendee-events, not unique individuals
-- **UCLA attendees**: filtered on `institution == "UCLA"`; external attendees included in totals but excluded from department breakdowns
+- **Sources**: LibInsight attendee records and privacy-safe aggregate workshop summaries
+- **Unit**: Attendance instances. LibInsight uses one attendee-event row; aggregate sources provide a validated count for each event. A person attending three workshops contributes three attendance instances
+- **UCLA attendees**: filtered on `institution == "UCLA"`. Records with unknown institution remain in overall/year/topic totals but are excluded from UCLA, department, and school metrics
 - **Department**: `standardized_department` field — mapped from raw free-text entries; unmapped values appear as-is
+- **School/division**: not inferred when the source lacks a validated department or school. Unknown is never treated as non-UCLA
 - Full rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
 :::
 
 ```{r coverage, echo=FALSE, results='asis'}
-if (data_loaded && !is.null(ucla_workshops$date)) {
-  tibble(
-    Source        = "LibInsight",
-    `Record type` = "workshop_attendance",
-    Rows          = scales::comma(nrow(ucla_workshops)),
-    `Date range`  = paste(
-      format(min(ucla_workshops$date, na.rm = TRUE), "%Y-%m-%d"), "\u2013",
-      format(max(ucla_workshops$date, na.rm = TRUE), "%Y-%m-%d")
-    )
-  ) |>
-    knitr::kable(align = c("l", "l", "r", "l"))
+if (data_loaded && !is.null(instruction_attendance$date)) {
+  instruction_attendance |>
+    mutate(`Record type` = if_else(record_granularity == "aggregate", "event_summary", "attendee_event")) |>
+    summarise(
+      Rows = n(),
+      Attendance = sum(attendance_count),
+      `Date range` = paste(format(min(date, na.rm = TRUE), "%Y-%m-%d"), "\u2013",
+                           format(max(date, na.rm = TRUE), "%Y-%m-%d")),
+      .by = c(source_system, `Record type`)
+    ) |>
+    rename(Source = source_system) |>
+    mutate(Rows = scales::comma(Rows), Attendance = scales::comma(Attendance)) |>
+    knitr::kable(align = c("l", "l", "r", "r", "l"))
 }
 ```
 

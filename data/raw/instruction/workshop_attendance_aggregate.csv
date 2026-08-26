@@ -1,0 +1,10 @@
+event_id,event,date,attendance_count,counting_unit,attendance_rule,institution,department,school,categories,source_system,source_period
+uc-carpentries-2024-09-09-tidy-data,Tidy Data,2024-09-09,131,participant_session,zoom_duration_gte_60_after_staff_exclusion,,,,"Carpentries; Data",Zoom,2024-09
+uc-carpentries-2024-09-10-unix,Unix Shell,2024-09-10,117,participant_session,zoom_duration_gte_60_after_staff_exclusion,,,,"Carpentries; Shell",Zoom,2024-09
+uc-carpentries-2024-09-11-git,Git,2024-09-11,93,participant_session,zoom_duration_gte_60_after_staff_exclusion,,,,"Carpentries; Git",Zoom,2024-09
+uc-carpentries-2024-09-12-sql,SQL,2024-09-12,108,participant_session,zoom_duration_gte_60_after_staff_exclusion,,,,"Carpentries; SQL",Zoom,2024-09
+uc-carpentries-2024-09-16-python-1,Python 1,2024-09-16,133,participant_session,zoom_duration_gte_60_after_staff_exclusion,,,,"Carpentries; Python",Zoom,2024-09
+uc-carpentries-2024-09-17-python-2,Python 2,2024-09-17,98,participant_session,zoom_duration_gte_60_after_staff_exclusion,,,,"Carpentries; Python",Zoom,2024-09
+uc-carpentries-2024-09-18-r-1,R 1,2024-09-18,117,participant_session,zoom_duration_gte_60_after_staff_exclusion,,,,"Carpentries; R",Zoom,2024-09
+uc-carpentries-2024-09-19-r-2,R 2,2024-09-19,85,participant_session,zoom_duration_gte_60_after_staff_exclusion,,,,"Carpentries; R",Zoom,2024-09
+uc-carpentries-2024-09-20-openrefine,OpenRefine,2024-09-20,55,participant_session,zoom_duration_gte_60_after_staff_exclusion,,,,"Carpentries; OpenRefine",Zoom,2024-09

@@ -62,6 +62,19 @@ Examples:
 Unit:
 - Ticket/issue or ticket activity
 
+## 4) Instruction Attendance Metrics
+
+These represent attendance instances at DSC-supported workshops and instructional events.
+
+Primary sources:
+- LibInsight attendee-event exports
+- Validated aggregate event summaries when row-level participant data cannot be published
+
+Unit:
+- One attendee-event row, or one participant-session included in a documented aggregate attendance count
+
+Aggregate event summaries may contribute to overall, year, event, and compatible topic totals. They must not contribute to UCLA affiliation, department, school/division, participant affiliation, or unique-person metrics unless those dimensions are directly supported by validated source data. Missing institution is unknown, not non-UCLA.
+
 ## Metric Naming Guidelines
 
 Use names that encode:
@@ -136,6 +149,7 @@ Do not silently splice two systems together without documentation.
 - Processed datasets are reproducible from scripts.
 - Reference mappings (staff roster, department map, task filters) live in `data/reference/`.
 - Dashboard/report numbers must be traceable to a script and a processed output file.
+- Restricted participant identifiers must not be copied into public aggregate instruction sources.
 
 ## Current Known Caveats (This Repo)
 
