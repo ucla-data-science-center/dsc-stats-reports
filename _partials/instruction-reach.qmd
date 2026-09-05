@@ -1,0 +1,47 @@
+::: {.bar-chart}
+::: {.bar-chart-row}
+[2020]{.bar-chart-label}
+::: {.bar-chart-track}
+[]{.bar-chart-fill style="width: 45%"}
+:::
+[208]{.bar-chart-value}
+:::
+::: {.bar-chart-row}
+[2021]{.bar-chart-label}
+::: {.bar-chart-track}
+[]{.bar-chart-fill style="width: 47%"}
+:::
+[218]{.bar-chart-value}
+:::
+::: {.bar-chart-row}
+[2022]{.bar-chart-label}
+::: {.bar-chart-track}
+[]{.bar-chart-fill style="width: 89%"}
+:::
+[414]{.bar-chart-value}
+:::
+::: {.bar-chart-row}
+[2023]{.bar-chart-label}
+::: {.bar-chart-track}
+[]{.bar-chart-fill style="width: 100%"}
+:::
+[464]{.bar-chart-value}
+:::
+::: {.bar-chart-row}
+[2024*]{.bar-chart-label}
+::: {.bar-chart-track}
+[]{.bar-chart-fill style="width: 80%"}
+:::
+[372]{.bar-chart-value}
+:::
+:::
+
+*2024 partial (data through April); a fuller reconciliation across DSC's several
+registration systems is in progress.
+
+Workshops cover geospatial methods, programming, reproducibility, data management,
+and open science, and reach far beyond any single division. DSC also coordinates
+UCLA's participation in systemwide efforts including <abbr class="term" title="An
+annual UC-systemwide event on research data management skills">UC Love Data
+Week</abbr> and <abbr class="term" title="An annual UC-systemwide GIS training
+event">UC GIS Week</abbr>.

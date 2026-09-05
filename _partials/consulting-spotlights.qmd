@@ -1,0 +1,52 @@
+::: {.spotlight}
+### Carceral Ecologies
+[Partner: UCLA Institute for Society and Genetics (Nicholas Shapiro)]{.partners}
+
+DSC and DataSquad provided multi-year research support, including R server
+infrastructure, data processing, and training, for work on a massive helicopter
+surveillance dataset that outstripped the lab's ability to host locally. DataSquad
+members Lawrence Lee and Madeline Kim built the R-based solution behind the speedup
+below. Kate McInerny, a student on the project, first encountered DSC through
+Professor Kelly Lytle Hernández's African American 188 course, was hired into the
+Carceral Ecologies lab, and kept building her data skills through DSC workshops
+before graduating to Sciences Po. That work became the pilot study behind a $5
+million grant that established the Dana Center for Neuroscience and Society.
+
+> *"This work wouldn't have happened without your team!"*
+> — Dr. Nicholas Shapiro, UCLA Institute for Society and Genetics
+
+[**Outcome:** processing time cut from ~318 minutes to ~2 minutes (~159x faster). **Impact:** coverage in the *Los Angeles Times*, *The New Yorker*, and *Bloomberg*.]{.impact}
+:::
+
+::: {.spotlight}
+### BioCritical Studies Lab
+[Partner: UCLA (Grace Sosa; Terence Keel)]{.partners}
+
+A multi-year collaboration (2021 to 2024) on data integration, statistical analysis,
+and visualization for a comprehensive U.S. deaths-in-custody dataset, with tools built
+for the lab to maintain independently. DataSquad cleaned redundant and non-critical
+data points, reducing the dataset from 41,466 to 29,208 records (~30% smaller) while
+preserving analytical value, then built visualizations and tools to maintain and
+update it going forward. The dataset has supported projects funded by NIH, NSF, and
+the Robert Wood Johnson Foundation. Prof. Keel became one of six recipients of UCLA's
+2024 Public Impact Research Awards, and DSC's work is featured in his book, *The
+Coroner's Silence: Death Records and the Hidden Victims of Police Violence*.
+
+> *"It is one of the most impactful resources I have engaged with [...] at UCLA."*
+> — Grace Sosa, Assistant Director, BioCritical Studies Lab
+
+[**Impact:** supported research recognized through UCLA's 2024 Public Impact Research Awards, contributing to public-facing scholarship and teaching.]{.impact}
+:::
+
+::: {.spotlight}
+### Refugee Material Culture Initiative
+[Partner: Professor Kelly Nguyen]{.partners}
+
+DSC's 3D and emerging-technology work, led by Doug Daniels with DataSquad members
+Bianca Badajos and Connor Lim, processed multiple artifacts from Vietnamese refugees
+in collaboration with the Vietnamese Heritage Museum. The team helped curate multiple
+digital exhibits, including a 7-day narrative documenting a refugee family's maritime
+escape across the Pacific Ocean, built from 3D scans of the boat and related objects.
+
+[**Outcome:** digital exhibits built from 3D-scanned historical artifacts, made freely public. **Impact:** advances faculty research using state-of-the-art documentation and preservation of cultural heritage.]{.impact}
+:::

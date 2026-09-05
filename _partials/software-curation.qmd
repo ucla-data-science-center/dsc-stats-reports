@@ -1,0 +1,31 @@
+[$2.09M in competitive federal and foundation funding supports this work.]{.lede}
+
+DSC's open source program office (<abbr class="term" title="Open Source Program
+Office">OSPO</abbr>) work, licensing review, repository best practices, and release
+guidance, is funded through a **{{< var software.sloan_amount >}} Sloan Foundation
+grant**. It exists because the need is real: a 2025 scan of roughly
+{{< var software.license_scan_n >}} UC-affiliated code repositories found
+{{< var software.license_scan_pct >}} carried no license at all, meaning most UC
+research code cannot legally be reused or built on.
+
+Alongside it, a **{{< var software.imls_amount >}} IMLS grant** (Laura Bush 21st
+Century Librarian Program, {{< var software.imls_grant_number >}}) funded a
+14-lesson open science curriculum built by and for librarians, developed by two
+cohorts across 2023-2024. Tim Dennis served as Program Director, Todd Grappone as
+Co-PI, and Zhiyuan Yao, DSC's GIS librarian at the time, as Program Coordinator. All
+lessons are built on The Carpentries Workbench and released under CC-BY 4.0; one,
+DMP 101, has already been formally adopted into the Library Carpentry curriculum,
+with the rest in active community piloting.
+
+That curriculum work sits inside a larger, ongoing commitment: Dennis co-chairs the
+**Library Carpentry Governance Group**, which sets lesson-adoption and
+curriculum-quality standards for the global Library Carpentry program, not just
+UCLA's. DSC staff maintain or co-maintain lessons taught worldwide, from core
+Carpentries material (Unix Shell, Tidy Data, R, Python, Computational Thinking) to
+newer additions in qualitative data methods, data management, Wikidata, data
+archiving, and AI, including a published lesson on using AI coding agents in
+research while preserving validation and reproducibility
+([agentic-research-workflows]({{< var links.agentic_lesson >}})). Dennis is also a
+[Center for Open Science Ambassador]({{< var links.cos_ambassador >}}) (2016-present)
+and was teaching faculty for the Berkeley Initiative for Transparency in the Social
+Sciences' [Research Transparency and Reproducibility Training]({{< var links.bitss_rt2 >}}).

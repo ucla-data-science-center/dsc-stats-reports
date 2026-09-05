@@ -1,0 +1,99 @@
+---
+title: "UCLA Library Data Science Center"
+subtitle: "What we built, 2017–2026"
+date: today
+format:
+  html:
+    embed-resources: true
+    toc: false
+    css: styles-dean-update.css
+    theme: none
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+The Data Science Center grew out of UCLA's Social Science Data Archive, an archive
+that dates to 1961 and was a founding member of ICPSR. Since 2017 it has become
+something broader: general-purpose research data infrastructure, instruction, and
+consulting used across the university. This is a record of what that build looks
+like, in numbers and in the work it supported.
+
+::: {.tldr}
+**In short:** UCLA Dataverse has grown from 9 datasets in 2020 to roughly 1,390
+released today. DSC's Redivis platform, built around an unusable 10-terabyte national
+voter file, has since processed 4.8 petabytes of restricted research data. Workshops
+have reached more than 1,600 attendees across 148 UCLA departments. GIS support
+disappeared in 2024 even though the demand for it never did.
+:::
+
+## A 65-year lineage {#sec-lineage}
+
+{{< include _partials/lineage-timeline.qmd >}}
+
+## DSC today, by the numbers {#sec-numbers}
+
+{{< include _partials/kpi-headline.qmd >}}
+
+Together these describe a shift: DSC has grown from a specialized archive service
+into general-purpose research infrastructure used across the university, the kind of
+reach the 2014 transfer was meant to enable.
+
+## What we cover {#sec-what-we-cover}
+
+DSC's work spans the research data lifecycle and the methods that have grown up
+around it: data management and curation, data cleaning and analysis, geospatial
+methods and GIS, 3D and drone-based scanning, machine learning and AI, research
+software engineering, reproducible workflows, and open source and open science
+practice. Consultations and workshops touch nearly every division: the largest
+single workshop constituency is Geography, and social science departments together
+account for about 1 in 8 attendees, but Life Sciences, Physical Sciences, Public
+Health, Medicine, Humanities, and the professional schools are all steady users.
+
+Social science departments have stayed a core constituency throughout: roughly 200
+workshop participants since 2020 from Geography, Psychology, Political Science,
+Sociology, Economics, Anthropology, Urban Planning, Public Policy, and Gender
+Studies, plus people who registered simply as "Social Science." That share has held
+steady even as DSC's overall reach grew, evidence the 2014 move broadened the
+Archive's audience without leaving its original constituency behind.
+
+## Redivis and the L2 voter file {#sec-redivis}
+
+{{< include _partials/redivis-l2.qmd >}}
+
+## GIS and geospatial support {#sec-gis}
+
+{{< include _partials/gis-support.qmd >}}
+
+## Consulting spotlights {#sec-spotlights}
+
+{{< include _partials/consulting-spotlights.qmd >}}
+
+## DataSquad {#sec-datasquad}
+
+{{< include _partials/datasquad.qmd >}}
+
+## Emerging technology and 3D curation {#sec-emerging-tech}
+
+{{< include _partials/emerging-tech-3d.qmd >}}
+
+## Instruction {#sec-instruction}
+
+{{< include _partials/instruction-reach.qmd >}}
+
+## Open science and software curation {#sec-software-curation}
+
+{{< include _partials/software-curation.qmd >}}
+
+## Infrastructure {#sec-infrastructure}
+
+{{< include _partials/infrastructure.qmd >}}
+
+---
+
+The full public dashboard, with current figures and methodology, is at
+[ucla-data-science-center.github.io/dsc-stats-reports]({{< var links.full_site >}}).
+
+Tim Dennis\
+Data Science Center, UCLA Library

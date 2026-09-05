@@ -1,0 +1,45 @@
+dataverse:
+  datasets_released: "~1,390"
+  datasets_with_drafts: "1,603"
+  datasets_2020: "9"
+  downloads_total: "143,000+"
+  downloads_2020: "229"
+datasquad:
+  tasks_2023: "6"
+  tasks_2025: "111"
+  placement_rate: "100%"
+  placement_cohort: "2023–2025"
+  placement_n: "ten"
+  placement_names: "McKinsey & Company, Amazon, World Wide Technology, and CVS Health"
+instruction:
+  total_attendees: "1,676"
+  total_departments: "148"
+  consultations_total: "604"
+software:
+  sloan_amount: "$1.85M"
+  license_scan_pct: "77.5%"
+  license_scan_n: "~81,000"
+  imls_amount: "$237,839"
+  imls_grant_number: "RE-252335-OLS-22"
+redivis:
+  annual_cost: "~$47K/year"
+  data_volume: "~20TB"
+  users: "50"
+  workflows: "150+"
+  petabytes_processed: "4.8 petabytes"
+gis:
+  consult_low: "72"
+  consult_high: "82"
+  ucgis_2023: "617"
+  r1_pct_with_gis: "43%"
+  top25_pct_with_gis: "81%"
+doug:
+  award: "2026 LAUC-LA Librarian of the Year"
+  award_nominations: "15"
+links:
+  full_site: "https://ucla-data-science-center.github.io/dsc-stats-reports/"
+  methodology: "https://ucla-data-science-center.github.io/dsc-stats-reports/about.html"
+  doug_award: "https://newsroom.ucla.edu/stories/doug-daniels-matthew-vest--ucla-librarians-of-the-year-2026"
+  agentic_lesson: "https://tim-dennis.com/agentic-research-workflows"
+  cos_ambassador: "https://www.cos.io/communities/ambassadors"
+  bitss_rt2: "https://www.bitss.org/education/rt2/"

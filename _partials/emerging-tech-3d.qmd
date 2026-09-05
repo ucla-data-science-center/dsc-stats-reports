@@ -1,0 +1,17 @@
+[Doug Daniels, DSC's emerging technologies librarian, was named UCLA's {{< var doug.award >}}.]{.lede}
+
+The award, one of two given university-wide by LAUC-LA in a {{< var doug.award_nominations >}}-nomination,
+peer-selected cycle, recognized partnerships across archaeology, digital humanities,
+medical sciences, materials science, and Egyptology, including the Refugee Material
+Culture Initiative above and a drone survey of Iceland's Mosfell Valley with a
+doctoral student from the Cotsen Institute of Archaeology. A separate Lux Lab
+collaboration, a surgical probe holder built with an undergraduate student, is now in
+clinical use at Ronald Reagan UCLA Medical Center.
+
+**Potree**, the spatial-visualization platform DSC runs alongside Dataverse, is what
+turns this work into something researchers can use rather than just store: 3D scans
+and point-cloud data become interactive models, explorable in a browser instead of
+sitting as a static file in an archive.
+
+> *"Daniels' work has strengthened partnerships across campus and throughout the greater Los Angeles community while helping students succeed with their individual research projects."*
+> — Patrick Lavey, LAUC-LA Award Committee Chair, [UCLA Newsroom]({{< var links.doug_award >}})

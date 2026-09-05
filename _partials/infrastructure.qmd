@@ -1,0 +1,19 @@
+[Dataverse has grown from {{< var dataverse.datasets_2020 >}} datasets in 2020 to roughly {{< var dataverse.datasets_released >}} released today.]{.lede}
+
+Dataverse, UCLA's institutional repository, which DSC operates, has grown from
+{{< var dataverse.datasets_2020 >}} datasets and {{< var dataverse.downloads_2020 >}}
+downloads in January 2020 to roughly **{{< var dataverse.datasets_released >}}
+released datasets and over {{< var dataverse.downloads_total >}} downloads** today
+({{< var dataverse.datasets_with_drafts >}} counting drafts and restricted deposits).
+This is the same hosting commitment the Library made in the 2014 transfer ("necessary
+technological infrastructure for continued hosting of software, data, and data
+analysis tools"), grown considerably since.
+
+Dataverse and Redivis are funded through the original SSDA gift fund, University
+Librarian discretionary funds, and the Library's central budget. The Archive's core
+subscriptions (<abbr class="term" title="Inter-university Consortium for Political
+and Social Research">ICPSR</abbr>, ~$47K/year, and the Roper Center, ~$8K/year) moved
+years ago onto the Library's general membership fund, the same treatment other
+research libraries give large database subscriptions. That freed the Archive's
+original gift fund to cover the AWS infrastructure costs for Dataverse and Potree
+instead.

@@ -1,0 +1,29 @@
+::: {.timeline}
+::: {.timeline-node}
+[**1961**]{.year}
+[Political Behavior Archive founded by Dwaine Marvick]{.event}
+:::
+::: {.timeline-node}
+[**1962**]{.year}
+[Founding member, Inter-university Consortium for Political and Social Research (ICPSR)]{.event}
+:::
+::: {.timeline-node}
+[**1977**]{.year}
+[Becomes the Social Science Data Archive under the Institute for Social Science Research]{.event}
+:::
+::: {.timeline-node}
+[**2014–15**]{.year}
+[MOU transfers the Archive to UCLA Library (Dean Duranti / UL Steel)]{.event}
+:::
+::: {.timeline-node}
+[**2018**]{.year}
+[Data Science Center founded as the Archive's institutional home]{.event}
+:::
+::: {.timeline-node}
+[**2017–2026**]{.year}
+[Build-out: AI/ML, GIS, 3D and spatial curation, a research data repository, an open source program, a student workforce]{.event}
+:::
+:::
+
+One person bridges nearly the whole modern era: **Jamie Jamison**, who transferred
+with the Archive in 2014, is still on the DSC team today.

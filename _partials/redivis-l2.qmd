@@ -1,0 +1,29 @@
+[DSC turned an unusable 10-terabyte national voter file into a resource researchers across campus now use directly.]{.lede}
+
+DSC piloted **Redivis**, a secure platform for restricted research data, initially
+supported by University Librarian discretionary funds. It's since grown into a
+sustained subscription, about {{< var redivis.annual_cost >}} as of 2026, paid
+through Library central finance alongside <abbr class="term" title="Inter-university
+Consortium for Political and Social Research">ICPSR</abbr> and Roper. The platform
+holds about {{< var redivis.data_volume >}} of <abbr class="term" title="Data
+protection levels covering FERPA, PII, and HIPAA-regulated research data">P3/P4-compliant</abbr>
+data across {{< var redivis.users >}} registered users and over {{< var redivis.workflows >}}
+workflows, and has processed **{{< var redivis.petabytes_processed >}}** cumulatively
+since it launched in 2022.
+
+The flagship dataset is the **L2 historic voter file**, over 10TB of national voter
+history purchased by DSC and a Library subject selector. It arrived as thousands of
+fragmented, state-level files, too large to store locally and too inconsistent to
+analyze as-is. DSC consolidated it into a single, version-controlled,
+analysis-ready dataset, cited by Redivis's own CEO as a flagship use case at FORCE11
+2024.
+
+Researchers use it directly across departments: election administration (Joshua
+Ferrer, Political Science), gentrification patterns (Alexandria Davis, Political
+Science), population behavior and public policy (Economics), and a project merging
+the voter file with UCLA medical records to study health and voting (Straus,
+Thompson, Vavreck, Naeim, UCLA Health). As the graduate student who curated the
+dataset put it:
+
+> *"Professors and students in a social sciences department are able to instantly work with a large, rich dataset in a secure environment."*
+> — Graham Straus, UCLA Political Science PhD student, FORCE11 2024

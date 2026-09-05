@@ -1,0 +1,31 @@
+::: {.kpi-row}
+::: {.kpi-card}
+[{{< var dataverse.datasets_released >}}]{.kpi-value}
+[Released datasets in UCLA <abbr class="term" title="Dataverse is UCLA's institutional research-data repository, operated by DSC">Dataverse</abbr>]{.kpi-label}
+[Up from {{< var dataverse.datasets_2020 >}} in Jan 2020 ({{< var dataverse.datasets_with_drafts >}} counting drafts and restricted deposits)]{.kpi-note}
+:::
+::: {.kpi-card}
+[{{< var dataverse.downloads_total >}}]{.kpi-value}
+[Dataset downloads since 2020]{.kpi-label}
+[{{< var dataverse.downloads_2020 >}} in Jan 2020 → {{< var dataverse.downloads_total >}} today]{.kpi-note}
+:::
+::: {.kpi-card}
+[{{< var instruction.total_attendees >}}]{.kpi-value}
+[Workshop attendees, 2020–2024]{.kpi-label}
+[Across {{< var instruction.total_departments >}} distinct UCLA departments]{.kpi-note}
+:::
+::: {.kpi-card}
+[{{< var instruction.consultations_total >}}]{.kpi-value}
+[Direct consultations]{.kpi-label}
+[DSC + DataSquad, most recent audit]{.kpi-note}
+:::
+:::
+
+<details class="more-info">
+<summary>Where these numbers come from</summary>
+
+**Data currency:** Consultation records are audited through early-to-mid 2025 and
+workshop records through spring 2024; a refresh covering the past year is in
+progress. Dataverse infrastructure figures are current through February 2026. Full
+methodology: [dsc-stats-reports/about]({{< var links.methodology >}}).
+</details>

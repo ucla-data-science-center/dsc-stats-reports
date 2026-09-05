@@ -1,0 +1,30 @@
+[UCLA cut its GIS librarian position in 2024. Demand didn't go with it.]{.lede}
+
+Geography has consistently been DSC's single largest workshop constituency: 64 of the
+roughly {{< var instruction.total_attendees >}} UCLA workshop attendees since 2020,
+more than any other department.
+
+Before the position was eliminated in 2024, DSC's GIS librarian handled
+{{< var gis.consult_low >}} to {{< var gis.consult_high >}} booked consultations a
+year (2021 to 2023) across Urban Planning, Public Affairs, Environment and
+Sustainability, and Digital Humanities. They also co-taught a graduate Public Health
+course, ran systemwide UC GIS workshops that reached {{< var gis.ucgis_2023 >}}
+participants in 2023 alone, and managed key research datasets, including the LARIAC
+aerial imagery acquired through the Archive's gift fund. That demand hasn't gone
+away. DSC still fields GIS requests, just without the specialist capacity to meet
+them.
+
+Nationally, 81 of 187 Carnegie R1 institutions ({{< var gis.r1_pct_with_gis >}})
+maintain a dedicated GIS librarian, rising to {{< var gis.top25_pct_with_gis >}}
+among the top 25 R&D-spending universities. UCLA has the highest research
+expenditure of any UC campus, yet is one of only two UC R1 campuses without one. The
+other, Santa Cruz, spends a fraction of what UCLA does on research. (UCSF also lacks
+one, but it's a health-sciences-only campus with no undergraduates, not a fair
+comparison.) Lower-spending UC peers like Berkeley and San Diego both maintain
+dedicated GIS staff.
+
+Campus-wide, UCLA's ArcGIS Online platform, used across Geography, Luskin, Fielding,
+Digital Humanities, Political Science, and Social Data Science, has over 7,100
+accounts and more than 3,000 active users in the past year, per an OARC governance
+report from December 2025. Without a designated administrator, it's now running at
+over 200% of its licensed storage.

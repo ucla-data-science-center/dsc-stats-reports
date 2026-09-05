@@ -1,0 +1,71 @@
+```{r setup-metrics, include=FALSE}
+library(tidyverse)
+library(lubridate)
+library(scales)
+source("src/etl/instruction_aggregate.R")
+
+fmt_n <- function(x) if (is.na(x) || length(x) == 0) "—" else comma(x)
+
+# --- Workshop / instruction attendance: same source + functions as instruction.qmd ---
+raw_workshop_path <- "data/raw/instruction/dsc_workshops.csv"
+instruction_attendance <- tryCatch({
+  ucla_workshops <- load_instruction_attendee_data(raw_workshop_path)
+  load_instruction_attendance(ucla_workshops)
+}, error = function(e) tibble())
+
+if (nrow(instruction_attendance) > 0) {
+  m_workshop_total <- sum(instruction_attendance$attendance_count, na.rm = TRUE)
+  m_workshop_ucla   <- sum(instruction_attendance$attendance_count[
+    instruction_attendance$institution == "UCLA"], na.rm = TRUE)
+  m_workshop_by_year <- instruction_attendance |>
+    filter(!is.na(date)) |>
+    mutate(Year = year(date)) |>
+    summarise(n = sum(attendance_count), .by = Year) |>
+    arrange(Year)
+  m_workshop_depts <- instruction_attendance |>
+    filter(institution == "UCLA", !is.na(standardized_department)) |>
+    distinct(standardized_department) |>
+    nrow()
+} else {
+  m_workshop_total <- m_workshop_ucla <- m_workshop_depts <- NA_integer_
+  m_workshop_by_year <- tibble(Year = integer(), n = integer())
+}
+
+# --- Dataverse dataset count: query the live public search API directly. ---
+# Earlier approach (API-tracked "published" count + a hand-derived "legacy
+# SSDA" constant) risked double-counting, since it's unclear whether the two
+# scopes overlap. Querying Dataverse's own search API for its own total
+# sidesteps that: this is the same number the search UI shows, covering all
+# 98+ sub-dataverses (SSDA, DIG Dataverse, Cotsen, Carceral Ecologies,
+# Williams Institute, etc.) with no manual addition or subtraction.
+m_dv_released_total <- tryCatch({
+  resp <- jsonlite::fromJSON("https://dataverse.ucla.edu/api/search?q=*&type=dataset&per_page=1")
+  resp$data$total_count
+}, error = function(e) NA_integer_)
+
+# --- Downloads: cached ETL output infrastructure.qmd reads (Dataverse's own
+# metrics API has no simpler live equivalent for cumulative downloads). ---
+dv_path <- "data/raw/infrastructure/datasets_files_published_monthly.csv"
+dv_latest <- tryCatch({
+  read_csv(dv_path, show_col_types = FALSE) |>
+    mutate(date = ym(date)) |>
+    arrange(date) |>
+    slice_tail(n = 1)
+}, error = function(e) tibble())
+
+if (nrow(dv_latest) > 0) {
+  m_dv_downloads <- dv_latest$downloads[1]
+  m_dv_asof      <- format(dv_latest$date[1], "%B %Y")
+} else {
+  m_dv_downloads <- NA_integer_
+  m_dv_asof <- "—"
+}
+
+# --- Consultations: same audit file consulting.qmd reads ---
+consult_path <- "data/processed/consultations/consultation_audit_2023_2025_summary_tagged.csv"
+m_consult_total <- tryCatch({
+  cs <- read_csv(consult_path, show_col_types = FALSE)
+  hit <- cs |> filter(str_detect(str_to_lower(metric), "direct consultations"))
+  if (nrow(hit) > 0) as.numeric(hit$value[1]) else NA_integer_
+}, error = function(e) NA_integer_)
+```
