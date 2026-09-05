@@ -1,0 +1,17 @@
+::: {.org-change}
+[ORGANIZATIONAL CHANGE]{.org-change-label}
+
+[The current restructuring distributes staff, budget visibility, and decision authority across separate reporting lines. Individual services may continue, but responsibility for coordinating the portfolio as a whole is no longer assigned to one role.]{.lede}
+
+**The change.** DSC is being dissolved as a standalone unit and folded into a larger division, with its staff reporting to separate managers rather than one coordinating role. This section describes the mechanism, not a judgment about the decision itself.
+
+**What unified oversight enabled.** One documented example: DSC successfully moved two of the Archive's original 2014 subscriptions, ICPSR and Roper, off the Archive's own fund and onto the Library's general membership fund, the same treatment other research libraries give large database subscriptions. That freed capacity in the Archive's original fund, which now covers the AWS infrastructure costs for Dataverse and Potree. That reallocation, moving budget from one part of the portfolio to fund infrastructure in another, was possible because one role had visibility across both the Archive's budget and the infrastructure budget at the same time.
+
+**The operational implication.** The risk isn't that individual services stop working tomorrow. It's that the visibility and authority to rebalance resources across the portfolio, the kind of move described above, is no longer built into the structure. The same applies beyond budget: the working relationship for the Archive's datasets, supervision of the deep-learning infrastructure researchers rely on, and management of DSC's student consulting program are all currently coordinated through one role, with no successor arrangement yet in place.
+
+| Function | Previous arrangement | New arrangement | Practical implication |
+|---|---|---|---|
+| Budget visibility | One role could see both funding streams | Visibility divided across reporting lines | Cross-service funding decisions may not be visible to any one person |
+| Resource allocation | Funds could be redirected across the portfolio | Decisions sit with separate managers | Reallocation requires coordination no longer formally assigned |
+| Service planning | Archive, infrastructure, training, and consultation considered together | Services managed separately | Individual services may continue without unified portfolio planning |
+:::

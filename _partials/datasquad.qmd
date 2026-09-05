@@ -1,0 +1,23 @@
+[DataSquad's project work grew from {{< var datasquad.tasks_2023 >}} tasks in 2023 to {{< var datasquad.tasks_2025 >}} in 2025.]{.lede}
+
+DataSquad is DSC's peer-consulting model: undergraduate and graduate student
+consultants providing sustained project support alongside DSC staff's direct
+consultations. Reportable project work grew from **{{< var datasquad.tasks_2023 >}}
+tasks in 2023 to {{< var datasquad.tasks_2025 >}} in 2025**, as demand shifted from
+one-off consultations toward sustained, hands-on project support. That trajectory
+reflects departments increasingly planning research around DataSquad's availability,
+not turning to it only when something breaks.
+
+The program started in 2020 on a gift from **Norman Powell**, which funded student
+salaries and laptops for the first cohort. The Library added funding in 2023 to
+expand the team and add in-person hours. In 2024, DataSquad absorbed the LuxLab
+student program after its funding source, CLICC funds, became restricted, merging two
+student-support lines into one.
+
+It's also a verified career pipeline, not just a service to faculty: the
+{{< var datasquad.placement_cohort >}} cohort has a **{{< var datasquad.placement_rate >}}
+placement rate** among its {{< var datasquad.placement_n >}} identified graduates,
+including {{< var datasquad.placement_names >}}. Several of the same students worked
+on DataSquad's highest-profile faculty projects before landing those placements.
+Lawrence Lee, credited above for the Carceral Ecologies speedup, is now a Software
+Development Engineer at Amazon.
