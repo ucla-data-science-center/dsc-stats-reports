@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Infrastructure Statistics – DSC Statistics</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,18 +32,19 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7d090a7e39110af4430c0129adf67a43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5f9b8195238223f6a7c4550320230f79.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-7d090a7e39110af4430c0129adf67a43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-233bc372cf700afa34ee6956ddfa133e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-5c8fce4346c58bda228be4bd0aa81c79.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-233bc372cf700afa34ee6956ddfa133e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -288,6 +286,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ucla-data-science-center.github.io/ssda-dsc-history/history.html"> 
+<span class="menu-text">DSC History</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -340,73 +342,34 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>
-<em>For DSC staff and library administration — AWS cloud costs, UCLA Dataverse repository metrics, and S3 storage trends.</em>
+<em>For DSC staff and library administration — AWS cloud usage trends, UCLA Dataverse repository metrics, and S3 storage trends.</em>
 </p>
 <p>
-<em>Last rendered: August 21, 2026</em>
+<em>Last rendered: September 12, 2026</em>
 </p>
 <div class="kpi-row grid">
-<div class="g-col-6 g-col-md-3 kpi-card">
+<div class="g-col-6 g-col-md-4 kpi-card">
 <p><span class="kpi-label">Dataverse Datasets</span> <span class="kpi-value">377</span> <span class="kpi-note">Cumulative published, as of 2026-02</span></p>
 </div>
-<div class="g-col-6 g-col-md-3 kpi-card">
+<div class="g-col-6 g-col-md-4 kpi-card">
 <p><span class="kpi-label">Dataverse Files</span> <span class="kpi-value">25,330</span> <span class="kpi-note">Cumulative published</span></p>
 </div>
-<div class="g-col-6 g-col-md-3 kpi-card">
+<div class="g-col-6 g-col-md-4 kpi-card">
 <p><span class="kpi-label">Total Downloads</span> <span class="kpi-value">143,414</span> <span class="kpi-note">Cumulative file-level download events</span></p>
-</div>
-<div class="g-col-6 g-col-md-3 kpi-card">
-<p><span class="kpi-label">AWS Spend</span> <span class="kpi-value">$992</span> <span class="kpi-note">Jul 2026 estimate; billing lags ~1–2 mo.</span></p>
 </div>
 </div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">AWS Costs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Dataverse Usage</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">S3 Storage</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">AWS Usage Trends</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Dataverse Usage</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">S3 Storage</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<section id="monthly-departmental-charges-ledger" class="level3">
-<h3 class="anchored" data-anchor-id="monthly-departmental-charges-ledger">Monthly Departmental Charges (Ledger)</h3>
-<div id="3e522aa7" class="cell" data-results="asis" data-execution_count="3">
-<div class="cell-output cell-output-display cell-output-markdown">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th>Month</th>
-<th>Actual Cost Charged</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>2025-09</td>
-<td>$1,000.58</td>
-</tr>
-<tr class="even">
-<td>2025-08</td>
-<td>$937.90</td>
-</tr>
-<tr class="odd">
-<td>2025-07</td>
-<td>$1,001.50</td>
-</tr>
-<tr class="even">
-<td>2025-06</td>
-<td>$1,019.57</td>
-</tr>
-<tr class="odd">
-<td>2025-04</td>
-<td>$990.96</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="monthly-trends" class="level3">
-<h3 class="anchored" data-anchor-id="monthly-trends">Monthly Trends</h3>
-<div id="1a7e3dd3" class="cell" data-execution_count="4">
+<section id="monthly-spend-share-by-application" class="level3">
+<h3 class="anchored" data-anchor-id="monthly-spend-share-by-application">Monthly Spend Share by Application</h3>
+<p>Relative share of monthly AWS spend across applications, not absolute dollar amounts. Useful for spotting which applications are growing or shrinking their footprint over time.</p>
+<div id="29e4fce6" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="infrastructure_files/figure-html/cell-5-output-1.png" alt="Stacked bar chart showing monthly AWS costs by application over the past 12 months." width="945" height="469" class="figure-img"></p>
+<p><img src="infrastructure_files/figure-html/cell-4-output-1.png" alt="100 percent stacked bar chart showing each application's share of monthly AWS costs over the past 12 months." width="944" height="469" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -416,11 +379,11 @@ ul.task-list li input[type="checkbox"] {
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <section id="repository-growth-cumulative" class="level3">
 <h3 class="anchored" data-anchor-id="repository-growth-cumulative">Repository Growth (Cumulative)</h3>
-<div id="055bf7dc" class="cell" data-execution_count="5">
+<div id="c247101c" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="infrastructure_files/figure-html/cell-6-output-1.png" alt="Two stacked line charts showing cumulative growth of UCLA Dataverse over time. Top panel: total datasets published (blue). Bottom panel: total files published (gold)." width="951" height="660" class="figure-img"></p>
+<p><img src="infrastructure_files/figure-html/cell-5-output-1.png" alt="Two stacked line charts showing cumulative growth of UCLA Dataverse over time. Top panel: total datasets published (blue). Bottom panel: total files published (gold)." width="951" height="660" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -428,11 +391,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="monthly-activity" class="level3">
 <h3 class="anchored" data-anchor-id="monthly-activity">Monthly Activity</h3>
-<div id="5f12a596" class="cell" data-execution_count="6">
+<div id="657fc32c" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="infrastructure_files/figure-html/cell-7-output-1.png" alt="Three stacked bar charts showing monthly Dataverse activity over the last 24 months. Top: new datasets per month (blue). Middle: new files per month (gold). Bottom: monthly download volume (green)." width="950" height="1141" class="figure-img"></p>
+<p><img src="infrastructure_files/figure-html/cell-6-output-1.png" alt="Three stacked bar charts showing monthly Dataverse activity over the last 24 months. Top: new datasets per month (blue). Middle: new files per month (gold). Bottom: monthly download volume (green)." width="950" height="1141" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -442,7 +405,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <section id="current-bucket-sizes" class="level3">
 <h3 class="anchored" data-anchor-id="current-bucket-sizes">Current Bucket Sizes</h3>
-<div id="89d9c85d" class="cell" data-results="asis" data-execution_count="7">
+<div id="94aa7391" class="cell" data-results="asis" data-execution_count="6">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -461,62 +424,62 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>potree-test2</td>
 <td>11079.24 GB</td>
-<td>2026-08-18</td>
+<td>2026-09-09</td>
 </tr>
 <tr class="even">
 <td>dataverse-files-replicated</td>
-<td>4255.50 GB</td>
-<td>2026-08-18</td>
+<td>4346.10 GB</td>
+<td>2026-09-09</td>
 </tr>
 <tr class="odd">
 <td>dataverse-files</td>
-<td>4255.46 GB</td>
-<td>2026-08-18</td>
+<td>4346.06 GB</td>
+<td>2026-09-09</td>
 </tr>
 <tr class="even">
 <td>ucla-dataverse-migration-assets</td>
-<td>481.48 GB</td>
-<td>2026-08-18</td>
+<td>495.89 GB</td>
+<td>2026-09-09</td>
 </tr>
 <tr class="odd">
 <td>dataverse-test-oregon</td>
 <td>196.47 GB</td>
-<td>2026-08-18</td>
+<td>2026-09-09</td>
 </tr>
 <tr class="even">
 <td>test-dataverse-files2</td>
 <td>19.53 GB</td>
-<td>2026-08-18</td>
+<td>2026-09-09</td>
 </tr>
 <tr class="odd">
 <td>lariac-backup</td>
 <td>3.34 GB</td>
-<td>2026-08-18</td>
+<td>2026-09-09</td>
 </tr>
 <tr class="even">
 <td>dscbbillinginfo</td>
-<td>1.18 GB</td>
-<td>2026-08-18</td>
+<td>1.20 GB</td>
+<td>2026-09-09</td>
 </tr>
 <tr class="odd">
 <td>stackset-cloudtrail-stackset-4d9e86dd–trailbucket-ff7t7qulwkvo</td>
-<td>0.14 GB</td>
-<td>2026-08-18</td>
+<td>0.29 GB</td>
+<td>2026-09-09</td>
 </tr>
 <tr class="even">
 <td>test-dataverse-jmj</td>
 <td>0.00 GB</td>
-<td>2026-08-18</td>
+<td>2026-09-09</td>
 </tr>
 <tr class="odd">
 <td>ucla-library-terraform-state</td>
 <td>0.00 GB</td>
-<td>2026-08-18</td>
+<td>2026-09-09</td>
 </tr>
 <tr class="even">
 <td>bulk-policy-migration-221761179339</td>
 <td>0.00 GB</td>
-<td>2026-08-18</td>
+<td>2026-09-09</td>
 </tr>
 </tbody>
 </table>
@@ -525,11 +488,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="potree-storage-growth" class="level3">
 <h3 class="anchored" data-anchor-id="potree-storage-growth">Potree Storage Growth</h3>
-<div id="58883abd" class="cell" data-execution_count="8">
+<div id="3f44a6b2" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="infrastructure_files/figure-html/cell-9-output-1.png" alt="Line chart with shaded area showing Potree S3 bucket storage growth in gigabytes over the last 365 days." width="948" height="468" class="figure-img"></p>
+<p><img src="infrastructure_files/figure-html/cell-8-output-1.png" alt="Line chart with shaded area showing Potree S3 bucket storage growth in gigabytes over the last 365 days." width="950" height="468" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -555,7 +518,7 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="kpi-label">Book-Chapter Links</span> <span class="kpi-value">160</span> <span class="kpi-note">Additional datasets linked to edited volumes (ISBN); citations not tracked</span></p>
 </div>
 </div>
-<div id="690adb63" class="cell" data-results="asis" data-execution_count="11">
+<div id="0dc7596c" class="cell" data-results="asis" data-execution_count="10">
 <div class="cell-output cell-output-display cell-output-markdown">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -709,7 +672,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li><strong>AWS costs</strong>: Cost Explorer API (last 12 months) merged with historical CSV exports. Most recent 1–2 months are estimates; final billing may differ</li>
+<li><strong>AWS usage</strong>: Cost Explorer API (last 12 months) merged with historical CSV exports, shown as each application’s relative share of monthly spend rather than dollar amounts. Most recent 1–2 months are estimates; final billing may differ</li>
 <li><strong>Dataverse datasets/files/downloads</strong>: Cumulative counts from the UCLA Dataverse <code>/api/info/metrics</code> endpoint — stored in <code>data/raw/infrastructure/datasets_files_published_monthly.csv</code></li>
 <li><strong>Downloads</strong>: File-level events as reported by Dataverse. Includes automated and bot traffic; not filtered for human-only access</li>
 <li><strong>S3 storage</strong>: Fetched live from AWS CloudWatch at render time. May be unavailable without valid AWS credentials; CloudWatch reports storage metrics once daily</li>
@@ -736,9 +699,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p><em>Last rendered:</em></p>
-<div id="ac47f2a5" class="cell" data-execution_count="13">
+<div id="215186fe" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-stdout">
-<pre><code>August 21, 2026</code></pre>
+<pre><code>September 12, 2026</code></pre>
 </div>
 </div>
 

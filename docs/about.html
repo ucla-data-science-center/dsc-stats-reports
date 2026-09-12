@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>About This Dashboard – DSC Statistics</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,18 +32,19 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7d090a7e39110af4430c0129adf67a43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5f9b8195238223f6a7c4550320230f79.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-7d090a7e39110af4430c0129adf67a43.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-233bc372cf700afa34ee6956ddfa133e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-5c8fce4346c58bda228be4bd0aa81c79.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-233bc372cf700afa34ee6956ddfa133e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -288,6 +286,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="./about.html" aria-current="page"> 
 <span class="menu-text">About</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ucla-data-science-center.github.io/ssda-dsc-history/history.html"> 
+<span class="menu-text">DSC History</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -319,6 +321,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#limitations-and-caveats" id="toc-limitations-and-caveats" class="nav-link" data-scroll-target="#limitations-and-caveats">Limitations and Caveats</a></li>
   <li><a href="#counting-rules-reference" id="toc-counting-rules-reference" class="nav-link" data-scroll-target="#counting-rules-reference">Counting Rules Reference</a></li>
   <li><a href="#how-to-cite-or-reuse-these-metrics" id="toc-how-to-cite-or-reuse-these-metrics" class="nav-link" data-scroll-target="#how-to-cite-or-reuse-these-metrics">How to Cite or Reuse These Metrics</a></li>
+  <li><a href="#related" id="toc-related" class="nav-link" data-scroll-target="#related">Related</a></li>
   <li><a href="#repository-and-contact" id="toc-repository-and-contact" class="nav-link" data-scroll-target="#repository-and-contact">Repository and Contact</a></li>
   </ul>
 </nav>
@@ -381,7 +384,7 @@ ul.task-list li input[type="checkbox"] {
 <td>At end of academic year</td>
 </tr>
 <tr class="even">
-<td>AWS costs</td>
+<td>AWS usage trends</td>
 <td>Monthly (Cost Explorer API pull)</td>
 </tr>
 <tr class="odd">
@@ -450,7 +453,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td><strong>AWS Cost Explorer API</strong></td>
-<td>Monthly cloud spend by service/application</td>
+<td>Monthly cloud usage share by service/application (relative, not dollar amounts)</td>
 <td><code>data/raw/infrastructure/AWS_Costs/</code></td>
 </tr>
 <tr class="odd">
@@ -485,7 +488,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Walk-in undercounting</strong>: Walk-in consultations may be undercounted in periods where DataSquad sign-in forms were not consistently used.</li>
 <li><strong>Manual log deduplication</strong>: Manual LibInsight entries and scheduled exports are deduplicated with a same-provider/same-minute heuristic. A small number of genuine duplicates may remain.</li>
 <li><strong>Trello coverage gap</strong>: Trello task metrics reflect the period when Trello was the primary DataSquad task system. The transition to GitHub Projects creates a data discontinuity; cross-system comparisons require care.</li>
-<li><strong>AWS billing lag</strong>: Cost Explorer data for the most recent 1–2 months is an estimate; final billed amounts may differ after the billing period closes.</li>
+<li><strong>AWS billing lag</strong>: Cost Explorer data for the most recent 1–2 months is an estimate; the relative-share figures may shift after the billing period closes.</li>
 <li><strong>Dataverse bot downloads</strong>: Download counts are not filtered for automated access. Cumulative totals likely include a fraction of non-human downloads.</li>
 <li><strong>Instruction completeness</strong>: Workshop attendance completeness depends on consistent LibInsight data entry. Some events may be missing from exports.</li>
 </ul>
@@ -509,6 +512,11 @@ ul.task-list li input[type="checkbox"] {
 <p>UCLA Library Data Science Center. (<em>Year</em>). <em>DSC Statistics Dashboard</em>. UCLA Library. Retrieved [date] from [site URL].</p>
 </blockquote>
 <p>Include the data coverage period (e.g., “2021–present”) and note the source system (e.g., “LibInsight scheduled exports”) when quoting specific numbers. For methodology questions, consult the Metrics Governance document or contact the DSC.</p>
+<hr>
+</section>
+<section id="related" class="level2">
+<h2 class="anchored" data-anchor-id="related">Related</h2>
+<p>For the institutional history behind these numbers, see <a href="https://ucla-data-science-center.github.io/ssda-dsc-history/history.html">UCLA’s Social Science Data Archive: an institutional history</a>, 1961-present.</p>
 <hr>
 </section>
 <section id="repository-and-contact" class="level2">

@@ -143,5 +143,5 @@ crosswalk_version	standardized_department	organizational_parent	parent_type	mapp
 2.0.0	UCLA Extension	UCLA Extension	extension	active	https://catalog.registrar.ucla.edu/About-UCLA
 2.0.0	Undergraduate Education	UCLA College — Undergraduate Education	college_division	active	https://college.ucla.edu/divisions/
 2.0.0	Multiple Departments			unresolved	https://catalog.registrar.ucla.edu/About-UCLA
-2.0.0	Forestry			unresolved	https://catalog.registrar.ucla.edu/About-UCLA
-2.0.0	Institute of American Cultures			unresolved	https://catalog.registrar.ucla.edu/About-UCLA
+2.0.0	Forestry	External	external	active	https://catalog.registrar.ucla.edu/About-UCLA
+2.0.0	Institute of American Cultures	Institute of American Cultures	academic_institute	active	https://catalog.registrar.ucla.edu/About-UCLA
