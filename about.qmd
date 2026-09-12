@@ -110,7 +110,7 @@ Include the data coverage period (e.g., "2021–present") and note the source sy
 
 ## Related
 
-For the institutional history behind these numbers, see [UCLA's Social Science Data Archive: an institutional history](https://jt14den.github.io/ssda-dsc-history/history.html), 1961-present.
+For the institutional history behind these numbers, see [UCLA's Social Science Data Archive: an institutional history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html), 1961-present.
 
 ---
 
