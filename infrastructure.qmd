@@ -26,7 +26,6 @@ from dateutil.relativedelta import relativedelta
 
 DATA_DIR      = "data/raw/infrastructure/AWS_Costs/"
 DATAVERSE_DIR = "data/raw/infrastructure/"
-charge_dir    = os.path.join(DATA_DIR, 'aws-charges')
 
 df_history = aws_processing.process_aws_data(DATA_DIR)
 
@@ -45,7 +44,6 @@ except Exception as e:
     print(f"Live AWS fetch failed ({e}). Falling back to CSV only.")
     df_aws = df_history
 
-df_ledger       = aws_processing.extract_ledger_costs(charge_dir)
 df_s3           = aws_processing.fetch_s3_storage_stats()
 df_potree_growth = aws_processing.fetch_s3_historical_growth('potree-test2', days=365)
 
@@ -80,37 +78,24 @@ try:
 except Exception:
     pass
 
-# AWS: most recent month total cost
-if not df_aws.empty:
-    _recent = df_aws['date'].max()
-    kpi_aws       = f"${df_aws[df_aws['date'] == _recent]['cost'].sum():,.0f}"
-    kpi_aws_month = _recent.strftime('%b %Y')
-else:
-    kpi_aws = '—'; kpi_aws_month = '—'
-
 print(f"""
-<p><em>For DSC staff and library administration — AWS cloud costs, UCLA Dataverse repository metrics, and S3 storage trends.</em></p>
+<p><em>For DSC staff and library administration — AWS cloud usage trends, UCLA Dataverse repository metrics, and S3 storage trends.</em></p>
 <p><em>Last rendered: {datetime.now().strftime("%B %d, %Y")}</em></p>
 <div class="kpi-row grid">
-<div class="g-col-6 g-col-md-3 kpi-card">
+<div class="g-col-6 g-col-md-4 kpi-card">
 <span class="kpi-label">Dataverse Datasets</span>
 <span class="kpi-value">{kpi_datasets}</span>
 <span class="kpi-note">Cumulative published, as of {kpi_dv_date}</span>
 </div>
-<div class="g-col-6 g-col-md-3 kpi-card">
+<div class="g-col-6 g-col-md-4 kpi-card">
 <span class="kpi-label">Dataverse Files</span>
 <span class="kpi-value">{kpi_files}</span>
 <span class="kpi-note">Cumulative published</span>
 </div>
-<div class="g-col-6 g-col-md-3 kpi-card">
+<div class="g-col-6 g-col-md-4 kpi-card">
 <span class="kpi-label">Total Downloads</span>
 <span class="kpi-value">{kpi_downloads}</span>
 <span class="kpi-note">Cumulative file-level download events</span>
-</div>
-<div class="g-col-6 g-col-md-3 kpi-card">
-<span class="kpi-label">AWS Spend</span>
-<span class="kpi-value">{kpi_aws}</span>
-<span class="kpi-note">{kpi_aws_month} estimate; billing lags ~1–2 mo.</span>
 </div>
 </div>
 """)
@@ -118,34 +103,25 @@ print(f"""
 
 ::: {.panel-tabset}
 
-## AWS Costs
+## AWS Usage Trends
 
-### Monthly Departmental Charges (Ledger)
+### Monthly Spend Share by Application
 
-```{python ledger}
-#| echo: false
-#| results: asis
-if not df_ledger.empty:
-    table_data = [
-        [r['month'], f"${r['ledger_cost']:,.2f}"]
-        for _, r in df_ledger.sort_values('month', ascending=False).iterrows()
-    ]
-    print_markdown_table(["Month", "Actual Cost Charged"], table_data)
-else:
-    print("No ledger data found.")
-```
-
-### Monthly Trends
+Relative share of monthly AWS spend across applications, not absolute dollar
+amounts. Useful for spotting which applications are growing or shrinking
+their footprint over time.
 
 ```{python aws_trends}
 #| echo: false
-#| fig-alt: "Stacked bar chart showing monthly AWS costs by application over the past 12 months."
+#| fig-alt: "100 percent stacked bar chart showing each application's share of monthly AWS costs over the past 12 months."
 if not df_aws.empty:
     df_aws['month_label'] = df_aws['date'].dt.strftime('%Y-%m')
     monthly = df_aws.groupby(['month_label', 'application'])['cost'].sum().unstack(fill_value=0)
-    monthly.plot(kind='bar', stacked=True, colormap='tab10', figsize=(10, 5))
+    monthly_share = monthly.div(monthly.sum(axis=1), axis=0) * 100
+    monthly_share.plot(kind='bar', stacked=True, colormap='tab10', figsize=(10, 5))
     plt.legend(title='Application', bbox_to_anchor=(1.05, 1), loc='upper left')
-    plt.title('Monthly AWS Costs')
+    plt.ylabel('Share of monthly spend (%)')
+    plt.title('Monthly AWS Spend Share by Application')
     plt.tight_layout()
     plt.show()
 ```
@@ -360,7 +336,7 @@ These impact metrics **undercount real scholarly reach** due to known infrastruc
 ---
 
 ::: {.callout-note collapse="true" .data-notes title="Data notes"}
-- **AWS costs**: Cost Explorer API (last 12 months) merged with historical CSV exports. Most recent 1–2 months are estimates; final billing may differ
+- **AWS usage**: Cost Explorer API (last 12 months) merged with historical CSV exports, shown as each application's relative share of monthly spend rather than dollar amounts. Most recent 1–2 months are estimates; final billing may differ
 - **Dataverse datasets/files/downloads**: Cumulative counts from the UCLA Dataverse `/api/info/metrics` endpoint — stored in `data/raw/infrastructure/datasets_files_published_monthly.csv`
 - **Downloads**: File-level events as reported by Dataverse. Includes automated and bot traffic; not filtered for human-only access
 - **S3 storage**: Fetched live from AWS CloudWatch at render time. May be unavailable without valid AWS credentials; CloudWatch reports storage metrics once daily

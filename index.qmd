@@ -111,7 +111,7 @@ Workshops, Carpentries events, and community-led training sessions.
 
 ::: {.g-col-4 .card .p-3}
 ### [Infrastructure](infrastructure.qmd)
-AWS cloud costs and UCLA Dataverse repository growth and download metrics.
+AWS cloud usage trends and UCLA Dataverse repository growth and download metrics.
 :::
 
 :::

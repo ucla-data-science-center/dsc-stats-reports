@@ -23,7 +23,7 @@ Each page shows a "Last rendered" date at the bottom reflecting when data was ba
 | Consulting (LibInsight) | At semester end or on request |
 | DataSquad walk-in sign-ins | With each form export |
 | Instruction (LibInsight workshops) | At end of academic year |
-| AWS costs | Monthly (Cost Explorer API pull) |
+| AWS usage trends | Monthly (Cost Explorer API pull) |
 | UCLA Dataverse metrics | Monthly (Dataverse API pull) |
 | S3 storage (CloudWatch) | Real-time at render |
 
@@ -42,7 +42,7 @@ To request a data refresh, open an issue in the [GitHub repository](https://gith
 | **Trello** | DataSquad project task cards and activity (2020–2024) | `data/processed/consultations/` |
 | **GitHub Projects** | DataSquad task tracking (2024+; planned integration) | Not yet integrated |
 | **Jira Service Desk** | Service requests (planned integration) | Not yet integrated |
-| **AWS Cost Explorer API** | Monthly cloud spend by service/application | `data/raw/infrastructure/AWS_Costs/` |
+| **AWS Cost Explorer API** | Monthly cloud usage share by service/application (relative, not dollar amounts) | `data/raw/infrastructure/AWS_Costs/` |
 | **UCLA Dataverse API** | Cumulative datasets, files, and download counts | `data/raw/infrastructure/` |
 | **AWS CloudWatch** | S3 bucket storage sizes | Fetched live at render |
 
@@ -81,7 +81,7 @@ A file-level download event recorded by the Dataverse metrics API. Counts includ
 - **Walk-in undercounting**: Walk-in consultations may be undercounted in periods where DataSquad sign-in forms were not consistently used.
 - **Manual log deduplication**: Manual LibInsight entries and scheduled exports are deduplicated with a same-provider/same-minute heuristic. A small number of genuine duplicates may remain.
 - **Trello coverage gap**: Trello task metrics reflect the period when Trello was the primary DataSquad task system. The transition to GitHub Projects creates a data discontinuity; cross-system comparisons require care.
-- **AWS billing lag**: Cost Explorer data for the most recent 1–2 months is an estimate; final billed amounts may differ after the billing period closes.
+- **AWS billing lag**: Cost Explorer data for the most recent 1–2 months is an estimate; the relative-share figures may shift after the billing period closes.
 - **Dataverse bot downloads**: Download counts are not filtered for automated access. Cumulative totals likely include a fraction of non-human downloads.
 - **Instruction completeness**: Workshop attendance completeness depends on consistent LibInsight data entry. Some events may be missing from exports.
 
@@ -105,6 +105,12 @@ When referencing figures from this dashboard in reports or presentations:
 > UCLA Library Data Science Center. (*Year*). *DSC Statistics Dashboard*. UCLA Library. Retrieved [date] from [site URL].
 
 Include the data coverage period (e.g., "2021–present") and note the source system (e.g., "LibInsight scheduled exports") when quoting specific numbers. For methodology questions, consult the Metrics Governance document or contact the DSC.
+
+---
+
+## Related
+
+For the institutional history behind these numbers, see [UCLA's Social Science Data Archive: an institutional history](https://jt14den.github.io/ssda-dsc-history/history.html), 1961-present.
 
 ---
 

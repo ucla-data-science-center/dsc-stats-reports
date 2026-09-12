@@ -81,7 +81,7 @@ tribble(
   "  — DataSquad consultations",        format(dsq_n,   big.mark = ","),
   "Workshop attendees",                 "— (TODO: wire in instruction data)",
   "Dataverse dataset downloads",        "— (TODO: wire in infrastructure data)",
-  "AWS infrastructure spend",           "— (TODO: wire in cost data)"
+  "AWS infrastructure usage",           "— (TODO: wire in usage data)"
 ) |>
   kable(col.names = c("Metric", report_year), align = c("l", "r"))
 ```
