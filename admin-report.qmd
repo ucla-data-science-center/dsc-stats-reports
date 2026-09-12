@@ -6,7 +6,6 @@ format:
   html:
     embed-resources: true
     toc: false
-    css: styles-report.css
     theme: flatly
 params:
   report_year: 2024
