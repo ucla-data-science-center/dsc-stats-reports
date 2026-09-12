@@ -286,6 +286,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="./about.html" aria-current="page"> 
 <span class="menu-text">About</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ucla-data-science-center.github.io/ssda-dsc-history/history.html"> 
+<span class="menu-text">DSC History</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -317,6 +321,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#limitations-and-caveats" id="toc-limitations-and-caveats" class="nav-link" data-scroll-target="#limitations-and-caveats">Limitations and Caveats</a></li>
   <li><a href="#counting-rules-reference" id="toc-counting-rules-reference" class="nav-link" data-scroll-target="#counting-rules-reference">Counting Rules Reference</a></li>
   <li><a href="#how-to-cite-or-reuse-these-metrics" id="toc-how-to-cite-or-reuse-these-metrics" class="nav-link" data-scroll-target="#how-to-cite-or-reuse-these-metrics">How to Cite or Reuse These Metrics</a></li>
+  <li><a href="#related" id="toc-related" class="nav-link" data-scroll-target="#related">Related</a></li>
   <li><a href="#repository-and-contact" id="toc-repository-and-contact" class="nav-link" data-scroll-target="#repository-and-contact">Repository and Contact</a></li>
   </ul>
 </nav>
@@ -379,7 +384,7 @@ ul.task-list li input[type="checkbox"] {
 <td>At end of academic year</td>
 </tr>
 <tr class="even">
-<td>AWS costs</td>
+<td>AWS usage trends</td>
 <td>Monthly (Cost Explorer API pull)</td>
 </tr>
 <tr class="odd">
@@ -448,7 +453,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td><strong>AWS Cost Explorer API</strong></td>
-<td>Monthly cloud spend by service/application</td>
+<td>Monthly cloud usage share by service/application (relative, not dollar amounts)</td>
 <td><code>data/raw/infrastructure/AWS_Costs/</code></td>
 </tr>
 <tr class="odd">
@@ -483,7 +488,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Walk-in undercounting</strong>: Walk-in consultations may be undercounted in periods where DataSquad sign-in forms were not consistently used.</li>
 <li><strong>Manual log deduplication</strong>: Manual LibInsight entries and scheduled exports are deduplicated with a same-provider/same-minute heuristic. A small number of genuine duplicates may remain.</li>
 <li><strong>Trello coverage gap</strong>: Trello task metrics reflect the period when Trello was the primary DataSquad task system. The transition to GitHub Projects creates a data discontinuity; cross-system comparisons require care.</li>
-<li><strong>AWS billing lag</strong>: Cost Explorer data for the most recent 1–2 months is an estimate; final billed amounts may differ after the billing period closes.</li>
+<li><strong>AWS billing lag</strong>: Cost Explorer data for the most recent 1–2 months is an estimate; the relative-share figures may shift after the billing period closes.</li>
 <li><strong>Dataverse bot downloads</strong>: Download counts are not filtered for automated access. Cumulative totals likely include a fraction of non-human downloads.</li>
 <li><strong>Instruction completeness</strong>: Workshop attendance completeness depends on consistent LibInsight data entry. Some events may be missing from exports.</li>
 </ul>
@@ -507,6 +512,11 @@ ul.task-list li input[type="checkbox"] {
 <p>UCLA Library Data Science Center. (<em>Year</em>). <em>DSC Statistics Dashboard</em>. UCLA Library. Retrieved [date] from [site URL].</p>
 </blockquote>
 <p>Include the data coverage period (e.g., “2021–present”) and note the source system (e.g., “LibInsight scheduled exports”) when quoting specific numbers. For methodology questions, consult the Metrics Governance document or contact the DSC.</p>
+<hr>
+</section>
+<section id="related" class="level2">
+<h2 class="anchored" data-anchor-id="related">Related</h2>
+<p>For the institutional history behind these numbers, see <a href="https://ucla-data-science-center.github.io/ssda-dsc-history/history.html">UCLA’s Social Science Data Archive: an institutional history</a>, 1961-present.</p>
 <hr>
 </section>
 <section id="repository-and-contact" class="level2">
