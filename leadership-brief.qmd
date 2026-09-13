@@ -1,0 +1,108 @@
+---
+title: "DSC Research Capacity Brief"
+subtitle: "DRAFT — working title, pending final naming decision"
+date: today
+format:
+  pdf:
+    documentclass: scrartcl
+    papersize: letter
+    geometry: "margin=0.85in"
+    fontsize: 10pt
+    toc: false
+    number-sections: false
+    linkcolor: "RoyalBlue"
+    urlcolor: "RoyalBlue"
+---
+
+<!--
+DRAFT STATUS (2026-09-13): first pass per the adopted external-validation
+plan (validation-capture-stats-site-storytelling-redesign-2026-09-12.md).
+Every number here is sourced from claim-register.md or a live KPI on
+dsc-stats-reports, checked against the rendered site, not invented.
+Consultations service line deliberately omitted — the published 741 figure
+is the one the punch list already flagged as untraceable (604 vs 741, no
+surviving source). Add it back once that's resolved, with a claim-register
+entry, not before.
+TIM TO FILL IN: the specific decision or continuity ask on page 1. I'm not
+guessing what you want requested from campus leadership.
+-->
+
+The Data Science Center turns UCLA's raw research data into usable,
+reproducible science, through direct research support, hands-on training,
+and stewardship of shared infrastructure, reaching researchers and students
+across most of UCLA's schools and divisions.
+
+## Three findings (2017-2024 evidence period, except where noted)
+
+**1. Reach spans nearly every part of campus, not one department.** Of
+1,575 UCLA-affiliated workshop-attendance records, 838 are mapped to a
+known school, division, or institute; the remainder are recorded but
+lack department information, not concentrated in one unresolved bucket
+(`claim-register.md` #6).
+
+**2. Training builds capacity that outlasts the workshop.** Public evidence
+confirms at least 39 people who came through DSC-supported UC Carpentries
+workshops (2021-2025) were subsequently observed in research or
+data-intensive roles. This is an early trajectory signal, not a
+representative tracer study; role-start dates were not verified, so this
+shows association, not that DSC caused the outcome (`claim-register.md`
+#3-5).
+
+**3. Shared infrastructure is doing real, cited work.** UCLA Dataverse,
+which DSC operates, holds 377 published datasets and 25,330 files, with
+143,414 recorded downloads. At least 13 linked publications have drawn 258
+citations so far (`infrastructure.qmd`, live KPI).
+
+## One case
+
+**Carceral Ecologies** (UCLA Institute for Society and Genetics). DSC and
+DataSquad provided multi-year research support, including R server
+infrastructure, data processing, and student training, for a
+helicopter-surveillance dataset. For one documented processing task, an
+approximately 159-fold runtime reduction was observed under the reported
+conditions. The research drew national media coverage (Los Angeles Times,
+The New Yorker, Bloomberg) and DSC-trained a research student in
+sustainable R workflows along the way (`claim-register.md` #1).
+
+## The ask
+
+*[TIM: state the specific decision, continuity commitment, or support
+being requested here. Not filled in by design — this is your call, not
+data.]*
+
+\newpage
+
+## Evidence, periods, and units
+
+| Finding | Source | Period | Unit |
+|---|---|---|---|
+| Department/division reach | Org-parent crosswalk (tested) | 2017-2024 | Attendee-event record |
+| Trajectory signal (39) | Named-people identity passes, deduped | 2021-2025 attendance | Person, public confirmation |
+| Dataverse metrics | Dataverse API + OpenAlex | Cumulative to date | Dataset / file / download / citation |
+| Case study | Impact case-study log | Multi-year engagement | Documented engagement |
+
+: Full paths and methods for each row are in `claim-register.md`.
+
+## Limitations
+
+- **Instruction data covers 2017-2024 only** in the current published
+  aggregate; 5,722 of 15,765 total workshop-attendance records have
+  unknown UCLA affiliation and are excluded from the reach finding above,
+  not treated as non-UCLA.
+- **The trajectory finding is not a tracer study.** No pass captured a
+  role-start date, so a confirmed later role does not establish it began
+  after DSC engagement. Coverage is not exhaustive or systematically
+  re-verified.
+- **This brief deliberately omits a consultations figure.** DSC's
+  consultation service is real and ongoing; the currently published count
+  has an unresolved data-provenance discrepancy under internal review.
+  Ask DSC directly for current consultation volume until that is
+  corrected here.
+- **One case study is illustrative, not representative** of the full
+  range of DSC's work; a broader case set covering instruction and
+  infrastructure engagements specifically is in progress.
+
+Full evidence, methods, and current data: DSC Statistics
+(<https://ucla-data-science-center.github.io/dsc-stats-reports/>) ·
+institutional history: UCLA's Social Science Data Archive, 1961-present
+(<https://ucla-data-science-center.github.io/ssda-dsc-history/history.html>)
