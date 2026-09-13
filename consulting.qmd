@@ -336,7 +336,7 @@ if (nrow(audit_task_mode) == 0) {
 
 ## Research Impact
 
-These examples show how DSC and DataSquad support extends into sustained technical collaboration beyond single consultations.
+These are illustrative cases selected to show different forms of contribution, not a representative sample of DSC and DataSquad's work. They show how support extends into sustained technical collaboration beyond single consultations.
 
 ```{r impact, echo=FALSE, results='asis'}
 if (nrow(impact_case_studies) == 0) {
