@@ -65,7 +65,21 @@ last verification date should not be reused until re-checked.
 - **Contribution language allowed**: "early trajectory signals," "retrospective trajectory tracing" — not "tracer study" or "alumni study" (implies a defined eligible population, observation window, and systematic follow-up this work does not yet have).
 - **Last verified**: 2026-09-12.
 
-## 6. UCLA organizational-parent resolved attendance
+## 6. Direct consultations, 2023-2025
+
+- **Approved wording**: "DSC and DataSquad recorded 741 direct consultations from 2023 through 2025 (LibInsight scheduled appointments combined with DataSquad walk-in sign-ins, canceled appointments excluded, manual logs deduplicated where possible)."
+- **Not approved**: "DSC served 741 researchers" (a consultation is an interaction record, not a unique person — no person-level dedup was done) or presenting 741 as a lifetime/all-time total (it is not; it is 2023-2025 only, and covers a different, narrower reconciliation project than the separate 2017-2026 consultation-series rebuild in `dsc-stats-integration`, which found 1,859 total consultations over that longer window using different methodology).
+- **Reporting period**: 2023-2025.
+- **Unit of observation**: one consultation record (appointment or sign-in row).
+- **Numerator/denominator**: n/a (a count, not a rate).
+- **Population/exclusions**: DSC staff consultations (462, LibInsight) + DataSquad consultations (142 direct + sign-in) combined and deduplicated; canceled appointments excluded. A narrower related metric, `direct_consults_dsc_plus_datasquad_count` = 604, excludes some DataSquad sign-in sources included in 741 — the two are different scopes of the same underlying data, not competing measurements of the same thing.
+- **Missingness/coverage**: not assessed in this pass; see `consultation_audit_source_coverage.csv` for known gaps.
+- **Source**: `data/processed/consultations/consultation_audit_2023_2025_summary_tagged.csv`, metric_id `direct_consults_combined_deduped_count`, dated 2026-02-25. This file predates the September 2026 consultation-series reconciliation in `dsc-stats-integration` and has not been reconciled against it.
+- **Deduplicated**: manual-log duplicates flagged heuristically (4 rows); no cross-year or person-level dedup.
+- **Contribution language allowed**: "recorded," "combined and deduplicated" — not "served X researchers," not "total" without the 2023-2025 qualifier.
+- **Last verified**: 2026-09-13. Previously and incorrectly flagged in `PUNCH-LIST-2026-09-11.md` as having "no surviving source, date, or method" — that was wrong; the source file documents both 604 and 741 clearly in its own columns. Corrected 2026-09-13.
+
+## 7. UCLA organizational-parent resolved attendance
 
 - **Approved wording**: "838 of UCLA-affiliated attendance records with a known department are mapped to a school, division, or institute; 29 remain in a deliberately unresolved 'Multiple Departments' bucket by policy, not by gap."
 - **Not approved**: a department/division leaderboard presented without the coverage note alongside it, or treating unresolved as zero.
