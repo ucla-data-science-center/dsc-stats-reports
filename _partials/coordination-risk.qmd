@@ -1,4 +1,5 @@
 ::: {.org-change}
+
 [ORGANIZATIONAL CHANGE]{.org-change-label}
 
 [The current restructuring distributes staff, budget visibility, and decision authority across separate reporting lines. Individual services may continue, but responsibility for coordinating the portfolio as a whole is no longer assigned to one role.]{.lede}
@@ -14,4 +15,5 @@
 | Budget visibility | One role could see both funding streams | Visibility divided across reporting lines | Cross-service funding decisions may not be visible to any one person |
 | Resource allocation | Funds could be redirected across the portfolio | Decisions sit with separate managers | Reallocation requires coordination no longer formally assigned |
 | Service planning | Archive, infrastructure, training, and consultation considered together | Services managed separately | Individual services may continue without unified portfolio planning |
+
 :::

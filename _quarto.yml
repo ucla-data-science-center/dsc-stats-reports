@@ -8,6 +8,7 @@ project:
     - instruction.qmd
     - infrastructure.qmd
     - metrics-governance.md
+    - dsc-retrospective-2017-2026.qmd
     # dsc_report2024.qmd excluded from nav; render separately if needed
 
 execute:
