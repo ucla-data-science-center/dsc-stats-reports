@@ -130,7 +130,27 @@ yoy_tasks <- local({
 
 *For DSC staff and library administration — direct consultation counts, project task metrics, and patron breakdowns.*
 
-## At a Glance (`r data_range_label`)
+## Recorded Consultations Since 2017
+
+```{r series_setup, include=FALSE}
+consult_series <- read_if("data/processed/canonical/consultations_by_year.csv")
+series_total <- read_if("data/processed/canonical/headline_aggregates.csv") |>
+  filter(metric_id == "consultations_recorded_series") |> pull(display)
+if (length(series_total) == 0) series_total <- "—"
+```
+
+DSC has recorded **`r series_total` research consultations** since 2017 (claim-register #10). This series is a floor. Recording lapsed from mid-2024: Calendly ended, LibCal wasn't in use until May 2025, and two reorganizations and staff departures cut logging. The drop after 2023 reflects that recording gap, not measured demand; LibCal shows the work continued. It is a different series from the 2023-2025 audit below, which adds DataSquad walk-ins and uses its own deduplication.
+
+```{r series_table, echo=FALSE}
+if (nrow(consult_series) > 0) {
+  consult_series |>
+    transmute(Year = as.character(year), `Recorded consultations` = display,
+              Note = if_else(is_floor, "Floor (recording lapsed)", "")) |>
+    knitr::kable(align = c("l", "r", "l"))
+}
+```
+
+## At a Glance: 2023-2025 Audit (`r data_range_label`)
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
 

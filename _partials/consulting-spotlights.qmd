@@ -1,4 +1,5 @@
 ::: {.spotlight}
+
 ### Carceral Ecologies
 [Partner: UCLA Institute for Society and Genetics (Nicholas Shapiro)]{.partners}
 
@@ -16,9 +17,11 @@ million grant that established the Dana Center for Neuroscience and Society.
 > — Dr. Nicholas Shapiro, UCLA Institute for Society and Genetics
 
 [**Outcome:** processing time cut from ~318 minutes to ~2 minutes (~159x faster). **Impact:** coverage in the *Los Angeles Times*, *The New Yorker*, and *Bloomberg*.]{.impact}
+
 :::
 
 ::: {.spotlight}
+
 ### BioCritical Studies Lab
 [Partner: UCLA (Grace Sosa; Terence Keel)]{.partners}
 
@@ -36,9 +39,11 @@ Coroner's Silence: Death Records and the Hidden Victims of Police Violence*.
 > — Grace Sosa, Assistant Director, BioCritical Studies Lab
 
 [**Impact:** supported research recognized through UCLA's 2024 Public Impact Research Awards, contributing to public-facing scholarship and teaching.]{.impact}
+
 :::
 
 ::: {.spotlight}
+
 ### Refugee Material Culture Initiative
 [Partner: Professor Kelly Nguyen]{.partners}
 
@@ -49,4 +54,5 @@ digital exhibits, including a 7-day narrative documenting a refugee family's mar
 escape across the Pacific Ocean, built from 3D scans of the boat and related objects.
 
 [**Outcome:** digital exhibits built from 3D-scanned historical artifacts, made freely public. **Impact:** advances faculty research using state-of-the-art documentation and preservation of cultural heritage.]{.impact}
+
 :::

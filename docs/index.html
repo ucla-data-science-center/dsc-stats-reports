@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>DSC Statistics Dashboard – DSC Statistics</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -32,19 +38,18 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-233bc372cf700afa34ee6956ddfa133e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5c8fce4346c58bda228be4bd0aa81c79.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-233bc372cf700afa34ee6956ddfa133e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b653a8c7f8c78f0e3d4cc36e98f1d7c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7e7f8027abe3fc5cb3d6f77f2f67968e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b653a8c7f8c78f0e3d4cc36e98f1d7c7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -314,7 +319,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#at-a-glance-20212026" id="toc-at-a-glance-20212026" class="nav-link active" data-scroll-target="#at-a-glance-20212026">At a Glance (2021–2026)</a></li>
+  <li><a href="#since-2017" id="toc-since-2017" class="nav-link active" data-scroll-target="#since-2017">Since 2017</a></li>
+  <li><a href="#at-a-glance-consultation-audit-20212026" id="toc-at-a-glance-consultation-audit-20212026" class="nav-link" data-scroll-target="#at-a-glance-consultation-audit-20212026">At a Glance: Consultation Audit (2021–2026)</a></li>
   <li><a href="#dashboard-sections" id="toc-dashboard-sections" class="nav-link" data-scroll-target="#dashboard-sections">Dashboard Sections</a></li>
   <li><a href="#reading-these-metrics" id="toc-reading-these-metrics" class="nav-link" data-scroll-target="#reading-these-metrics">Reading These Metrics</a></li>
   </ul>
@@ -344,9 +350,23 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><em>For UCLA Library administration and DSC staff — unified service metrics across consultations, instruction, and infrastructure.</em></p>
-<section id="at-a-glance-20212026" class="level2">
-<h2 class="anchored" data-anchor-id="at-a-glance-20212026">At a Glance (2021–2026)</h2>
-<p><em>Last rendered: September 12, 2026</em></p>
+<section id="since-2017" class="level2">
+<h2 class="anchored" data-anchor-id="since-2017">Since 2017</h2>
+<div class="kpi-row grid">
+<div class="g-col-12 g-col-md-4 kpi-card">
+<p><span class="kpi-label">Workshop Sessions</span> <span class="kpi-value">819</span> <span class="kpi-note">May 2017 to May 2026</span></p>
+</div>
+<div class="g-col-12 g-col-md-4 kpi-card">
+<p><span class="kpi-label">Workshop Attendee-Events</span> <span class="kpi-value">about 18,700</span> <span class="kpi-note">Registrations, not people; 17,466 fully verified through April 2024</span></p>
+</div>
+<div class="g-col-12 g-col-md-4 kpi-card">
+<p><span class="kpi-label">Recorded Consultations</span> <span class="kpi-value">about 1,850</span> <span class="kpi-note">2017 to 2026, a floor; recording lapsed from mid-2024</span></p>
+</div>
+</div>
+</section>
+<section id="at-a-glance-consultation-audit-20212026" class="level2">
+<h2 class="anchored" data-anchor-id="at-a-glance-consultation-audit-20212026">At a Glance: Consultation Audit (2021–2026)</h2>
+<p><em>Last rendered: September 24, 2026</em></p>
 <div class="kpi-row grid">
 <div class="g-col-6 g-col-md-3 kpi-card">
 <p><span class="kpi-label">Direct Consultations</span> <span class="kpi-value">741</span> <span class="kpi-note">DSC + DataSquad combined; canceled excluded · ↓ -41% · 238 in 2024 vs 405 in 2023</span></p>
@@ -428,7 +448,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <hr>
-<p><em>Last rendered: September 12, 2026</em></p>
+<p><em>Last rendered: September 24, 2026</em></p>
 
 
 </section>

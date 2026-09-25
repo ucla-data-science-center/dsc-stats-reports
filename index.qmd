@@ -16,6 +16,13 @@ audit_coverage <- read_if("data/processed/consultations/consultation_audit_sourc
 by_year_src    <- read_if("data/processed/consultations/consultation_audit_2023_2025_by_year_source.csv")
 by_year_task   <- read_if("data/processed/consultations/consultation_audit_2023_2025_by_year_task_mode.csv")
 
+# Reconciled headline figures (dsc-stats-integration, see claim-register.md #8-#10)
+headline <- read_if("data/processed/canonical/headline_aggregates.csv")
+hl <- function(key) {
+  x <- headline |> filter(metric_id == key) |> pull(display)
+  if (length(x) == 0) "—" else x[[1]]
+}
+
 kpi <- function(key) {
   if (nrow(audit_summary) == 0) return("—")
   x <- audit_summary |> filter(metric_id == key) |> pull(value)
@@ -63,7 +70,37 @@ yoy_tasks <- local({
 
 *For UCLA Library administration and DSC staff — unified service metrics across consultations, instruction, and infrastructure.*
 
-## At a Glance (`r data_range_label`)
+## Since 2017
+
+::: {.kpi-row .grid}
+
+::: {.g-col-12 .g-col-md-4 .kpi-card}
+
+[Workshop Sessions]{.kpi-label}
+[`r hl("instruction_sessions_lifetime")`]{.kpi-value}
+[May 2017 to May 2026]{.kpi-note}
+
+:::
+
+::: {.g-col-12 .g-col-md-4 .kpi-card}
+
+[Workshop Attendee-Events]{.kpi-label}
+[`r hl("instruction_attendee_events_lifetime")`]{.kpi-value}
+[Registrations, not people; `r hl("instruction_attendee_events_verified")` fully verified through April 2024]{.kpi-note}
+
+:::
+
+::: {.g-col-12 .g-col-md-4 .kpi-card}
+
+[Recorded Consultations]{.kpi-label}
+[`r hl("consultations_recorded_series")`]{.kpi-value}
+[2017 to 2026, a floor; recording lapsed from mid-2024]{.kpi-note}
+
+:::
+
+:::
+
+## At a Glance: Consultation Audit (`r data_range_label`)
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
 

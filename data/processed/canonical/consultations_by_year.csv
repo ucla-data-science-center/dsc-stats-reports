@@ -1,0 +1,11 @@
+year,value,display,is_floor,source
+2017,3,3,FALSE,Calendly (old-Mac transfer); internal rows removed
+2018,37,37,FALSE,Calendly (old-Mac transfer); internal rows removed
+2019,160,160,FALSE,Calendly (old-Mac transfer); internal rows removed
+2020,185,185,FALSE,Calendly (old-Mac transfer); internal rows removed
+2021,341,341,FALSE,clean_dsc_2021-consults.csv
+2022,389,389,FALSE,clean_dsc_2022_consults.csv
+2023,394,394,FALSE,clean_dsc_2023-consults.csv
+2024,226,~226,TRUE,Calendly Jan-May (165) + LibInsight Jun-Dec (61)
+2025,65,~60-65,TRUE,LibInsight ~46 + LibCal ~20 net-new
+2026,55,~55,TRUE,LibCal to Sept + some LibInsight; partial year
