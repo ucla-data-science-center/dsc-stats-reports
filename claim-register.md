@@ -71,3 +71,55 @@ last verification date should not be reused until re-checked.
 - **Not approved**: a department/division leaderboard presented without the coverage note alongside it, or treating unresolved as zero.
 - **Source**: `data/reference/instruction/department_to_organizational_parent_v2.tsv`, cross-checked via `tests/test_instruction_aggregate.R`.
 - **Last verified**: 2026-09-12 (crosswalk activation of Forestry and Institute of American Cultures).
+
+## 7. Direct consultations, 2023-2025
+
+- **Approved wording**: "DSC and DataSquad recorded 741 direct consultations from 2023 through 2025 (LibInsight scheduled appointments combined with DataSquad walk-in sign-ins, canceled appointments excluded, manual logs deduplicated where possible)."
+- **Not approved**: "DSC served 741 researchers" (a consultation is an interaction record, not a unique person — no person-level dedup was done) or presenting 741 as a lifetime/all-time total (it is not; it is 2023-2025 only, and covers a different, narrower reconciliation project than the separate 2017-2026 consultation-series rebuild in `dsc-stats-integration`, published as claim #10).
+- **Reporting period**: 2023-2025.
+- **Unit of observation**: one consultation record (appointment or sign-in row).
+- **Numerator/denominator**: n/a (a count, not a rate).
+- **Population/exclusions**: DSC staff consultations (462, LibInsight) + DataSquad consultations (142 direct + sign-in) combined and deduplicated; canceled appointments excluded. A narrower related metric, `direct_consults_dsc_plus_datasquad_count` = 604, excludes some DataSquad sign-in sources included in 741 — the two are different scopes of the same underlying data, not competing measurements of the same thing.
+- **Missingness/coverage**: not assessed in this pass; see `consultation_audit_source_coverage.csv` for known gaps.
+- **Source**: `data/processed/consultations/consultation_audit_2023_2025_summary_tagged.csv`, metric_id `direct_consults_combined_deduped_count`, dated 2026-02-25. This file predates the September 2026 consultation-series reconciliation in `dsc-stats-integration` and has not been reconciled against it.
+- **Deduplicated**: manual-log duplicates flagged heuristically (4 rows); no cross-year or person-level dedup.
+- **Contribution language allowed**: "recorded," "combined and deduplicated" — not "served X researchers," not "total" without the 2023-2025 qualifier.
+- **Last verified**: 2026-09-13. Previously and incorrectly flagged in `PUNCH-LIST-2026-09-11.md` as having "no surviving source, date, or method" — that was wrong; the source file documents both 604 and 741 clearly in its own columns. Corrected 2026-09-13.
+
+## 8. Workshop attendee-events, verified window
+
+- **Approved wording**: "17,466 workshop attendee-events from May 2017 through April 2024."
+- **Not approved**: "17,466 people trained" or "17,466 UCLA attendees." An attendee-event is one registration for one workshop, not a person. The total includes the full UC-wide audience of the joint Carpentries series; UCLA is a subset.
+- **Reporting period**: 2017-05-04 to 2024-04-19, plus the Sept 2024 UC Carpentries batch.
+- **Unit of observation**: one participant registration for one workshop session.
+- **Population/exclusions**: attendee-level DSC workshop records (the 15,765 previously published) plus the UC-wide joint Carpentries series DSC co-founded, co-governs, and co-delivers: 2020 +321, 2021 +955, 2022 +425.
+- **Missingness/coverage**: 2022's +425 may include a small amount of same-session double counting (no participant log survives to rule it out); disclosed, not resolved.
+- **Source**: `data/processed/canonical/headline_aggregates.csv` (`instruction_attendee_events_verified`), from `dsc-stats-integration` `DEFENSIBLE-NUMBERS-2026-09-05.md` (rev. 2026-09-11) and `historical-instruction/instruction-gap-reconciliation.md`. Checked with `/validate-external` 2026-09-11.
+- **Deduplicated**: yes, exact-duplicate rows checked against named sources 2026-09-10.
+- **Contribution language allowed**: "attendee-events," "workshop registrations," "co-delivered" for the joint series.
+- **Last verified**: 2026-09-24.
+
+## 9. Workshop sessions and attendee-events since 2017
+
+- **Approved wording**: "Since 2017, DSC has offered 819 workshop sessions with about 18,700 attendee-events."
+- **Not approved**: stating 18,712 as an exact verified count, or as unique people.
+- **Reporting period**: 2017-05-04 to 2026-05-31.
+- **Unit of observation**: session = distinct (event, date) pair; attendee-event as in #8.
+- **Population/exclusions**: #8 plus the 2024-2026 tail: +22 sessions / +235 (Jul 2024-Feb 2026), +9 / +558 (Sept 2025 Carpentries), +6 / +453 (May 2026 Library Carpentry).
+- **Missingness/coverage**: the Jul 2024-Feb 2026 slice has not had the duplication check run on #8.
+- **Source**: `data/processed/canonical/headline_aggregates.csv` (`instruction_attendee_events_lifetime`, `instruction_sessions_lifetime`), same upstream as #8.
+- **Contribution language allowed**: "about," "since 2017."
+- **Last verified**: 2026-09-24.
+
+## 10. Recorded consultations, 2017-2026
+
+- **Approved wording**: "DSC has recorded about 1,850 research consultations since 2017, a floor."
+- **Not approved**: "1,850 researchers served" (records, not people); presenting the post-mid-2024 drop as a fall in demand. It is a recording gap: Calendly ended mid-2024, LibCal wasn't in use until May 2025, and two reorganizations and staff departures cut logging. LibCal shows the work continued.
+- **Reporting period**: 2017 through Sept 2026.
+- **Unit of observation**: one consultation record.
+- **Per year**: 2017 3, 2018 37, 2019 160, 2020 185, 2021 341, 2022 389, 2023 394, 2024 ~226, 2025 ~60-65, 2026 ~55 (partial). 2024 onward are floors.
+- **Population/exclusions**: external research consultations; Shoreline-project and internal-coordination bookings removed from 2017-2020 (Tim-vetted 2026-09-11).
+- **Source**: `data/processed/canonical/consultations_by_year.csv`, from `dsc-stats-integration` `historical-consultations/service-activity-reconciliation-status.md`.
+- **Why not 1,859**: the 2026-09-11 one-paragraph summary used 2024 = ~230 and 2025 = ~65; the row-level table gives ~226 and ~60-65, summing to 1,850-1,855. "About 1,850" is the defensible rounding.
+- **Not the same as #7**: #7 (741) is a separate 2023-2025 audit with DataSquad walk-ins and a different dedup method. The two series haven't been put on one timeline.
+- **Last verified**: 2026-09-24.

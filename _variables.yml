@@ -14,7 +14,12 @@ datasquad:
 instruction:
   total_attendees: "1,676"
   total_departments: "148"
-  consultations_total: "604"
+  consultations_total: "604"  # superseded 2026-09-24; kept for older docs, headline uses consultations_recorded
+  # Reconciled 2026-09-24 (claim-register.md #8-#10, data/processed/canonical/)
+  sessions_lifetime: "819"
+  attendee_events_lifetime: "about 18,700"
+  attendee_events_verified: "17,466"
+  consultations_recorded: "about 1,850"
 software:
   sloan_amount: "$1.85M"
   license_scan_pct: "77.5%"

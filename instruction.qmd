@@ -12,6 +12,15 @@ library(lubridate)
 library(scales)
 source("src/etl/instruction_aggregate.R")
 
+# Reconciled headline figures (dsc-stats-integration, see claim-register.md #8-#9)
+headline <- if (file.exists("data/processed/canonical/headline_aggregates.csv")) {
+  read_csv("data/processed/canonical/headline_aggregates.csv", show_col_types = FALSE)
+} else tibble(metric_id = character(), display = character())
+hl <- function(key) {
+  x <- headline$display[headline$metric_id == key]
+  if (length(x) == 0) "—" else x[[1]]
+}
+
 # ── Workshop data (full attendee source; graceful fallback) ───
 data_loaded    <- FALSE
 ucla_workshops <- tibble()
@@ -126,6 +135,12 @@ if (data_loaded) {
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
 
+::: {.callout-note}
+## Headline figures since 2017
+
+DSC has offered **`r hl("instruction_sessions_lifetime")` workshop sessions** with **`r hl("instruction_attendee_events_lifetime")` attendee-events** since May 2017. The fully duplication-checked figure through April 2024 is **`r hl("instruction_attendee_events_verified")`**. Both add the UC-wide joint Carpentries series DSC co-founded and co-delivers (2020-2022) to the attendee-level records below, and the lifetime figure adds 2024-2026 sessions not yet in this page's source file. The tables on this page cover the attendee-level file only. An attendee-event is one registration for one workshop, not a person.
+:::
+
 ## At a Glance (`r data_range_label`)
 
 ::: {.kpi-row .grid}
@@ -133,7 +148,7 @@ if (data_loaded) {
 ::: {.g-col-6 .g-col-md-4 .kpi-card}
 [Total Attendance Records]{.kpi-label}
 [`r fmt(kpi_total)`]{.kpi-value}
-[All workshop participants, all years`r if (nchar(yoy_attendance) > 0) paste0(" \u00b7 ", yoy_attendance)`]{.kpi-note}
+[Attendee-level file only; see headline figures above`r if (nchar(yoy_attendance) > 0) paste0(" \u00b7 ", yoy_attendance)`]{.kpi-note}
 :::
 
 ::: {.g-col-6 .g-col-md-4 .kpi-card}
