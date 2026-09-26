@@ -1,0 +1,120 @@
+---
+title: "DSC Research Capacity Brief"
+subtitle: "DRAFT, working title, pending final naming decision"
+date: today
+format:
+  pdf:
+    documentclass: scrartcl
+    papersize: letter
+    geometry: "margin=0.85in"
+    fontsize: 10pt
+    toc: false
+    number-sections: false
+    linkcolor: "RoyalBlue"
+    urlcolor: "RoyalBlue"
+---
+
+<!--
+DRAFT STATUS (2026-09-13): first pass per the adopted external-validation
+plan (validation-capture-stats-site-storytelling-redesign-2026-09-12.md).
+Every number here is sourced from claim-register.md or a live KPI on
+dsc-stats-reports, checked against the rendered site, not invented.
+2026-09-24: numbers synced to the September reconciliation (claim-register
+#8-#10). The ask is a continuity commitment per Tim's decision; wording is a
+draft for Tim's review. Title still a working title.
+-->
+
+The Data Science Center helps UCLA researchers and humanists get more out
+of their data and their work: one-on-one consultations, hands-on training,
+and the shared infrastructure that keeps that work usable for years after
+it's published.
+
+## Four findings (2017-2026, periods noted)
+
+1. Reach spans nearly every part of campus, not one department. Of 1,575
+   UCLA-affiliated workshop-attendance records, 838 map to a known school,
+   division, or institute. The rest are recorded but lack department
+   information; they aren't concentrated in one unresolved corner of
+   campus (2017-2024, `claim-register.md` #6).
+
+2. Direct, one-on-one support is substantial on its own. DSC has
+   recorded about 1,850 research consultations since 2017, rising to
+   341-394 a year in 2021-2023. Recording lapsed from mid-2024, when the
+   scheduling system changed during staff turnover, so later years are
+   floors; the work continued. These are interactions, not unique people
+   (`claim-register.md` #10).
+
+3. Training builds capacity that outlasts the workshop. Since 2017 DSC
+   has run 819 workshop sessions with about 18,700 attendee-events,
+   including the UC-wide Carpentries series it co-founded and co-delivers
+   (`claim-register.md` #8-9). At least 39
+   people who came through DSC-supported UC Carpentries workshops
+   (2021-2025) have since been publicly confirmed in research or
+   data-intensive roles. Call this an early signal, not a tracer study:
+   role start dates weren't verified, so it shows association, not that
+   DSC caused the outcome (`claim-register.md` #3-5).
+
+4. Shared infrastructure is doing real, cited work. UCLA Dataverse, which
+   DSC operates, holds 377 published datasets and 25,330 files, with
+   143,414 recorded downloads. At least 13 linked publications have drawn
+   258 citations so far (`infrastructure.qmd`, live KPI).
+
+## One case
+
+Carceral Ecologies, a project of UCLA's Institute for Society and
+Genetics, needed to process a helicopter-surveillance dataset. DSC and
+DataSquad provided years of support: R server infrastructure, data
+processing, and hands-on training for a research student who's still
+using those skills. One processing task that used to take about 318
+minutes now takes about 2, roughly a 159-fold speedup, and the underlying
+research has drawn coverage from the Los Angeles Times, The New Yorker,
+and Bloomberg (`claim-register.md` #1).
+
+## The ask
+
+Keep this capacity intact while the Library's structure changes. That
+means a commitment that DSC's consultation, instruction, and
+infrastructure services continue at their current scope, with the
+staffing and budget authority to run them, until the new structure is
+settled. The 2024-2025 recording gap shows what a lapse costs: the work
+went on, but the record of it didn't.
+
+\newpage
+
+## Evidence, periods, and units
+
+| Finding | Source | Period | Unit |
+|---|---|---|---|
+| Department/division reach | Org-parent crosswalk (tested) | 2017-2024 | Attendee-event record |
+| Consultations (about 1,850) | Calendly, LibInsight, LibCal series | 2017-2026 | Consultation record |
+| Workshops (819 / about 18,700) | Reconciled attendance, incl. UC-wide Carpentries | 2017-2026 | Session / attendee-event |
+| Trajectory signal (39) | Named-people identity passes, deduped | 2021-2025 attendance | Person, public confirmation |
+| Dataverse metrics | Dataverse API + OpenAlex | Cumulative to date | Dataset / file / download / citation |
+| Case study | Impact case-study log | Multi-year engagement | Documented engagement |
+
+: Full paths and methods for each row are in `claim-register.md`.
+
+## Limitations
+
+- The reach finding uses the attendee-level records for 2017-2024
+  (15,765). 5,722 of those have unknown UCLA affiliation and are excluded
+  from it, not treated as non-UCLA. The since-2017 workshop total adds
+  the UC-wide Carpentries series and 2024-2026 sessions; about 235 of
+  those later attendee-events haven't had the full duplication check.
+- The trajectory finding isn't a tracer study. No pass captured a role
+  start date, so a confirmed later role doesn't establish that it began
+  after DSC engagement, and coverage hasn't been systematically
+  re-verified.
+- Consultations are a floor from mid-2024 on. Calendly ended in mid-2024
+  and LibCal wasn't in use until May 2025, across two reorganizations.
+  LibCal shows consultations continued through the gap, so the drop in
+  recorded consultations is a recording gap, not a measured decline in
+  demand. The series counts interactions, not unique people.
+- One case study is illustrative, not representative, of DSC's full
+  range of work. A broader set covering instruction and infrastructure
+  engagements specifically is in progress.
+
+Full evidence, methods, and current data: DSC Statistics
+(<https://ucla-data-science-center.github.io/dsc-stats-reports/>) ·
+institutional history: UCLA's Social Science Data Archive, 1961-present
+(<https://ucla-data-science-center.github.io/ssda-dsc-history/history.html>)
