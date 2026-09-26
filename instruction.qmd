@@ -64,6 +64,9 @@ kpi_total <- if (data_loaded) sum(instruction_attendance$attendance_count) else 
 kpi_ucla  <- if (data_loaded) {
   sum(instruction_attendance$attendance_count[instruction_attendance$institution == "UCLA"], na.rm = TRUE)
 } else NA_integer_
+kpi_ucla_held <- if (data_loaded && "ucla_held" %in% names(instruction_attendance)) {
+  sum(instruction_attendance$attendance_count[instruction_attendance$ucla_held], na.rm = TRUE)
+} else NA_integer_
 kpi_unknown_affiliation <- if (data_loaded) {
   sum(instruction_attendance$attendance_count[is.na(instruction_attendance$institution)])
 } else NA_integer_
@@ -155,6 +158,12 @@ DSC has offered **`r hl("instruction_sessions_lifetime")` workshop sessions** wi
 [UCLA-Affiliated]{.kpi-label}
 [`r fmt(kpi_ucla)`]{.kpi-value}
 [institution == "UCLA"]{.kpi-note}
+:::
+
+::: {.g-col-6 .g-col-md-4 .kpi-card}
+[UCLA-Held]{.kpi-label}
+[`r fmt(kpi_ucla_held)`]{.kpi-value}
+[UCLA-affiliated, plus unknown-affiliation records from sessions held at UCLA, 2017–2020]{.kpi-note}
 :::
 
 ::: {.g-col-6 .g-col-md-4 .kpi-card}
@@ -314,6 +323,7 @@ if (data_loaded) {
 - **Sources**: Consolidated workshop attendee records (including UC-wide GIS Week and Love Data Week) and privacy-safe aggregate workshop summaries
 - **Unit**: Attendance instances. LibInsight uses one attendee-event row; aggregate sources provide a validated count for each event. A person attending three workshops contributes three attendance instances
 - **UCLA attendees**: filtered on `institution == "UCLA"`. Records with unknown institution remain in overall/year/topic totals but are excluded from UCLA, department, and school metrics
+- **UCLA-held**: UCLA-affiliated records plus records with unknown institution from 2017–2020 sessions classified as held at UCLA (`data/reference/instruction/session_venue_2017_2020.tsv`, reviewed by the DSC director, 2026-09). Institution was not collected before 2020, so the UCLA-affiliated figure reads zero for 2017–2019 although that teaching was on campus. A UCLA-held session can include a few outside attendees. Sessions classified as mixed (co-hosted or UC-wide) or held elsewhere are excluded. This metric does not feed department or school counts
 - **Department**: `standardized_department` field — mapped from raw free-text entries; unmapped values appear as-is
 - **Organizational parent**: versioned mapping from validated UCLA departments to College divisions, professional schools, the Library, UCLA Health, institutes, or administrative groups. Missing and unresolved departments remain unknown
 - **School/division**: not inferred when the source lacks a validated department. Unknown is never treated as non-UCLA

@@ -47,7 +47,8 @@ load_instruction_attendee_data <- function(
 load_instruction_attendance <- function(
     attendee_data,
     aggregate_path = "data/raw/instruction/workshop_attendance_aggregate.csv",
-    organizational_parent_path = "data/reference/instruction/department_to_organizational_parent_v2.tsv") {
+    organizational_parent_path = "data/reference/instruction/department_to_organizational_parent_v2.tsv",
+    session_venue_path = "data/reference/instruction/session_venue_2017_2020.tsv") {
   attendee_records <- attendee_data |>
     mutate(
       attendance_count = 1L,
@@ -91,6 +92,35 @@ load_instruction_attendance <- function(
       mutate(organizational_parent = NA_character_, parent_type = NA_character_)
   }
 
+  # Session venue: lets blank-institution rows count as UCLA-held when the
+  # session itself was held at UCLA. Institution stays blank; this feeds only
+  # the separate ucla_held metric, never department or school metrics.
+  if (file.exists(session_venue_path)) {
+    session_venue <- read_tsv(
+      session_venue_path,
+      show_col_types = FALSE,
+      col_types = cols(date = col_date(), event = col_character(), venue_class = col_character())
+    )
+    if (anyDuplicated(session_venue[c("date", "event")])) {
+      stop("Session venue (date, event) pairs must be unique.")
+    }
+    if (!all(session_venue$venue_class %in% c("ucla", "mixed", "non_ucla"))) {
+      stop("Session venue_class must be ucla, mixed, or non_ucla.")
+    }
+    attendee_records <- attendee_records |>
+      mutate(venue_date = as.Date(date, tz = "UTC")) |>
+      left_join(
+        rename(session_venue, venue_date = date, session_venue = venue_class),
+        by = c("venue_date", "event")
+      ) |>
+      select(-venue_date)
+  } else {
+    attendee_records <- attendee_records |> mutate(session_venue = NA_character_)
+  }
+  attendee_records <- attendee_records |>
+    mutate(ucla_held = coalesce(institution == "UCLA", FALSE) |
+      (is.na(institution) & coalesce(session_venue == "ucla", FALSE)))
+
   if (!file.exists(aggregate_path)) {
     return(attendee_records)
   }
@@ -119,7 +149,9 @@ load_instruction_attendance <- function(
       standardized_department = NA_character_,
       organizational_parent = NA_character_,
       parent_type = NA_character_,
-      record_granularity = "aggregate"
+      record_granularity = "aggregate",
+      session_venue = NA_character_,
+      ucla_held = coalesce(institution == "UCLA", FALSE)
     )
 
   if (any(is.na(aggregate_records$attendance_count)) ||
