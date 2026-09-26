@@ -121,7 +121,7 @@ last verification date should not be reused until re-checked.
 - **Unit of observation**: one consultation record.
 - **Per year**: 2017 3, 2018 37, 2019 160, 2020 185, 2021 341, 2022 389, 2023 394, 2024 ~226, 2025 ~60-65, 2026 ~55 (partial). 2024 onward are floors.
 - **Population/exclusions**: external research consultations; Shoreline-project and internal-coordination bookings removed from 2017-2020 (Tim-vetted 2026-09-11).
-- **Source**: `data/processed/canonical/consultations_by_year.csv`, from `dsc-stats-integration` `historical-consultations/service-activity-reconciliation-status.md`.
+- **Source**: `data/processed/canonical/headline_aggregates.csv` (`consultations_recorded_series`) and `consultations_by_year.csv`, from `dsc-stats-integration` `historical-consultations/service-activity-reconciliation-status.md`.
 - **Why not 1,859**: the 2026-09-11 one-paragraph summary used 2024 = ~230 and 2025 = ~65; the row-level table gives ~226 and ~60-65, summing to 1,850-1,855. "About 1,850" is the defensible rounding.
 - **Not the same as #7**: #7 (741) is a separate 2023-2025 audit with DataSquad walk-ins and a different dedup method. The two series haven't been put on one timeline.
 - **Last verified**: 2026-09-24.
@@ -171,3 +171,23 @@ last verification date should not be reused until re-checked.
 - **Contribution language allowed**: "at least," "confirmed UCLA researchers," "used."
 - **Registry**: `ucla-researchers-served-2017-2026` (exists; its `verification_status` is `unverified`, and its `used_in` needs `dsc-stats-reports index.qmd`).
 - **Last verified**: 2026-09-26 (figure unchanged since the 2026-09-08 run).
+
+## 14. Since 1961 (home-page history band)
+
+- **Approved wording**: "UCLA has kept research data for reuse since 1961, when political scientist Dwaine Marvick founded the Political Behavior Archive. The unit's name and institutional home have changed several times since; what persisted is the stewardship of research data and the work of widening access to it."
+- **Not approved**: implying that today's DSC portfolio (Dataverse, Redivis, compute, instruction) existed in 1961, or that the unit was one continuous organization. It moved through several institutional homes.
+- **Reporting period**: 1961 to 2026.
+- **Unit of observation**: historical account.
+- **Source**: `ssda-dsc-history` `history.qmd` ("Introduction" and "The history in 30 seconds"), corrected 2026-09-14.
+- **Registry**: `ssda-1961-founding` (exists, verified; its `used_in` needs `dsc-stats-reports index.qmd`).
+- **Last verified**: 2026-09-26.
+
+## 15. Three instruction eras (capability pathway long-view callout)
+
+- **Approved wording**: "Instruction went through three eras": local, one campus, in person from 2017, with campus-trained volunteers leading workshops by January 2020; the systemwide UC Carpentries network co-founded in 2020 in response to the pandemic, with Berkeley, San Diego, Santa Barbara, Merced, and Riverside as partners; system scale from 2023.
+- **Not approved**: describing the 2020 shift as a planned expansion (the source says it was reactive), or crediting the UC-wide series to DSC alone (co-founded, co-delivered).
+- **Reporting period**: 2017-2026.
+- **Unit of observation**: historical account.
+- **Source**: `ssda-dsc-history` `history.qmd`, "Teaching: The Carpentries and an instructor network".
+- **Registry**: `instruction-eras-2017-2026` (to be added to `dsc-evidence-registry`).
+- **Last verified**: 2026-09-26.

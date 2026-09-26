@@ -3,6 +3,7 @@ project:
   output-dir: docs
   render:
     - index.qmd
+    - capability.qmd
     - about.qmd
     - consulting.qmd
     - instruction.qmd
@@ -22,7 +23,11 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - text: "Statistics"
+      - text: "Pathways"
+        menu:
+          - href: capability.qmd
+            text: Research capability built
+      - text: "Evidence"
         menu:
           - href: consulting.qmd
             text: Consulting

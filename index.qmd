@@ -1,201 +1,92 @@
 ---
-title: "DSC Statistics Dashboard"
+title: "DSC Statistics"
+subtitle: "What the UCLA Library Data Science Center contributes to research at UCLA, and the evidence behind each figure"
+toc: false
 ---
 
 ```{r setup, include=FALSE}
 library(tidyverse)
-library(lubridate)
 library(scales)
 
 read_if <- function(path) {
   if (file.exists(path)) read_csv(path, show_col_types = FALSE) else tibble()
 }
 
-audit_summary  <- read_if("data/processed/consultations/consultation_audit_2023_2025_summary_tagged.csv")
-audit_coverage <- read_if("data/processed/consultations/consultation_audit_source_coverage.csv")
-by_year_src    <- read_if("data/processed/consultations/consultation_audit_2023_2025_by_year_source.csv")
-by_year_task   <- read_if("data/processed/consultations/consultation_audit_2023_2025_by_year_task_mode.csv")
-
-# Reconciled headline figures (dsc-stats-integration, see claim-register.md #9, #10, #12, #13)
-# TODO(reach-v4): the "UCLA People Reached" card reads people_reached_confirmed_ucla.
+# Reconciled headline figures (dsc-stats-integration; claim-register.md #9, #10, #13)
+# TODO(reach-v4): the reach line reads people_reached_confirmed_ucla.
 # When Tim lifts the provisional flag on person-level reach v4 (dsc-stats-integration
 # PROVENANCE.md, "Person-level reach: definition"), replace that one row in
 # headline_aggregates.csv, update claim-register.md #13, and change reach_note below.
 headline <- read_if("data/processed/canonical/headline_aggregates.csv")
-reach_note <- "Confirmed UCLA researchers who used instruction or consultation, 2017 to Sept 2026; a floor"
 hl <- function(key) {
   x <- headline |> filter(metric_id == key) |> pull(display)
   if (length(x) == 0) "—" else x[[1]]
 }
-
-kpi <- function(key) {
-  if (nrow(audit_summary) == 0) return("—")
-  x <- audit_summary |> filter(metric_id == key) |> pull(value)
-  if (length(x) == 0) "—" else comma(x[[1]])
-}
-
-direct_total     <- kpi("direct_consults_combined_deduped_count")
-dsc_direct       <- kpi("dsc_direct_consults_libinsights_count")
-datasquad_direct <- kpi("datasquad_direct_consults_count")
-task_cards       <- kpi("datasquad_trello_task_cards_reportable_count")
-
-data_range_label <- if (nrow(audit_coverage) > 0) {
-  yr_min <- format(min(as.Date(audit_coverage$min_date)), "%Y")
-  yr_max <- format(max(as.Date(audit_coverage$max_date)), "%Y")
-  if (yr_min == yr_max) yr_min else paste0(yr_min, "\u2013", yr_max)
-} else {
-  "All Time"
-}
-
-# YoY comparison: 2023 → 2024 (two complete calendar years in this audit)
-# 2025 data is partial (libinsights export ends March 2025) — excluded from YoY
-yoy_fmt <- function(n_recent, n_prior, yr_recent = 2024, yr_prior = 2023) {
-  if (is.na(n_recent) || is.na(n_prior) || n_prior == 0) return("")
-  pct   <- round((n_recent - n_prior) / n_prior * 100)
-  arrow <- if (pct > 0) "\u2191" else if (pct < 0) "\u2193" else "\u2192"
-  sprintf("%s %+d%% \u00b7 %s in %d vs %s in %d",
-          arrow, pct, comma(n_recent), yr_recent, comma(n_prior), yr_prior)
-}
-
-yoy_direct <- local({
-  if (nrow(by_year_src) == 0) return("")
-  d   <- by_year_src |> filter(source != "trello") |>
-         group_by(year) |> summarise(n = sum(n), .groups = "drop")
-  n24 <- d$n[d$year == 2024]; n23 <- d$n[d$year == 2023]
-  yoy_fmt(n24[1], n23[1])
-})
-
-yoy_tasks <- local({
-  if (nrow(by_year_task) == 0) return("")
-  d   <- by_year_task |> filter(task_metric == "trello_reportable_task_cards")
-  n24 <- d$n[d$year == 2024]; n23 <- d$n[d$year == 2023]
-  yoy_fmt(n24[1], n23[1])
-})
+reach_note <- "confirmed UCLA researchers used DSC instruction or consultation, 2017 to September 2026. This is a floor: people are counted only when their identity could be confirmed."
 ```
 
-*For UCLA Library administration and DSC staff: unified service metrics across consultations, instruction, and infrastructure.*
+The Data Science Center (DSC) supports UCLA researchers with data consultation, instruction, and the infrastructure that keeps research data usable. This site is the evidence layer: each figure below states its unit and window and links to the page where it is built.
 
-## Since 2017
-
-::: {.kpi-row .grid}
-
-::: {.g-col-12 .g-col-md-4 .kpi-card}
-
-[Workshop Sessions]{.kpi-label}
-[`r hl("instruction_sessions_lifetime")`]{.kpi-value}
-[May 2017 to May 2026; registered seats by program are charted on the [instruction page](instruction.qmd)]{.kpi-note}
-
+::: {.history-band}
+**Since 1961.** UCLA has kept research data for reuse since 1961, when political scientist Dwaine Marvick founded the Political Behavior Archive. The unit's name and institutional home have changed several times since; what persisted is the stewardship of research data and the work of widening access to it. [Read the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html)
 :::
 
-::: {.g-col-12 .g-col-md-4 .kpi-card}
+## What the evidence establishes
 
-[UCLA People Reached]{.kpi-label}
-[`r hl("people_reached_confirmed_ucla")`]{.kpi-value}
-[`r reach_note`]{.kpi-note}
+DSC's work shows up in research outputs, not only in service counts. Two documented engagements illustrate this: for one helicopter-surveillance processing task, an approximately 159-fold runtime reduction was observed under the reported conditions; and DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA's 2024 Public Impact Research Awards. These are illustrative cases, not a representative sample. [See the cases and their limits](consulting.qmd#research-impact).
 
+## Three ways DSC contributes
+
+::: {.grid .pathways}
+
+::: {.g-col-12 .g-col-md-4 .pathway}
+### Research enabled
+
+Researchers across campus bring data problems to DSC for consultation, and some engagements become multi-year collaborations.
+
+[`r hl("consultations_recorded_series")`]{.pathway-figure}
+[recorded consultations, 2017 to September 2026. A floor: recording practices and service capacity changed from mid-2024, so later counts cannot establish whether demand fell.]{.pathway-unit}
+
+[Consultation evidence](consulting.qmd)
 :::
 
-::: {.g-col-12 .g-col-md-4 .kpi-card}
+::: {.g-col-12 .g-col-md-4 .pathway}
+### Research capability built
 
-[Recorded Consultations]{.kpi-label}
-[`r hl("consultations_recorded_series")`]{.kpi-value}
-[2017 to 2026, a floor; recording lapsed from mid-2024]{.kpi-note}
+DSC moved from teaching its own campus to co-running instruction across the University of California, and campus volunteers it trained went on to lead much of the teaching.
 
+[`r hl("instruction_sessions_lifetime")`]{.pathway-figure}
+[workshop sessions, May 2017 to May 2026. Registered seats by program are charted on the pathway page.]{.pathway-unit}
+
+[Capability pathway](capability.qmd)
 :::
 
-:::
+::: {.g-col-12 .g-col-md-4 .pathway}
+### Shared infrastructure sustained
 
-## At a Glance: Consultation Audit (`r data_range_label`)
+DSC runs UCLA Dataverse and governed access to restricted data, the current form of the stewardship that began in 1961.
 
-*Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
+[Figure pending]{.pathway-figure .pending}
+[The Dataverse dataset count will appear once two sources are reconciled and the count is dated and registered.]{.pathway-unit}
 
-::: {.kpi-row .grid}
-
-::: {.g-col-6 .g-col-md-3 .kpi-card}
-[Direct Consultations]{.kpi-label}
-[`r direct_total`]{.kpi-value}
-[DSC + DataSquad combined; canceled excluded`r if (nchar(yoy_direct) > 0) paste0(" \u00b7 ", yoy_direct)`]{.kpi-note}
-:::
-
-::: {.g-col-6 .g-col-md-3 .kpi-card}
-[DSC Staff]{.kpi-label}
-[`r dsc_direct`]{.kpi-value}
-[LibInsight scheduled exports]{.kpi-note}
-:::
-
-::: {.g-col-6 .g-col-md-3 .kpi-card}
-[DataSquad]{.kpi-label}
-[`r datasquad_direct`]{.kpi-value}
-[Walk-in sign-ins]{.kpi-note}
-:::
-
-::: {.g-col-6 .g-col-md-3 .kpi-card}
-[Task Cards (Reportable)]{.kpi-label}
-[`r task_cards`]{.kpi-value}
-[Trello; backlog/admin lists excluded`r if (nchar(yoy_tasks) > 0) paste0(" \u00b7 ", yoy_tasks)`]{.kpi-note}
+[Infrastructure evidence](infrastructure.qmd)
 :::
 
 :::
 
-## Dashboard Sections
-
-::: {.grid}
-
-::: {.g-col-4 .card .p-3}
-### [Consulting](consulting.qmd)
-One-on-one research support: DSC staff appointments and DataSquad walk-ins.
+::: {.reach-strip}
+[`r hl("people_reached_confirmed_ucla")`]{.reach-value} `r reach_note`
 :::
 
-::: {.g-col-4 .card .p-3}
-### [Instruction](instruction.qmd)
-Workshops, Carpentries events, and community-led training sessions.
-:::
+## Reports and methods
 
-::: {.g-col-4 .card .p-3}
-### [Infrastructure](infrastructure.qmd)
-AWS cloud usage trends and UCLA Dataverse repository growth and download metrics.
-:::
-
-:::
-
-**Explore by section:** [Consulting →](consulting.qmd) · [Instruction →](instruction.qmd) · [Infrastructure →](infrastructure.qmd) · [About & methodology](about.qmd)
-
-## Reading These Metrics
-
-- **Direct consultations** = one interaction record (appointment or walk-in). Canceled appointments excluded.
-- **Task cards** = Trello cards assigned to DataSquad project work. Not equivalent to consultations.
-- **Task activity (comment-weighted)** = comment count on task cards, a workload proxy, not hours or outputs.
-
-::: {.callout-note collapse="true" title="Data notes"}
-- Sources: LibInsight (scheduled exports + manual logs), DataSquad walk-in sign-in forms, Trello (historical task tracking)
-- Canceled appointments excluded from all direct consultation counts
-- Manual LibInsight logs deduplicated against scheduled exports using a same-provider/same-minute heuristic
-- Task metrics (Trello cards, comment-weighted activity) are **not** consultations; shown separately throughout
-- **YoY comparisons** (2023 → 2024): consultation decline reflects shifting data sources; task card growth reflects expanded Trello adoption, not proportional workload increase
-- Full counting rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
-:::
-
-```{r coverage, echo=FALSE, results='asis'}
-if (nrow(audit_coverage) > 0) {
-  snap <- audit_coverage |>
-    mutate(max_date = as.Date(max_date)) |>
-    arrange(desc(max_date)) |>
-    slice_head(n = 4)
-  cat(
-    "**Data coverage:** ",
-    paste(
-      sprintf("%s through %s", snap$source, format(snap$max_date, "%Y-%m-%d")),
-      collapse = "; "
-    ),
-    "\n"
-  )
-}
-```
+- [DSC retrospective, 2017-2026](dsc-retrospective-2017-2026.qmd): the narrative account of the Data Science Center era
+- [About and methodology](about.qmd): definitions, sources, and how figures are counted
+- [Metrics governance](metrics-governance.md): counting rules for consultations, tasks, tickets, and instruction
+- [Claim register](https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/claim-register.md): approved wording, window, unit, and source for every headline figure
 
 ::: {.callout-note collapse="true" title="Cite this page"}
-UCLA Library Data Science Center. (`r year(Sys.Date())`). *DSC Statistics Dashboard*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/>
+UCLA Library Data Science Center. (`r format(Sys.Date(), "%Y")`). *DSC Statistics*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/>
 :::
-
----
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*

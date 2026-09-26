@@ -1,0 +1,101 @@
+---
+title: "Research Capability Built"
+subtitle: "Pathway: how DSC instruction builds research capability at UCLA and across the University of California"
+toc: true
+toc-depth: 2
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(scales)
+source("src/etl/seats_chart.R")
+
+headline <- if (file.exists("data/processed/canonical/headline_aggregates.csv")) {
+  read_csv("data/processed/canonical/headline_aggregates.csv", show_col_types = FALSE)
+} else tibble(metric_id = character(), display = character())
+hl <- function(key) {
+  x <- headline$display[headline$metric_id == key]
+  if (length(x) == 0) "—" else x[[1]]
+}
+seats <- read_seats()
+alt_seats <- seats_alt_text(seats)
+```
+
+## Finding and scope
+
+DSC instruction grew from workshops for its own campus into instruction co-run across the University of California, and it trained campus volunteers who went on to lead much of the teaching. The evidence covers workshops from May 2017 through September 2026 and counts registrations and sessions, not individual learning outcomes.
+
+## Evidence in brief
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-8}
+
+```{r seats_chart, echo=FALSE, fig.alt=alt_seats, fig.width=7, fig.height=4.2, fig.cap=seats_caption}
+if (nrow(seats) > 0) seats_chart(seats)
+```
+
+:::
+
+::: {.g-col-12 .g-col-md-4 .seat-total}
+
+[`r hl("instruction_registered_seats")`]{.kpi-value}
+
+[Registered seats, May 2017 to September 2026 (2026 partial)]{.kpi-label}
+
+[Registrations, not unique people or attendance.]{.kpi-note}
+
+:::
+
+:::
+
+Two supporting measures:
+
+- **`r hl("instruction_sessions_lifetime")` workshop sessions**, May 2017 to May 2026 (a session is one distinct event and date).
+- **At least 39 people** from two separately defined UC Carpentries cohorts (September 2025, and 2021, 2022 and 2024) were subsequently observed in research or data-intensive roles, from public evidence. This is an early trajectory signal, not a tracer study; it does not show that the workshops caused those roles.
+
+## A documented example
+
+No instruction case yet meets the site's selection rule. A case is published here only when it can fill all five fields: the research question, the support provided, the resulting output, a link to evidence of that output, and the limits of attribution. People are named only with their permission, and students are named only to their adviser. A case without a verifiable output illustrates a service, not an outcome.
+
+::: {.callout-important}
+## What this pattern means, and what it cannot mean
+
+- **It means** DSC instruction reached a large and changing audience: its own campus through 2019, then UC-wide online series from 2020, with campus-trained volunteers teaching alongside staff.
+- **It cannot mean** that 27,986 people were trained. A registered seat is one registration for one session. One person who registers for four sessions counts four times, and many registrants do not attend.
+- **Attendance is recorded only for some series.** Where it exists, compare attended with registered seats within that series and those dates only. The UC Carpentries ratio (about 1 attended per 3 registered) does not transfer to other series or to the total.
+- **UCLA participants are a subset.** The UC-wide series include other campuses' registrants; UCLA-only figures are on the instruction evidence page.
+- **The lower 2025-2026 bars are not a measure of demand.** 2026 is partial, and neither GIS Week nor Love Data Week has counted DSC seats in those years (DSC was not involved in GIS Week in 2024-2025, while its GIS position was unfilled).
+:::
+
+::: {.callout-note .long-view}
+## The long view (history, as of 2026)
+
+Instruction went through three eras. From 2017 the unit taught locally, one campus, in person, and by January 2020 campus volunteers trained through the program were leading the workshops. In 2020 the pandemic made cross-campus coordination cheap, and the systemwide UC Carpentries network was co-founded in response, with Berkeley, San Diego, Santa Barbara, Merced, and Riverside as partners. From 2023 that network operated at system scale, a program other campuses schedule around. [Read the teaching section of the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html#teaching-the-carpentries-and-an-instructor-network)
+:::
+
+## Detailed evidence
+
+The instruction evidence page holds the full tables. Jump to:
+
+- [Registered seats by program and year](instruction.qmd#registered-seats-by-program-2017-2026), with attended seats where recorded
+- [Attendance by year, department, organizational parent, and affiliation](instruction.qmd#workshop-attendance) (attendee-level file, May 2017 to September 2024; breakdowns suppress any unit under 5)
+- [Definitions and data notes](instruction.qmd#data-notes)
+- [Methodology](about.qmd)
+
+## Sources and claim record
+
+| Figure | Window | Unit | Extracted | Claim |
+|---|---|---|---|---|
+| `r hl("instruction_registered_seats")` registered seats | May 2017 to Sept 2026 (2026 partial) | registered seat | 2026-09-26 | #12 |
+| `r hl("instruction_sessions_lifetime")` sessions | May 2017 to May 2026 | session (event, date) | 2026-09-24 | #9 |
+| At least 39 people in research roles | 2021-2025 cohorts | person, public confirmation | 2026-09-12 | #5 |
+| Three instruction eras | 2017-2026 | historical account | 2026-09-26 | #15 |
+
+Suppression rule: department, organizational-parent, and affiliation breakdowns fold any unit under 5 into one combined row, which is omitted if it is also under 5. The claim register gives approved wording, exclusions, and source for each figure: [claim-register.md](https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/claim-register.md).
+
+::: {.callout-note collapse="true" title="Cite this page"}
+UCLA Library Data Science Center. (`r format(Sys.Date(), "%Y")`). *Research Capability Built*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/capability.html>
+:::
+
+*Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*

@@ -235,3 +235,82 @@ figcaption,
   color: var(--ucla-blue-deep);
   font-weight: 600;
 }
+
+/* ── Pathway home page and pathway template (design brief 2026-09-26) ── */
+.history-band {
+  border-left: 4px solid var(--ucla-gold);
+  background: var(--library-surface);
+  padding: 0.8rem 1rem;
+  margin: 1.2rem 0 1.6rem;
+  font-size: 0.95rem;
+}
+
+.pathway {
+  border-top: 3px solid var(--ucla-blue);
+  padding-top: 0.6rem;
+}
+.pathway h3 {
+  margin-top: 0.2rem;
+  font-size: 1.15rem;
+}
+.pathway .pathway-figure {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ucla-blue-deep);
+  font-variant-numeric: tabular-nums;
+  margin-top: 0.6rem;
+}
+.pathway .pathway-figure.pending {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+.pathway .pathway-unit {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.6rem;
+}
+
+.reach-strip {
+  border: 1px solid var(--library-border);
+  padding: 0.7rem 1rem;
+  margin: 1.6rem 0;
+  font-size: 0.95rem;
+}
+.reach-strip .reach-value {
+  font-weight: 700;
+  color: var(--ucla-blue-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+.long-view {
+  border-left-color: var(--ucla-gold) !important;
+}
+
+/* ── Dark theme (darkly): redefine tokens instead of inheriting light paper ── */
+body.quarto-dark {
+  --ucla-blue-deep: #9ec5f4;
+  --library-paper: #1a1d21;
+  --library-surface: #23282e;
+  --library-border: #3a434d;
+  --ink-strong: #eef2f5;
+  --ink-soft: #b9c4ce;
+  background: var(--library-paper);
+}
+body.quarto-dark .kpi-card,
+body.quarto-dark .card {
+  background: var(--library-surface);
+}
+
+/* ── Print: captions, caveats, and source links must survive ── */
+@media print {
+  .navbar, #quarto-sidebar, #TOC, .quarto-back-to-top, .nav-footer { display: none !important; }
+  body { background: #fff !important; color: #000; }
+  .callout { break-inside: avoid; }
+  .callout.callout-titled .callout-collapse { display: block !important; height: auto !important; }
+  figure, .figure { break-inside: avoid; }
+  figcaption, .figure-caption { color: #000; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+  .grid { display: block; }
+}

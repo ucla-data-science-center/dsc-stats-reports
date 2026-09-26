@@ -153,34 +153,16 @@ DSC instruction is counted in registered seats: one registration for one session
 ## Registered Seats by Program, 2017-2026
 
 ```{r seats_setup, include=FALSE}
-program_levels <- c("DSC workshops", "UC Carpentries (joint series)", "Library Carpentry (UC, May 2026)",
-                    "Love Data Week", "GIS Week")
-program_colors <- setNames(c("#2774ae", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"), program_levels)
-alt_seats <- if (nrow(seats) > 0) {
-  .sy <- seats |> summarise(n = sum(registered_seats), .by = year) |> arrange(year)
-  sprintf("Stacked bar chart of registered workshop seats by year and program, 2017 to 2026. Yearly totals: %s. Love Data Week and the UC Carpentries series account for most seats from 2021 on. The full values are in the table below.",
-          paste(.sy$year, comma(.sy$n), sep = ": ", collapse = "; "))
-} else "Registered seats by program (data not loaded)"
+source("src/etl/seats_chart.R")
+alt_seats <- seats_alt_text(seats)
 ```
 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-8}
 
-```{r seats_chart, echo=FALSE, fig.alt=alt_seats, fig.width=7, fig.height=4.2, fig.cap="Registered seats, 2017-2026; 2026 partial. From 2020 through 2024 most instruction was online and open across UC campuses (UC Carpentries, Love Data Week, GIS Week), which is why seat counts rise sharply in those years. Registrations, not unique people or attendance."}
-if (nrow(seats) > 0) {
-  seats |>
-    mutate(program = factor(program, levels = rev(program_levels))) |>
-    ggplot(aes(x = factor(year), y = registered_seats, fill = program)) +
-    geom_col(width = 0.72, color = "white", linewidth = 0.5) +
-    scale_fill_manual(values = program_colors, breaks = program_levels, name = NULL) +
-    scale_y_continuous(labels = comma, expand = expansion(mult = c(0, 0.05))) +
-    labs(x = NULL, y = "Registered seats") +
-    theme_minimal(base_size = 12) +
-    theme(panel.grid.major.x = element_blank(), panel.grid.minor = element_blank(),
-          legend.position = "bottom", legend.justification = "left") +
-    guides(fill = guide_legend(nrow = 2))
-}
+```{r seats_chart, echo=FALSE, fig.alt=alt_seats, fig.width=7, fig.height=4.2, fig.cap=seats_caption}
+if (nrow(seats) > 0) seats_chart(seats)
 ```
 
 :::
@@ -423,6 +405,8 @@ if (data_loaded) {
 **See also:** [Consulting <span aria-hidden="true">→</span>](consulting.qmd) one-on-one consultations · [Infrastructure <span aria-hidden="true">→</span>](infrastructure.qmd) Dataverse and AWS metrics · [About & methodology](about.qmd)
 
 ---
+
+[]{#data-notes}
 
 ::: {.callout-note collapse="true" .data-notes title="Data notes"}
 - **Sources**: Consolidated workshop attendee records (including UC-wide GIS Week and Love Data Week) and privacy-safe aggregate workshop summaries
