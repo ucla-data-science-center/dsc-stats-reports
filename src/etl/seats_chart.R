@@ -1,11 +1,13 @@
 # Registered seats by program and year (claim-register.md #12).
 # Shared by instruction.qmd and capability.qmd so both pages draw the same figure.
-# Palette validated with the dataviz CVD checker (light surface); three hues sit
-# under 3:1 against white, so the program-by-year table is the text equivalent.
+# UCLA secondary tints plus a warm gray (brand.ucla.edu, verified 2026-09-26).
+# Checked with the dataviz validator across all pairs: worst CVD separation
+# deltaE 11.8, normal-vision 15.3 (floor 15). Darkest Gold and Lighter Blue sit
+# under 3:1 against white, so white gaps and the program-by-year table are the relief.
 
 seat_program_levels <- c("DSC workshops", "UC Carpentries (joint series)",
                          "Library Carpentry (UC, May 2026)", "Love Data Week", "GIS Week")
-seat_program_colors <- setNames(c("#2774ae", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"),
+seat_program_colors <- setNames(c("#003B5C", "#FFB81C", "#8BB8E8", "#8C8279", "#2774AE"),
                                 seat_program_levels)
 
 seats_caption <- paste(

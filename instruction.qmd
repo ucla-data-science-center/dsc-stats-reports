@@ -276,7 +276,7 @@ if (data_loaded) {
     mutate(Year = year(date)) |>
     summarise(n = sum(attendance_count), .by = Year) |>
     ggplot(aes(x = factor(Year), y = n)) +
-    geom_col(fill = "#2774AE") +
+    geom_col(fill = "#005587") +
     coord_flip() +
     labs(x = NULL, y = "Attendance") +
     theme_minimal() +
@@ -318,7 +318,7 @@ if (data_loaded) {
     arrange(desc(n)) |>
     head(15) |>
     ggplot(aes(x = reorder(standardized_department, n), y = n)) +
-    geom_col(fill = "#2774AE") +
+    geom_col(fill = "#005587") +
     coord_flip() +
     labs(x = NULL, y = "Attendance", title = "Top 15 Departments (UCLA attendees)") +
     theme_minimal() +
@@ -375,7 +375,7 @@ if (data_loaded) {
     arrange(desc(n)) |>
     head(5) |>
     ggplot(aes(x = reorder(status, n), y = n)) +
-    geom_col(fill = "#2774AE") +
+    geom_col(fill = "#005587") +
     coord_flip() +
     labs(x = NULL, y = "Attendance") +
     theme_minimal() +
