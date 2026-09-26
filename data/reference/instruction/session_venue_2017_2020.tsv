@@ -1,0 +1,135 @@
+date	event	venue_class
+2017-05-04	Carpentries Instructor Training	non_ucla
+2017-05-18	Library Carpentry Workshop	ucla
+2017-08-25	Literate Programming	ucla
+2017-09-07	Using Data Effectively	ucla
+2017-09-08	Library Carpentry Workshop	ucla
+2017-09-08	Literate Programming	ucla
+2017-09-22	Open Refine workshop	ucla
+2017-09-30	Library Carpentry Workshop	non_ucla
+2017-10-02	Library Carpentry Workshop	non_ucla
+2017-10-09	Carpentries Instructor Training	non_ucla
+2017-10-16	Software Carpentry Workshop	ucla
+2017-10-17	Software Carpentry Workshop	ucla
+2017-10-18	Open Science Framework	ucla
+2017-11-02	SQL Workshop	ucla
+2017-11-16	Introduction to Python	ucla
+2017-11-28	Introduction to R	ucla
+2018-01-25	Introduction to R	ucla
+2018-01-30	Data Visualization in R	ucla
+2018-01-30	Open Refine Meetup	ucla
+2018-02-01	Programming Pizza Party	ucla
+2018-02-02	Data Sharing Bootcamp	ucla
+2018-02-06	Data Cleaning with R	ucla
+2018-02-13	Data Management: File Organization	ucla
+2018-02-15	Programming Pizza Party	ucla
+2018-03-12	Faculty Development Workshop: Teaching Transparent Methods of Empirical Research	ucla
+2018-04-07	Software Carpentry Workshop	ucla
+2018-05-22	Introducing Los Angeles Region Imagery Acquisition Consortium (LARIAC) Program at UCLA	ucla
+2018-05-24	Library Carpentry Workshop	ucla
+2018-05-28	Library Carpentry Workshop	ucla
+2018-06-06	Library Carpentry Workshop	ucla
+2018-07-25	Data Management Workshop	ucla
+2018-08-28	Library Carpentry Workshop	mixed
+2018-09-07	Using Data Effectively	ucla
+2018-10-01	ICPSR Data Fair 2018 - Data: Powered By You	ucla
+2018-10-02	ICPSR Data Fair 2018 - Data: Powered By You	ucla
+2018-10-03	ICPSR Data Fair 2018 - Data: Powered By You	ucla
+2018-10-04	ICPSR Data Fair 2018 - Data: Powered By You	ucla
+2018-10-05	ICPSR Data Fair 2018 - Data: Powered By You	ucla
+2018-10-09	Data Cleaning with OpenRefine	ucla
+2018-10-16	Intro to Python	ucla
+2018-10-18	Data Cleaning with R	ucla
+2018-10-18	Python and Jupyter Notebooks: Hands-on	ucla
+2018-10-30	Introduction to Los Angeles Region Imagery Acquisition Program (LARIAC)	ucla
+2018-11-01	Data Visualization in R	ucla
+2018-11-08	Python Book Club	ucla
+2018-12-04	Building interactive data applications with Shiny	ucla
+2018-12-13	Python Book Club	ucla
+2019-01-09	Software Carpentry Workshop	ucla
+2019-01-22	Introduction to the Bash Shell Command Line	ucla
+2019-01-23	Data Intro & Data skills	ucla
+2019-01-24	Python for Data Science	ucla
+2019-01-28	Introduction to R	ucla
+2019-01-29	Introduction to R	ucla
+2019-01-31	Data Cleaning with R	ucla
+2019-02-04	Data Acquisition & Prep in R	ucla
+2019-02-11	Love Data Week 2019	ucla
+2019-02-11	Version Control with Git	ucla
+2019-02-12	Love Data Week 2019	ucla
+2019-02-13	Love Data Week 2019	ucla
+2019-02-14	Data Cleaning with OpenRefine	ucla
+2019-02-14	Love Data Week 2019	ucla
+2019-02-15	Love Data Week 2019	ucla
+2019-02-28	Web Scraping with Python	ucla
+2019-03-05	Data & Open Science in Sustainability Research	ucla
+2019-03-05	Python for Data Science	ucla
+2019-04-09	Python Fundamentals	ucla
+2019-04-11	Python Fundamentals	ucla
+2019-04-16	R Programming Fundamentals	ucla
+2019-04-18	R Programming Fundamentals	ucla
+2019-04-22	R Working Group	ucla
+2019-04-29	R Working Group	ucla
+2019-05-06	R Working Group	ucla
+2019-05-13	R Working Group	ucla
+2019-05-14	Introduction to SQL	ucla
+2019-05-20	R Working Group	ucla
+2019-05-28	Introduction to Tableau Data Visualization	ucla
+2019-07-23	Grand Tour of the Data Science Center (DSC)	ucla
+2019-07-24	Library Carpentry Workshop	ucla
+2019-07-25	Library Carpentry Workshop	ucla
+2019-07-26	Data Publishing with Dryad and Persistent Identifiers with Research Organization Registry	ucla
+2019-08-10	Advanced R Book Club	ucla
+2019-08-24	Advanced R Book Club	ucla
+2019-09-07	Advanced R Book Club	ucla
+2019-09-30	African American Studies 188	ucla
+2019-10-07	African American Studies 188	ucla
+2019-10-14	African American Studies 188	ucla
+2019-10-16	Data Carpentry Workshop	ucla
+2019-10-19	Advanced R Book Club	ucla
+2019-11-09	Advanced R Book Club	ucla
+2020-01-15	Software Carpentry Workshop - R	ucla
+2020-01-16	Software Carpentry Workshop - R	ucla
+2020-01-22	Software Carpentry - Python	ucla
+2020-01-23	Software Carpentry - Python	ucla
+2020-02-25	Tidy Tuesday: Open Labs for Data Cleaning	ucla
+2020-03-10	Tidy Tuesday: Open Labs for Data Cleaning	ucla
+2020-03-17	Tidy Tuesday: Open Lab for Data Cleaning	ucla
+2020-03-24	Tidy Tuesday: Open Lab for Data Cleaning	ucla
+2020-03-31	Tidy Tuesday: Open Lab for Data Cleaning	ucla
+2020-04-07	Tidy Tuesday: Open Lab for Data Cleaning	ucla
+2020-04-10	R Workshop Series: Spring 2020 (Online)	ucla
+2020-04-14	Tidy Tuesday: Open Lab for Data Cleaning	ucla
+2020-04-17	R Workshop Series: Spring 2020 (Online)	ucla
+2020-04-21	Tidy Tuesday: Open Lab for Data Cleaning	ucla
+2020-04-24	R Workshop Series: Spring 2020 (Online)	ucla
+2020-04-28	Tidy Tuesday: Open Lab for Data Cleaning	ucla
+2020-05-01	R Workshop Series: Spring 2020 (Online)	ucla
+2020-05-05	Tidy Tuesday: Open Lab for Data Cleaning	ucla
+2020-08-10	Southern California Library Carpentry Workshop CSU Long Beach	mixed
+2020-08-11	Southern California Library Carpentry Workshop CSU Long Beach	mixed
+2020-08-12	Southern California Library Carpentry Workshop CSU Long Beach	mixed
+2020-08-13	Southern California Library Carpentry Workshop CSU Long Beach	mixed
+2020-08-14	Southern California Library Carpentry Workshop CSU Long Beach	mixed
+2020-08-20	Introduction to QGIS	ucla
+2020-09-29	Automating Tasks with the Unix Shell	mixed
+2020-09-30	Introduction to Git/Github	mixed
+2020-10-01	Introduction to SQL	mixed
+2020-10-06	R for Reproducible Scientific Analysis	mixed
+2020-10-06	Tidy Tuesday: Open Lab for Data Cleaning	mixed
+2020-10-07	R for Reproducible Scientific Analysis	mixed
+2020-10-08	R for Reproducible Scientific Analysis	mixed
+2020-10-13	Plotting and Programming in Python	mixed
+2020-10-14	Plotting and Programming in Python	mixed
+2020-10-15	Plotting and Programming in Python	mixed
+2020-10-20	Tidy Tuesday: Open Lab for Data Cleaning	ucla
+2020-10-28	4th Annual Humanitarian Mapathon with UCLA and USC - Day 1 Mapathon	mixed
+2020-10-29	4th Annual Humanitarian Mapathon with UCLA and USC - Day 2 workshops	mixed
+2020-10-30	4th Annual Humanitarian Mapathon with UCLA and USC - Day 3 Keynote with LA Times Ben Welsh	mixed
+2020-11-10	Introduction to QGIS	ucla
+2020-11-17	GIS Week	mixed
+2020-11-17	Tidy Tuesday: Open Lab for Data Cleaning	ucla
+2020-11-17	UC GIS Week-Day 1	mixed
+2020-11-18	UC GIS Week - Day 2	mixed
+2020-11-19	UC GIS Week - Day3	mixed
+2020-12-01	Tidy Tuesday: Open Lab for Data Cleaning	ucla
