@@ -19,7 +19,8 @@ for (i in seq_len(nrow(headline))) {
 
 # Only pages in the site render list are published.
 quarto_cfg <- readLines("_quarto.yml", warn = FALSE)
-pages <- trimws(sub("^\\s*-\\s*", "", grep("^\\s*-\\s*[A-Za-z0-9_-]+\\.qmd\\s*$", quarto_cfg, value = TRUE)))
+pages <- sub("^\\s*-\\s*([A-Za-z0-9_-]+\\.qmd).*$", "\\1",
+             grep("^\\s*-\\s*[A-Za-z0-9_-]+\\.qmd\\s*(#.*)?$", quarto_cfg, value = TRUE))
 for (p in pages) {
   src <- paste(readLines(p, warn = FALSE), collapse = "\n")
   used <- regmatches(src, gregexpr('hl\\("([a-z_]+)"\\)', src))[[1]]
