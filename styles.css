@@ -1,14 +1,10 @@
 /* UCLA Library-inspired dashboard styling */
 
 :root {
-  /* UCLA secondary palette (brand.ucla.edu/identity/colors, verified 2026-09-26).
-     Darker Blue on --library-paper is well above AA; gold is an accent only, never text. */
-  --ucla-blue: #005587;
-  --ucla-blue-deep: #003B5C;
-  --ucla-gold: #FFC72C;
+  /* Brand colors (--ucla-blue, --ucla-blue-deep, --ucla-gold, --library-surface)
+     come from the active theme profile: dsc-*.scss or ucla-*.scss. */
   --ucla-gold-ink: #7b6200;
   --library-paper: #fbfaf6;
-  --library-surface: #DAEBFE;
   --library-border: #d8e4ef;
   --ink-strong: #122534;
   --ink-soft: #4a6072;
@@ -290,10 +286,7 @@ figcaption,
 
 /* ── Dark theme (darkly): redefine tokens instead of inheriting light paper ── */
 body.quarto-dark {
-  --ucla-blue: #8BB8E8;
-  --ucla-blue-deep: #DAEBFE;
   --library-paper: #14202b;
-  --library-surface: #1d3347;
   --library-border: #3a434d;
   --ink-strong: #eef2f5;
   --ink-soft: #b9c4ce;

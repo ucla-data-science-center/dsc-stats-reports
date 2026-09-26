@@ -1,3 +1,11 @@
+# Theme profiles: `dsc` (DSC's 2019 identity colors) or `ucla-tints` (UCLA
+# secondary palette). Switch the whole site by changing `default` below; preview
+# the other one with `pixi run render --profile ucla-tints`.
+profile:
+  default: dsc
+  group:
+    - [dsc, ucla-tints]
+
 project:
   type: website
   output-dir: docs
@@ -50,9 +58,6 @@ website:
 
 format:
   html:
-    theme:
-      light: [flatly, ucla-light.scss]
-      dark: [darkly, ucla-dark.scss]
     css: styles.css
     include-in-header: _head.html
     smooth-scroll: true

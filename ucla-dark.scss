@@ -19,6 +19,12 @@ $headings-font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
 $headings-font-weight: 600;
 
 /*-- scss:rules --*/
+body.quarto-dark {
+  --ucla-blue: #{$ucla-lighter-blue};
+  --ucla-blue-deep: #{$ucla-lightest-blue};
+  --ucla-gold: #{$ucla-darker-gold};
+  --library-surface: #1d3347;
+}
 h2 {
   border-bottom: 2px solid $ucla-darker-gold;
   padding-bottom: 0.2rem;

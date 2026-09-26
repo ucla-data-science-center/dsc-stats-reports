@@ -1,0 +1,6 @@
+# Theme profile: DSC's own 2019 identity colors (default). See dsc-light.scss.
+format:
+  html:
+    theme:
+      light: [flatly, dsc-light.scss]
+      dark: [darkly, dsc-dark.scss]

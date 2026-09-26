@@ -1,0 +1,35 @@
+/*-- scss:defaults --*/
+// Dark counterpart of dsc-light.scss. #2774AE is too dark for text on a dark
+// surface, so text and links use a lighter step of the same blue.
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap");
+
+$dsc-blue: #2774AE;
+$dsc-blue-light: #8BB8E8;
+$dsc-gold: #FFD100;
+
+$body-bg: #14202b;
+$body-color: #e6edf3;
+$primary: $dsc-blue-light;
+$link-color: $dsc-blue-light;
+$navbar-bg: $dsc-blue;
+$navbar-fg: #ffffff;          // darkly defaults to off-white, 3.8:1 on #2774AE
+$headings-color: #e6edf3;
+
+$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+$headings-font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+$headings-font-weight: 600;
+
+/*-- scss:rules --*/
+body.quarto-dark {
+  --ucla-blue: #{$dsc-blue-light};
+  --ucla-blue-deep: #{$dsc-blue-light};
+  --ucla-gold: #{$dsc-gold};
+  --library-surface: #1c3044;
+}
+h2 {
+  border-bottom: 2px solid $dsc-gold;
+  padding-bottom: 0.2rem;
+}
+.callout-note, .history-band {
+  background-color: #1c3044;
+}
