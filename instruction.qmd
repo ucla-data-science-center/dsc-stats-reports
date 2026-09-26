@@ -163,7 +163,7 @@ DSC has offered **`r hl("instruction_sessions_lifetime")` workshop sessions** wi
 ::: {.g-col-6 .g-col-md-4 .kpi-card}
 [UCLA-Held]{.kpi-label}
 [`r fmt(kpi_ucla_held)`]{.kpi-value}
-[UCLA-affiliated, plus unknown-affiliation records from sessions held at UCLA, 2017–2020]{.kpi-note}
+[Attendee-events, May 2017–Apr 2024: UCLA-affiliated, plus unknown-affiliation records from 2017–2020 sessions held at UCLA]{.kpi-note}
 :::
 
 ::: {.g-col-6 .g-col-md-4 .kpi-card}
