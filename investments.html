@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>metrics-governance – DSC Statistics</title>
+<title>Research Supported by Shared Investments – DSC Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -338,144 +338,267 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#metrics-governance-dsc-stats" id="toc-metrics-governance-dsc-stats" class="nav-link active" data-scroll-target="#metrics-governance-dsc-stats">Metrics Governance (DSC Stats)</a>
-  <ul class="collapse">
-  <li><a href="#purpose" id="toc-purpose" class="nav-link" data-scroll-target="#purpose">Purpose</a></li>
-  <li><a href="#core-principle" id="toc-core-principle" class="nav-link" data-scroll-target="#core-principle">Core Principle</a></li>
-  <li><a href="#metric-families" id="toc-metric-families" class="nav-link" data-scroll-target="#metric-families">Metric Families</a></li>
-  <li><a href="#task-workload-metrics-project-work" id="toc-task-workload-metrics-project-work" class="nav-link" data-scroll-target="#task-workload-metrics-project-work">2) Task / Workload Metrics (Project Work)</a></li>
-  <li><a href="#ticket-service-request-metrics-jira-service-desk" id="toc-ticket-service-request-metrics-jira-service-desk" class="nav-link" data-scroll-target="#ticket-service-request-metrics-jira-service-desk">3) Ticket / Service Request Metrics (Jira Service Desk)</a></li>
-  <li><a href="#instruction-attendance-metrics" id="toc-instruction-attendance-metrics" class="nav-link" data-scroll-target="#instruction-attendance-metrics">4) Instruction Attendance Metrics</a></li>
-  <li><a href="#metric-naming-guidelines" id="toc-metric-naming-guidelines" class="nav-link" data-scroll-target="#metric-naming-guidelines">Metric Naming Guidelines</a></li>
-  <li><a href="#counting-rules-required" id="toc-counting-rules-required" class="nav-link" data-scroll-target="#counting-rules-required">Counting Rules (Required)</a></li>
-  <li><a href="#approved-comparisons" id="toc-approved-comparisons" class="nav-link" data-scroll-target="#approved-comparisons">Approved Comparisons</a></li>
-  <li><a href="#recommended-reporting-pattern" id="toc-recommended-reporting-pattern" class="nav-link" data-scroll-target="#recommended-reporting-pattern">Recommended Reporting Pattern</a></li>
-  <li><a href="#source-transition-policy-trello---github-projects" id="toc-source-transition-policy-trello---github-projects" class="nav-link" data-scroll-target="#source-transition-policy-trello---github-projects">Source Transition Policy (Trello -&gt; GitHub Projects)</a></li>
-  <li><a href="#data-stewardship-rules" id="toc-data-stewardship-rules" class="nav-link" data-scroll-target="#data-stewardship-rules">Data Stewardship Rules</a></li>
-  <li><a href="#current-known-caveats-this-repo" id="toc-current-known-caveats-this-repo" class="nav-link" data-scroll-target="#current-known-caveats-this-repo">Current Known Caveats (This Repo)</a></li>
-  </ul></li>
+  <li><a href="#voter-file-and-governed-access-redivis" id="toc-voter-file-and-governed-access-redivis" class="nav-link active" data-scroll-target="#voter-file-and-governed-access-redivis">Voter file and governed access (Redivis)</a></li>
+  <li><a href="#research-computing" id="toc-research-computing" class="nav-link" data-scroll-target="#research-computing">Research computing</a></li>
+  <li><a href="#ucla-dataverse" id="toc-ucla-dataverse" class="nav-link" data-scroll-target="#ucla-dataverse">UCLA Dataverse</a></li>
+  <li><a href="#lariac-aerial-imagery-and-lidar" id="toc-lariac-aerial-imagery-and-lidar" class="nav-link" data-scroll-target="#lariac-aerial-imagery-and-lidar">LARIAC aerial imagery and LiDAR</a></li>
+  <li><a href="#verified-research-outputs" id="toc-verified-research-outputs" class="nav-link" data-scroll-target="#verified-research-outputs">Verified research outputs</a></li>
+  <li><a href="#how-outputs-were-selected" id="toc-how-outputs-were-selected" class="nav-link" data-scroll-target="#how-outputs-were-selected">How outputs were selected</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Research Supported by Shared Investments</h1>
+<p class="subtitle lead">What DSC’s data purchases, platforms, and computing have made possible, and what they need to keep working</p>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<section id="metrics-governance-dsc-stats" class="level1">
-<h1>Metrics Governance (DSC Stats)</h1>
-<section id="purpose" class="level2">
-<h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
-<p>Define consistent, reproducible metrics for UCLA Data Science Center reporting across direct consultations, DataSquad task work, and service desk/ticket systems.</p>
-</section>
-<section id="core-principle" class="level2">
-<h2 class="anchored" data-anchor-id="core-principle">Core Principle</h2>
-<p>Do not mix different units of work into a single metric without explicit labeling.</p>
-<p>Examples: - A consultation appointment is not the same as a Trello/GitHub/Jira task. - A task is not the same as a comment/update on a task. - A ticket is not the same as a completed resolution.</p>
-</section>
-<section id="metric-families" class="level2">
-<h2 class="anchored" data-anchor-id="metric-families">Metric Families</h2>
-<section id="direct-service-metrics-consultations" class="level3">
-<h3 class="anchored" data-anchor-id="direct-service-metrics-consultations">1) Direct Service Metrics (Consultations)</h3>
-<p>These represent direct interactions with patrons/researchers.</p>
-<p>Examples: - <code>dsc_consultations_scheduled_count</code> - <code>datasquad_consultations_direct_count</code> - <code>consultations_total_direct_count</code></p>
-<p>Primary sources: - LibInsights / Calendly exports - DataSquad sign-in forms (walk-ins)</p>
-<p>Unit: - One consultation record / event row (unless a different rule is explicitly documented)</p>
-</section>
-</section>
-<section id="task-workload-metrics-project-work" class="level2">
-<h2 class="anchored" data-anchor-id="task-workload-metrics-project-work">2) Task / Workload Metrics (Project Work)</h2>
-<p>These represent internal/assigned work performed by DSC/DataSquad, not direct consultations.</p>
-<p>Examples: - <code>datasquad_tasks_created_count</code> - <code>datasquad_tasks_completed_count</code> - <code>datasquad_task_activity_comment_count</code> - <code>datasquad_task_activity_comment_weighted_count</code></p>
-<p>Primary sources: - Trello (historical) - GitHub Projects (current/future) - Jira Service Desk / JSM (if used for service requests)</p>
-<p>Unit: - Task/card/issue (<code>task_count_*</code>) OR activity on a task (<code>comment_count</code>, <code>update_count</code>)</p>
-</section>
-<section id="ticket-service-request-metrics-jira-service-desk" class="level2">
-<h2 class="anchored" data-anchor-id="ticket-service-request-metrics-jira-service-desk">3) Ticket / Service Request Metrics (Jira Service Desk)</h2>
-<p>These represent service requests submitted and tracked in a ticketing system.</p>
-<p>Examples: - <code>jsm_tickets_created_count</code> - <code>jsm_tickets_resolved_count</code> - <code>jsm_tickets_open_backlog_count</code> - <code>jsm_ticket_comment_count</code></p>
-<p>Unit: - Ticket/issue or ticket activity</p>
-</section>
-<section id="instruction-attendance-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="instruction-attendance-metrics">4) Instruction Attendance Metrics</h2>
-<p>These represent attendance instances at DSC-supported workshops and instructional events.</p>
-<p>Primary sources: - Consolidated attendee-level workshop data, including LibInsight and UC-wide event sources - Validated aggregate event summaries when row-level participant data cannot be published</p>
-<p>Unit: - One attendee-event row, or one participant-session included in a documented aggregate attendance count</p>
-<p>Aggregate event summaries may contribute to overall, year, event, and compatible topic totals. They must not contribute to UCLA affiliation, department, school/division, participant affiliation, or unique-person metrics unless those dimensions are directly supported by validated source data. Missing institution is unknown, not non-UCLA.</p>
-<p>Department-level UCLA records may be grouped by <code>organizational_parent</code> using the versioned instruction crosswalk. This broader field includes College divisions, professional schools, the Library, UCLA Health, institutes, external organizations, and administrative groups. Reports must retain <code>parent_type</code> and must not relabel every parent as a school. Missing or unresolved departments remain unknown.</p>
-</section>
-<section id="metric-naming-guidelines" class="level2">
-<h2 class="anchored" data-anchor-id="metric-naming-guidelines">Metric Naming Guidelines</h2>
-<p>Use names that encode: - <code>who/what</code> (DSC, DataSquad, JSM) - <code>domain</code> (consultations, tasks, tickets) - <code>behavior</code> (created, completed, resolved, direct, activity) - <code>unit</code> (<code>count</code>, <code>comment_count</code>, <code>days</code>)</p>
-<p>Examples: - Good: <code>datasquad_trello_task_activity_comment_weighted_count</code> - Good: <code>consultations_direct_count</code> - Bad: <code>total_work</code> (ambiguous)</p>
-</section>
-<section id="counting-rules-required" class="level2">
-<h2 class="anchored" data-anchor-id="counting-rules-required">Counting Rules (Required)</h2>
-<p>Every published metric should document: - Source system(s) - Grain/unit (row, card, issue, comment) - Date field used (<code>start_date_time</code>, <code>last_activity_date</code>, <code>created_at</code>, etc.) - Inclusion filters (archived cards, list/status filters, canceled appointments) - Deduplication logic (e.g., <code>Event UUID</code> for LibInsights backfills)</p>
-<p>If a rule changes, version it or note the effective date.</p>
-</section>
-<section id="approved-comparisons" class="level2">
-<h2 class="anchored" data-anchor-id="approved-comparisons">Approved Comparisons</h2>
-<p>Valid: - Direct consultations by year - Task workload by year - Ticket volume by month - Direct consultations vs task workload (side-by-side, separate metrics)</p>
-<p>Use caution: - Comparing task activity counts to consultation counts as if they are equivalent output</p>
-<p>Not valid (without explicit methodology): - Summing consultations + tasks + comments into one unlabeled “total work” metric</p>
-</section>
-<section id="recommended-reporting-pattern" class="level2">
-<h2 class="anchored" data-anchor-id="recommended-reporting-pattern">Recommended Reporting Pattern</h2>
-<p>For each period (month/quarter/year), report at least:</p>
-<section id="direct-service" class="level3">
-<h3 class="anchored" data-anchor-id="direct-service">Direct Service</h3>
-<ul>
-<li>DSC direct consultations</li>
-<li>DataSquad direct consultations</li>
-<li>Total direct consultations</li>
-</ul>
-</section>
-<section id="workload-tasks" class="level3">
-<h3 class="anchored" data-anchor-id="workload-tasks">Workload / Tasks</h3>
-<ul>
-<li>Task count (created/completed)</li>
-<li>Task activity (comment/update count or weighted count)</li>
-<li>Backlog snapshot (open tasks)</li>
-</ul>
-</section>
-<section id="tickets-if-jira-service-desk-is-in-use" class="level3">
-<h3 class="anchored" data-anchor-id="tickets-if-jira-service-desk-is-in-use">Tickets (if Jira Service Desk is in use)</h3>
-<ul>
-<li>Tickets created</li>
-<li>Tickets resolved</li>
-<li>Open backlog</li>
-<li>Median/average time to resolution (later phase)</li>
-</ul>
-</section>
-</section>
-<section id="source-transition-policy-trello---github-projects" class="level2">
-<h2 class="anchored" data-anchor-id="source-transition-policy-trello---github-projects">Source Transition Policy (Trello -&gt; GitHub Projects)</h2>
-<p>When changing systems: - Preserve historical source metrics as-is (Trello) - Add new source metrics (GitHub Projects) - Create a normalized cross-source task metric only after mapping fields and rules - Clearly mark transition dates in dashboards/reports</p>
-<p>Do not silently splice two systems together without documentation.</p>
-</section>
-<section id="data-stewardship-rules" class="level2">
-<h2 class="anchored" data-anchor-id="data-stewardship-rules">Data Stewardship Rules</h2>
-<ul>
-<li>Raw exports are immutable and stored with date-stamped filenames.</li>
-<li>Processed datasets are reproducible from scripts.</li>
-<li>Reference mappings (staff roster, department map, task filters) live in <code>data/reference/</code>.</li>
-<li>Dashboard/report numbers must be traceable to a script and a processed output file.</li>
-<li>Restricted participant identifiers must not be copied into public aggregate instruction sources.</li>
-</ul>
-</section>
-<section id="current-known-caveats-this-repo" class="level2">
-<h2 class="anchored" data-anchor-id="current-known-caveats-this-repo">Current Known Caveats (This Repo)</h2>
-<ul>
-<li>Trello “comment-weighted” metrics measure task activity, not direct consultations.</li>
-<li>DataSquad sign-in and task sources may have coverage gaps depending on available exports.</li>
-<li>Manual consultation logs from Google Drive may overlap with LibInsights and should be used for reconciliation unless dedup rules are implemented.</li>
-</ul>
+</header>
 
 
+<p><span class="brand-el brand-circular page-mark" aria-hidden="true"></span></p>
+<p>DSC buys data, runs platforms, and maintains computing that individual labs could not easily provide for themselves. These shared investments support identifiable research, and each needs ongoing data, access, and technical stewardship to keep working. Two of UCLA’s six 2024 Public Impact Research Award recipients led research that DSC supported (<a href="https://newsroom.ucla.edu/stories/ucla-public-impact-research-awards-2024">UCLA Newsroom</a>).</p>
+<p>The research, analysis, findings, and publications described here belong to the researchers. Each profile documents what DSC supplied; none claims that the work could not have been done another way.</p>
+<section id="voter-file-and-governed-access-redivis" class="level2">
+<h2 class="anchored" data-anchor-id="voter-file-and-governed-access-redivis">Voter file and governed access (Redivis)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Research barrier</td>
+<td>National voter history arrives as thousands of state files, over 10 TB, too large to store locally and too inconsistent to analyze as delivered. Its license requires governed access.</td>
+</tr>
+<tr class="even">
+<td>DSC investment</td>
+<td>Acquired the L2 national voter file with a Library subject selector; a doctoral curator made it analysis-ready as one national table; DSC provides governed access through Redivis, a platform for restricted research data.</td>
+</tr>
+<tr class="odd">
+<td>Documented use</td>
+<td>Redivis at UCLA: ~20TB of protected data, 50 registered users, and 150+ workflows (users and workflows, not projects). Research uses named publicly: election administration, gentrification, Latino voting, and a project linking voter records with health records.</td>
+</tr>
+<tr class="even">
+<td>Research outputs</td>
+<td>See the verified outputs below: the FORCE11 2024 presentation and an award-winning dissertation on U.S. election administration.</td>
+</tr>
+<tr class="odd">
+<td>Evidence of the connection</td>
+<td>A 2024 conference presentation co-given by the platform’s founder and the UCLA curator; a paper using the L2 voter file that thanks the curator for access.</td>
+</tr>
+<tr class="even">
+<td>Coverage and limits</td>
+<td>Drawn from the presentation and the public work of the researchers it names. Not yet a census of Redivis projects.</td>
+</tr>
+<tr class="odd">
+<td>Continuing requirement</td>
+<td>Data license renewal, platform subscription, curation of new releases, access administration, and onboarding for new researchers.</td>
+</tr>
+</tbody>
+</table>
 </section>
+<section id="research-computing" class="level2">
+<h2 class="anchored" data-anchor-id="research-computing">Research computing</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Research barrier</td>
+<td>Some datasets exceed what a lab can host or process on its own machines.</td>
+</tr>
+<tr class="even">
+<td>DSC investment</td>
+<td>Hosts research servers and a deep learning machine, with staff and student support for processing and training.</td>
+</tr>
+<tr class="odd">
+<td>Documented use</td>
+<td>Multi-year support for the Carceral Ecologies lab’s helicopter-surveillance analysis.</td>
+</tr>
+<tr class="even">
+<td>Research outputs</td>
+<td>For one documented processing task, runtime fell from about 318 minutes to about 2, under the reported conditions (claim #1). The lab’s research was later recognized by a 2024 UCLA Public Impact Research Award.</td>
+</tr>
+<tr class="odd">
+<td>Evidence of the connection</td>
+<td>Case record and the researcher’s own account, shared with permission.</td>
+</tr>
+<tr class="even">
+<td>Coverage and limits</td>
+<td>One engagement shown; a second (machine-learning analysis of animal behavior) awaits the researcher’s confirmation. Job logs have not been compiled.</td>
+</tr>
+<tr class="odd">
+<td>Continuing requirement</td>
+<td>Hardware maintenance, system administration, and staff who can support researchers on it.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ucla-dataverse" class="level2">
+<h2 class="anchored" data-anchor-id="ucla-dataverse">UCLA Dataverse</h2>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>Research barrier</td>
+<td>Researchers need a trusted place to deposit, cite, and share data, and UCLA’s legacy social science archive needed a modern home.</td>
+</tr>
+<tr class="even">
+<td>DSC investment</td>
+<td>Operates UCLA Dataverse with campus sign-in, DOI minting, and preservation, and harvested the legacy social science archive into it.</td>
+</tr>
+<tr class="odd">
+<td>Documented use</td>
+<td>~1,390 released datasets (February 2026), including about 1,014 legacy archive datasets, with download activity on the <a href="./infrastructure.html">infrastructure evidence page</a>.</td>
+</tr>
+<tr class="even">
+<td>Research outputs</td>
+<td>Publications that depositors linked to their datasets are listed as <a href="./infrastructure.html#traceable-publication-links">traceable publication links</a>.</td>
+</tr>
+<tr class="odd">
+<td>Evidence of the connection</td>
+<td>DOI relationships supplied by depositors.</td>
+</tr>
+<tr class="even">
+<td>Coverage and limits</td>
+<td>Depositors do not always link publications, and a linked paper is often the depositor’s own, so these links are not a measure of reuse.</td>
+</tr>
+<tr class="odd">
+<td>Continuing requirement</td>
+<td>Platform operation, storage, curation, and DOI services.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lariac-aerial-imagery-and-lidar" class="level2">
+<h2 class="anchored" data-anchor-id="lariac-aerial-imagery-and-lidar">LARIAC aerial imagery and LiDAR</h2>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>Research barrier</td>
+<td>High-resolution aerial imagery and LiDAR for Los Angeles County is costly and licensed through a consortium of public agencies.</td>
+</tr>
+<tr class="even">
+<td>DSC investment</td>
+<td>UCLA is a member of the Los Angeles Region Imagery Acquisition Consortium (LARIAC) through the Library, and DSC is how the UCLA community gets the data: imagery, LiDAR, elevation models, and building footprints, free to UCLA researchers on request (<a href="https://storymaps.arcgis.com/stories/d200175d87ca4294bfc9cb32407d311d">DSC access guide</a>). DSC also provisions EagleView imagery accounts.</td>
+</tr>
+<tr class="odd">
+<td>Documented use</td>
+<td>8 to 12 active EagleView users a year (2023 to 2026). Researchers from environment and sustainability, geography, and engineering, and campus Facilities for planning.</td>
+</tr>
+<tr class="even">
+<td>Research outputs</td>
+<td>A 2025 <em>npj Natural Hazards</em> study by UCLA authors built on 2020 LARIAC LiDAR (see below).</td>
+</tr>
+<tr class="odd">
+<td>Evidence of the connection</td>
+<td>The paper states its LiDAR source; UCLA’s access to LARIAC runs through DSC.</td>
+</tr>
+<tr class="even">
+<td>Coverage and limits</td>
+<td>Papers rarely name how they obtained the data. Other UCLA papers use LARIAC-derived products that may circulate outside the license, so they are not counted.</td>
+</tr>
+<tr class="odd">
+<td>Continuing requirement</td>
+<td>Consortium membership, data storage, access administration, and account provisioning.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="verified-research-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="verified-research-outputs">Verified research outputs</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Investment</th>
+<th style="text-align: left;">Output</th>
+<th style="text-align: left;">Year</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Connection to DSC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">LARIAC</td>
+<td style="text-align: left;"><a href="https://doi.org/10.1038/s44304-024-00053-4">Space-time dynamics in hazard exposure analysis (npj Natural Hazards)</a></td>
+<td style="text-align: left;">2025</td>
+<td style="text-align: left;">journal article</td>
+<td style="text-align: left;">UCLA authors; paper states LiDAR data from LARIAC captured in 2020; UCLA access to LARIAC is through DSC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Redivis and DataSquad</td>
+<td style="text-align: left;">National deaths-in-custody dataset (BioCritical Studies Lab)</td>
+<td style="text-align: left;">2024</td>
+<td style="text-align: left;">research project</td>
+<td style="text-align: left;">DSC contributed data integration and visualization; lab research recognized by a 2024 UCLA Public Impact Research Award (claim #2)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Research computing</td>
+<td style="text-align: left;">Carceral Ecologies helicopter-surveillance analysis (Shapiro lab)</td>
+<td style="text-align: left;">2024</td>
+<td style="text-align: left;">research project</td>
+<td style="text-align: left;">One processing task fell from about 318 to about 2 minutes (claim #1); lab research recognized by a 2024 UCLA Public Impact Research Award</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Voter file and Redivis</td>
+<td style="text-align: left;"><a href="https://escholarship.org/uc/item/28w4t2wj">Making Elections Happen: Accountability, Diversity, and Partisanship in U.S. Election Administration (Ferrer, dissertation)</a></td>
+<td style="text-align: left;">2025</td>
+<td style="text-align: left;">dissertation</td>
+<td style="text-align: left;">Author named as a user in the FORCE11 presentation; related paper uses the L2 voter file and thanks the UCLA curator for access</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Voter file and Redivis</td>
+<td style="text-align: left;"><a href="https://doi.org/10.5281/zenodo.13181256">Simplifying sharing of national voting data with Redivis (Mathews and Straus, FORCE11)</a></td>
+<td style="text-align: left;">2024</td>
+<td style="text-align: left;">conference presentation</td>
+<td style="text-align: left;">Co-presented by the platform’s CEO and the UCLA doctoral curator; names UCLA research uses</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="how-outputs-were-selected" class="level2">
+<h2 class="anchored" data-anchor-id="how-outputs-were-selected">How outputs were selected</h2>
+<p>We reviewed each investment’s available records: project records, the public work of researchers named in DSC presentations, depositor links in UCLA Dataverse, and a full-text search of OpenAlex for LARIAC. An output is listed only when a public output exists and its connection to the investment is supported by an explicit citation, acknowledgment, or methods statement, or by a project record confirmed by the researcher, and when the researcher has agreed to be named. Citation counts and researcher prominence did not affect selection. Outputs still being confirmed, including work on machine-learning analysis of animal behavior and three further LARIAC papers, are not shown.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Cite this page">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Cite this page
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>UCLA Library Data Science Center. (2026). <em>Research Supported by Shared Investments</em>. Retrieved from <a href="https://ucla-data-science-center.github.io/dsc-stats-reports/investments.html" class="uri">https://ucla-data-science-center.github.io/dsc-stats-reports/investments.html</a></p>
+</div>
+</div>
+</div>
+<p><em>Last rendered: September 27, 2026</em></p>
+
+
 </section>
 
 </main> <!-- /main -->
