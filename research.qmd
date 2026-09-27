@@ -22,8 +22,9 @@ alt_series <- if (nrow(series) > 0) sprintf(
   "Horizontal bar chart of recorded research consultations by year, 2017 to 2026. %s. Bars from 2024 on are floors: recording lapsed from mid-2024 and 2026 is partial.",
   paste(series$year, series$display, sep = ": ", collapse = "; ")) else "Recorded consultations by year (data not loaded)"
 alt_capacity <- if (nrow(capacity) > 0) sprintf(
-  "Horizontal bar chart of average student employees on payroll per month, by year. %s.",
-  paste(capacity$year, coalesce(as.character(capacity$student_avg_monthly), "no data"), sep = ": ", collapse = "; ")) else "Service capacity by year (data not loaded)"
+  "Two horizontal bar charts by year. Staff time in full-time equivalents (DSC staff plus other units): %s. Average students on payroll per month: %s.",
+  paste(capacity$year, coalesce(as.character(capacity$dsc_staff_fte + capacity$contributed_staff_fte), "no record"), sep = ": ", collapse = "; "),
+  paste(capacity$year, coalesce(as.character(capacity$student_avg_monthly), "no record"), sep = ": ", collapse = "; ")) else "Service capacity by year (data not loaded)"
 ```
 
 []{.brand-el .brand-node1 .page-mark aria-hidden="true"}
@@ -58,19 +59,36 @@ if (nrow(series) > 0) {
 
 ::: {.g-col-12 .g-col-md-6}
 
-```{r capacity_chart, echo=FALSE, fig.alt=alt_capacity, fig.width=5.5, fig.height=4.2, fig.cap="Service capacity: average number of student employees on payroll per month (UC timesheet records; 2026 through July). DSC staff time will be added here. From July to October 2025, while student hiring was under campus review, one student remained on payroll."}
+```{r capacity_chart, echo=FALSE, fig.alt=alt_capacity, fig.width=5.8, fig.height=4.2, fig.cap="Service capacity by year. Left: staff time in full-time equivalents, DSC staff plus time contributed by staff in other Library units (Gillian's share shown at its upper bound). Staff time covers all DSC services, not consultations only. Right: average student employees on payroll per month (UC timesheet records). From July to October 2025, while student hiring was under campus review, one student remained on payroll. 2026 runs through July."}
 if (nrow(capacity) > 0) {
-  capacity |>
-    mutate(year = factor(year, levels = rev(sort(unique(capacity$year)))),
-           label = if_else(is.na(student_avg_monthly), "no record", number(student_avg_monthly, accuracy = 0.1))) |>
-    ggplot(aes(y = year, x = coalesce(student_avg_monthly, 0))) +
-    geom_col(width = 0.7, fill = "#FFB81C") +
-    geom_text(aes(label = label), hjust = -0.2, size = 3.3) +
+  yrs <- rev(sort(unique(capacity$year)))
+  staff <- capacity |>
+    select(year, `DSC staff` = dsc_staff_fte, `Other units` = contributed_staff_fte) |>
+    pivot_longer(-year, names_to = "series", values_to = "value") |>
+    mutate(panel = "Staff (FTE)")
+  students <- capacity |>
+    transmute(year, series = "Students", value = student_avg_monthly, panel = "Students on payroll")
+  totals <- bind_rows(
+    staff |> group_by(year, panel) |> summarise(value = if (all(is.na(value))) NA_real_ else sum(value, na.rm = TRUE), .groups = "drop"),
+    students |> select(year, panel, value))
+  bind_rows(staff, students) |>
+    mutate(year = factor(year, levels = yrs),
+           series = factor(series, levels = c("Other units", "DSC staff", "Students")),
+           panel = factor(panel, levels = c("Staff (FTE)", "Students on payroll"))) |>
+    ggplot(aes(y = year, x = coalesce(value, 0), fill = series)) +
+    geom_col(width = 0.7) +
+    geom_text(data = totals |> mutate(year = factor(year, levels = yrs),
+                                      panel = factor(panel, levels = c("Staff (FTE)", "Students on payroll")),
+                                      label = if_else(is.na(value), "no record", number(value, accuracy = 0.1))),
+              aes(y = year, x = coalesce(value, 0), label = label), inherit.aes = FALSE, hjust = -0.2, size = 3) +
+    facet_wrap(~panel, scales = "free_x") +
     scale_y_discrete(drop = FALSE) +
-    scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
-    labs(y = NULL, x = "Students on payroll (monthly average)") +
-    theme_minimal(base_size = 12) +
-    theme(panel.grid.major.y = element_blank(), panel.grid.minor = element_blank())
+    scale_x_continuous(expand = expansion(mult = c(0, 0.3))) +
+    scale_fill_manual(values = c("DSC staff" = "#2774AE", "Other units" = "#8BB8E8", "Students" = "#FFB81C"),
+                      breaks = c("DSC staff", "Other units", "Students"), name = NULL) +
+    labs(y = NULL, x = NULL) +
+    theme_minimal(base_size = 11) +
+    theme(panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(), legend.position = "bottom")
 }
 ```
 

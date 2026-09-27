@@ -209,7 +209,8 @@ last verification date should not be reused until re-checked.
 - **Not approved**: naming students; treating headcount as hours or FTE; attributing the 2025 review to any person's intent.
 - **Reporting period**: 2018 to July 2026, by calendar year.
 - **Unit of observation**: student employee with a timesheet in a month (all DSC student lines: DataSquad, grant-funded, Lux Lab, general), averaged over the months of the year.
-- **Source**: UC Time Reporting System export (private; not in this repository), aggregated 2026-09-27. Staff FTE to be added from the director's roster.
+- **Staff FTE**: from the director's roster (2026-09-27), prorated by month: DSC staff (director; two analysts and a research specialist line; an emerging technologies librarian from Apr 2020, whose own Lux Lab and 3D service portfolio moved with the role; a GIS librarian May 2020 to Jul 2024) and time contributed by other Library units (about 0.5 FTE Oct 2018 to about Feb 2025; up to 0.2 FTE 2022 to summer 2024). Staff time covers all DSC services, not consultations only. Pre-Sept 2018 months assumed full-time for the two analyst lines (export horizon).
+- **Source**: UC Time Reporting System export (private; not in this repository), aggregated 2026-09-27, plus the director's roster.
 - **Registry**: `dsc-service-capacity-students` (to be added to `dsc-evidence-registry`).
 - **Last verified**: 2026-09-27.
 
