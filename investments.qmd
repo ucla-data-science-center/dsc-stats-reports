@@ -14,7 +14,15 @@ outputs <- read_csv("data/processed/canonical/research_outputs_public.csv", show
 
 DSC buys data, runs platforms, and maintains computing that individual labs could not easily provide for themselves. These shared investments support identifiable research, and each needs ongoing data, access, and technical stewardship to keep working. Two of UCLA's six 2024 Public Impact Research Award recipients led research that DSC supported ([UCLA Newsroom](https://newsroom.ucla.edu/stories/ucla-public-impact-research-awards-2024)).
 
-The research, analysis, findings, and publications described here belong to the researchers. Each profile documents what DSC supplied; none claims that the work could not have been done another way.
+Researchers own the scholarship; DSC supplied the documented data, access, or computing described below.
+
+## Three examples
+
+| | DSC supplied | Researchers produced | Evidence | Continuing requirement |
+|---|---|---|---|---|
+| **National voter file** | Acquired the L2 national voter file, had it made analysis-ready, and provides governed access on Redivis | An award-winning dissertation on U.S. election administration, and papers using the voter file | A paper thanks the UCLA curator for voter-file access; the curator and the platform's founder presented the work at FORCE11 2024 (corroborated) | License renewal, curation, access administration |
+| **LARIAC imagery and LiDAR** | UCLA's access to LARIAC data, through the Library's consortium membership | A 2025 *npj Natural Hazards* study built on 2020 LARIAC LiDAR | The paper states its LiDAR source; UCLA access runs through DSC (corroborated) | Membership, storage, access administration |
+| **Research computing** | Server hosting, processing support, and student training | The Carceral Ecologies lab's helicopter-surveillance analysis, recognized by a 2024 Public Impact Research Award | The researcher's own account, shared with permission (direct) | Hardware, system administration, support staff |
 
 ## Voter file and governed access (Redivis)
 
@@ -64,14 +72,16 @@ The research, analysis, findings, and publications described here belong to the 
 | Coverage and limits | Papers rarely name how they obtained the data. Other UCLA papers use LARIAC-derived products that may circulate outside the license, so they are not counted. |
 | Continuing requirement | Consortium membership, data storage, access administration, and account provisioning. |
 
-## Verified research outputs
+## Documented projects and outputs
+
+We reviewed 13 candidate projects and outputs; 5 are verified and shown here. The rest await researcher confirmation or stronger evidence. "Direct" means the output or the researcher states DSC's role; "corroborated" means the connection is established through a related paper, presentation, or access record.
 
 ```{r outputs_table, echo=FALSE}
 outputs |>
   arrange(investment, desc(year)) |>
   transmute(Investment = investment,
             Output = if_else(is.na(link), output, sprintf("[%s](%s)", output, link)),
-            Year = as.character(year), Type = type, `Connection to DSC` = connection_evidence) |>
+            Year = as.character(year), Kind = type, Connection = connection_type, `Evidence` = connection_evidence) |>
   knitr::kable()
 ```
 
