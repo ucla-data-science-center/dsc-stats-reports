@@ -142,6 +142,19 @@ Each phase is one branch and one PR against `dsc-stats-reports` main.
 * `/validate-external` on the finished site plus brief as a pair, before
   anything goes to faculty or the Senate.
 
+## 4b. Additions adopted 2026-09-25 (campus-audience requirements)
+
+From a review of what faculty, department chairs, and deans need to see (reconciliation kept in `dsc-stats-integration/proposals/2026-09-25-requirements-reconciliation.md`). Phase 1 merged as PR #12 on 2026-09-25.
+
+1. **Phase 1 follow-up: person-level reach.** Add the confirmed-UCLA-researcher count (1,908 confirmed; 2,082 confirmed + probable; 2017-2026) as a metric with a claim-register entry.
+2. **Phase 2: three evidence tables under the pathways.**
+   * Capacity by staff line, dated (for example, GIS consultations while the GIS librarian position was filled, then vacant).
+   * Service dependence, aggregate: which services each department's users rely on, by service line.
+   * Role breakdown (faculty / graduate / undergraduate / staff) with a "used in the last 12 months" column.
+3. **Phase 4: case-study pool.** Draw from current users with published projects; ask for permission when they respond to outreach.
+4. **Phase 5: division brief.** A one-page, generated template (same layout for any division), Social Sciences first, aggregates only with small-cell suppression. Sits beside the leadership brief.
+5. **Provenance.** Each `claim-register.md` entry names its `dsc-evidence-registry` claim (`registry: <claim-id>`); the registry is the master for every outward figure. Numbers change first in the `dsc-stats-integration` metric registry, then the registry claim, then here.
+
 ## 5. Risks
 
 * **Stale numbers leak.** The brief and site were drafted before the
