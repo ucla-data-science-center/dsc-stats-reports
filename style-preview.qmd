@@ -58,10 +58,10 @@ DSC runs UCLA Dataverse and governed access to restricted data, the current form
 }
 ```
 
-The site default is option A. Each option changes only the typeface; colors and layout are the same.
+Decided 2026-09-26: the site uses **Inter throughout** (headings, body, and figures). These options are kept for reference. Each changes only the typeface; colors and layout are the same.
 
 ::: {.font-option .font-a}
-**Option A: Source Serif 4 (headings) + Inter (body).** Current default.
+**Option A: Source Serif 4 (headings) + Inter (body).**
 
 ```{r, echo=FALSE, results='asis'}
 pathways()
