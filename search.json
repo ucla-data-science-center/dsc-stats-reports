@@ -25,7 +25,7 @@
     "href": "consulting.html#recorded-consultations-since-2017",
     "title": "Consulting Statistics",
     "section": "Recorded Consultations Since 2017",
-    "text": "Recorded Consultations Since 2017\nDSC recorded about 1,850 research consultations from 2017 to September 2026 (claim-register #10). Records are incomplete after mid-2024: Calendly ended, LibCal wasn’t in use until May 2025, and two reorganizations and staff departures cut logging. Because of that gap, this series cannot measure how demand changed after 2023; LibCal shows the work continued. It is a different series from the 2023-2025 audit below, which adds DataSquad walk-ins and uses its own deduplication.\n\n\n\n\n\nYear\nRecorded consultations\nNote\n\n\n\n\n2017\n3\n\n\n\n2018\n37\n\n\n\n2019\n160\n\n\n\n2020\n185\n\n\n\n2021\n341\n\n\n\n2022\n389\n\n\n\n2023\n394\n\n\n\n2024\n~226\nFloor (recording lapsed)\n\n\n2025\n~60-65\nFloor (recording lapsed)\n\n\n2026\n~55\nFloor (recording lapsed)"
+    "text": "Recorded Consultations Since 2017\nDSC recorded about 1,850 research consultations from 2017 to September 2026 (claim-register #10). The series counts scheduled appointments, with DSC staff and DataSquad consultants alike; DataSquad’s in-person walk-in sign-ins are not included. Records are incomplete after mid-2024: Calendly ended, LibCal wasn’t in use until May 2025, and two reorganizations and staff departures cut logging. Because of that gap, this series cannot measure how demand changed after 2023; LibCal shows the work continued. It is a different series from the 2023-2025 audit below, which adds DataSquad walk-ins and uses its own deduplication.\n\n\n\n\n\nYear\nRecorded consultations\nNote\n\n\n\n\n2017\n3\n\n\n\n2018\n37\n\n\n\n2019\n160\n\n\n\n2020\n185\n\n\n\n2021\n341\n\n\n\n2022\n389\n\n\n\n2023\n394\n\n\n\n2024\n~226\nFloor (recording lapsed)\n\n\n2025\n~60-65\nFloor (recording lapsed)\n\n\n2026\n~55\nFloor (recording lapsed)"
   },
   {
     "objectID": "consulting.html#at-a-glance-2023-2025-audit-20212026",
@@ -39,7 +39,7 @@
     "href": "consulting.html#direct-consultations",
     "title": "Consulting Statistics",
     "section": "Direct Consultations",
-    "text": "Direct Consultations\n\nBy Year (consultation records file, Jan 2021 to Jun 2024)By DepartmentBy AffiliationBy Team\n\n\nThis chart counts rows in the consultation records file that also feeds the department and affiliation breakdowns. The file runs from Jan 2021 to Jun 2024, so 2024 covers only part of the year. It is a different source from the reconciled series at the top of this page, which removes some bookings, so its yearly totals differ."
+    "text": "Direct Consultations\n\nBy Year (consultation records file, Jan 2021 to Jun 2024)By DepartmentBy AffiliationBy Team\n\n\nThis chart counts rows in the consultation records file that also feeds the department and affiliation breakdowns. The file runs from Jan 2021 to Jun 2024, so 2024 covers only part of the year. Unlike the series at the top of this page, which counts scheduled appointments (with DSC staff and DataSquad consultants alike), this file also includes DataSquad’s in-person walk-in sign-ins. That is why its 2024 total is larger: for January to May 2024 the scheduled appointments in both sources agree (166 here, 165 in the series)."
   },
   {
     "objectID": "consulting.html#project-work-task-metrics",
