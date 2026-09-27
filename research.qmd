@@ -33,7 +33,7 @@ DSC's staff time fell from 5.7 FTE in 2022-23 to 4.0 in 2025-26, and student hel
 
 ## Evidence in brief
 
-The figure shows capacity and recorded delivery side by side; it is not an estimate of demand.
+The figure shows capacity and recorded delivery side by side, not an estimate of demand.
 
 ```{r evidence_chart, echo=FALSE, fig.alt=alt_combined, fig.width=10, fig.height=5, fig.cap="Left: recorded consultations (scheduled appointments with DSC staff and DataSquad consultants); from mid-2024 recording lapsed (Calendly ended; LibCal from May 2025), so 2024 onward are floors, and 2026 runs to September. Middle: staff time in full-time equivalents, DSC staff plus time contributed by other Library units (one share shown at its upper bound); staff time covers all DSC services, not consultations only. Right: average student employees on payroll per month (UC timesheet records; 2026 through July); from July to October 2025, while student hiring was under campus review, one student remained on payroll."}
 if (nrow(series) > 0 && nrow(capacity) > 0) {
@@ -75,31 +75,31 @@ if (nrow(series) > 0 && nrow(capacity) > 0) {
 }
 ```
 
+Recorded counts from mid-2024 on are floors: the scheduling system lapsed while staff and student capacity fell, so these years cannot show whether demand changed. Consultations are interactions, not people.
+
+::: {.callout-note collapse="true" title="How the consultation series is counted"}
+- About 340 to 395 consultations a year were recorded at full recording (2021-2023), some growing into multi-year collaborations.
+- From mid-2024 the scheduling system lapsed (Calendly ended; LibCal from May 2025), so later counts are floors and cannot separate demand from the capacity to meet it or the ability to record it.
+- Consultations are interactions, not people. One researcher can book many appointments; the separate 1,908 figure counts people.
+- The series counts scheduled appointments, with DSC staff and DataSquad consultants alike. DataSquad's in-person walk-in sign-ins are shown separately on the [consultation evidence page](consulting.qmd).
+:::
+
 Two supporting measures:
 
 - **At least `r hl("people_reached_confirmed_ucla")` confirmed UCLA researchers** used DSC instruction or consultation, 2017 to September 2026 (a floor, counted only where identity could be confirmed).
 - **Scheduling systems changed three times:** Calendly to mid-2024, no scheduling system until May 2025, then LibCal. Consultations continued in the gap, but most went unrecorded.
 
-## A documented example
+## A research collaboration: making helicopter-surveillance data usable
 
-**Research question.** A lab in UCLA's Institute for Society and Genetics (Carceral Ecologies) needed to analyze a helicopter-surveillance dataset at research scale.
+The Carceral Ecologies lab in UCLA's Institute for Society and Genetics needed to analyze a large dataset of law-enforcement helicopter flights over Los Angeles, again and again. Over several years, DSC and DataSquad provided an R server, helped build the processing workflow, and trained a student researcher to keep using it.
 
-**Support provided.** Over several years, DSC and DataSquad provided R server infrastructure, data processing, and hands-on training for a student researcher.
+**One processing task went from about 5 hours 18 minutes to about 2 minutes.** That made repeated analysis of the dataset practical for the lab. It is a result from this task, not a benchmark for DSC's work in general.
 
-**Resulting output.** For one documented processing task, runtime fell from about 318 minutes to about 2, an approximately 159-fold reduction under the reported conditions.
+> "This work wouldn't have happened without your team!"
+>
+> Nicholas Shapiro, director of Carceral Ecologies, November 2024 (quoted with permission)
 
-**Evidence.** Case record in `data/processed/consultations/impact_case_studies.csv` (claim #1). A public link to the underlying output has not yet been recorded.
-
-**Limits of attribution.** One task in one engagement; not a general measure of DSC's effect. The lab's research and its later media coverage belong to the researchers.
-
-::: {.callout-important}
-## What this pattern means, and what it cannot mean
-
-- **It means** DSC delivered sustained one-on-one research support: about 340 to 395 recorded consultations a year at full recording (2021-2023), some growing into multi-year collaborations.
-- **It cannot mean** that demand fell after 2023. From mid-2024 the scheduling system lapsed and staff and student capacity fell, so recorded counts cannot separate demand from the capacity to meet it and the ability to record it.
-- **Consultations are interactions, not people.** One researcher can book many appointments; the separate 1,908 figure counts people.
-- **DataSquad walk-in sign-ins are not included.** The series counts scheduled appointments only; in-person walk-ins are shown separately on the [consultation evidence page](consulting.qmd).
-:::
+The research and its findings belong to the lab. DSC's documented contribution was the computing, the workflow, and the training that supported it (claim #1). The lab's work was later recognized with a 2024 UCLA Public Impact Research Award.
 
 ::: {.callout-note .long-view}
 ## The long view (history, as of 2026)
