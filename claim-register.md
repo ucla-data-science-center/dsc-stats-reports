@@ -228,3 +228,13 @@ last verification date should not be reused until re-checked.
 - **Outputs**: `data/processed/canonical/research_outputs_public.csv`; each row verified and permitted (enforced by `tests/test_public_outputs.R`). Permissions: FORCE11 presenters and named users (their public talk), Shapiro and Keel (Tim, 2026-09-27).
 - **Source register**: private, `dsc-stats-integration/restricted/research-enabled-register.csv`.
 - **Last verified**: 2026-09-27.
+
+## 20. 3D capture for the humanities (refugee boat; Iceland surveys; pointcloud.ucla.edu)
+
+- **Approved wording**: as on `research.qmd`: Doug Daniels 3D scanned the "Boat of Hope" and prepared models for the museum's in-gallery digital exhibit, hosted on pointcloud.ucla.edu; co-organized the digital archaeology day (50+ high school students, 30+ elders); ran drone surveys in Mosfell Valley for a Cotsen doctoral student; built pointcloud.ucla.edu in 2022. Students credited by task: one processed the Iceland data on return; one helped set up the Potree viewer.
+- **Not approved**: a year for the Iceland fieldwork (the public pointcloud Iceland folder is dated Aug-Sep 2024 and covers northern sites, not Mosfell Valley; relationship unconfirmed); that the student who processed Iceland data joined the boat scan (unknown); the boat's exact departure date (public sources give September 3 and September 4, 1984); naming the doctoral student (not named in public sources); that DSC produced the scholarship.
+- **Reporting period**: 2022 (pointcloud server) to 2026 (digital archaeology day, award).
+- **Unit of observation**: two engagements plus the shared hosting platform.
+- **Sources**: UCLA Newsroom, Librarians of the Year, 2026-07-07; UCLA Humanities, digital archaeology day, 2026-04-28 (course title, attendance); Cotsen Institute RMCI page; RMCI page for Doug Daniels (dal.ucla.edu); pointcloud.ucla.edu boat narrative; DSC director's account 2026-09-27 (student roles, Potree setup, instructional use); 2026 Librarian of the Year nomination draft and Doug Daniels's self-assessment (private; two weeks in Iceland, remote processing, library workstation, 2022 server build); DSC consulting meetup notes 2023 (student joined the lab in April 2023; drone equipment arrived May 2023).
+- **Contribution language allowed**: "scanned," "surveyed," "processed," "prepared," "hosts," "co-organized"; not "produced" or "authored" the research.
+- **Last verified**: 2026-09-27.

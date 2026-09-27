@@ -115,6 +115,16 @@ DataSquad students have worked on that dataset since 2021. In 2021 and 2022, Jul
 
 In the same letter, Sosa writes that the lab has used the dataset to complete projects funded by the National Institutes of Health, the National Science Foundation, and the Robert Wood Johnson Foundation. Keel, like Shapiro, received a 2024 UCLA Public Impact Research Award ([Institute for Society and Genetics, August 2024](https://socgen.ucla.edu/2024/08/16/isg-faculty-nicholas-shapiro-and-terence-keel-awarded-uclas-2024-public-impact-research-awards/)), and his 2025 book, *The Coroner's Silence* ([UCLA African American Studies](https://afam.ucla.edu/2026/02/18/the-coroners-silence-death-records-and-the-hidden-victims-of-police-violence/)), examines the same question. The research and its findings belong to the lab; DSC's part was building and maintaining the data underneath.
 
+## A third collaboration: 3D capture for the humanities
+
+Classics professor Kelly Nguyen's Refugee Material Culture Initiative, a collaboration with the Vietnamese Heritage Museum in Garden Grove, digitally preserves art and artifacts made and used by refugees ([Cotsen Institute of Archaeology](https://ioa.ucla.edu/content/refugee-material-culture-initiative)). Doug Daniels, DSC's emerging technologies librarian, 3D scanned the "Boat of Hope," a six-meter river sampan that carried nine refugees out of Vietnam in 1984, and prepared the models for the museum's in-gallery digital exhibit, which DSC also hosts online ([the boat's story](https://www.pointcloud.ucla.edu/VHM/narrative_all.html); [the initiative's page on Doug](https://dal.ucla.edu/rmci/taxonomy/term/130)). In Nguyen's course "Decolonizing Refugee Data from Rome to Vietnam," students build digital exhibitions from artifacts like these, and Doug and Nguyen co-organized a digital archaeology day that brought more than 50 Westminster High School students and more than 30 elders from Little Saigon to campus ([UCLA Humanities, April 2026](https://humanities.ucla.edu/news/digital-archaeology-day-kelly-nguyen/)).
+
+Doug also spent two weeks in Iceland's Mosfell Valley running drone surveys of turf buildings for a doctoral student at the Cotsen Institute of Archaeology ([UCLA Newsroom, July 2026](https://newsroom.ucla.edu/stories/doug-daniels-matthew-vest--ucla-librarians-of-the-year-2026)). He processed the data as it arrived during fieldwork and set up a workstation in the library so the student could keep working after returning; student employee Connor Lim processed the survey data once it came back.
+
+Both projects end up on [pointcloud.ucla.edu](https://www.pointcloud.ucla.edu), a server Doug built in 2022 so that anyone can explore 3D data in an ordinary web browser; student employee Bianca Badajos helped set up its Potree viewer. Publishing processed data there lets researchers examine it without specialized hardware and lets instructors bring it into class.
+
+The scholarship belongs to Nguyen's initiative and the Cotsen researchers. DSC's part was the capture, processing, and hosting. Doug was named a 2026 UCLA Librarian of the Year for this and other work (same Newsroom story).
+
 ::: {.callout-note .long-view}
 ## The long view (history, as of 2026)
 
@@ -138,6 +148,7 @@ The consultation evidence page holds the full tables. Jump to:
 | At least `r hl("people_reached_confirmed_ucla")` UCLA researchers | 2017 to Sept 2026 | person, confirmed | 2026-09-26 | #13 |
 | Carceral Ecologies collaboration; 318 to 2 minute data-loading step | 2019 to 2025 | one engagement | 2026-09-27 | #1 |
 | BioCritical Studies Lab collaboration | 2021 to 2024 | one engagement | 2026-09-27 | #2 |
+| 3D capture: refugee boat and Iceland surveys | 2022 to 2026 | two engagements | 2026-09-27 | #20 |
 | Student employees on payroll | 2018 to Jul 2026 | monthly average headcount | 2026-09-27 | #17 |
 | Consulting history | 1961 to 2026 | historical account | 2026-09-27 | #18 |
 
