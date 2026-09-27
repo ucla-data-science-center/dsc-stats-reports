@@ -24,6 +24,20 @@ Researchers own the scholarship; DSC supplied the documented data, access, or co
 | **LARIAC imagery and LiDAR** | UCLA's access to LARIAC data, through the Library's consortium membership, and the geospatial expertise to find, prepare, and use it | A 2025 *npj Natural Hazards* study built on 2020 LARIAC LiDAR | The paper states its LiDAR source; UCLA access runs through DSC (corroborated) | Membership, storage, access administration, geospatial expertise |
 | **Research computing** | Server hosting, processing support, and student training | The Carceral Ecologies lab's helicopter-surveillance analysis, recognized by a 2024 Public Impact Research Award | The researcher's own account, shared with permission (direct) | Hardware, system administration, support staff |
 
+## How the functions connect {#how-the-functions-connect}
+
+DSC works with five kinds of research material. Only the first is a repository DSC runs; for the others DSC provides access, computing, capture, or code, and the material stays with its licensor, lab, or partner.
+
+| Material | What DSC does | Where the material lives | Evidence |
+|---|---|---|---|
+| Repository datasets | Operates UCLA Dataverse (campus sign-in, DOIs, preservation) and curates the legacy social science archive harvested into it | UCLA Dataverse, run by DSC | [UCLA Dataverse](#ucla-dataverse); [infrastructure page](infrastructure.qmd) |
+| Large or restricted data | Acquired the L2 national voter file with a Library subject selector, scripted its ingest, set up the data use agreement and user management, and provides governed access | Redivis, under the vendor license | [Voter file](#voter-file-and-governed-access-redivis) |
+| Spatial data and imagery | Provides UCLA's access to LARIAC imagery and LiDAR and EagleView accounts, and GIS advice on using them | Consortium and vendor platforms | [LARIAC](#lariac-aerial-imagery-and-lidar); [helicopter case](research.qmd) |
+| 3D capture and models | Scans, processes, and hosts 3D models for browser access | pointcloud.ucla.edu, run by DSC; the objects and their stories belong to partners | [3D case](research.qmd) |
+| Research software and workflows | Staff and DataSquad students write and teach code with labs, and DSC runs the R server and deep learning machine the code runs on | Lab and public code repositories; DSC servers | [Research computing](#research-computing); [helicopter and deaths-in-custody cases](research.qmd) |
+
+What ties the rows together is the archive's working knowledge: how data is described, licensed, secured, and prepared so others can use it. Under any arrangement, someone has to be accountable for connecting these functions, setting standards across them, maintaining the infrastructure, and carrying that expertise forward.
+
 ## Voter file and governed access (Redivis)
 
 | | |

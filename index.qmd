@@ -28,12 +28,12 @@ fte_peak <- if (nrow(staff_fte) > 0) sprintf("%.1f", max(staff_fte$fte)) else "â
 fte_now  <- if (nrow(staff_fte) > 0) sprintf("%.1f", staff_fte$fte[which.max(staff_fte$year)]) else "â€”"
 ```
 
-**UCLA researchers have used DSC for data and technical work that crosses lab and department boundaries.** At least `r hl("people_reached_confirmed_ucla")` confirmed UCLA researchers used its instruction or consultation from 2017 to September 2026. DSC also made a 10 TB national voter file analysis-ready, provides governed access to restricted data, and operates UCLA's research-data repository. Its staff time fell from `r fte_peak` FTE in 2022-23 to `r fte_now` in 2025-26. The question for the university is who will maintain these functions, and support the research that uses them, as DSC's capacity changes.
+**UCLA researchers have used DSC for data and technical work that crosses lab and department boundaries.** At least `r hl("people_reached_confirmed_ucla")` confirmed UCLA researchers used its instruction or consultation from 2017 to September 2026. DSC also made a 10 TB national voter file analysis-ready, provides governed access to restricted data, and operates UCLA's research-data repository. Its staff time fell from `r fte_peak` FTE in 2022-23 to `r fte_now` in 2025-26. The question for the university is who will be accountable for these functions as DSC's capacity changes: connecting them, setting standards, maintaining the infrastructure, and carrying the expertise forward.
 
 
 ## What the evidence establishes
 
-DSC's work shows up in research outputs, not only in service counts. Two documented engagements illustrate this: for one helicopter-surveillance processing task, an approximately 159-fold runtime reduction was observed under the reported conditions; and DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA's 2024 Public Impact Research Awards. These two documented engagements show different kinds of DSC support; more are on the [shared investments page](investments.qmd). [How cases are selected](consulting.qmd#research-impact).
+DSC's work shows up in research outputs, not only in service counts. Three documented collaborations on the [Research enabled page](research.qmd) show different kinds of DSC support: data preparation and computing for a helicopter-surveillance study, where one data-loading step ran about 159 times faster; a national deaths-in-custody dataset a lab now updates itself; and 3D capture of a refugee boat for a humanities initiative. Two of the labs are led by 2024 UCLA Public Impact Research Award recipients. More are on the [shared investments page](investments.qmd). [How cases are selected](consulting.qmd#research-impact).
 
 ## Three ways DSC contributes
 
@@ -82,6 +82,8 @@ DSC runs UCLA Dataverse and governed access to restricted data, the current form
 
 ::: {.history-band}
 **Since 1961.** UCLA has kept research data for reuse since 1961, when political scientist Dwaine Marvick founded the Political Behavior Archive. The unit's name and institutional home have changed several times since; what persisted is the stewardship of research data and the work of widening access to it. [Read the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html)
+
+The materials have changed, from survey datasets to large and restricted files, spatial imagery, 3D models, and research code, and the archive's knowledge now shapes how DSC helps researchers work with them during a project and how the results stay understandable and usable afterward. DSC does not archive everything it supports. Its role is to connect consultation, computing, access, and the repository so that valuable outputs have a path to reuse. [How the functions connect](investments.qmd#how-the-functions-connect)
 :::
 
 ::: {.brand-wave aria-hidden="true"}

@@ -2,7 +2,7 @@
 title: "Research Enabled"
 subtitle: "Pathway: one-on-one research data support at UCLA, and the capacity behind it"
 toc: true
-toc-depth: 2
+toc-depth: 3
 ---
 
 ```{r setup, include=FALSE}
@@ -89,7 +89,11 @@ Two supporting measures:
 - **At least `r hl("people_reached_confirmed_ucla")` confirmed UCLA researchers** used DSC instruction or consultation, 2017 to September 2026 (a floor, counted only where identity could be confirmed).
 - **Scheduling systems changed three times:** Calendly to mid-2024, no scheduling system until May 2025, then LibCal. Consultations continued in the gap, but most went unrecorded.
 
-## A research collaboration: police helicopter surveillance
+## Three collaborations
+
+These three were chosen to show different kinds of documented support, not typical outcomes: data preparation and computing, a dataset a lab maintains itself, and 3D capture. For scale and breadth, see the consultation series above, the [instruction pathway](capability.qmd), and the [shared investments page](investments.qmd).
+
+### Police helicopter surveillance (Carceral Ecologies)
 
 The Carceral Ecologies lab, directed by Nicholas Shapiro in UCLA's Institute for Society and Genetics, studies the health and mental-health effects of law-enforcement helicopter surveillance across Los Angeles County from 2017 through 2022 ([lab project page](https://carceralecologies.org/projects/)). Its public findings include that LAPD helicopters fly lowest over largely Black and Hispanic neighborhoods, with a median of about 550 feet over Watts at night ([CalMatters, July 2024](https://calmatters.org/commentary/2024/07/california-longstanding-bias-police-helicopters/)).
 
@@ -107,7 +111,7 @@ In Shapiro's account, the lab's ability to keep analyzing its growing flight dat
 
 The research and its findings belong to the lab; Shapiro received a 2024 UCLA Public Impact Research Award for it ([Institute for Society and Genetics, August 2024](https://socgen.ucla.edu/2024/08/16/isg-faculty-nicholas-shapiro-and-terence-keel-awarded-uclas-2024-public-impact-research-awards/)).
 
-## A second collaboration: deaths in custody
+### Deaths in custody (BioCritical Studies Lab)
 
 In January 2021, Terence Keel's BioCritical Studies Lab, in UCLA's Institute for Society and Genetics, set out to build a single dataset of deaths in custody across the United States from 2000 to 2020. Those deaths are reported by several crowd-based sources, including The Guardian, Fatal Encounters, and Mapping Police Violence, each with its own variables and standards, and the dataset has to be revised as the sources change.
 
@@ -121,7 +125,7 @@ Keeping the national dataset usable through new sources and revisions has depend
 
 In the same letter, Sosa writes that the lab has used the dataset to complete projects funded by the National Institutes of Health, the National Science Foundation, and the Robert Wood Johnson Foundation. The research is the lab's; Keel, like Shapiro, received a 2024 UCLA Public Impact Research Award ([Institute for Society and Genetics, August 2024](https://socgen.ucla.edu/2024/08/16/isg-faculty-nicholas-shapiro-and-terence-keel-awarded-uclas-2024-public-impact-research-awards/)).
 
-## A third collaboration: 3D capture for the humanities
+### 3D capture for the humanities (Refugee Material Culture Initiative)
 
 Classics professor Kelly Nguyen's Refugee Material Culture Initiative, a collaboration with the Vietnamese Heritage Museum in Garden Grove, digitally preserves art and artifacts made and used by refugees ([Cotsen Institute of Archaeology](https://ioa.ucla.edu/content/refugee-material-culture-initiative)). Doug Daniels, DSC's emerging technologies librarian, 3D scanned the "Boat of Hope," a six-meter river sampan that carried nine refugees out of Vietnam in 1984, and prepared the models for the museum's digital exhibit ([the initiative's page on Doug](https://dal.ucla.edu/rmci/taxonomy/term/130)).
 
