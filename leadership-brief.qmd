@@ -45,9 +45,11 @@ it's published.
    (`claim-register.md` #10).
 
 3. Training builds capacity that outlasts the workshop. Since 2017 DSC
-   has run 819 workshop sessions with about 18,700 attendee-events,
-   including the UC-wide Carpentries series it co-founded and co-delivers
-   (`claim-register.md` #8-9). At least 39
+   has run 819 workshop sessions (through May 2026), and its instruction
+   drew 27,986 registered seats from May 2017 through September 2026,
+   including the UC-wide series it co-founded and co-delivers
+   (`claim-register.md` #9, #12). A registered seat is one registration
+   for one session, not a person. At least 39
    people who came through DSC-supported UC Carpentries workshops
    (2021-2025) have since been publicly confirmed in research or
    data-intensive roles. Call this an early signal, not a tracer study:
@@ -87,7 +89,7 @@ went on, but the record of it didn't.
 |---|---|---|---|
 | Department/division reach | Org-parent crosswalk (tested) | 2017-2024 | Attendee-event record |
 | Consultations (about 1,850) | Calendly, LibInsight, LibCal series | 2017-2026 | Consultation record |
-| Workshops (819 / about 18,700) | Reconciled attendance, incl. UC-wide Carpentries | 2017-2026 | Session / attendee-event |
+| Workshops (819 / 27,986) | Reconciled seat series, incl. UC-wide series | 2017-2026 | Session / registered seat |
 | Trajectory signal (39) | Named-people identity passes, deduped | 2021-2025 attendance | Person, public confirmation |
 | Dataverse metrics | Dataverse API + OpenAlex | Cumulative to date | Dataset / file / download / citation |
 | Case study | Impact case-study log | Multi-year engagement | Documented engagement |
@@ -98,9 +100,10 @@ went on, but the record of it didn't.
 
 - The reach finding uses the attendee-level records for 2017-2024
   (15,765). 5,722 of those have unknown UCLA affiliation and are excluded
-  from it, not treated as non-UCLA. The since-2017 workshop total adds
-  the UC-wide Carpentries series and 2024-2026 sessions; about 235 of
-  those later attendee-events haven't had the full duplication check.
+  from it, not treated as non-UCLA. The 27,986 seat total counts
+  registrations, one unit per series, and includes the UC-wide series;
+  attendance was recorded only for some series, so it is not an
+  attendance or headcount figure.
 - The trajectory finding isn't a tracer study. No pass captured a role
   start date, so a confirmed later role doesn't establish that it began
   after DSC engagement, and coverage hasn't been systematically

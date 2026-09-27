@@ -98,6 +98,7 @@ last verification date should not be reused until re-checked.
 - **Deduplicated**: yes, exact-duplicate rows checked against named sources 2026-09-10.
 - **Contribution language allowed**: "attendee-events," "workshop registrations," "co-delivered" for the joint series.
 - **Last verified**: 2026-09-24.
+- **Status**: superseded 2026-09-26 by #12 as the published instruction figure. Kept for documents that already cite it; do not use in new copy.
 
 ## 9. Workshop sessions and attendee-events since 2017
 
@@ -110,6 +111,7 @@ last verification date should not be reused until re-checked.
 - **Source**: `data/processed/canonical/headline_aggregates.csv` (`instruction_attendee_events_lifetime`, `instruction_sessions_lifetime`), same upstream as #8.
 - **Contribution language allowed**: "about," "since 2017."
 - **Last verified**: 2026-09-24.
+- **Status**: the attendee-event figure (about 18,700) is superseded 2026-09-26 by #12. The session count (819, May 2017 to May 2026) is still current.
 
 ## 10. Recorded consultations, 2017-2026
 
@@ -136,3 +138,36 @@ last verification date should not be reused until re-checked.
 - **Source**: session-by-session review by the DSC director, 2026-09-25, with venues checked against workshop-site repositories (`dsc-stats-integration/proposals/ucla-venue-2017-2020-proposal.md`).
 - **Contribution language allowed**: "about," "held at UCLA."
 - **Last verified**: 2026-09-25.
+- **Registry**: `ucla-held-attendance-2017-2020` (to be added to `dsc-evidence-registry`).
+
+## 12. Registered workshop seats, 2017-2026
+
+- **Approved wording**: "DSC instruction reached 27,986 registered seats from May 2017 through September 2026 (2026 partial)." Short form: "27,986 registered workshop seats since 2017."
+- **Not approved**: "27,986 people trained," "27,986 attendees," or "27,986 UCLA participants." A registered seat is one registration for one session, not a person and not an attendance. The total includes the full UC-wide audience of series DSC co-founded and co-delivers; UCLA is a subset.
+- **Reporting period**: 2017-05-04 to 2026-09-26. 2026 is partial (Fall 2026 UC Carpentries in progress).
+- **Unit of observation**: registered seat, one unit per series: UC Carpentries and Library Carpentry registered seats; Love Data Week registered seats (best effort, Tim's call 2026-09-26); GIS Week registrations; DSC-run workshops the larger of the named rebuild and the published aggregate, per year.
+- **By program**: UC Carpentries (joint series) 10,749; Library Carpentry (UC, May 2026) 1,064; Love Data Week 8,708; GIS Week 2,738; DSC workshops 4,727. By year: `data/processed/canonical/instruction_seats_by_program_year.csv`.
+- **Attended alongside**: UC Carpentries 524 (2023), 1,036 (2024), 637 (2025); Library Carpentry May 2026 428; Love Data Week 2021 655 (some sessions only). Compare only within the same series and dates; never apply the UC Carpentries ratio (about 1 attended per 3 registered) to other series or the total.
+- **Presentation**: not a hero number. Shown as a stacked annual chart by program with the total beside it (seats proposal, "Presentation", adopted 2026-09-26).
+- **Love Data Week 2021 correction**: 1,529 registered seats on the same UC-wide basis as 2022-2024, replacing 177 (DSC-hosted sessions only) in the earlier series.
+- **Why it differs from #8 (17,466)**: unit (earlier Carpentries figures counted attended seats or people), window (adds 2024-2026), the Love Data Week 2021 correction, and the larger-of rule for DSC workshops 2017-2019.
+- **Missingness/coverage**: named sources for general DSC workshops 2017-2019 are incomplete (workbench gaps G11, G12). Library Carpentry May 2026 attended is 428 here against 453 in the earlier series; UC Carpentries Sept 2024 attended is 1,036 Zoom rows against 1,027 after merging rejoins.
+- **Source**: `data/processed/canonical/headline_aggregates.csv` (`instruction_registered_seats`) and `instruction_seats_by_program_year.csv`, from `dsc-stats-integration` `proposals/2026-09-26-seats-reconciliation.md` (decided by Tim 2026-09-26). Row-level inputs stay in the workbench.
+- **Deduplicated**: DSC workshops deduplicated on person and date in the rebuild; other series use source registration counts.
+- **Contribution language allowed**: "registered seats," "registrations," "co-delivered" for the joint series.
+- **Registry**: `instruction-registered-seats-2017-2026` and `love-data-week-2021-registered-seats` (both to be added to `dsc-evidence-registry`).
+- **Last verified**: 2026-09-26.
+
+## 13. UCLA people reached, 2017-2026
+
+- **Approved wording**: "At least 1,908 confirmed UCLA researchers used DSC instruction or consultation from 2017 to September 2026."
+- **Not approved**: presenting 1,908 as a census or as everyone DSC served; "1,908 students"; adding it to seat or consultation counts. It is a floor.
+- **Reporting period**: 2017 to 2026-09-08 (date of the person-level run).
+- **Unit of observation**: one person, confirmed UCLA.
+- **Population/exclusions**: faculty, graduate students, postdocs, and academic staff who attended instruction or had a consultation. DSC staff and non-UCLA excluded. 2,082 counting probable matches; the published figure uses confirmed only.
+- **Method**: email match first, then name plus a corroborating field; ambiguous common names left unmerged.
+- **Source**: `data/processed/canonical/headline_aggregates.csv` (`people_reached_confirmed_ucla`), from the `dsc-stats-integration` v3h person-level merge (2026-09-08). Row-level data stays in the workbench.
+- **Pending**: a broader v4 definition (more service sources) is provisional. It replaces this figure only when Tim lifts the provisional flag; see the `TODO(reach-v4)` note in `index.qmd`.
+- **Contribution language allowed**: "at least," "confirmed UCLA researchers," "used."
+- **Registry**: `ucla-researchers-served-2017-2026` (exists; its `verification_status` is `unverified`, and its `used_in` needs `dsc-stats-reports index.qmd`).
+- **Last verified**: 2026-09-26 (figure unchanged since the 2026-09-08 run).

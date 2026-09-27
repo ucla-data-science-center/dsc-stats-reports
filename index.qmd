@@ -16,8 +16,13 @@ audit_coverage <- read_if("data/processed/consultations/consultation_audit_sourc
 by_year_src    <- read_if("data/processed/consultations/consultation_audit_2023_2025_by_year_source.csv")
 by_year_task   <- read_if("data/processed/consultations/consultation_audit_2023_2025_by_year_task_mode.csv")
 
-# Reconciled headline figures (dsc-stats-integration, see claim-register.md #8-#10)
+# Reconciled headline figures (dsc-stats-integration, see claim-register.md #9, #10, #12, #13)
+# TODO(reach-v4): the "UCLA People Reached" card reads people_reached_confirmed_ucla.
+# When Tim lifts the provisional flag on person-level reach v4 (dsc-stats-integration
+# PROVENANCE.md, "Person-level reach: definition"), replace that one row in
+# headline_aggregates.csv, update claim-register.md #13, and change reach_note below.
 headline <- read_if("data/processed/canonical/headline_aggregates.csv")
+reach_note <- "Confirmed UCLA researchers who used instruction or consultation, 2017 to Sept 2026; a floor"
 hl <- function(key) {
   x <- headline |> filter(metric_id == key) |> pull(display)
   if (length(x) == 0) "—" else x[[1]]
@@ -68,7 +73,7 @@ yoy_tasks <- local({
 })
 ```
 
-*For UCLA Library administration and DSC staff — unified service metrics across consultations, instruction, and infrastructure.*
+*For UCLA Library administration and DSC staff: unified service metrics across consultations, instruction, and infrastructure.*
 
 ## Since 2017
 
@@ -78,15 +83,15 @@ yoy_tasks <- local({
 
 [Workshop Sessions]{.kpi-label}
 [`r hl("instruction_sessions_lifetime")`]{.kpi-value}
-[May 2017 to May 2026]{.kpi-note}
+[May 2017 to May 2026; registered seats by program are charted on the [instruction page](instruction.qmd)]{.kpi-note}
 
 :::
 
 ::: {.g-col-12 .g-col-md-4 .kpi-card}
 
-[Workshop Attendee-Events]{.kpi-label}
-[`r hl("instruction_attendee_events_lifetime")`]{.kpi-value}
-[Registrations, not people; `r hl("instruction_attendee_events_verified")` fully verified through April 2024]{.kpi-note}
+[UCLA People Reached]{.kpi-label}
+[`r hl("people_reached_confirmed_ucla")`]{.kpi-value}
+[`r reach_note`]{.kpi-note}
 
 :::
 
@@ -138,7 +143,7 @@ yoy_tasks <- local({
 
 ::: {.g-col-4 .card .p-3}
 ### [Consulting](consulting.qmd)
-One-on-one research support — DSC staff appointments and DataSquad walk-ins.
+One-on-one research support: DSC staff appointments and DataSquad walk-ins.
 :::
 
 ::: {.g-col-4 .card .p-3}
@@ -159,13 +164,13 @@ AWS cloud usage trends and UCLA Dataverse repository growth and download metrics
 
 - **Direct consultations** = one interaction record (appointment or walk-in). Canceled appointments excluded.
 - **Task cards** = Trello cards assigned to DataSquad project work. Not equivalent to consultations.
-- **Task activity (comment-weighted)** = comment count on task cards — a workload proxy, not hours or outputs.
+- **Task activity (comment-weighted)** = comment count on task cards, a workload proxy, not hours or outputs.
 
 ::: {.callout-note collapse="true" title="Data notes"}
 - Sources: LibInsight (scheduled exports + manual logs), DataSquad walk-in sign-in forms, Trello (historical task tracking)
 - Canceled appointments excluded from all direct consultation counts
 - Manual LibInsight logs deduplicated against scheduled exports using a same-provider/same-minute heuristic
-- Task metrics (Trello cards, comment-weighted activity) are **not** consultations — shown separately throughout
+- Task metrics (Trello cards, comment-weighted activity) are **not** consultations; shown separately throughout
 - **YoY comparisons** (2023 → 2024): consultation decline reflects shifting data sources; task card growth reflects expanded Trello adoption, not proportional workload increase
 - Full counting rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
 :::

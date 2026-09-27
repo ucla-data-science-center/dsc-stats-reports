@@ -1,0 +1,27 @@
+program,year,registered_seats,attended_seats,attended_note,unit
+UC Carpentries (joint series),2020,343,,,registered seats: one per person per session signed up
+UC Carpentries (joint series),2021,1041,,,registered seats: one per person per session signed up
+UC Carpentries (joint series),2022,1039,,,registered seats: one per person per session signed up
+UC Carpentries (joint series),2023,2427,524,,registered seats: one per person per session signed up
+UC Carpentries (joint series),2024,3289,1036,"Zoom rows at 30+ minutes; 1,027 after merging rejoins",registered seats: one per person per session signed up
+UC Carpentries (joint series),2025,1743,637,,registered seats: one per person per session signed up
+UC Carpentries (joint series),2026,867,,,registered seats: one per person per session signed up
+"Library Carpentry (UC, May 2026)",2026,1064,428,rejoins merged by name; 453 in the earlier published series,registered seats
+Love Data Week,2021,1529,655,some sessions only,registered seats (best effort)
+Love Data Week,2022,2486,,,registered seats (best effort)
+Love Data Week,2023,2098,,,registered seats (best effort)
+Love Data Week,2024,2595,,,registered seats (best effort)
+GIS Week,2020,880,,,registrations
+GIS Week,2021,892,,,registrations
+GIS Week,2022,596,,,registrations
+GIS Week,2023,370,,,registrations
+DSC workshops,2017,366,,,"larger of named rebuild and published aggregate, per year"
+DSC workshops,2018,542,,,"larger of named rebuild and published aggregate, per year"
+DSC workshops,2019,636,,,"larger of named rebuild and published aggregate, per year"
+DSC workshops,2020,1501,,,"larger of named rebuild and published aggregate, per year"
+DSC workshops,2021,1139,,,"larger of named rebuild and published aggregate, per year"
+DSC workshops,2022,254,,,"larger of named rebuild and published aggregate, per year"
+DSC workshops,2023,141,,,"larger of named rebuild and published aggregate, per year"
+DSC workshops,2024,63,,,"larger of named rebuild and published aggregate, per year"
+DSC workshops,2025,76,,,"larger of named rebuild and published aggregate, per year"
+DSC workshops,2026,9,,,"larger of named rebuild and published aggregate, per year"

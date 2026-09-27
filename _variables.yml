@@ -17,8 +17,10 @@ instruction:
   consultations_total: "604"  # superseded 2026-09-24; kept for older docs, headline uses consultations_recorded
   # Reconciled 2026-09-24 (claim-register.md #8-#10, data/processed/canonical/)
   sessions_lifetime: "819"
-  attendee_events_lifetime: "about 18,700"
-  attendee_events_verified: "17,466"
+  # Reconciled 2026-09-26 (claim-register.md #12): replaces the attendee-event figures below
+  registered_seats: "27,986"
+  attendee_events_lifetime: "about 18,700"  # superseded 2026-09-26; kept for older docs
+  attendee_events_verified: "17,466"  # superseded 2026-09-26; kept for older docs
   consultations_recorded: "about 1,850"
 software:
   sloan_amount: "$1.85M"

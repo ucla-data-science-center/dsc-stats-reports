@@ -12,6 +12,7 @@ library(lubridate)
 library(scales)
 library(plotly)
 library(crosstalk)
+source("src/etl/suppression.R")
 
 # ── Consultation records (graceful fallback) ──────────────────
 data_loaded <- FALSE
@@ -210,6 +211,7 @@ if (data_loaded) {
   dept_counts <- dsc_consult |>
     filter(!is.na(department), !department %in% internal_depts) |>
     count(department, sort = TRUE) |>
+    suppress_small_cells("department", "n", other_label = "Other departments (each fewer than 5)") |>
     rename(Department = department, Consultations = n)
 
   sd_dept <- SharedData$new(dept_counts)
@@ -229,7 +231,7 @@ if (data_loaded) {
     DT::datatable(sd_dept, rownames = FALSE,
                   colnames = c("Department", "Consultations"),
                   options = list(pageLength = 10, dom = "tp"),
-                  caption = "All departments — linked to chart above")
+                  caption = paste0("Departments, linked to chart above.", suppression_note(dept_counts, "departments")))
   )
 } else { no_data_msg() }
 ```
@@ -241,7 +243,8 @@ if (data_loaded) {
   affil_counts <- dsc_consult |>
     filter(!is.na(ucla_affiliation)) |>
     count(ucla_affiliation, sort = TRUE) |>
-    filter(n >= 3) |>   # drop obvious data-entry noise (phone numbers, names)
+    # Small cells, including free-text data-entry noise, fold into one row
+    suppress_small_cells("ucla_affiliation", "n", other_label = "Other affiliations (each fewer than 5)") |>
     rename(Affiliation = ucla_affiliation, Consultations = n)
 
   sd_affil <- SharedData$new(affil_counts)
@@ -259,7 +262,7 @@ if (data_loaded) {
     DT::datatable(sd_affil, rownames = FALSE,
                   colnames = c("Affiliation", "Consultations"),
                   options = list(pageLength = 10, dom = "t"),
-                  caption = "Linked to chart above")
+                  caption = paste0("Linked to chart above.", suppression_note(affil_counts, "affiliations")))
   )
 } else { no_data_msg() }
 ```

@@ -18,9 +18,9 @@
 
 ::: {.kpi-card}
 
-[{{< var instruction.attendee_events_lifetime >}}]{.kpi-value}
-[Workshop attendee-events since 2017]{.kpi-label}
-[{{< var instruction.sessions_lifetime >}} sessions; registrations, not people]{.kpi-note}
+[{{< var instruction.registered_seats >}}]{.kpi-value}
+[Registered workshop seats since 2017]{.kpi-label}
+[May 2017 to Sept 2026; registrations, not people; {{< var instruction.sessions_lifetime >}} sessions through May 2026]{.kpi-note}
 
 :::
 
@@ -37,8 +37,8 @@
 <details class="more-info">
 <summary>Where these numbers come from</summary>
 
-**Data currency:** Workshop figures run through May 2026 (fully duplication-checked
-through April 2024). Consultations run through September 2026 and are a floor from
+**Data currency:** Registered workshop seats run through September 2026 (2026 is
+partial); the session count runs through May 2026. Consultations run through September 2026 and are a floor from
 mid-2024 on, when recording lapsed. Dataverse infrastructure figures are current through February 2026. Full
 methodology: [dsc-stats-reports/about]({{< var links.methodology >}}).
 </details>
