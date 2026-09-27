@@ -58,7 +58,7 @@ last verification date should not be reused until re-checked.
 - **Approved wording**: "Across two separately defined cohorts (September 2025, and 2021/2022/2024), public evidence confirmed at least 39 people subsequently observed in research or data-intensive roles."
 - **Not approved**: presenting 39 as one cohort, or as a tracer study, or implying systematic/complete coverage.
 - **Numerator/denominator**: 39 confirmed of 166 combined qualifying attendees (43 + 123).
-- **Dedup check**: run 2026-09-12 — 1 person (Molly Haigh) appears in both full rosters but is not in either confirmed subset, so 10 + 29 = 39 has no double-count. `carp3yr` and `ldw58` passes have NOT been checked against this combined figure; do not fold them in without repeating the overlap check.
+- **Dedup check**: run 2026-09-12 — 1 person appears in both full rosters but is not in either confirmed subset, so 10 + 29 = 39 has no double-count. `carp3yr` and `ldw58` passes have NOT been checked against this combined figure; do not fold them in without repeating the overlap check.
 - **Contribution language allowed**: "early trajectory signals," "retrospective trajectory tracing" — not "tracer study" or "alumni study" (implies a defined eligible population, observation window, and systematic follow-up this work does not yet have).
 - **Last verified**: 2026-09-12.
 
