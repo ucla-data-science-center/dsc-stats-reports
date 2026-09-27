@@ -291,7 +291,7 @@
     "href": "consulting.html#direct-consultations",
     "title": "Consulting Statistics",
     "section": "Direct Consultations",
-    "text": "Direct Consultations\n\nBy Year (consultation records file, 2021-2024)By DepartmentBy AffiliationBy Team\n\n\nThis chart counts rows in the consultation records file that also feeds the department and affiliation breakdowns. It is a different source from the reconciled series at the top of this page, which removes some bookings, so its yearly totals differ (for example, 2024)."
+    "text": "Direct Consultations\n\nBy Year (consultation records file, Jan 2021 to Jun 2024)By DepartmentBy AffiliationBy Team\n\n\nThis chart counts rows in the consultation records file that also feeds the department and affiliation breakdowns. The file runs from Jan 2021 to Jun 2024, so 2024 covers only part of the year. It is a different source from the reconciled series at the top of this page, which removes some bookings, so its yearly totals differ."
   },
   {
     "objectID": "consulting.html#project-work-task-metrics",
