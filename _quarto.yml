@@ -26,9 +26,14 @@ execute:
 
 website:
   title: "DSC Statistics"
+  favicon: images/brand/dsc-cube.svg
   description: "UCLA Library Data Science Center — service metrics and infrastructure reporting."
   navbar:
     background: primary
+    # DSC logo from the 2019 identity package (white version; the bar is blue in both themes)
+    logo: images/brand/dsc-logo-white.svg
+    logo-alt: "UCLA Library Data Science Center"
+    title: "Statistics"
     left:
       - href: index.qmd
         text: Home

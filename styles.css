@@ -326,3 +326,25 @@ body.quarto-dark :not(pre) > code {
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
   .grid { display: block; }
 }
+
+/* ── DSC logo in the navbar (2019 identity package) ── */
+.navbar-brand .navbar-logo,
+.navbar-logo {
+  /* The SVG has no intrinsic size, so give it an explicit height (a max-height
+     alone lets it collapse to zero inside the flex navbar). */
+  height: 56px;
+  max-height: none;
+  width: auto;
+}
+.navbar-brand .navbar-title {
+  border-left: 1px solid rgba(255, 255, 255, 0.55);
+  padding-left: 0.75rem;
+  margin-left: 0.25rem;
+}
+.navbar-logo { flex-shrink: 0; }
+@media (max-width: 575.98px) {
+  /* Phone: smaller logo, and the page heading carries the site name */
+  .navbar-brand .navbar-logo,
+  .navbar-logo { height: 40px; }
+  .navbar-brand .navbar-title { display: none; }
+}
