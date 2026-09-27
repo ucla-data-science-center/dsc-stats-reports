@@ -645,6 +645,25 @@ color: var(--ink-soft);
 margin-top: 0.3rem;
 }
 
+.seat-total {
+align-self: center;
+border-left: 3px solid var(--ucla-blue);
+padding-left: 1rem;
+}
+.seat-total .kpi-value {
+display: block;
+font-size: 1.6rem;
+font-weight: 700;
+color: var(--ucla-blue-deep);
+font-variant-numeric: tabular-nums;
+}
+.seat-total .kpi-label,
+.seat-total .kpi-note {
+display: block;
+font-size: 0.85rem;
+color: var(--ink-soft);
+}
+
 .callout-note.data-notes .callout-body > p {
 margin-bottom: 0.3rem;
 font-size: 0.88rem;
@@ -943,7 +962,7 @@ details.more-info { break-inside: avoid; }
 
 <p>The Data Science Center grew out of UCLA’s Social Science Data Archive, an archive that dates to 1961 and was a founding member of ICPSR. Since 2017 it has become something broader: general-purpose research data infrastructure, instruction, and consulting used across the university. This is a record of what that build looks like, in numbers and in the work it supported.</p>
 <div class="tldr">
-<p><strong>In short:</strong> UCLA Dataverse has grown from 9 datasets in 2020 to roughly 1,390 released today. DSC’s Redivis platform, built around an unusable 10-terabyte national voter file, has since processed 4.8 petabytes of restricted research data. Since 2017 DSC has run 819 workshop sessions with about 18,700 attendee-events. GIS support disappeared in 2024 even though the demand for it never did.</p>
+<p><strong>In short:</strong> UCLA Dataverse has grown from 9 datasets in 2020 to roughly 1,390 released today. DSC’s Redivis platform, built around an unusable 10-terabyte national voter file, has since processed 4.8 petabytes of restricted research data. Since 2017 DSC has run 819 workshop sessions (through May 2026) and counted 27,986 registered workshop seats (through September 2026). GIS support disappeared in 2024 even though the demand for it never did.</p>
 </div>
 <h2 id="sec-lineage" class="anchored">A 65-year lineage</h2>
 <div class="timeline">
@@ -976,7 +995,7 @@ details.more-info { break-inside: avoid; }
 <p><span class="kpi-value">143,000+</span> <span class="kpi-label">Dataset downloads since 2020</span> <span class="kpi-note">229 in Jan 2020 → 143,000+ today</span></p>
 </div>
 <div class="kpi-card">
-<p><span class="kpi-value">about 18,700</span> <span class="kpi-label">Workshop attendee-events since 2017</span> <span class="kpi-note">819 sessions; registrations, not people</span></p>
+<p><span class="kpi-value">27,986</span> <span class="kpi-label">Registered workshop seats since 2017</span> <span class="kpi-note">May 2017 to Sept 2026; registrations, not people; 819 sessions through May 2026</span></p>
 </div>
 <div class="kpi-card">
 <p><span class="kpi-value">about 1,850</span> <span class="kpi-label">Recorded consultations since 2017</span> <span class="kpi-note">A floor: recording lapsed from mid-2024</span></p>
@@ -986,7 +1005,7 @@ details.more-info { break-inside: avoid; }
 <summary>
 Where these numbers come from
 </summary>
-<strong>Data currency:</strong> Workshop figures run through May 2026 (fully duplication-checked through April 2024). Consultations run through September 2026 and are a floor from mid-2024 on, when recording lapsed. Dataverse infrastructure figures are current through February 2026. Full methodology: <a href="https://ucla-data-science-center.github.io/dsc-stats-reports/about.html">dsc-stats-reports/about</a>.
+<strong>Data currency:</strong> Registered workshop seats run through September 2026 (2026 is partial); the session count runs through May 2026. Consultations run through September 2026 and are a floor from mid-2024 on, when recording lapsed. Dataverse infrastructure figures are current through February 2026. Full methodology: <a href="https://ucla-data-science-center.github.io/dsc-stats-reports/about.html">dsc-stats-reports/about</a>.
 </details>
 <p>Together these describe a shift: DSC has grown from a specialized archive service into general-purpose research infrastructure used across the university, the kind of reach the 2014 transfer was meant to enable.</p>
 <h2 id="sec-what-we-cover" class="anchored">What we cover</h2>
