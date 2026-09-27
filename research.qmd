@@ -89,17 +89,19 @@ Two supporting measures:
 - **At least `r hl("people_reached_confirmed_ucla")` confirmed UCLA researchers** used DSC instruction or consultation, 2017 to September 2026 (a floor, counted only where identity could be confirmed).
 - **Scheduling systems changed three times:** Calendly to mid-2024, no scheduling system until May 2025, then LibCal. Consultations continued in the gap, but most went unrecorded.
 
-## A research collaboration: making helicopter-surveillance data usable
+## A research collaboration: LAPD helicopter surveillance
 
-The Carceral Ecologies lab in UCLA's Institute for Society and Genetics needed to analyze a large dataset of law-enforcement helicopter flights over Los Angeles, again and again. Over several years, DSC and DataSquad provided an R server, helped build the processing workflow, and trained a student researcher to keep using it.
+The Carceral Ecologies lab, directed by Nicholas Shapiro in UCLA's Institute for Society and Genetics, studies the health and mental-health effects of law-enforcement helicopter surveillance across Los Angeles County from 2017 through 2022 ([lab project page](https://carceralecologies.org/projects/)). Its public findings include that LAPD helicopters fly lowest over largely Black and Hispanic neighborhoods, with a median of about 550 feet over Watts at night ([CalMatters, July 2024](https://calmatters.org/commentary/2024/07/california-longstanding-bias-police-helicopters/)).
 
-**One processing task went from about 5 hours 18 minutes to about 2 minutes.** That made repeated analysis of the dataset practical for the lab. It is a result from this task, not a benchmark for DSC's work in general.
+A student researcher on the team first learned R and GIS from DSC staff in a 2019 African American Studies course taught with DSC. In 2022 she came back with the team's flight-tracking data, twelve monthly files of about a million rows each, and met DSC staff and DataSquad consultants more than 30 times that year ([her 2023 interview](https://ucla-datasquad.github.io/2023/07/27/kate-m-helicopter-data.html)). Together they converted the raw flight records into analyzable tables, identified individual flights, filtered out impossible altitude readings, and joined millions of positions to Los Angeles neighborhoods; DSC's GIS librarian advised on the spatial and statistical analysis ([her analysis code](https://github.com/kmcinerny/LA_Law_Enforcement_Heli)).
+
+As the lab acquired more data, DSC helped it scale. In 2023 DSC staff and DataSquad students worked with the lab's statistician to process the dataset in batches, speed up elevation lookups about tenfold by switching data sources, and run long jobs on DSC's deep learning machine and hosted R server ([shared code](https://github.com/ucla-data-science-center/helicopter-data)). One measured piece of that work cut the time to load the data from about 318 minutes to about 2, about 159 times as fast ([DataSquad project page](https://ucla-datasquad.github.io/)). DSC staff on the collaboration included Tim Dennis, Leigh Phan, Zhiyuan Yao, and Kristian Allen.
 
 > "This work wouldn't have happened without your team!"
 >
 > Nicholas Shapiro, director of Carceral Ecologies, November 2024 (quoted with permission)
 
-The research and its findings belong to the lab. DSC's documented contribution was the computing, the workflow, and the training that supported it (claim #1). The lab's work was later recognized with a 2024 UCLA Public Impact Research Award.
+The research, its findings, and the public attention it has drawn belong to the lab. DSC's part was the data work, computing, and training behind it. The lab's work was recognized with a 2024 UCLA Public Impact Research Award.
 
 ::: {.callout-note .long-view}
 ## The long view (history, as of 2026)
@@ -122,7 +124,7 @@ The consultation evidence page holds the full tables. Jump to:
 |---|---|---|---|---|
 | `r hl("consultations_recorded_series")` recorded consultations | 2017 to Sept 2026 | scheduled appointment | 2026-09-27 | #10 |
 | At least `r hl("people_reached_confirmed_ucla")` UCLA researchers | 2017 to Sept 2026 | person, confirmed | 2026-09-26 | #13 |
-| 318 to 2 minute processing task | one engagement | one task | 2026-09-12 | #1 |
+| Carceral Ecologies collaboration; 318 to 2 minute data-loading step | 2019 to 2025 | one engagement | 2026-09-27 | #1 |
 | Student employees on payroll | 2018 to Jul 2026 | monthly average headcount | 2026-09-27 | #17 |
 | Consulting history | 1961 to 2026 | historical account | 2026-09-27 | #18 |
 

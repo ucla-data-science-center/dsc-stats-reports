@@ -13,19 +13,15 @@ Update an entry's "Last verified" date whenever the underlying data changes
 identity-resolution pass). A claim whose source data has changed since its
 last verification date should not be reused until re-checked.
 
-## 1. Carceral Ecologies processing speedup
+## 1. Carceral Ecologies collaboration and data-loading speedup
 
-- **Approved wording**: "For one documented helicopter-surveillance processing task, an approximately 159-fold runtime reduction was observed under the reported conditions."
-- **Not approved**: "DSC made processing 159 times faster" (implies a general DSC capability, not one documented task).
-- **Reporting period**: multi-year engagement, outcome reported as of case intake.
-- **Unit of observation**: one processing task within one research engagement.
-- **Numerator/denominator**: n/a (single before/after measurement, ~318 min -> ~2 min).
-- **Population/exclusions**: one case, not generalizable to other engagements.
-- **Missingness/coverage**: n/a.
-- **Source**: `data/processed/consultations/impact_case_studies.csv`, row 1.
-- **Deduplicated**: n/a (single case).
-- **Contribution language allowed**: "supported," "enabled" — not "caused" or "achieved" as a DSC-wide capability.
-- **Last verified**: 2026-09-12.
+- **Approved wording**: "DSC staff and DataSquad students cleaned and integrated the lab's flight data, provided GIS support, refactored the R code, and moved the analysis onto DSC computing as the lab acquired larger datasets. One measured piece of that work cut the time to load the data from about 318 minutes to about 2, about 159 times as fast."
+- **Not approved**: "DSC made processing 159 times faster" as a general DSC capability; "156% faster" (arithmetic error in an earlier presentation); DSC secured the Dana Center grant or caused media coverage (the grant is a UCLA-Charles Drew partnership, $5M to UCLA within $9.8M matched; its link to this work is the researcher's account only).
+- **Reporting period**: 2019 (course contact) through 2025. Phases: 2022 data preparation and neighborhood analysis (consult notes Jan to Jun 2022); 2023 scaling (batch processing, elevation lookups about 10x faster via a different data source, remote jobs on DSC computing; consult 2023-11-07). The measured data-loading step is dated 2023-24 on the DataSquad project page; one credited team member joined in mid-2024, so the exact year is uncertain.
+- **Unit of observation**: one research collaboration; the timing is one data-loading step.
+- **Sources**: student researcher's interview (DataSquad blog, 2023-07-27); consultation notes, Jan to Jun 2022 and 2023-11-07 (private); public code at github.com/kmcinerny/LA_Law_Enforcement_Heli and github.com/ucla-data-science-center/helicopter-data; DataSquad project page; lab projects and team pages; researcher's email of 2024-11-23 (private; quote used with permission); DSC director's account of DSC's role (2026-09-27); `data/processed/consultations/impact_case_studies.csv` row 1.
+- **Contribution language allowed**: "supported," "cleaned and integrated," "provided," "moved onto DSC computing"; not "caused" or "produced" the research.
+- **Last verified**: 2026-09-27.
 
 ## 2. BioCritical Studies Lab award recognition
 
