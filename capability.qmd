@@ -56,9 +56,15 @@ Two supporting measures:
 - **`r hl("instruction_sessions_lifetime")` workshop sessions**, May 2017 to May 2026 (a session is one distinct event and date).
 - **At least 39 people** from two separately defined UC Carpentries cohorts (September 2025, and 2021, 2022 and 2024) were subsequently observed in research or data-intensive roles, from public evidence. This is an early trajectory signal, not a tracer study; it does not show that the workshops caused those roles.
 
-## A documented example
+## A program example: the UC Carpentries network
 
-No instruction case yet meets the site's selection rule. A case is published here only when it can fill all five fields: the research question, the support provided, the resulting output, a link to evidence of that output, and the limits of attribution. People are named only with their permission, and students are named only to their adviser. A case without a verifiable output illustrates a service, not an outcome.
+**What it is.** In 2020 DSC co-founded the systemwide UC Carpentries network with partner campuses at Berkeley, San Diego, Santa Barbara, Merced, and Riverside, turning a single-campus workshop program into instruction delivered across the University of California.
+
+**What DSC does.** Co-coordinates the series, recruits and trains instructors, and co-delivers workshops. Campus volunteers trained through the program now lead much of the teaching.
+
+**Scale.** The UC Carpentries series drew 10,749 registered seats from 2020 through September 2026 (see the seat table on the [instruction evidence page](instruction.qmd#registered-seats-by-program-2017-2026)).
+
+**Limits.** Registrations are not people or attendance, the audience spans all participating campuses, and credit for the network is shared with its partners. Individual learning outcomes are not measured here.
 
 ::: {.callout-important}
 ## What this pattern means, and what it cannot mean

@@ -147,7 +147,7 @@ if (data_loaded) {
 ::: {.callout-note}
 ## Headline figures since 2017
 
-DSC instruction is counted in registered seats: one registration for one session, not a unique person and not an attendance. The series runs from May 2017 through September 2026 (2026 is partial) and includes the UC-wide series DSC co-founded and co-delivers, so UCLA participants are a subset. DSC offered `r hl("instruction_sessions_lifetime")` workshop sessions from May 2017 through May 2026. This series replaces the earlier published figure of 17,466 attendee-events (May 2017 to April 2024); the sections after it cover DSC's attendee-level file only.
+DSC instruction is counted in registered seats: one registration for one session, not a unique person and not an attendance. The series runs from May 2017 through September 2026 (2026 is partial) and includes the UC-wide series DSC co-founded and co-delivers, so UCLA participants are a subset. DSC offered `r hl("instruction_sessions_lifetime")` workshop sessions from May 2017 through May 2026. The sections after the seat chart cover DSC's attendee-level file only.
 :::
 
 ## Registered Seats by Program, 2017-2026
@@ -228,7 +228,7 @@ if (nrow(seats) > 0) {
 ::: {.g-col-6 .g-col-md-4 .kpi-card}
 [Total Attendance Records]{.kpi-label}
 [`r fmt(kpi_total)`]{.kpi-value}
-[Attendee-level file only; see headline figures above`r if (nchar(yoy_attendance) > 0) paste0(" \u00b7 ", yoy_attendance)`]{.kpi-note}
+[Attendee-level file only (May 2017 to Sept 2024; 2024 partial); see headline figures above]{.kpi-note}
 :::
 
 ::: {.g-col-6 .g-col-md-4 .kpi-card}

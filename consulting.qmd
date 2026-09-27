@@ -130,7 +130,7 @@ if (nrow(consult_series) > 0) {
 }
 ```
 
-## At a Glance: 2023-2025 Audit (`r data_range_label`)
+## 2023-2025 Consultation Audit (a separate series)
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
 

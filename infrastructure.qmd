@@ -79,7 +79,7 @@ except Exception:
     pass
 
 print(f"""
-<p><em>For DSC staff and library administration — AWS cloud usage trends, UCLA Dataverse repository metrics, and S3 storage trends.</em></p>
+<p><em>Operations and provenance appendix: repository, storage, and cloud metrics. For the research these systems support, see <a href="investments.html">Research supported by shared investments</a>.</em></p>
 <p><em>Last rendered: {datetime.now().strftime("%B %d, %Y")}</em></p>
 <div class="kpi-row grid">
 <div class="g-col-6 g-col-md-4 kpi-card">
@@ -304,7 +304,7 @@ else:
 #| results: asis
 if not df_impact.empty:
     found = (df_impact[df_impact['openalex_id'] != 'not_found']
-             .sort_values('cited_by', ascending=False))
+             .sort_values('year', ascending=False))
     if not found.empty:
         rows = [
             [r['title'][:75] + ('…' if len(str(r['title'])) > 75 else ''),

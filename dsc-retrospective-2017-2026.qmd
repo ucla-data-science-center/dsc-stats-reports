@@ -23,11 +23,11 @@ like, in numbers and in the work it supported.
 ::: {.tldr}
 
 **In short:** UCLA Dataverse has grown from 9 datasets in 2020 to roughly 1,390
-released today. DSC's Redivis platform, built around an unusable 10-terabyte national
-voter file, has since processed 4.8 petabytes of restricted research data. Since 2017
+released today. DSC's Redivis platform, built around a 10-terabyte national
+voter file that could not be analyzed as delivered, has since processed 4.8 petabytes of restricted research data. Since 2017
 DSC has run 819 workshop sessions (through May 2026) and counted 27,986 registered
 workshop seats (through September 2026). GIS support
-disappeared in 2024 even though the demand for it never did.
+ended in 2024 when the GIS librarian position was eliminated; DSC still receives GIS requests.
 
 :::
 

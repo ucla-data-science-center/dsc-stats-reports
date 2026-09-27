@@ -22,21 +22,18 @@ hl <- function(key) {
   x <- headline |> filter(metric_id == key) |> pull(display)
   if (length(x) == 0) "—" else x[[1]]
 }
-reach_note <- "confirmed UCLA researchers used DSC instruction or consultation, 2017 to September 2026. People are counted only when their identity could be confirmed."
+capacity <- read_if("data/processed/canonical/service_capacity_by_year.csv")
+staff_fte <- if (nrow(capacity) > 0) capacity |> mutate(fte = dsc_staff_fte + contributed_staff_fte) |> filter(!is.na(fte)) else tibble()
+fte_peak <- if (nrow(staff_fte) > 0) sprintf("%.1f", max(staff_fte$fte)) else "—"
+fte_now  <- if (nrow(staff_fte) > 0) sprintf("%.1f", staff_fte$fte[which.max(staff_fte$year)]) else "—"
 ```
 
-The Data Science Center (DSC) supports UCLA researchers with data consultation, instruction, and the infrastructure that keeps research data usable. This site is the evidence layer: each figure below states its unit and window and links to the page where it is built.
+**UCLA researchers have used DSC for data and technical work that crosses lab and department boundaries.** At least `r hl("people_reached_confirmed_ucla")` confirmed UCLA researchers used its instruction or consultation from 2017 to September 2026. DSC also made a 10 TB national voter file analysis-ready, provides governed access to restricted data, and operates UCLA's research-data repository. Its staff time fell from `r fte_peak` FTE in 2022-23 to `r fte_now` in 2025-26. The question for the university is who will maintain these functions, and support the research that uses them, as DSC's capacity changes.
 
-::: {.history-band}
-**Since 1961.** UCLA has kept research data for reuse since 1961, when political scientist Dwaine Marvick founded the Political Behavior Archive. The unit's name and institutional home have changed several times since; what persisted is the stewardship of research data and the work of widening access to it. [Read the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html)
-:::
-
-::: {.brand-wave aria-hidden="true"}
-:::
 
 ## What the evidence establishes
 
-DSC's work shows up in research outputs, not only in service counts. Two documented engagements illustrate this: for one helicopter-surveillance processing task, an approximately 159-fold runtime reduction was observed under the reported conditions; and DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA's 2024 Public Impact Research Awards. These are illustrative cases, not a representative sample. [See the cases and their limits](consulting.qmd#research-impact).
+DSC's work shows up in research outputs, not only in service counts. Two documented engagements illustrate this: for one helicopter-surveillance processing task, an approximately 159-fold runtime reduction was observed under the reported conditions; and DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA's 2024 Public Impact Research Awards. These two documented engagements show different kinds of DSC support; more are on the [shared investments page](investments.qmd). [How cases are selected](consulting.qmd#research-impact).
 
 ## Three ways DSC contributes
 
@@ -83,11 +80,16 @@ DSC runs UCLA Dataverse and governed access to restricted data, the current form
 
 :::
 
-::: {.reach-strip}
-At least [`r hl("people_reached_confirmed_ucla")`]{.reach-value} `r reach_note`
+::: {.history-band}
+**Since 1961.** UCLA has kept research data for reuse since 1961, when political scientist Dwaine Marvick founded the Political Behavior Archive. The unit's name and institutional home have changed several times since; what persisted is the stewardship of research data and the work of widening access to it. [Read the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html)
+:::
+
+::: {.brand-wave aria-hidden="true"}
 :::
 
 ## Reports and methods
+
+This site is the evidence layer: each figure states its unit and window and links to the page where it is built. People reached are counted only when their identity could be confirmed.
 
 - [DSC retrospective, 2017-2026](dsc-retrospective-2017-2026.qmd): the narrative account of the Data Science Center era
 - [About and methodology](about.qmd): definitions, sources, and how figures are counted

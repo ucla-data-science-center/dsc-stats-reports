@@ -1,4 +1,4 @@
-[DSC turned an unusable 10-terabyte national voter file into a resource researchers across campus now use directly.]{.lede}
+[DSC turned a 10-terabyte national voter file, delivered as thousands of inconsistent state files, into a resource researchers across campus now use directly.]{.lede}
 
 DSC piloted **Redivis**, a secure platform for restricted research data, initially
 supported by University Librarian discretionary funds. It's since grown into a
