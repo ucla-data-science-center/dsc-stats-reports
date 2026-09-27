@@ -191,3 +191,14 @@ last verification date should not be reused until re-checked.
 - **Source**: `ssda-dsc-history` `history.qmd`, "Teaching: The Carpentries and an instructor network".
 - **Registry**: `instruction-eras-2017-2026` (to be added to `dsc-evidence-registry`).
 - **Last verified**: 2026-09-26.
+
+## 16. Released datasets in UCLA Dataverse
+
+- **Approved wording**: "About 1,390 released datasets in UCLA Dataverse (Feb 2026): about 376 deposited directly at UCLA and about 1,014 legacy SSDA datasets that Library staff harvested and curate."
+- **Not approved**: "DSC published 1,390 datasets" (most are legacy SSDA holdings harvested in, not new DSC-assisted deposits); presenting 1,390 and the live dashboard's directly-deposited count (395, Sept 2026) as competing figures. They are the same repository at different scopes and dates.
+- **Reporting period**: snapshot, Feb 2026. The directly-deposited slice on `infrastructure.qmd` is live and dated at render.
+- **Unit of observation**: released dataset (1,603 counting drafts and restricted deposits).
+- **Source**: `data/processed/canonical/headline_aggregates.csv` (`dataverse_datasets_released`).
+- **Downloads**: the 143,000+ in the retrospective and the live download total on `infrastructure.qmd` are the same measure (file-level download events) at different dates (Feb 2026 and the render date).
+- **Registry**: `dataverse-dataset-count` (exists, verified 2026-09-02; its `used_in` needs `dsc-stats-reports index.qmd` and `infrastructure.qmd`).
+- **Last verified**: 2026-09-26.

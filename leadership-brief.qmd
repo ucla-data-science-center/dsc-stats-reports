@@ -57,8 +57,11 @@ it's published.
    DSC caused the outcome (`claim-register.md` #3-5).
 
 4. Shared infrastructure is doing real, cited work. UCLA Dataverse, which
-   DSC operates, holds 377 published datasets and 25,330 files, with
-   143,414 recorded downloads. At least 13 linked publications have drawn
+   DSC operates, held about 1,390 released datasets in February 2026:
+   about 376 deposited directly at UCLA and about 1,014 legacy SSDA
+   datasets that Library staff harvested and curate
+   (`claim-register.md` #16). By then the directly deposited datasets had
+   recorded about 143,000 file-level downloads. At least 13 linked publications have drawn
    258 citations so far (`infrastructure.qmd`, live KPI).
 
 ## One case

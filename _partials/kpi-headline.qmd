@@ -3,15 +3,15 @@
 ::: {.kpi-card}
 
 [{{< var dataverse.datasets_released >}}]{.kpi-value}
-[Released datasets in UCLA <abbr class="term" title="Dataverse is UCLA's institutional research-data repository, operated by DSC">Dataverse</abbr>]{.kpi-label}
-[Up from {{< var dataverse.datasets_2020 >}} in Jan 2020 ({{< var dataverse.datasets_with_drafts >}} counting drafts and restricted deposits)]{.kpi-note}
+[Released datasets in UCLA <abbr class="term" title="Dataverse is UCLA's institutional research-data repository, operated by DSC">Dataverse</abbr>, Feb 2026]{.kpi-label}
+[About 376 deposited directly at UCLA plus about 1,014 legacy SSDA datasets curated by Library staff; up from {{< var dataverse.datasets_2020 >}} in Jan 2020 ({{< var dataverse.datasets_with_drafts >}} counting drafts and restricted deposits)]{.kpi-note}
 
 :::
 
 ::: {.kpi-card}
 
 [{{< var dataverse.downloads_total >}}]{.kpi-value}
-[Dataset downloads since 2020]{.kpi-label}
+[File-level download events since 2020, as of Feb 2026]{.kpi-label}
 [{{< var dataverse.downloads_2020 >}} in Jan 2020 → {{< var dataverse.downloads_total >}} today]{.kpi-note}
 
 :::

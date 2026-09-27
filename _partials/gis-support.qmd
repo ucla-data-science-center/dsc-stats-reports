@@ -23,7 +23,7 @@ one, but it's a health-sciences-only campus with no undergraduates, not a fair
 comparison.) Lower-spending UC peers like Berkeley and San Diego both maintain
 dedicated GIS staff.
 
-Campus-wide, UCLA's ArcGIS Online platform, used across Geography, Luskin, Fielding,
+The campus mapping platform is a separate gap, a matter of ownership rather than consultation demand. UCLA's ArcGIS Online platform, used across Geography, Luskin, Fielding,
 Digital Humanities, Political Science, and Social Data Science, has over 7,100
 accounts and more than 3,000 active users in the past year, per an OARC governance
 report from December 2025. Without a designated administrator, it's now running at

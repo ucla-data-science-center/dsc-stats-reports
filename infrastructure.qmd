@@ -85,17 +85,17 @@ print(f"""
 <div class="g-col-6 g-col-md-4 kpi-card">
 <span class="kpi-label">Dataverse Datasets</span>
 <span class="kpi-value">{kpi_datasets}</span>
-<span class="kpi-note">Cumulative published, as of {kpi_dv_date}</span>
+<span class="kpi-note">Released datasets deposited directly at UCLA, as of {kpi_dv_date}. The repository's released total (about 1,390, Feb 2026) also counts about 1,014 legacy SSDA datasets that Library staff harvested and curate.</span>
 </div>
 <div class="g-col-6 g-col-md-4 kpi-card">
 <span class="kpi-label">Dataverse Files</span>
 <span class="kpi-value">{kpi_files}</span>
-<span class="kpi-note">Cumulative published</span>
+<span class="kpi-note">Files in datasets deposited directly at UCLA, as of {kpi_dv_date}</span>
 </div>
 <div class="g-col-6 g-col-md-4 kpi-card">
 <span class="kpi-label">Total Downloads</span>
 <span class="kpi-value">{kpi_downloads}</span>
-<span class="kpi-note">Cumulative file-level download events</span>
+<span class="kpi-note">File-level download events, cumulative, as of {kpi_dv_date}. The same measure stood at about 143,000 in Feb 2026.</span>
 </div>
 </div>
 """)
