@@ -38,6 +38,12 @@ by_affiliation <- consult |> filter(!is.na(ucla_affiliation)) |>
 
 by_team <- consult |> filter(!is.na(group)) |> count(group, name = "records")
 
+# By year and team: the records file mixes DSC staff appointments with DataSquad
+# walk-in sign-ins, which the reconciled consultation series does not count.
+by_year_team <- consult |> filter(!is.na(start_date_time), !is.na(group)) |>
+  count(year = year(start_date_time), group, name = "records")
+stopifnot(all(by_year_team$records == 0 | by_year_team$records >= 5))
+
 window <- consult |> filter(!is.na(start_date_time)) |>
   summarise(first_date = as.Date(min(start_date_time)), last_date = as.Date(max(start_date_time)),
             suppressed_departments = attr(by_department, "suppressed_units"),
@@ -48,5 +54,6 @@ write_csv(by_year, file.path(out, "consult_records_by_year.csv"))
 write_csv(by_department, file.path(out, "consult_records_by_department.csv"))
 write_csv(by_affiliation, file.path(out, "consult_records_by_affiliation.csv"))
 write_csv(by_team, file.path(out, "consult_records_by_team.csv"))
+write_csv(by_year_team, file.path(out, "consult_records_by_year_team.csv"))
 write_csv(window, file.path(out, "consult_records_window.csv"))
 message("Wrote public consultation aggregates to ", out)
