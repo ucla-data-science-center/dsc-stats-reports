@@ -14,6 +14,7 @@ project:
   render:
     - index.qmd
     - capability.qmd
+    - research.qmd
     - about.qmd
     - consulting.qmd
     - instruction.qmd
@@ -40,6 +41,8 @@ website:
         text: Home
       - text: "Pathways"
         menu:
+          - href: research.qmd
+            text: Research enabled
           - href: capability.qmd
             text: Research capability built
       - text: "Evidence"

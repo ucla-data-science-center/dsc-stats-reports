@@ -1,0 +1,157 @@
+---
+title: "Research Enabled"
+subtitle: "Pathway: one-on-one research data support at UCLA, and the capacity behind it"
+toc: true
+toc-depth: 2
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(scales)
+
+read_if <- function(path) if (file.exists(path)) read_csv(path, show_col_types = FALSE) else tibble()
+headline <- read_if("data/processed/canonical/headline_aggregates.csv")
+hl <- function(key) {
+  x <- headline$display[headline$metric_id == key]
+  if (length(x) == 0) "—" else x[[1]]
+}
+series   <- read_if("data/processed/canonical/consultations_by_year.csv")
+capacity <- read_if("data/processed/canonical/service_capacity_by_year.csv")
+
+alt_series <- if (nrow(series) > 0) sprintf(
+  "Horizontal bar chart of recorded research consultations by year, 2017 to 2026. %s. Bars from 2024 on are floors: recording lapsed from mid-2024 and 2026 is partial.",
+  paste(series$year, series$display, sep = ": ", collapse = "; ")) else "Recorded consultations by year (data not loaded)"
+alt_capacity <- if (nrow(capacity) > 0) sprintf(
+  "Two horizontal bar charts by year. Staff time in full-time equivalents (DSC staff plus other units): %s. Average students on payroll per month: %s.",
+  paste(capacity$year, coalesce(as.character(capacity$dsc_staff_fte + capacity$contributed_staff_fte), "no record"), sep = ": ", collapse = "; "),
+  paste(capacity$year, coalesce(as.character(capacity$student_avg_monthly), "no record"), sep = ": ", collapse = "; ")) else "Service capacity by year (data not loaded)"
+```
+
+[]{.brand-el .brand-node1 .page-mark aria-hidden="true"}
+
+## Finding and scope
+
+Researchers across UCLA bring data problems to DSC, and some of those consultations become multi-year collaborations. DSC recorded `r hl("consultations_recorded_series")` scheduled consultations from 2017 to September 2026. Recorded counts rise and fall with the staff and students available to do the work and with the system used to record it, so they show the work delivered, not the demand for it.
+
+## Evidence in brief
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+
+```{r series_chart, echo=FALSE, fig.alt=alt_series, fig.width=5.5, fig.height=4.2, fig.cap="Recorded consultations: scheduled appointments with DSC staff and DataSquad consultants. From mid-2024 recording lapsed (Calendly ended; LibCal from May 2025), so 2024 onward are floors. 2026 runs to September."}
+if (nrow(series) > 0) {
+  series |>
+    mutate(year = factor(year, levels = rev(sort(unique(year)))),
+           kind = if_else(is_floor, "Floor (recording incomplete)", "Full recording")) |>
+    ggplot(aes(y = year, x = value, fill = kind)) +
+    geom_col(width = 0.7) +
+    geom_text(aes(label = display), hjust = -0.15, size = 3.3) +
+    scale_fill_manual(values = c("Full recording" = "#2774AE", "Floor (recording incomplete)" = "#A9C7E3"), name = NULL) +
+    scale_x_continuous(expand = expansion(mult = c(0, 0.15))) +
+    labs(y = NULL, x = "Recorded consultations") +
+    theme_minimal(base_size = 12) +
+    theme(panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(), legend.position = "bottom")
+}
+```
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+
+```{r capacity_chart, echo=FALSE, fig.alt=alt_capacity, fig.width=5.8, fig.height=4.2, fig.cap="Service capacity by year. Left: staff time in full-time equivalents, DSC staff plus time contributed by staff in other Library units (Gillian's share shown at its upper bound). Staff time covers all DSC services, not consultations only. Right: average student employees on payroll per month (UC timesheet records). From July to October 2025, while student hiring was under campus review, one student remained on payroll. 2026 runs through July."}
+if (nrow(capacity) > 0) {
+  yrs <- rev(sort(unique(capacity$year)))
+  staff <- capacity |>
+    select(year, `DSC staff` = dsc_staff_fte, `Other units` = contributed_staff_fte) |>
+    pivot_longer(-year, names_to = "series", values_to = "value") |>
+    mutate(panel = "Staff (FTE)")
+  students <- capacity |>
+    transmute(year, series = "Students", value = student_avg_monthly, panel = "Students on payroll")
+  totals <- bind_rows(
+    staff |> group_by(year, panel) |> summarise(value = if (all(is.na(value))) NA_real_ else sum(value, na.rm = TRUE), .groups = "drop"),
+    students |> select(year, panel, value))
+  bind_rows(staff, students) |>
+    mutate(year = factor(year, levels = yrs),
+           series = factor(series, levels = c("Other units", "DSC staff", "Students")),
+           panel = factor(panel, levels = c("Staff (FTE)", "Students on payroll"))) |>
+    ggplot(aes(y = year, x = coalesce(value, 0), fill = series)) +
+    geom_col(width = 0.7) +
+    geom_text(data = totals |> mutate(year = factor(year, levels = yrs),
+                                      panel = factor(panel, levels = c("Staff (FTE)", "Students on payroll")),
+                                      label = if_else(is.na(value), "no record", number(value, accuracy = 0.1))),
+              aes(y = year, x = coalesce(value, 0), label = label), inherit.aes = FALSE, hjust = -0.2, size = 3) +
+    facet_wrap(~panel, scales = "free_x") +
+    scale_y_discrete(drop = FALSE) +
+    scale_x_continuous(expand = expansion(mult = c(0, 0.3))) +
+    scale_fill_manual(values = c("DSC staff" = "#2774AE", "Other units" = "#8BB8E8", "Students" = "#FFB81C"),
+                      breaks = c("DSC staff", "Other units", "Students"), name = NULL) +
+    labs(y = NULL, x = NULL) +
+    theme_minimal(base_size = 11) +
+    theme(panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(), legend.position = "bottom",
+          plot.margin = margin(5, 18, 5, 5))
+}
+```
+
+:::
+
+:::
+
+Two supporting measures:
+
+- **At least `r hl("people_reached_confirmed_ucla")` confirmed UCLA researchers** used DSC instruction or consultation, 2017 to September 2026 (a floor, counted only where identity could be confirmed).
+- **Scheduling systems changed three times:** Calendly to mid-2024, no scheduling system until May 2025, then LibCal. Consultations continued in the gap, but most went unrecorded.
+
+## A documented example
+
+**Research question.** A lab in UCLA's Institute for Society and Genetics (Carceral Ecologies) needed to analyze a helicopter-surveillance dataset at research scale.
+
+**Support provided.** Over several years, DSC and DataSquad provided R server infrastructure, data processing, and hands-on training for a student researcher.
+
+**Resulting output.** For one documented processing task, runtime fell from about 318 minutes to about 2, an approximately 159-fold reduction under the reported conditions.
+
+**Evidence.** Case record in `data/processed/consultations/impact_case_studies.csv` (claim #1). A public link to the underlying output has not yet been recorded.
+
+**Limits of attribution.** One task in one engagement; not a general measure of DSC's effect. The lab's research and its later media coverage belong to the researchers.
+
+::: {.callout-important}
+## What this pattern means, and what it cannot mean
+
+- **It means** DSC delivered sustained one-on-one research support: about 340 to 395 recorded consultations a year at full recording (2021-2023), some growing into multi-year collaborations.
+- **It cannot mean** that demand fell after 2023. From mid-2024 the scheduling system lapsed and staff and student capacity fell, so recorded counts cannot separate demand from the capacity to meet it and the ability to record it.
+- **Consultations are interactions, not people.** One researcher can book many appointments; the separate 1,908 figure counts people.
+- **DataSquad walk-in sign-ins are not included.** The series counts scheduled appointments only; in-person walk-ins are shown separately on the [consultation evidence page](consulting.qmd).
+:::
+
+::: {.callout-note .long-view}
+## The long view (history, as of 2026)
+
+The archive answered research questions from its early years: data discovery, codebooks, and help with statistical software. The 2018 redesign widened consulting to the whole research life cycle, from data management plans to publication and preservation, and added GIS, 3D capture, machine learning, research software, and reproducible workflows. From about 2023 the work shifted from single appointments toward project support that ran for months. [Read the consulting section of the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html#consulting-from-reference-desk-to-research-partner)
+:::
+
+## Detailed evidence
+
+The consultation evidence page holds the full tables. Jump to:
+
+- [Recorded consultations by year](consulting.qmd#recorded-consultations-since-2017)
+- [Consultation records by record type, department, and affiliation](consulting.qmd#direct-consultations) (records file, January 2021 to June 2024; breakdowns suppress any unit under 5)
+- [Research impact cases](consulting.qmd#research-impact)
+- [Methodology](about.qmd)
+
+## Sources and claim record
+
+| Figure | Window | Unit | Extracted | Claim |
+|---|---|---|---|---|
+| `r hl("consultations_recorded_series")` recorded consultations | 2017 to Sept 2026 | scheduled appointment | 2026-09-27 | #10 |
+| At least `r hl("people_reached_confirmed_ucla")` UCLA researchers | 2017 to Sept 2026 | person, confirmed | 2026-09-26 | #13 |
+| 318 to 2 minute processing task | one engagement | one task | 2026-09-12 | #1 |
+| Student employees on payroll | 2018 to Jul 2026 | monthly average headcount | 2026-09-27 | #17 |
+| Consulting history | 1961 to 2026 | historical account | 2026-09-27 | #18 |
+
+Suppression rule: department, organizational-parent, and affiliation breakdowns fold any unit under 5 into one combined row, which is omitted if it is also under 5. Approved wording and sources: [claim-register.md](https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/claim-register.md).
+
+::: {.callout-note collapse="true" title="Cite this page"}
+UCLA Library Data Science Center. (`r format(Sys.Date(), "%Y")`). *Research Enabled*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/research.html>
+:::
+
+*Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*

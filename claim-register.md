@@ -202,3 +202,22 @@ last verification date should not be reused until re-checked.
 - **Downloads**: the 143,000+ in the retrospective and the live download total on `infrastructure.qmd` are the same measure (file-level download events) at different dates (Feb 2026 and the render date).
 - **Registry**: `dataverse-dataset-count` (exists, verified 2026-09-02; its `used_in` needs `dsc-stats-reports index.qmd` and `infrastructure.qmd`).
 - **Last verified**: 2026-09-26.
+
+## 17. Student employees on payroll (service capacity)
+
+- **Approved wording**: "An average of N student employees were on DSC's payroll per month in [year]" (N from `data/processed/canonical/service_capacity_by_year.csv`). For 2025: "From July to October 2025, while student hiring was under campus review, one student remained on payroll."
+- **Not approved**: naming students; treating headcount as hours or FTE; attributing the 2025 review to any person's intent.
+- **Reporting period**: 2018 to July 2026, by calendar year.
+- **Unit of observation**: student employee with a timesheet in a month (all DSC student lines: DataSquad, grant-funded, Lux Lab, general), averaged over the months of the year.
+- **Staff FTE**: from the director's roster (2026-09-27), prorated by month: DSC staff (director; two analysts and a research specialist line; an emerging technologies librarian from Apr 2020, whose own Lux Lab and 3D service portfolio moved with the role; a GIS librarian May 2020 to Jul 2024) and time contributed by other Library units (about 0.5 FTE Oct 2018 to about Feb 2025; up to 0.2 FTE 2022 to summer 2024). Staff time covers all DSC services, not consultations only. Pre-Sept 2018 months assumed full-time for the two analyst lines (export horizon).
+- **Source**: UC Time Reporting System export (private; not in this repository), aggregated 2026-09-27, plus the director's roster.
+- **Registry**: `dsc-service-capacity-students` (to be added to `dsc-evidence-registry`).
+- **Last verified**: 2026-09-27.
+
+## 18. Consulting history (Research enabled long-view callout)
+
+- **Approved wording**: as in `research.qmd`: early archive reference help; the 2018 redesign widening consulting to the full research life cycle; a shift from single appointments to months-long project support from about 2023.
+- **Not approved**: the history's 1,175 service-interactions figure (a separate 2023-2025 audit, not reconciled with claim #10).
+- **Source**: `ssda-dsc-history` `history.qmd`, "Consulting: from reference desk to research partner".
+- **Registry**: `consulting-history-2018-redesign` (to be added).
+- **Last verified**: 2026-09-27.
