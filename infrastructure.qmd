@@ -103,29 +103,6 @@ print(f"""
 
 ::: {.panel-tabset}
 
-## AWS Usage Trends
-
-### Monthly Spend Share by Application
-
-Relative share of monthly AWS spend across applications, not absolute dollar
-amounts. Useful for spotting which applications are growing or shrinking
-their footprint over time.
-
-```{python aws_trends}
-#| echo: false
-#| fig-alt: "100 percent stacked bar chart showing each application's share of monthly AWS costs over the past 12 months."
-if not df_aws.empty:
-    df_aws['month_label'] = df_aws['date'].dt.strftime('%Y-%m')
-    monthly = df_aws.groupby(['month_label', 'application'])['cost'].sum().unstack(fill_value=0)
-    monthly_share = monthly.div(monthly.sum(axis=1), axis=0) * 100
-    monthly_share.plot(kind='bar', stacked=True, colormap='tab10', figsize=(10, 5))
-    plt.legend(title='Application', bbox_to_anchor=(1.05, 1), loc='upper left')
-    plt.ylabel('Share of monthly spend (%)')
-    plt.title('Monthly AWS Spend Share by Application')
-    plt.tight_layout()
-    plt.show()
-```
-
 ## Dataverse Usage
 
 ### Repository Growth (Cumulative)
@@ -216,37 +193,61 @@ else:
     print("S3 storage data unavailable (live AWS connection required).")
 ```
 
-### Potree Storage Growth
+### Potree Storage
 
 ```{python potree}
 #| echo: false
-#| fig-alt: "Line chart with shaded area showing Potree S3 bucket storage growth in gigabytes over the last 365 days."
+#| results: asis
 if not df_potree_growth.empty:
-    fig, ax = plt.subplots(figsize=(10, 5))
-    ax.plot(df_potree_growth['date'], df_potree_growth['size_gb'],
-            color='#1f77b4', linewidth=3)
-    ax.fill_between(df_potree_growth['date'], df_potree_growth['size_gb'],
-                    df_potree_growth['size_gb'].min(),
-                    color='#1f77b4', alpha=0.1)
-    total_growth = df_potree_growth['size_gb'].iloc[-1] - df_potree_growth['size_gb'].iloc[0]
-    ax.set_title(
-        f'Potree Storage Growth (Last 365 Days) — {total_growth:+.1f} GB net change',
-        fontsize=14, fontweight='bold'
-    )
-    ax.set_ylabel('Size (GB)', fontweight='bold')
-    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:,.1f}'))
-    ax.grid(True, alpha=0.3)
-    fig.tight_layout()
-    plt.show()
+    last = df_potree_growth.iloc[-1]; first = df_potree_growth.iloc[0]
+    change = last['size_gb'] - first['size_gb']
+    print(f"DSC hosts about {last['size_gb'] / 1000:,.1f} TB of 3D point-cloud data for research "
+          f"visualization (Potree), as of {last['date']:%Y-%m-%d}. Storage changed by {change:+,.1f} GB "
+          f"({change / first['size_gb'] * 100:+.1f}%) over the preceding 365 days.")
 else:
-    print("Potree growth data unavailable (CloudWatch reports this metric once daily).")
+    print("Potree storage data unavailable (CloudWatch reports this metric once daily).")
+```
+
+
+## AWS Usage Trends
+
+### Monthly Spend Share by Application
+
+Operational view for DSC staff: each application's share of positive monthly
+AWS charges, not absolute dollar amounts.
+
+```{python aws_trends}
+#| echo: false
+#| fig-alt: "Stacked bar chart of each application's share of positive monthly AWS charges, by month. Credits and refunds are excluded and reported in the note below the chart."
+if not df_aws.empty:
+    df_aws['month_label'] = df_aws['date'].dt.strftime('%Y-%m')
+    monthly = df_aws.groupby(['month_label', 'application'])['cost'].sum().unstack(fill_value=0)
+    # Credits and refunds arrive as negative charges. Leaving them in the
+    # denominator pushes shares past 100% and below zero, so shares are taken
+    # over positive charges only and credits are reported separately.
+    positive = monthly.clip(lower=0)
+    positive = positive.loc[:, positive.sum() > 0]
+    monthly_share = positive.div(positive.sum(axis=1), axis=0) * 100
+    credit_months = int((monthly.clip(upper=0).sum(axis=1) < 0).sum())
+    palette = ['#2774AE', '#FFB81C', '#8BB8E8', '#8C8279', '#003B5C', '#D6D2C4', '#005587']
+    ax = monthly_share.plot(kind='bar', stacked=True, color=palette[:monthly_share.shape[1]],
+                            width=0.8, figsize=(10, 5))
+    ax.set_ylim(0, 100)
+    ax.set_xlabel('')
+    ax.set_ylabel('Share of positive monthly charges (%)')
+    ax.set_title(f'AWS charges by application, {monthly_share.index[0]} to {monthly_share.index[-1]}')
+    ax.legend(title='Application', bbox_to_anchor=(1.02, 1), loc='upper left', frameon=False)
+    plt.tight_layout()
+    plt.show()
+    print(f"Credits or refunds offset charges in {credit_months} of {len(monthly)} months; "
+          "they are excluded from the shares above.")
 ```
 
 :::
 
-## Dataverse Scholarship Impact
+## Traceable Publication Links
 
-UCLA Dataverse datasets linked to peer-reviewed publications, traced via depositor-supplied DOIs and enriched with citation data from OpenAlex.
+Publications that depositors linked to UCLA Dataverse datasets by DOI, with citation counts from OpenAlex. These are the links depositors chose to supply, not a complete record of reuse, and each citation count belongs to the publication, not to the dataset.
 
 ```{python impact_load}
 #| echo: false
@@ -340,7 +341,7 @@ These impact metrics **undercount real scholarly reach** due to known infrastruc
 - **Dataverse datasets/files/downloads**: Cumulative counts from the UCLA Dataverse `/api/info/metrics` endpoint — stored in `data/raw/infrastructure/datasets_files_published_monthly.csv`
 - **Downloads**: File-level events as reported by Dataverse. Includes automated and bot traffic; not filtered for human-only access
 - **S3 storage**: Fetched live from AWS CloudWatch at render time. May be unavailable without valid AWS credentials; CloudWatch reports storage metrics once daily
-- **Scholarship impact**: Publication DOIs from Dataverse metadata API; citation counts from OpenAlex. Undercounts real impact — see limitations callout above.
+- **Traceable publication links**: Publication DOIs from Dataverse metadata API; citation counts from OpenAlex. Undercounts real impact — see limitations callout above.
 - Full rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
 :::
 
