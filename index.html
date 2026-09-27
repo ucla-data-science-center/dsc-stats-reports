@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSC Statistics Dashboard – DSC Statistics</title>
+<title>DSC Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./images/brand/dsc-cube.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -42,9 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f19d3b554271834026e4d456b88765a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-ff6ecf336e870e1a329d4a178abf65a0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-f19d3b554271834026e4d456b88765a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0a1024e2a1b13d5e4a6173b35c3f61b6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-3b648e61a9e156e7cef0b52d9d5c02d5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-0a1024e2a1b13d5e4a6173b35c3f61b6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,14 +74,14 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#2774ae">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b3c5d">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#003B5C">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#003B5C">
 
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -249,8 +250,12 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/brand/dsc-logo-white.svg" alt="UCLA Library Data Science Center" class="navbar-logo light-content">
+    <img src="./images/brand/dsc-logo-white.svg" alt="UCLA Library Data Science Center" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">DSC Statistics</span>
+    <span class="navbar-title">Statistics</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -264,10 +269,21 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-statistics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Statistics</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pathways" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pathways</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-statistics">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-pathways">    
+        <li>
+    <a class="dropdown-item" href="./capability.html">
+ <span class="dropdown-text">Research capability built</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-evidence" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Evidence</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-evidence">    
         <li>
     <a class="dropdown-item" href="./consulting.html">
  <span class="dropdown-text">Consulting</span></a>
@@ -309,25 +325,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#since-2017" id="toc-since-2017" class="nav-link active" data-scroll-target="#since-2017">Since 2017</a></li>
-  <li><a href="#at-a-glance-consultation-audit-20212026" id="toc-at-a-glance-consultation-audit-20212026" class="nav-link" data-scroll-target="#at-a-glance-consultation-audit-20212026">At a Glance: Consultation Audit (2021–2026)</a></li>
-  <li><a href="#dashboard-sections" id="toc-dashboard-sections" class="nav-link" data-scroll-target="#dashboard-sections">Dashboard Sections</a></li>
-  <li><a href="#reading-these-metrics" id="toc-reading-these-metrics" class="nav-link" data-scroll-target="#reading-these-metrics">Reading These Metrics</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">DSC Statistics Dashboard</h1>
+<h1 class="title">DSC Statistics</h1>
+<p class="subtitle lead">What the UCLA Library Data Science Center contributes to research at UCLA, and the evidence behind each figure</p>
 </div>
 
 
@@ -344,90 +350,62 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>For UCLA Library administration and DSC staff: unified service metrics across consultations, instruction, and infrastructure.</em></p>
-<section id="since-2017" class="level2">
-<h2 class="anchored" data-anchor-id="since-2017">Since 2017</h2>
-<div class="kpi-row grid">
-<div class="g-col-12 g-col-md-4 kpi-card">
-<p><span class="kpi-label">Workshop Sessions</span> <span class="kpi-value">819</span> <span class="kpi-note">May 2017 to May 2026; registered seats by program are charted on the <a href="./instruction.html">instruction page</a></span></p>
+<p>The Data Science Center (DSC) supports UCLA researchers with data consultation, instruction, and the infrastructure that keeps research data usable. This site is the evidence layer: each figure below states its unit and window and links to the page where it is built.</p>
+<div class="history-band">
+<p><strong>Since 1961.</strong> UCLA has kept research data for reuse since 1961, when political scientist Dwaine Marvick founded the Political Behavior Archive. The unit’s name and institutional home have changed several times since; what persisted is the stewardship of research data and the work of widening access to it. <a href="https://ucla-data-science-center.github.io/ssda-dsc-history/history.html">Read the history</a></p>
 </div>
-<div class="g-col-12 g-col-md-4 kpi-card">
-<p><span class="kpi-label">UCLA People Reached</span> <span class="kpi-value">1,908</span> <span class="kpi-note">Confirmed UCLA researchers who used instruction or consultation, 2017 to Sept 2026; a floor</span></p>
+<div class="brand-wave" aria-hidden="true">
+
 </div>
-<div class="g-col-12 g-col-md-4 kpi-card">
-<p><span class="kpi-label">Recorded Consultations</span> <span class="kpi-value">about 1,850</span> <span class="kpi-note">2017 to 2026, a floor; recording lapsed from mid-2024</span></p>
-</div>
-</div>
+<section id="what-the-evidence-establishes" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-evidence-establishes">What the evidence establishes</h2>
+<p>DSC’s work shows up in research outputs, not only in service counts. Two documented engagements illustrate this: for one helicopter-surveillance processing task, an approximately 159-fold runtime reduction was observed under the reported conditions; and DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA’s 2024 Public Impact Research Awards. These are illustrative cases, not a representative sample. <a href="./consulting.html#research-impact">See the cases and their limits</a>.</p>
 </section>
-<section id="at-a-glance-consultation-audit-20212026" class="level2">
-<h2 class="anchored" data-anchor-id="at-a-glance-consultation-audit-20212026">At a Glance: Consultation Audit (2021–2026)</h2>
-<p><em>Last rendered: September 27, 2026</em></p>
-<div class="kpi-row grid">
-<div class="g-col-6 g-col-md-3 kpi-card">
-<p><span class="kpi-label">Direct Consultations</span> <span class="kpi-value">741</span> <span class="kpi-note">DSC + DataSquad combined; canceled excluded · ↓ -41% · 238 in 2024 vs 405 in 2023</span></p>
-</div>
-<div class="g-col-6 g-col-md-3 kpi-card">
-<p><span class="kpi-label">DSC Staff</span> <span class="kpi-value">462</span> <span class="kpi-note">LibInsight scheduled exports</span></p>
-</div>
-<div class="g-col-6 g-col-md-3 kpi-card">
-<p><span class="kpi-label">DataSquad</span> <span class="kpi-value">142</span> <span class="kpi-note">Walk-in sign-ins</span></p>
-</div>
-<div class="g-col-6 g-col-md-3 kpi-card">
-<p><span class="kpi-label">Task Cards (Reportable)</span> <span class="kpi-value">204</span> <span class="kpi-note">Trello; backlog/admin lists excluded · ↑ +1350% · 87 in 2024 vs 6 in 2023</span></p>
-</div>
-</div>
-</section>
-<section id="dashboard-sections" class="level2">
-<h2 class="anchored" data-anchor-id="dashboard-sections">Dashboard Sections</h2>
-<div class="grid">
-<section id="consulting" class="level3 g-col-4 card p-3">
-<h3 class="anchored" data-anchor-id="consulting"><a href="./consulting.html">Consulting</a></h3>
-<p>One-on-one research support: DSC staff appointments and DataSquad walk-ins.</p>
-</section>
-<section id="instruction" class="level3 g-col-4 card p-3">
-<h3 class="anchored" data-anchor-id="instruction"><a href="./instruction.html">Instruction</a></h3>
-<p>Workshops, Carpentries events, and community-led training sessions.</p>
-</section>
-<section id="infrastructure" class="level3 g-col-4 card p-3">
-<h3 class="anchored" data-anchor-id="infrastructure"><a href="./infrastructure.html">Infrastructure</a></h3>
-<p>AWS cloud usage trends and UCLA Dataverse repository growth and download metrics.</p>
+<section id="three-ways-dsc-contributes" class="level2">
+<h2 class="anchored" data-anchor-id="three-ways-dsc-contributes">Three ways DSC contributes</h2>
+<div class="grid pathways">
+<div class="g-col-12 g-col-md-4 pathway">
+<p><span class="brand-el brand-node1" aria-hidden="true"></span></p>
+<section id="research-enabled" class="level3">
+<h3 class="anchored" data-anchor-id="research-enabled">Research enabled</h3>
+<p>Researchers across campus bring data problems to DSC for consultation, and some engagements become multi-year collaborations.</p>
+<p><span class="pathway-figure">about 1,850</span> <span class="pathway-unit">recorded consultations, 2017 to September 2026. A floor: recording practices and service capacity changed from mid-2024, so later counts cannot establish whether demand fell.</span></p>
+<p><a href="./consulting.html">Consultation evidence</a></p>
 </section>
 </div>
-<p><strong>Explore by section:</strong> <a href="./consulting.html">Consulting →</a> · <a href="./instruction.html">Instruction →</a> · <a href="./infrastructure.html">Infrastructure →</a> · <a href="./about.html">About &amp; methodology</a></p>
+<div class="g-col-12 g-col-md-4 pathway">
+<p><span class="brand-el brand-linechart1" aria-hidden="true"></span></p>
+<section id="research-capability-built" class="level3">
+<h3 class="anchored" data-anchor-id="research-capability-built">Research capability built</h3>
+<p>DSC moved from teaching its own campus to co-running instruction across the University of California, and campus volunteers it trained went on to lead much of the teaching.</p>
+<p><span class="pathway-figure">819</span> <span class="pathway-unit">workshop sessions, May 2017 to May 2026. Registered seats by program are charted on the pathway page.</span></p>
+<p><a href="./capability.html">Capability pathway</a></p>
 </section>
-<section id="reading-these-metrics" class="level2">
-<h2 class="anchored" data-anchor-id="reading-these-metrics">Reading These Metrics</h2>
+</div>
+<div class="g-col-12 g-col-md-4 pathway">
+<p><span class="brand-el brand-circular" aria-hidden="true"></span></p>
+<section id="shared-infrastructure-sustained" class="level3">
+<h3 class="anchored" data-anchor-id="shared-infrastructure-sustained">Shared infrastructure sustained</h3>
+<p>DSC runs UCLA Dataverse and governed access to restricted data, the current form of the stewardship that began in 1961.</p>
+<p><span class="pathway-figure pending">Figure pending</span> <span class="pathway-unit">The Dataverse dataset count will appear once two sources are reconciled and the count is dated and registered.</span></p>
+<p><a href="./infrastructure.html">Infrastructure evidence</a></p>
+</section>
+</div>
+</div>
+<div class="reach-strip">
+<p><span class="reach-value">1,908</span> confirmed UCLA researchers used DSC instruction or consultation, 2017 to September 2026. This is a floor: people are counted only when their identity could be confirmed.</p>
+</div>
+</section>
+<section id="reports-and-methods" class="level2">
+<h2 class="anchored" data-anchor-id="reports-and-methods">Reports and methods</h2>
 <ul>
-<li><strong>Direct consultations</strong> = one interaction record (appointment or walk-in). Canceled appointments excluded.</li>
-<li><strong>Task cards</strong> = Trello cards assigned to DataSquad project work. Not equivalent to consultations.</li>
-<li><strong>Task activity (comment-weighted)</strong> = comment count on task cards, a workload proxy, not hours or outputs.</li>
+<li><a href="./dsc-retrospective-2017-2026.html">DSC retrospective, 2017-2026</a>: the narrative account of the Data Science Center era</li>
+<li><a href="./about.html">About and methodology</a>: definitions, sources, and how figures are counted</li>
+<li><a href="./metrics-governance.html">Metrics governance</a>: counting rules for consultations, tasks, tickets, and instruction</li>
+<li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/claim-register.md">Claim register</a>: approved wording, window, unit, and source for every headline figure</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Data notes">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Data notes
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>Sources: LibInsight (scheduled exports + manual logs), DataSquad walk-in sign-in forms, Trello (historical task tracking)</li>
-<li>Canceled appointments excluded from all direct consultation counts</li>
-<li>Manual LibInsight logs deduplicated against scheduled exports using a same-provider/same-minute heuristic</li>
-<li>Task metrics (Trello cards, comment-weighted activity) are <strong>not</strong> consultations; shown separately throughout</li>
-<li><strong>YoY comparisons</strong> (2023 → 2024): consultation decline reflects shifting data sources; task card growth reflects expanded Trello adoption, not proportional workload increase</li>
-<li>Full counting rules: <a href="./metrics-governance.html">Metrics Governance</a> · <a href="./about.html">About &amp; methodology</a></li>
-</ul>
-</div>
-</div>
-</div>
-<p><strong>Data coverage:</strong> libinsights through 2026-02-13; libinsights through 2025-03-27; trello through 2025-03-25; datasquad_signin through 2024-06-05</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Cite this page">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -436,19 +414,26 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>UCLA Library Data Science Center. (2026). <em>DSC Statistics Dashboard</em>. Retrieved from <a href="https://ucla-data-science-center.github.io/dsc-stats-reports/" class="uri">https://ucla-data-science-center.github.io/dsc-stats-reports/</a></p>
+<p>UCLA Library Data Science Center. (2026). <em>DSC Statistics</em>. Retrieved from <a href="https://ucla-data-science-center.github.io/dsc-stats-reports/" class="uri">https://ucla-data-science-center.github.io/dsc-stats-reports/</a></p>
 </div>
 </div>
 </div>
-<hr>
 <p><em>Last rendered: September 27, 2026</em></p>
 
 
 </section>
 
 </main> <!-- /main -->
+<!-- Closing strip of DSC identity elements (2019 package): decorative only -->
+<div class="brand-strip" aria-hidden="true">
+  <span class="brand-el brand-lineflat"></span>
+  <span class="brand-el brand-smallcircle"></span>
+  <span class="brand-el brand-node2"></span>
+  <span class="brand-el brand-bigcircle"></span>
+  <span class="brand-el brand-linechart2"></span>
+</div>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
