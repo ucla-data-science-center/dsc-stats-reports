@@ -400,3 +400,22 @@ body.quarto-dark :not(pre) > code {
   -webkit-mask-position: left bottom;
   mask-position: left bottom;
 }
+
+/* Researcher testimony: prominent, readable in both themes */
+main blockquote {
+  border-left: 4px solid var(--ucla-gold);
+  padding: 0.4rem 0 0.4rem 1.1rem;
+  margin: 1.4rem 0;
+  color: var(--ink-strong);
+}
+main blockquote p:first-child {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ucla-blue-deep);
+}
+main blockquote p:last-child:not(:first-child) {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 0;
+}

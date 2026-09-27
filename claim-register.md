@@ -13,29 +13,26 @@ Update an entry's "Last verified" date whenever the underlying data changes
 identity-resolution pass). A claim whose source data has changed since its
 last verification date should not be reused until re-checked.
 
-## 1. Carceral Ecologies processing speedup
+## 1. Carceral Ecologies collaboration and data-loading speedup
 
-- **Approved wording**: "For one documented helicopter-surveillance processing task, an approximately 159-fold runtime reduction was observed under the reported conditions."
-- **Not approved**: "DSC made processing 159 times faster" (implies a general DSC capability, not one documented task).
-- **Reporting period**: multi-year engagement, outcome reported as of case intake.
-- **Unit of observation**: one processing task within one research engagement.
-- **Numerator/denominator**: n/a (single before/after measurement, ~318 min -> ~2 min).
-- **Population/exclusions**: one case, not generalizable to other engagements.
-- **Missingness/coverage**: n/a.
-- **Source**: `data/processed/consultations/impact_case_studies.csv`, row 1.
-- **Deduplicated**: n/a (single case).
-- **Contribution language allowed**: "supported," "enabled" — not "caused" or "achieved" as a DSC-wide capability.
-- **Last verified**: 2026-09-12.
+- **Approved wording**: "DSC staff and DataSquad students cleaned and integrated the lab's flight data, provided GIS support, refactored the R code, and moved the analysis onto DSC computing as the lab acquired larger datasets. One measured piece of that work cut the time to load the data from about 318 minutes to about 2, about 159 times as fast."
+- **Not approved**: "DSC made processing 159 times faster" as a general DSC capability; "156% faster" (arithmetic error in an earlier presentation); DSC secured the Dana Center grant or caused media coverage (the grant is a UCLA-Charles Drew partnership, $5M to UCLA within $9.8M matched; its link to this work is the researcher's account only). The grant is left off the Research Enabled page for now (decision 2026-09-27). If used for another audience, the reviewed wording is: "Shapiro says the helicopter project served as a pilot study for the UCLA-Charles R. Drew Dana Center; UCLA received a $5 million Dana Foundation grant for the center." Not quoted: the researcher's own remark that the analysis was beyond his lab's technical depth.
+- **Reporting period**: 2019 (course contact) through 2025. Phases: 2022 data preparation, neighborhood analysis, and GIS advice (consult notes Jan to Jun 2022; team meeting notes Jul to Nov 2022), with the move to the deep learning machine and hosted R server in Oct-Nov 2022; 2023 scaling (Mar 2023 statistician onboarded and five years of purchased data loaded on the deep learning machine) (batch processing, elevation lookups about 10x faster via a different data source, remote jobs on DSC computing; consult 2023-11-07). The measured data-loading step is dated 2023-24 on the DataSquad project page; one credited team member joined in mid-2024, so the exact year is uncertain.
+- **Unit of observation**: one research collaboration; the timing is one data-loading step.
+- **Sources**: student researcher's interview (DataSquad blog, 2023-07-27); consultation notes, Jan to Jun 2022 and 2023-11-07 (private); public code at github.com/kmcinerny/LA_Law_Enforcement_Heli and github.com/ucla-data-science-center/helicopter-data; DataSquad project page; lab projects and team pages; researcher's email of 2024-11-23 (private; quote used with permission); DSC/DataSquad consulting meetup notes, 2022-07 to 2023-06 (internal); award: socgen.ucla.edu news item, 2024-08-16 (Shapiro and Keel both named); DSC director's account of DSC's role (2026-09-27); `data/processed/consultations/impact_case_studies.csv` row 1.
+- **Not claimed**: any connection to Million Dollar Hoods (the 2023-03-01 meeting notes list it only as a related project).
+- **Contribution language allowed**: "supported," "cleaned and integrated," "provided," "moved onto DSC computing"; not "caused" or "produced" the research.
+- **Last verified**: 2026-09-27.
 
-## 2. BioCritical Studies Lab award recognition
+## 2. BioCritical Studies Lab collaboration
 
-- **Approved wording**: "DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA's 2024 Public Impact Research Awards."
-- **Not approved**: "DSC research won a public-impact award" (DSC did not win the award; the research it supported did).
-- **Reporting period**: multi-year engagement, award dated 2024.
+- **Approved wording**: "DataSquad students have worked on the lab's national dataset since 2021: merging and reconciling sources, identifying missed deaths, statistical comparisons, dashboards and maps, and integration code and a codebook the lab uses to update the dataset itself." Also: "DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA's 2024 Public Impact Research Awards."
+- **Not approved**: "DSC research won a public-impact award"; any mention of Keel's book *The Coroner's Silence* (2025) next to this dataset (no documented link between the dataset and the book; removed from the page 2026-09-27 after external review); stating the NIH, NSF, and RWJF grants in DSC's voice (they appear only as the lab manager's statement).
+- **Reporting period**: 2021 to 2024. Phase 1, 2021-22: two DataSquad students (merging four national datasets, cleaning, missed deaths, chi-square comparisons, Tableau dashboards and LA maps). Phase 2, 2023: DSC staff and a DataSquad student on data management and documentation (team meeting notes). Phase 3, 2024: a DataSquad student developed two codebooks for integrating and cleaning new data from any source, and taught the lab to use them (lab letter, 2024-08-13).
 - **Unit of observation**: one research engagement.
-- **Source**: `data/processed/consultations/impact_case_studies.csv`, row 2.
-- **Contribution language allowed**: "contributed to," "supported" — not "won" or "produced."
-- **Last verified**: 2026-09-12.
+- **Sources**: UCLA Library news, "DataSquad: Civilian deaths at hand of police," 2022-05-20 (public; names two students); endorsement letter from the lab's assistant director, 2024-08-13 (private file; marked for public use; names the three crowd-based sources and the January 2021 start); DataSquad team notes 2021-11 to 2022-05 and DSC consulting meetup notes 2023 (internal); DSC director's account, 2026-09-27; award: socgen.ucla.edu news item, 2024-08-16; book: afam.ucla.edu, 2026-02-18; `data/processed/consultations/impact_case_studies.csv` row 2.
+- **Contribution language allowed**: "worked on," "merged," "built," "maintain"; not "won," "produced," or "co-authored."
+- **Last verified**: 2026-09-27.
 
 ## 3. carp2025 trajectory finding
 
@@ -230,4 +227,14 @@ last verification date should not be reused until re-checked.
 - **LARIAC access**: UCLA is a LARIAC consortium member through the Library; DSC administers UCLA access (DSC director, 2026-09-27; 2018 LARIAC User Group slide on UCLA membership; DSC access guide, 2021).
 - **Outputs**: `data/processed/canonical/research_outputs_public.csv`; each row verified and permitted (enforced by `tests/test_public_outputs.R`). Permissions: FORCE11 presenters and named users (their public talk), Shapiro and Keel (Tim, 2026-09-27).
 - **Source register**: private, `dsc-stats-integration/restricted/research-enabled-register.csv`.
+- **Last verified**: 2026-09-27.
+
+## 20. 3D capture for the humanities (refugee boat; Iceland surveys; pointcloud.ucla.edu)
+
+- **Approved wording**: as on `research.qmd`: Doug Daniels 3D scanned the "Boat of Hope" and prepared models for the museum's in-gallery digital exhibit, hosted on pointcloud.ucla.edu; worked with Nguyen, who organized the digital archaeology day (50+ high school students, 30+ elders; the Humanities story credits Nguyen as organizer, the Newsroom story calls Doug a co-organizer); ran drone surveys in Mosfell Valley for a Cotsen doctoral student; built pointcloud.ucla.edu in 2022, which hosts the boat model and an Iceland turf-architecture folder. The page does not claim the Mosfell survey itself is on the server. Students credited by task: one processed the Iceland data on return; one helped set up the Potree viewer.
+- **Not approved**: a year for the Iceland fieldwork (the public pointcloud Iceland folder is dated Aug-Sep 2024 and covers northern sites, not Mosfell Valley; relationship unconfirmed); that the student who processed Iceland data joined the boat scan (unknown); the boat's exact departure date (public sources give September 3 and September 4, 1984); naming the doctoral student (not named in public sources); that DSC produced the scholarship.
+- **Reporting period**: 2022 (pointcloud server) to 2026 (digital archaeology day, award).
+- **Unit of observation**: two engagements plus the shared hosting platform.
+- **Sources**: UCLA Newsroom, Librarians of the Year, 2026-07-07; UCLA Humanities, digital archaeology day, 2026-04-28 (course title, attendance); Cotsen Institute RMCI page; RMCI page for Doug Daniels (dal.ucla.edu); pointcloud.ucla.edu boat narrative; DSC director's account 2026-09-27 (student roles, Potree setup, instructional use); 2026 Librarian of the Year nomination draft and Doug Daniels's self-assessment (private; two weeks in Iceland, remote processing, library workstation, 2022 server build); DSC consulting meetup notes 2023 (student joined the lab in April 2023; drone equipment arrived May 2023).
+- **Contribution language allowed**: "scanned," "surveyed," "processed," "prepared," "hosts," "co-organized"; not "produced" or "authored" the research.
 - **Last verified**: 2026-09-27.

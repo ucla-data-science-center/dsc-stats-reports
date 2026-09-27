@@ -33,7 +33,7 @@ DSC's staff time fell from 5.7 FTE in 2022-23 to 4.0 in 2025-26, and student hel
 
 ## Evidence in brief
 
-The figure shows capacity and recorded delivery side by side; it is not an estimate of demand.
+The figure shows capacity and recorded delivery side by side, not an estimate of demand.
 
 ```{r evidence_chart, echo=FALSE, fig.alt=alt_combined, fig.width=10, fig.height=5, fig.cap="Left: recorded consultations (scheduled appointments with DSC staff and DataSquad consultants); from mid-2024 recording lapsed (Calendly ended; LibCal from May 2025), so 2024 onward are floors, and 2026 runs to September. Middle: staff time in full-time equivalents, DSC staff plus time contributed by other Library units (one share shown at its upper bound); staff time covers all DSC services, not consultations only. Right: average student employees on payroll per month (UC timesheet records; 2026 through July); from July to October 2025, while student hiring was under campus review, one student remained on payroll."}
 if (nrow(series) > 0 && nrow(capacity) > 0) {
@@ -75,31 +75,67 @@ if (nrow(series) > 0 && nrow(capacity) > 0) {
 }
 ```
 
+Recorded counts from mid-2024 on are floors: the scheduling system lapsed while staff and student capacity fell, so these years cannot show whether demand changed. Consultations are interactions, not people.
+
+::: {.callout-note collapse="true" title="How the consultation series is counted"}
+- About 340 to 395 consultations a year were recorded at full recording (2021-2023), some growing into multi-year collaborations.
+- From mid-2024 the scheduling system lapsed (Calendly ended; LibCal from May 2025), so later counts are floors and cannot separate demand from the capacity to meet it or the ability to record it.
+- Consultations are interactions, not people. One researcher can book many appointments; the separate 1,908 figure counts people.
+- The series counts scheduled appointments, with DSC staff and DataSquad consultants alike. DataSquad's in-person walk-in sign-ins are shown separately on the [consultation evidence page](consulting.qmd).
+:::
+
 Two supporting measures:
 
 - **At least `r hl("people_reached_confirmed_ucla")` confirmed UCLA researchers** used DSC instruction or consultation, 2017 to September 2026 (a floor, counted only where identity could be confirmed).
 - **Scheduling systems changed three times:** Calendly to mid-2024, no scheduling system until May 2025, then LibCal. Consultations continued in the gap, but most went unrecorded.
 
-## A documented example
+## A research collaboration: police helicopter surveillance
 
-**Research question.** A lab in UCLA's Institute for Society and Genetics (Carceral Ecologies) needed to analyze a helicopter-surveillance dataset at research scale.
+The Carceral Ecologies lab, directed by Nicholas Shapiro in UCLA's Institute for Society and Genetics, studies the health and mental-health effects of law-enforcement helicopter surveillance across Los Angeles County from 2017 through 2022 ([lab project page](https://carceralecologies.org/projects/)). Its public findings include that LAPD helicopters fly lowest over largely Black and Hispanic neighborhoods, with a median of about 550 feet over Watts at night ([CalMatters, July 2024](https://calmatters.org/commentary/2024/07/california-longstanding-bias-police-helicopters/)).
 
-**Support provided.** Over several years, DSC and DataSquad provided R server infrastructure, data processing, and hands-on training for a student researcher.
+When COVID closed the prisons where the lab had done environmental field sampling, Shapiro moved its work to data analysis, and the flight-trajectory dataset soon outgrew what the lab could host itself. In his words, DSC and DataSquad supported the lab "through technical assistance, helping one of my research students (who became staff) grow her R skills, and in hosting the R server that makes this research possible."
 
-**Resulting output.** For one documented processing task, runtime fell from about 318 minutes to about 2, an approximately 159-fold reduction under the reported conditions.
+A student researcher on the team first learned R and GIS from DSC staff in a 2019 African American Studies course taught with DSC. In 2022 she came back with the team's flight-tracking data, twelve monthly files of about a million rows each, and met DSC staff and DataSquad consultants more than 30 times that year ([her 2023 interview](https://ucla-datasquad.github.io/2023/07/27/kate-m-helicopter-data.html)). Together they converted the raw flight records into analyzable tables, identified individual flights, filtered out impossible altitude readings, and joined millions of positions to Los Angeles neighborhoods ([her analysis code](https://github.com/kmcinerny/LA_Law_Enforcement_Heli)). DSC's GIS librarian advised on the spatial analysis, recommending a density-based clustering method for classifying the flight data and helping fix geometry problems in the spatial files. When the processing outgrew her laptop that fall, DSC moved the data onto its deep learning machine and gave her access to its hosted R server.
 
-**Evidence.** Case record in `data/processed/consultations/impact_case_studies.csv` (claim #1). A public link to the underlying output has not yet been recorded.
+As the lab acquired more data, DSC helped it scale. In March 2023 DSC staff met with Shapiro's team, set up the lab's new statistician on the deep learning machine, and loaded five years of additional data the lab had purchased. Over the following months DSC staff and DataSquad students worked with the statistician to process the dataset in batches and speed up elevation lookups about tenfold by switching data sources ([shared code](https://github.com/ucla-data-science-center/helicopter-data)). One measured piece of that work cut the time to load the data from about 318 minutes to about 2, about 159 times as fast ([DataSquad project page](https://ucla-datasquad.github.io/)). DSC staff on the collaboration included Tim Dennis, Leigh Phan, Zhiyuan Yao, and Kristian Allen.
 
-**Limits of attribution.** One task in one engagement; not a general measure of DSC's effect. The lab's research and its later media coverage belong to the researchers.
+In Shapiro's account, the lab's ability to keep analyzing its growing flight data has depended on that technical help and on the R server DSC hosts.
 
-::: {.callout-important}
-## What this pattern means, and what it cannot mean
+> "This work wouldn't have happened without your team!"
+>
+> Nicholas Shapiro, director of Carceral Ecologies, November 2024 (quoted with permission)
 
-- **It means** DSC delivered sustained one-on-one research support: about 340 to 395 recorded consultations a year at full recording (2021-2023), some growing into multi-year collaborations.
-- **It cannot mean** that demand fell after 2023. From mid-2024 the scheduling system lapsed and staff and student capacity fell, so recorded counts cannot separate demand from the capacity to meet it and the ability to record it.
-- **Consultations are interactions, not people.** One researcher can book many appointments; the separate 1,908 figure counts people.
-- **DataSquad walk-in sign-ins are not included.** The series counts scheduled appointments only; in-person walk-ins are shown separately on the [consultation evidence page](consulting.qmd).
-:::
+The research and its findings belong to the lab; Shapiro received a 2024 UCLA Public Impact Research Award for it ([Institute for Society and Genetics, August 2024](https://socgen.ucla.edu/2024/08/16/isg-faculty-nicholas-shapiro-and-terence-keel-awarded-uclas-2024-public-impact-research-awards/)).
+
+## A second collaboration: deaths in custody
+
+In January 2021, Terence Keel's BioCritical Studies Lab, in UCLA's Institute for Society and Genetics, set out to build a single dataset of deaths in custody across the United States from 2000 to 2020. Those deaths are reported by several crowd-based sources, including The Guardian, Fatal Encounters, and Mapping Police Violence, each with its own variables and standards, and the dataset has to be revised as the sources change.
+
+DataSquad students Julia Wood and Ethan Allavarpu merged the sources, reconciled discrepancies between them, and identified deaths that some sources had missed. They then built maps and dashboards, including Los Angeles maps, and ran statistical comparisons of death rates that, in the words of the lab's assistant director, were "instrumental in informing us which locations we should prioritize" ([UCLA Library, May 2022](https://www.library.ucla.edu/about/news/datasquad-civilian-deaths-at-hand-of-police)). DSC staff later helped the lab organize and document its data. In 2024 DataSquad student Lawrence Lee developed two codebooks that let the lab integrate and clean new data from any source, and taught the lab to use them so it could update the dataset on its own.
+
+Keeping the national dataset usable through new sources and revisions has depended on recurring DataSquad work and on tools the lab learned to use itself.
+
+> "There is a lack of comprehensive and reliable data on death in custody in the United States, and the work the DataSquad has done has helped us address this need and has allowed us to maintain this dataset over time and through revisions."
+>
+> Grace Sosa, assistant director, BioCritical Studies Lab, August 2024 (quoted with permission)
+
+In the same letter, Sosa writes that the lab has used the dataset to complete projects funded by the National Institutes of Health, the National Science Foundation, and the Robert Wood Johnson Foundation. The research is the lab's; Keel, like Shapiro, received a 2024 UCLA Public Impact Research Award ([Institute for Society and Genetics, August 2024](https://socgen.ucla.edu/2024/08/16/isg-faculty-nicholas-shapiro-and-terence-keel-awarded-uclas-2024-public-impact-research-awards/)).
+
+## A third collaboration: 3D capture for the humanities
+
+Classics professor Kelly Nguyen's Refugee Material Culture Initiative, a collaboration with the Vietnamese Heritage Museum in Garden Grove, digitally preserves art and artifacts made and used by refugees ([Cotsen Institute of Archaeology](https://ioa.ucla.edu/content/refugee-material-culture-initiative)). Doug Daniels, DSC's emerging technologies librarian, 3D scanned the "Boat of Hope," a six-meter river sampan that carried nine refugees out of Vietnam in 1984, and prepared the models for the museum's digital exhibit ([the initiative's page on Doug](https://dal.ucla.edu/rmci/taxonomy/term/130)).
+
+[Explore the Boat of Hope and its story in 3D](https://www.pointcloud.ucla.edu/VHM/narrative_all.html)
+
+In Nguyen's course "Decolonizing Refugee Data from Rome to Vietnam," students build digital exhibitions from artifacts like these. Nguyen, working with Doug, also organized a digital archaeology day that brought more than 50 Westminster High School students and more than 30 elders from Little Saigon to campus ([UCLA Humanities, April 2026](https://humanities.ucla.edu/news/digital-archaeology-day-kelly-nguyen/); [UCLA Newsroom, July 2026](https://newsroom.ucla.edu/stories/doug-daniels-matthew-vest--ucla-librarians-of-the-year-2026)).
+
+Doug also spent two weeks in Iceland's Mosfell Valley running drone surveys for a doctoral student at the Cotsen Institute of Archaeology ([UCLA Newsroom, July 2026](https://newsroom.ucla.edu/stories/doug-daniels-matthew-vest--ucla-librarians-of-the-year-2026)). He processed data as it arrived during fieldwork and set up a library workstation so the student could keep working after returning; student employee Connor Lim processed the survey data once it came back.
+
+The boat model lives on pointcloud.ucla.edu, a server Doug built in 2022 so that anyone can explore 3D data in an ordinary web browser, as does [Iceland turf-architecture survey data](https://www.pointcloud.ucla.edu/Iceland/IcelandicTurfArchitecture/); student employee Bianca Badajos helped set up its Potree viewer. Publishing processed data there lets researchers examine it without specialized hardware and lets instructors bring it into class.
+
+The public boat model depends on DSC's capture, processing, and continued hosting, alongside the initiative's and the museum's stewardship of the boat and its story.
+
+The scholarship belongs to Nguyen's initiative and the Cotsen researchers. Doug was named a 2026 UCLA Librarian of the Year for his work across campus ([UCLA Newsroom, July 2026](https://newsroom.ucla.edu/stories/doug-daniels-matthew-vest--ucla-librarians-of-the-year-2026)).
 
 ::: {.callout-note .long-view}
 ## The long view (history, as of 2026)
@@ -122,7 +158,9 @@ The consultation evidence page holds the full tables. Jump to:
 |---|---|---|---|---|
 | `r hl("consultations_recorded_series")` recorded consultations | 2017 to Sept 2026 | scheduled appointment | 2026-09-27 | #10 |
 | At least `r hl("people_reached_confirmed_ucla")` UCLA researchers | 2017 to Sept 2026 | person, confirmed | 2026-09-26 | #13 |
-| 318 to 2 minute processing task | one engagement | one task | 2026-09-12 | #1 |
+| Carceral Ecologies collaboration; 318 to 2 minute data-loading step | 2019 to 2025 | one engagement | 2026-09-27 | #1 |
+| BioCritical Studies Lab collaboration (deaths in custody) | 2021 to 2024 | one engagement | 2026-09-27 | #2 |
+| 3D capture: refugee boat and Iceland surveys | 2022 to 2026 | two engagements | 2026-09-27 | #20 |
 | Student employees on payroll | 2018 to Jul 2026 | monthly average headcount | 2026-09-27 | #17 |
 | Consulting history | 1961 to 2026 | historical account | 2026-09-27 | #18 |
 
