@@ -56,6 +56,69 @@
     "text": "Research Impact\nThese are illustrative cases selected to show different forms of contribution, not a representative sample of DSC and DataSquad’s work. They show how support extends into sustained technical collaboration beyond single consultations.\n\nCarceral Ecologies\nPartners: UCLA Institute for Society and Genetics (Nicholas Shapiro)\nThe DSC and UCLA DataSquad provided multi-year research support for the Carceral Ecologies Lab, including R server infrastructure, data processing support, and student training for work on a helicopter surveillance dataset. In collaboration with DSC staff, DataSquad contributors helped build a workflow that made iterative analysis feasible at research scale.\nMeasurable outcomes: Reduced processing time from ~318 minutes to ~2 minutes (about a 99.4% reduction; ~159x faster). Built sustainable capacity by training a research student in R-based workflows.\nImpact signals: National media coverage (Los Angeles Times, The New Yorker, Bloomberg) and support for award-recognized UCLA public-impact research.\n\n\nBioCritical Studies Lab\nPartners: UCLA (Grace Sosa; Terence Keel)\nThe DSC and UCLA DataSquad supported the BioCritical Studies Lab through a multi-year collaboration focused on data integration, statistical analysis, and visualization for a large deaths-in-custody research dataset. DataSquad consultants worked with DSC staff to build sustainable tools and workflows that improved maintainability and ongoing use of the data.\nMeasurable outcomes: Substantial dataset cleanup and transformation for geographic analysis and visualization, with workflows designed for continued updates and reuse.\nImpact signals: Supported research recognized through UCLA’s 2024 Public Impact Research Awards and contributed to long-term public-facing scholarship and teaching outputs.\n\n\n\n\n\n\n\n\n\n\n\n\n\nperiod label\nworkstream\naudience\nrequest theme\nwork performed\noutcome\n\n\n\n\n2025 Q1\ndatasquad\nfaculty\ndata management\nReviewed repository options, metadata needs, and access constraints for course use\nIdentified a workable publication/access path and follow-up implementation steps\n\n\n2025 Q1\ndsc\nstudent\ngeospatial analysis\nProvided troubleshooting and workflow guidance for GIS data integration\nUnblocked next analysis steps and clarified tool-specific workflow decisions\n\n\n2025 Q1\ndatasquad\nstaff\nprogramming workflow\nInvestigated code/tooling options and documented a reproducible approach\nDelivered a documented approach the requester could continue independently\n\n\n\n\n\n\nSee also: Instruction → workshop attendance · Infrastructure → Dataverse and AWS metrics · About & methodology\n\n\n\n\n\n\n\nNoteData notes\n\n\n\n\n\n\nDirect consultations: LibInsight scheduled exports + manual logs (DSC staff); DataSquad walk-in sign-in forms\nCanceled appointments excluded from all direct consultation counts\nDeduplication: manual LibInsight logs matched against scheduled exports using a same-provider/same-minute heuristic; ~4 duplicates removed\nTask metrics (Trello cards, comment-weighted activity) are shown separately — not comparable to consultation counts\nReportable filter: excludes Inbox, Future Projects/Ideas, Team Info lists; includes archived completed cards\nYoY comparisons (2023 → 2024): direct consultation decline reflects shifting data sources and intake channels, not necessarily service volume; task card growth reflects expanded Trello adoption in 2024, not a proportional workload increase\nFull rules: Metrics Governance · About & methodology\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteCite this page\n\n\n\n\n\nUCLA Library Data Science Center. (2026). Consulting Statistics. Retrieved from https://ucla-data-science-center.github.io/dsc-stats-reports/consulting.html\n\n\n\nLast rendered: September 27, 2026"
   },
   {
+    "objectID": "research.html#finding-and-scope",
+    "href": "research.html#finding-and-scope",
+    "title": "Research Enabled",
+    "section": "Finding and scope",
+    "text": "Finding and scope\nResearchers across UCLA bring data problems to DSC, and some of those consultations become multi-year collaborations. DSC recorded about 1,850 scheduled consultations from 2017 to September 2026. Recorded counts rise and fall with the staff and students available to do the work and with the system used to record it, so they show the work delivered, not the demand for it."
+  },
+  {
+    "objectID": "research.html#evidence-in-brief",
+    "href": "research.html#evidence-in-brief",
+    "title": "Research Enabled",
+    "section": "Evidence in brief",
+    "text": "Evidence in brief\n\n\n\n\n\n\n\nRecorded consultations: scheduled appointments with DSC staff and DataSquad consultants. From mid-2024 recording lapsed (Calendly ended; LibCal from May 2025), so 2024 onward are floors. 2026 runs to September.\n\n\n\n\n\n\n\n\n\n\n\nService capacity by year. Left: staff time in full-time equivalents, DSC staff plus time contributed by staff in other Library units (Gillian’s share shown at its upper bound). Staff time covers all DSC services, not consultations only. Right: average student employees on payroll per month (UC timesheet records). From July to October 2025, while student hiring was under campus review, one student remained on payroll. 2026 runs through July.\n\n\n\n\n\n\nTwo supporting measures:\n\nAt least 1,908 confirmed UCLA researchers used DSC instruction or consultation, 2017 to September 2026 (a floor, counted only where identity could be confirmed).\nScheduling systems changed three times: Calendly to mid-2024, no scheduling system until May 2025, then LibCal. Consultations continued in the gap, but most went unrecorded."
+  },
+  {
+    "objectID": "research.html#a-documented-example",
+    "href": "research.html#a-documented-example",
+    "title": "Research Enabled",
+    "section": "A documented example",
+    "text": "A documented example\nResearch question. A lab in UCLA’s Institute for Society and Genetics (Carceral Ecologies) needed to analyze a helicopter-surveillance dataset at research scale.\nSupport provided. Over several years, DSC and DataSquad provided R server infrastructure, data processing, and hands-on training for a student researcher.\nResulting output. For one documented processing task, runtime fell from about 318 minutes to about 2, an approximately 159-fold reduction under the reported conditions.\nEvidence. Case record in data/processed/consultations/impact_case_studies.csv (claim #1). A public link to the underlying output has not yet been recorded.\nLimits of attribution. One task in one engagement; not a general measure of DSC’s effect. The lab’s research and its later media coverage belong to the researchers.\n\n\n\n\n\n\nImportantWhat this pattern means, and what it cannot mean\n\n\n\n\nIt means DSC delivered sustained one-on-one research support: about 340 to 395 recorded consultations a year at full recording (2021-2023), some growing into multi-year collaborations.\nIt cannot mean that demand fell after 2023. From mid-2024 the scheduling system lapsed and staff and student capacity fell, so recorded counts cannot separate demand from the capacity to meet it and the ability to record it.\nConsultations are interactions, not people. One researcher can book many appointments; the separate 1,908 figure counts people.\nDataSquad walk-in sign-ins are not included. The series counts scheduled appointments only; in-person walk-ins are shown separately on the consultation evidence page.\n\n\n\n\n\n\n\n\n\nNoteThe long view (history, as of 2026)\n\n\n\nThe archive answered research questions from its early years: data discovery, codebooks, and help with statistical software. The 2018 redesign widened consulting to the whole research life cycle, from data management plans to publication and preservation, and added GIS, 3D capture, machine learning, research software, and reproducible workflows. From about 2023 the work shifted from single appointments toward project support that ran for months. Read the consulting section of the history"
+  },
+  {
+    "objectID": "research.html#detailed-evidence",
+    "href": "research.html#detailed-evidence",
+    "title": "Research Enabled",
+    "section": "Detailed evidence",
+    "text": "Detailed evidence\nThe consultation evidence page holds the full tables. Jump to:\n\nRecorded consultations by year\nConsultation records by record type, department, and affiliation (records file, January 2021 to June 2024; breakdowns suppress any unit under 5)\nResearch impact cases\nMethodology"
+  },
+  {
+    "objectID": "research.html#sources-and-claim-record",
+    "href": "research.html#sources-and-claim-record",
+    "title": "Research Enabled",
+    "section": "Sources and claim record",
+    "text": "Sources and claim record\n\n\n\n\n\n\n\n\n\n\nFigure\nWindow\nUnit\nExtracted\nClaim\n\n\n\n\nabout 1,850 recorded consultations\n2017 to Sept 2026\nscheduled appointment\n2026-09-27\n#10\n\n\nAt least 1,908 UCLA researchers\n2017 to Sept 2026\nperson, confirmed\n2026-09-26\n#13\n\n\n318 to 2 minute processing task\none engagement\none task\n2026-09-12\n#1\n\n\nStudent employees on payroll\n2018 to Jul 2026\nmonthly average headcount\n2026-09-27\n#17\n\n\nConsulting history\n1961 to 2026\nhistorical account\n2026-09-27\n#18\n\n\n\nSuppression rule: department, organizational-parent, and affiliation breakdowns fold any unit under 5 into one combined row, which is omitted if it is also under 5. Approved wording and sources: claim-register.md.\n\n\n\n\n\n\nNoteCite this page\n\n\n\n\n\nUCLA Library Data Science Center. (2026). Research Enabled. Retrieved from https://ucla-data-science-center.github.io/dsc-stats-reports/research.html\n\n\n\nLast rendered: September 27, 2026"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DSC Statistics",
+    "section": "",
+    "text": "The Data Science Center (DSC) supports UCLA researchers with data consultation, instruction, and the infrastructure that keeps research data usable. This site is the evidence layer: each figure below states its unit and window and links to the page where it is built."
+  },
+  {
+    "objectID": "index.html#what-the-evidence-establishes",
+    "href": "index.html#what-the-evidence-establishes",
+    "title": "DSC Statistics",
+    "section": "What the evidence establishes",
+    "text": "What the evidence establishes\nDSC’s work shows up in research outputs, not only in service counts. Two documented engagements illustrate this: for one helicopter-surveillance processing task, an approximately 159-fold runtime reduction was observed under the reported conditions; and DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA’s 2024 Public Impact Research Awards. These are illustrative cases, not a representative sample. See the cases and their limits."
+  },
+  {
+    "objectID": "index.html#three-ways-dsc-contributes",
+    "href": "index.html#three-ways-dsc-contributes",
+    "title": "DSC Statistics",
+    "section": "Three ways DSC contributes",
+    "text": "Three ways DSC contributes\n\n\n\n\nResearch enabled\nResearchers across campus bring data problems to DSC for consultation, and some engagements become multi-year collaborations.\nabout 1,850 recorded consultations, 2017 to September 2026. Records are incomplete after mid-2024, so later years cannot measure demand.\nResearch enabled pathway\n\n\n\n\n\nResearch capability built\nDSC moved from teaching its own campus to co-running instruction across the University of California, and campus volunteers it trained went on to lead much of the teaching.\n819 workshop sessions, May 2017 to May 2026. Registered seats by program are charted on the pathway page.\nCapability pathway\n\n\n\n\n\nShared infrastructure sustained\nDSC runs UCLA Dataverse and governed access to restricted data, the current form of the stewardship that began in 1961.\nabout 1,390 released datasets in UCLA Dataverse, Feb 2026: about 376 deposited directly at UCLA and about 1,014 legacy SSDA datasets that Library staff harvested and curate.\nInfrastructure evidence\n\n\n\n\nAt least 1,908 confirmed UCLA researchers used DSC instruction or consultation, 2017 to September 2026. People are counted only when their identity could be confirmed."
+  },
+  {
+    "objectID": "index.html#reports-and-methods",
+    "href": "index.html#reports-and-methods",
+    "title": "DSC Statistics",
+    "section": "Reports and methods",
+    "text": "Reports and methods\n\nDSC retrospective, 2017-2026: the narrative account of the Data Science Center era\nAbout and methodology: definitions, sources, and how figures are counted\nMetrics governance: counting rules for consultations, tasks, tickets, and instruction\nClaim register: approved wording, window, unit, and source for every headline figure\n\n\n\n\n\n\n\nNoteCite this page\n\n\n\n\n\nUCLA Library Data Science Center. (2026). DSC Statistics. Retrieved from https://ucla-data-science-center.github.io/dsc-stats-reports/\n\n\n\nLast rendered: September 27, 2026"
+  },
+  {
     "objectID": "capability.html#finding-and-scope",
     "href": "capability.html#finding-and-scope",
     "title": "Research Capability Built",
@@ -89,34 +152,6 @@
     "title": "Research Capability Built",
     "section": "Sources and claim record",
     "text": "Sources and claim record\n\n\n\n\n\n\n\n\n\n\nFigure\nWindow\nUnit\nExtracted\nClaim\n\n\n\n\n27,986 registered seats\nMay 2017 to Sept 2026 (2026 partial)\nregistered seat\n2026-09-26\n#12\n\n\n819 sessions\nMay 2017 to May 2026\nsession (event, date)\n2026-09-24\n#9\n\n\nAt least 39 people in research roles\n2021-2025 cohorts\nperson, public confirmation\n2026-09-12\n#5\n\n\nThree instruction eras\n2017-2026\nhistorical account\n2026-09-26\n#15\n\n\n\nSuppression rule: department, organizational-parent, and affiliation breakdowns fold any unit under 5 into one combined row, which is omitted if it is also under 5. The claim register gives approved wording, exclusions, and source for each figure: claim-register.md.\n\n\n\n\n\n\nNoteCite this page\n\n\n\n\n\nUCLA Library Data Science Center. (2026). Research Capability Built. Retrieved from https://ucla-data-science-center.github.io/dsc-stats-reports/capability.html\n\n\n\nLast rendered: September 27, 2026"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "DSC Statistics",
-    "section": "",
-    "text": "The Data Science Center (DSC) supports UCLA researchers with data consultation, instruction, and the infrastructure that keeps research data usable. This site is the evidence layer: each figure below states its unit and window and links to the page where it is built."
-  },
-  {
-    "objectID": "index.html#what-the-evidence-establishes",
-    "href": "index.html#what-the-evidence-establishes",
-    "title": "DSC Statistics",
-    "section": "What the evidence establishes",
-    "text": "What the evidence establishes\nDSC’s work shows up in research outputs, not only in service counts. Two documented engagements illustrate this: for one helicopter-surveillance processing task, an approximately 159-fold runtime reduction was observed under the reported conditions; and DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA’s 2024 Public Impact Research Awards. These are illustrative cases, not a representative sample. See the cases and their limits."
-  },
-  {
-    "objectID": "index.html#three-ways-dsc-contributes",
-    "href": "index.html#three-ways-dsc-contributes",
-    "title": "DSC Statistics",
-    "section": "Three ways DSC contributes",
-    "text": "Three ways DSC contributes\n\n\n\n\nResearch enabled\nResearchers across campus bring data problems to DSC for consultation, and some engagements become multi-year collaborations.\nabout 1,850 recorded consultations, 2017 to September 2026. Records are incomplete after mid-2024, so later years cannot measure demand.\nConsultation evidence\n\n\n\n\n\nResearch capability built\nDSC moved from teaching its own campus to co-running instruction across the University of California, and campus volunteers it trained went on to lead much of the teaching.\n819 workshop sessions, May 2017 to May 2026. Registered seats by program are charted on the pathway page.\nCapability pathway\n\n\n\n\n\nShared infrastructure sustained\nDSC runs UCLA Dataverse and governed access to restricted data, the current form of the stewardship that began in 1961.\nabout 1,390 released datasets in UCLA Dataverse, Feb 2026: about 376 deposited directly at UCLA and about 1,014 legacy SSDA datasets that Library staff harvested and curate.\nInfrastructure evidence\n\n\n\n\nAt least 1,908 confirmed UCLA researchers used DSC instruction or consultation, 2017 to September 2026. People are counted only when their identity could be confirmed."
-  },
-  {
-    "objectID": "index.html#reports-and-methods",
-    "href": "index.html#reports-and-methods",
-    "title": "DSC Statistics",
-    "section": "Reports and methods",
-    "text": "Reports and methods\n\nDSC retrospective, 2017-2026: the narrative account of the Data Science Center era\nAbout and methodology: definitions, sources, and how figures are counted\nMetrics governance: counting rules for consultations, tasks, tickets, and instruction\nClaim register: approved wording, window, unit, and source for every headline figure\n\n\n\n\n\n\n\nNoteCite this page\n\n\n\n\n\nUCLA Library Data Science Center. (2026). DSC Statistics. Retrieved from https://ucla-data-science-center.github.io/dsc-stats-reports/\n\n\n\nLast rendered: September 27, 2026"
   },
   {
     "objectID": "about.html",
