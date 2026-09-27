@@ -31,6 +31,9 @@ The Data Science Center (DSC) supports UCLA researchers with data consultation, 
 **Since 1961.** UCLA has kept research data for reuse since 1961, when political scientist Dwaine Marvick founded the Political Behavior Archive. The unit's name and institutional home have changed several times since; what persisted is the stewardship of research data and the work of widening access to it. [Read the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html)
 :::
 
+::: {.brand-wave aria-hidden="true"}
+:::
+
 ## What the evidence establishes
 
 DSC's work shows up in research outputs, not only in service counts. Two documented engagements illustrate this: for one helicopter-surveillance processing task, an approximately 159-fold runtime reduction was observed under the reported conditions; and DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA's 2024 Public Impact Research Awards. These are illustrative cases, not a representative sample. [See the cases and their limits](consulting.qmd#research-impact).
@@ -40,6 +43,8 @@ DSC's work shows up in research outputs, not only in service counts. Two documen
 ::: {.grid .pathways}
 
 ::: {.g-col-12 .g-col-md-4 .pathway}
+[]{.brand-el .brand-node1 aria-hidden="true"}
+
 ### Research enabled
 
 Researchers across campus bring data problems to DSC for consultation, and some engagements become multi-year collaborations.
@@ -51,6 +56,8 @@ Researchers across campus bring data problems to DSC for consultation, and some 
 :::
 
 ::: {.g-col-12 .g-col-md-4 .pathway}
+[]{.brand-el .brand-linechart1 aria-hidden="true"}
+
 ### Research capability built
 
 DSC moved from teaching its own campus to co-running instruction across the University of California, and campus volunteers it trained went on to lead much of the teaching.
@@ -62,6 +69,8 @@ DSC moved from teaching its own campus to co-running instruction across the Univ
 :::
 
 ::: {.g-col-12 .g-col-md-4 .pathway}
+[]{.brand-el .brand-circular aria-hidden="true"}
+
 ### Shared infrastructure sustained
 
 DSC runs UCLA Dataverse and governed access to restricted data, the current form of the stewardship that began in 1961.

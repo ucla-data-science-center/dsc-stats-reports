@@ -21,6 +21,8 @@ seats <- read_seats()
 alt_seats <- seats_alt_text(seats)
 ```
 
+[]{.brand-el .brand-linechart1 .page-mark aria-hidden="true"}
+
 ## Finding and scope
 
 DSC instruction grew from workshops for its own campus into instruction co-run across the University of California, and it trained campus volunteers who went on to lead much of the teaching. The evidence covers workshops from May 2017 through September 2026 and counts registrations and sessions, not individual learning outcomes.

@@ -348,3 +348,55 @@ body.quarto-dark :not(pre) > code {
   .navbar-logo { height: 40px; }
   .navbar-brand .navbar-title { display: none; }
 }
+
+/* ── DSC identity elements (2019 package), decorative only ──
+   Drawn as CSS masks so they take the theme's blue (--ucla-blue): DSC blue or
+   UCLA Darker Blue in light mode, a lighter blue in dark mode. Kept away from
+   charts and figures so they cannot be read as data; hidden in print. */
+.brand-el {
+  display: inline-block;
+  background-color: var(--ucla-blue);
+  -webkit-mask: var(--mask) no-repeat center / contain;
+  mask: var(--mask) no-repeat center / contain;
+}
+.brand-node1      { --mask: url("images/brand/elements/node1.svg");      width: 56px; height: 50px; }
+.brand-node2      { --mask: url("images/brand/elements/node2.svg");      width: 52px; height: 43px; }
+.brand-linechart1 { --mask: url("images/brand/elements/linechart1.svg"); width: 72px; height: 40px; }
+.brand-linechart2 { --mask: url("images/brand/elements/linechart2.svg"); width: 64px; height: 44px; }
+.brand-circular   { --mask: url("images/brand/elements/circular.svg");   width: 50px; height: 50px; }
+.brand-lineflat   { --mask: url("images/brand/elements/lineflat.svg");   width: 48px; height: 24px; }
+.brand-smallcircle{ --mask: url("images/brand/elements/smallcircle.svg"); width: 12px; height: 12px; }
+.brand-bigcircle  { --mask: url("images/brand/elements/bigcircle.svg");  width: 20px; height: 20px; }
+
+.pathway > p:first-child { margin-bottom: 0.2rem; line-height: 0; }
+.page-mark { margin: 0.2rem 0 -0.4rem; }
+
+.brand-wave {
+  height: 22px;
+  margin: -0.6rem 0 1.4rem;
+  background-color: var(--ucla-blue);
+  -webkit-mask: url("images/brand/elements/wave.svg") repeat-x left center / auto 100%;
+  mask: url("images/brand/elements/wave.svg") repeat-x left center / auto 100%;
+  opacity: 0.55;
+}
+
+.brand-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.2rem;
+  padding: 1.6rem 1rem 1.2rem;
+  opacity: 0.6;
+}
+
+@media print {
+  .brand-el, .brand-wave, .brand-strip { display: none !important; }
+}
+/* Pathway icons share one box so the headings line up; the rings' web copy
+   has a heavier stroke (22 vs 3 in an 860-unit drawing) to stay visible small. */
+.pathway .brand-el {
+  width: 72px;
+  height: 50px;
+  -webkit-mask-position: left bottom;
+  mask-position: left bottom;
+}

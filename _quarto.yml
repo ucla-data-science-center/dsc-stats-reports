@@ -9,6 +9,8 @@ profile:
 project:
   type: website
   output-dir: docs
+  resources:
+    - images/brand/**   # logo and identity elements (some referenced only from CSS)
   render:
     - index.qmd
     - capability.qmd
@@ -65,6 +67,7 @@ format:
   html:
     css: styles.css
     include-in-header: _head.html
+    include-after-body: _brand-strip.html
     smooth-scroll: true
     toc: true
     toc-depth: 2
