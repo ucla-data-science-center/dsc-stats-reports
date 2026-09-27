@@ -20,16 +20,16 @@ Researchers own the scholarship; DSC supplied the documented data, access, or co
 
 | | DSC supplied | Researchers produced | Evidence | Continuing requirement |
 |---|---|---|---|---|
-| **National voter file** | Acquired the L2 national voter file, had it made analysis-ready, and provides governed access on Redivis | An award-winning dissertation on U.S. election administration, and papers using the voter file | A paper thanks the UCLA curator for voter-file access; the curator and the platform's founder presented the work at FORCE11 2024 (corroborated) | License renewal, curation, access administration |
-| **LARIAC imagery and LiDAR** | UCLA's access to LARIAC data, through the Library's consortium membership | A 2025 *npj Natural Hazards* study built on 2020 LARIAC LiDAR | The paper states its LiDAR source; UCLA access runs through DSC (corroborated) | Membership, storage, access administration |
+| **National voter file** | Acquired the L2 national voter file, had it made analysis-ready, and provides secure, governed access and the computing to analyze it on Redivis | An award-winning dissertation on U.S. election administration, and papers using the voter file | A paper thanks the UCLA curator for voter-file access; the curator and the platform's founder presented the work at FORCE11 2024 (corroborated) | License renewal, curation, secure hosting, access administration |
+| **LARIAC imagery and LiDAR** | UCLA's access to LARIAC data, through the Library's consortium membership, and the geospatial expertise to find, prepare, and use it | A 2025 *npj Natural Hazards* study built on 2020 LARIAC LiDAR | The paper states its LiDAR source; UCLA access runs through DSC (corroborated) | Membership, storage, access administration, geospatial expertise |
 | **Research computing** | Server hosting, processing support, and student training | The Carceral Ecologies lab's helicopter-surveillance analysis, recognized by a 2024 Public Impact Research Award | The researcher's own account, shared with permission (direct) | Hardware, system administration, support staff |
 
 ## Voter file and governed access (Redivis)
 
 | | |
 |---|---|
-| Research barrier | National voter history arrives as thousands of state files, over 10 TB, too large to store locally and too inconsistent to analyze as delivered. Its license requires governed access. |
-| DSC investment | Acquired the L2 national voter file with a Library subject selector; a doctoral curator made it analysis-ready as one national table; DSC provides governed access through Redivis, a platform for restricted research data. |
+| Research barrier | National voter history arrives as thousands of state files, over 10 TB, too large to store and process locally and too inconsistent to analyze as delivered. The records contain personal information such as names and addresses, so the data has to be held securely, and its license requires governed access. |
+| DSC investment | Acquired the L2 national voter file with a Library subject selector. DSC's Jamie Jamison scripted the data ingest for a doctoral curator, who made it analysis-ready as one national table, and set up the data use agreement and user management. DSC provides governed access through Redivis, a platform for restricted research data. |
 | Documented use | Redivis at UCLA: {{< var redivis.data_volume >}} of protected data, {{< var redivis.users >}} registered users, and {{< var redivis.workflows >}} workflows (users and workflows, not projects). Research uses named publicly: election administration, gentrification, Latino voting, and a project linking voter records with health records. |
 | Research outputs | See the verified outputs below: the FORCE11 2024 presentation and an award-winning dissertation on U.S. election administration. |
 | Evidence of the connection | A 2024 conference presentation co-given by the platform's founder and the UCLA curator; a paper using the L2 voter file that thanks the curator for access. |
