@@ -61,9 +61,9 @@ no_data_msg <- function() {
 
 # ── Pre-computed alt text for charts ─────────────────────────
 if (data_loaded) {
-  .yt <- rec_year_team |> mutate(group = recode(group, Datasquad = "DataSquad walk-ins", DSC = "DSC staff"))
+  .yt <- rec_year_team |> mutate(group = recode(group, Datasquad = "walk-in sign-ins", DSC = "scheduled appointments", Other = "other"))
   alt_year <- sprintf(
-    "Stacked bar chart: consultation records file by year and team, %s. %s. 2024 covers January to early June only.",
+    "Horizontal stacked bar chart: consultation records file by year and record type, %s. %s. 2024 covers January to early June only.",
     rec_window_label,
     paste(sprintf("%d: %s", .yt$year, paste(.yt$group, .yt$records)), collapse = "; ")
   )
@@ -119,7 +119,7 @@ series_total <- read_if("data/processed/canonical/headline_aggregates.csv") |>
 if (length(series_total) == 0) series_total <- "—"
 ```
 
-DSC recorded **`r series_total` research consultations** from 2017 to September 2026 (claim-register #10). The series counts appointments with DSC staff; DataSquad's student walk-in consultations are not included. Records are incomplete after mid-2024: Calendly ended, LibCal wasn't in use until May 2025, and two reorganizations and staff departures cut logging. Because of that gap, this series cannot measure how demand changed after 2023; LibCal shows the work continued. It is a different series from the 2023-2025 audit below, which adds DataSquad walk-ins and uses its own deduplication.
+DSC recorded **`r series_total` research consultations** from 2017 to September 2026 (claim-register #10). The series counts scheduled appointments, with DSC staff and DataSquad consultants alike; DataSquad's in-person walk-in sign-ins are not included. Records are incomplete after mid-2024: Calendly ended, LibCal wasn't in use until May 2025, and two reorganizations and staff departures cut logging. Because of that gap, this series cannot measure how demand changed after 2023; LibCal shows the work continued. It is a different series from the 2023-2025 audit below, which adds DataSquad walk-ins and uses its own deduplication.
 
 ```{r series_table, echo=FALSE}
 if (nrow(consult_series) > 0) {
@@ -168,21 +168,24 @@ if (nrow(consult_series) > 0) {
 
 ### By Year (consultation records file, `r rec_window_label`)
 
-This chart counts rows in the consultation records file that also feeds the department and affiliation breakdowns. The file runs from `r rec_window_label`, so 2024 covers only part of the year. Unlike the series at the top of this page, which counts DSC staff appointments, this file also includes DataSquad's student walk-in sign-ins. That is why its 2024 total is larger: for January to May 2024 the staff appointments in both sources agree (166 here, 165 in the series).
+This chart counts rows in the consultation records file that also feeds the department and affiliation breakdowns. The file runs from `r rec_window_label`, so 2024 covers only part of the year. Unlike the series at the top of this page, which counts scheduled appointments (with DSC staff and DataSquad consultants alike), this file also includes DataSquad's in-person walk-in sign-ins. That is why its 2024 total is larger: for January to May 2024 the scheduled appointments in both sources agree (166 here, 165 in the series).
 
-```{r chart_year, echo=FALSE, fig.alt=alt_year}
+```{r chart_year, echo=FALSE, fig.alt=alt_year, fig.height=3.6}
 if (data_loaded && nrow(rec_year_team) > 0) {
+  type_levels <- c("Scheduled appointments", "Other", "DataSquad walk-in sign-ins")
   rec_year_team |>
-    mutate(group = factor(recode(group, DSC = "DSC staff", Datasquad = "DataSquad walk-ins", Other = "Other"),
-                          levels = rev(c("DSC staff", "Other", "DataSquad walk-ins")))) |>
-    ggplot(aes(x = factor(year), y = records, fill = group)) +
+    mutate(type = factor(recode(group, DSC = "Scheduled appointments", Datasquad = "DataSquad walk-in sign-ins"),
+                         levels = rev(type_levels)),
+           year = factor(year, levels = rev(sort(unique(year))))) |>
+    ggplot(aes(y = year, x = records, fill = type)) +
     geom_col(width = 0.65, color = "white", linewidth = 0.4) +
-    scale_fill_manual(values = c("DSC staff" = "#2774AE", "Other" = "#8C8279", "DataSquad walk-ins" = "#FFB81C"),
-                      breaks = c("DSC staff", "Other", "DataSquad walk-ins"), name = NULL) +
-    labs(x = NULL, y = "Records",
-         title = "Consultation records file by team (2024: January to early June only)") +
+    scale_fill_manual(values = c("Scheduled appointments" = "#2774AE", "Other" = "#8C8279",
+                                 "DataSquad walk-in sign-ins" = "#FFB81C"),
+                      breaks = type_levels, name = NULL) +
+    labs(y = NULL, x = "Records",
+         title = "Consultation records file by record type (2024: January to early June only)") +
     theme_minimal() +
-    theme(panel.grid.major.x = element_blank(), legend.position = "bottom")
+    theme(panel.grid.major.y = element_blank(), legend.position = "bottom")
 } else { no_data_msg() }
 ```
 
