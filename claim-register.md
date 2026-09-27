@@ -123,3 +123,16 @@ last verification date should not be reused until re-checked.
 - **Why not 1,859**: the 2026-09-11 one-paragraph summary used 2024 = ~230 and 2025 = ~65; the row-level table gives ~226 and ~60-65, summing to 1,850-1,855. "About 1,850" is the defensible rounding.
 - **Not the same as #7**: #7 (741) is a separate 2023-2025 audit with DataSquad walk-ins and a different dedup method. The two series haven't been put on one timeline.
 - **Last verified**: 2026-09-24.
+
+## 11. UCLA-held workshop attendance, 2017-2020
+
+- **Approved wording**: "Before DSC began teaching systemwide, its workshops at UCLA drew about 2,800 attendee-events (2017-2020)." On the instruction page: "UCLA-held" attendance.
+- **Not approved**: calling these UCLA-affiliated people or unique people; adding the 926 attendee-events from mixed sessions to the UCLA figure.
+- **Reporting period**: 2017-05-04 to 2020-12-01.
+- **Unit of observation**: attendee-event.
+- **Per year (blank-institution records from UCLA-held sessions)**: 2017 273, 2018 378, 2019 641, 2020 1,483 (about 1,290 of it the Spring 2020 online R series). Total 2,775.
+- **Population/exclusions**: sessions classified `ucla` in `data/reference/instruction/session_venue_2017_2020.tsv`. Excluded: 23 mixed sessions (926 attendee-events: USC and CSU Long Beach Library Carpentry, fall 2020 Carpentries, 2020 Mapathon, UC GIS Week 2020) and 4 external sessions (69: Portland instructor training, Johannesburg Library Carpentry, an October 2017 instructor training).
+- **Missingness/coverage**: institution was not collected before 2020, so affiliation is inferred from venue. A UCLA-held session can include a few outside attendees. 2021 onward not yet classified.
+- **Source**: session-by-session review by the DSC director, 2026-09-25, with venues checked against workshop-site repositories (`dsc-stats-integration/proposals/ucla-venue-2017-2020-proposal.md`).
+- **Contribution language allowed**: "about," "held at UCLA."
+- **Last verified**: 2026-09-25.
