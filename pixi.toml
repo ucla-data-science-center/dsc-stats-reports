@@ -76,7 +76,9 @@ QUARTO_PANDOC     = "/Applications/quarto/bin/tools/aarch64/pandoc"
 QUARTO_TYPST      = "/Applications/quarto/bin/tools/aarch64/typst"
 
 [tasks]
-check                     = "Rscript tests/run_all.R"   # render gate + data tests; CI runs it before render
+check                     = "Rscript tests/run_all.R"
+package-evidence          = "python scripts/dataverse/build_package.py"   # add --version N
+deposit-evidence          = "python scripts/dataverse/deposit.py"          # add release/dsc-evidence-vN [--execute]; draft only, never publishes   # render gate + data tests; CI runs it before render
 clean-aws                 = "python src/etl/aws_processing.py"
 update-dataverse          = "python src/etl/dataverse_metrics.py"
 update-jira               = "python src/etl/jira_jsm.py"

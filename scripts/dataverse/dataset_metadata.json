@@ -1,0 +1,39 @@
+{
+  "datasetVersion": {
+    "license": {
+      "name": "CC0 1.0",
+      "uri": "http://creativecommons.org/publicdomain/zero/1.0"
+    },
+    "metadataBlocks": {
+      "citation": {
+        "displayName": "Citation Metadata",
+        "fields": [
+          {"typeName": "title", "typeClass": "primitive", "multiple": false,
+           "value": "UCLA Library Data Science Center Service Evidence, 2017-2026"},
+          {"typeName": "author", "typeClass": "compound", "multiple": true,
+           "value": [{"authorName": {"typeName": "authorName", "typeClass": "primitive", "multiple": false,
+                                      "value": "UCLA Library Data Science Center"}}]},
+          {"typeName": "datasetContact", "typeClass": "compound", "multiple": true,
+           "value": [{"datasetContactName": {"typeName": "datasetContactName", "typeClass": "primitive", "multiple": false, "value": "Dennis, Tim"},
+                      "datasetContactEmail": {"typeName": "datasetContactEmail", "typeClass": "primitive", "multiple": false, "value": "datascience@g.ucla.edu"}}]},
+          {"typeName": "dsDescription", "typeClass": "compound", "multiple": true,
+           "value": [{"dsDescriptionValue": {"typeName": "dsDescriptionValue", "typeClass": "primitive", "multiple": false,
+                      "value": "Aggregate evidence behind the UCLA Library Data Science Center (DSC) statistics site (https://ucla-data-science-center.github.io/dsc-stats-reports/): reconciled headline figures, recorded consultations by year, registered workshop seats by program and year, service capacity by year (staff full-time equivalents and student employees), suppressed consultation breakdowns, and documented research outputs, with the claim register that defines each figure's window, unit, and source. Aggregates only: no row-level or personal data. Breakdowns fold any unit under 5 into a combined row."}}]},
+          {"typeName": "subject", "typeClass": "controlledVocabulary", "multiple": true,
+           "value": ["Social Sciences", "Computer and Information Science"]},
+          {"typeName": "keyword", "typeClass": "compound", "multiple": true,
+           "value": [
+             {"keywordValue": {"typeName": "keywordValue", "typeClass": "primitive", "multiple": false, "value": "research data services"}},
+             {"keywordValue": {"typeName": "keywordValue", "typeClass": "primitive", "multiple": false, "value": "library assessment"}},
+             {"keywordValue": {"typeName": "keywordValue", "typeClass": "primitive", "multiple": false, "value": "research consultation"}},
+             {"keywordValue": {"typeName": "keywordValue", "typeClass": "primitive", "multiple": false, "value": "data science instruction"}},
+             {"keywordValue": {"typeName": "keywordValue", "typeClass": "primitive", "multiple": false, "value": "research infrastructure"}}
+           ]},
+          {"typeName": "otherReferences", "typeClass": "primitive", "multiple": true,
+           "value": ["DSC statistics site: https://ucla-data-science-center.github.io/dsc-stats-reports/",
+                     "Source repository: https://github.com/ucla-data-science-center/dsc-stats-reports"]}
+        ]
+      }
+    }
+  }
+}
