@@ -1,7 +1,7 @@
 [UCLA cut its GIS librarian position in 2024. Demand didn't go with it.]{.lede}
 
 Geography has consistently been DSC's single largest workshop constituency: 64 of the
-roughly {{< var instruction.total_attendees >}} UCLA workshop attendees since 2020,
+{{< var instruction.total_attendees >}} UCLA-affiliated workshop attendance records from 2020 to April 2024,
 more than any other department.
 
 Before the position was eliminated in 2024, DSC's GIS librarian handled
