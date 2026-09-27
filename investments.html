@@ -339,6 +339,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul class="collapse">
   <li><a href="#three-examples" id="toc-three-examples" class="nav-link active" data-scroll-target="#three-examples">Three examples</a></li>
+  <li><a href="#how-the-functions-connect" id="toc-how-the-functions-connect" class="nav-link" data-scroll-target="#how-the-functions-connect">How the functions connect</a></li>
   <li><a href="#voter-file-and-governed-access-redivis" id="toc-voter-file-and-governed-access-redivis" class="nav-link" data-scroll-target="#voter-file-and-governed-access-redivis">Voter file and governed access (Redivis)</a></li>
   <li><a href="#research-computing" id="toc-research-computing" class="nav-link" data-scroll-target="#research-computing">Research computing</a></li>
   <li><a href="#ucla-dataverse" id="toc-ucla-dataverse" class="nav-link" data-scroll-target="#ucla-dataverse">UCLA Dataverse</a></li>
@@ -397,17 +398,17 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td><strong>National voter file</strong></td>
-<td>Acquired the L2 national voter file, had it made analysis-ready, and provides governed access on Redivis</td>
+<td>Acquired the L2 national voter file, had it made analysis-ready, and provides secure, governed access and the computing to analyze it on Redivis</td>
 <td>An award-winning dissertation on U.S. election administration, and papers using the voter file</td>
 <td>A paper thanks the UCLA curator for voter-file access; the curator and the platform’s founder presented the work at FORCE11 2024 (corroborated)</td>
-<td>License renewal, curation, access administration</td>
+<td>License renewal, curation, secure hosting, access administration</td>
 </tr>
 <tr class="even">
 <td><strong>LARIAC imagery and LiDAR</strong></td>
-<td>UCLA’s access to LARIAC data, through the Library’s consortium membership</td>
+<td>UCLA’s access to LARIAC data, through the Library’s consortium membership, and the geospatial expertise to find, prepare, and use it</td>
 <td>A 2025 <em>npj Natural Hazards</em> study built on 2020 LARIAC LiDAR</td>
 <td>The paper states its LiDAR source; UCLA access runs through DSC (corroborated)</td>
-<td>Membership, storage, access administration</td>
+<td>Membership, storage, access administration, geospatial expertise</td>
 </tr>
 <tr class="odd">
 <td><strong>Research computing</strong></td>
@@ -419,6 +420,53 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
+<section id="how-the-functions-connect" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-functions-connect">How the functions connect</h2>
+<p>DSC works with five kinds of research material. Only the first is a repository DSC runs; for the others DSC provides access, computing, capture, or code, and the material stays with its licensor, lab, or partner.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Material</th>
+<th>What DSC does</th>
+<th>Where the material lives</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Repository datasets</td>
+<td>Operates UCLA Dataverse (campus sign-in, DOIs, preservation), where Library staff curate the legacy social science archive harvested into it</td>
+<td>UCLA Dataverse, run by DSC</td>
+<td><a href="#ucla-dataverse">UCLA Dataverse</a>; <a href="./infrastructure.html">infrastructure page</a></td>
+</tr>
+<tr class="even">
+<td>Large or restricted data</td>
+<td>Acquired the L2 national voter file with a Library subject selector, scripted its ingest, set up the data use agreement and user management, and provides governed access</td>
+<td>Redivis, under the vendor license</td>
+<td><a href="#voter-file-and-governed-access-redivis">Voter file</a></td>
+</tr>
+<tr class="odd">
+<td>Spatial data and imagery</td>
+<td>Provides UCLA’s access to LARIAC imagery and LiDAR and EagleView accounts, and GIS advice on using them</td>
+<td>Consortium and vendor platforms</td>
+<td><a href="#lariac-aerial-imagery-and-lidar">LARIAC</a>; <a href="./research.html">helicopter case</a></td>
+</tr>
+<tr class="even">
+<td>3D capture and models</td>
+<td>Scans, processes, and hosts 3D models for browser access</td>
+<td>pointcloud.ucla.edu, run by DSC; the objects and their stories belong to partners</td>
+<td><a href="./research.html">3D case</a></td>
+</tr>
+<tr class="odd">
+<td>Research software and workflows</td>
+<td>Staff and DataSquad students write and teach code with labs, and DSC runs the R server and deep learning machine the code runs on</td>
+<td>Lab and public code repositories; DSC servers</td>
+<td><a href="#research-computing">Research computing</a>; <a href="./research.html">helicopter and deaths-in-custody cases</a></td>
+</tr>
+</tbody>
+</table>
+<p>What ties the rows together is the archive’s working knowledge: how data is described, licensed, secured, and prepared so others can use it. Under any arrangement, someone has to be accountable for connecting these functions, setting standards across them, maintaining the infrastructure, and carrying that expertise forward.</p>
+</section>
 <section id="voter-file-and-governed-access-redivis" class="level2">
 <h2 class="anchored" data-anchor-id="voter-file-and-governed-access-redivis">Voter file and governed access (Redivis)</h2>
 <table class="caption-top table">
@@ -429,11 +477,11 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>Research barrier</td>
-<td>National voter history arrives as thousands of state files, over 10 TB, too large to store locally and too inconsistent to analyze as delivered. Its license requires governed access.</td>
+<td>National voter history arrives as thousands of state files, over 10 TB, too large to store and process locally and too inconsistent to analyze as delivered. The records contain personal information such as names and addresses, so the data has to be held securely, and its license requires governed access.</td>
 </tr>
 <tr class="even">
 <td>DSC investment</td>
-<td>Acquired the L2 national voter file with a Library subject selector; a doctoral curator made it analysis-ready as one national table; DSC provides governed access through Redivis, a platform for restricted research data.</td>
+<td>Acquired the L2 national voter file with a Library subject selector. DSC’s Jamie Jamison scripted the data ingest for a doctoral curator, who made it analysis-ready as one national table, and set up the data use agreement and user management. DSC provides governed access through Redivis, a platform for restricted research data.</td>
 </tr>
 <tr class="odd">
 <td>Documented use</td>
@@ -585,6 +633,14 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;">DataSquad</td>
+<td style="text-align: left;"><a href="https://www.library.ucla.edu/about/news/datasquad-civilian-deaths-at-hand-of-police">National deaths-in-custody dataset (BioCritical Studies Lab)</a></td>
+<td style="text-align: left;">2024</td>
+<td style="text-align: left;">research project</td>
+<td style="text-align: left;">direct</td>
+<td style="text-align: left;">DataSquad students wrote Python code to merge and clean the lab’s sources, built visualizations, and taught the lab to update the dataset itself (claim #2); lab research recognized by a 2024 UCLA Public Impact Research Award</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">LARIAC</td>
 <td style="text-align: left;"><a href="https://doi.org/10.1038/s44304-024-00053-4">Space-time dynamics in hazard exposure analysis (npj Natural Hazards)</a></td>
 <td style="text-align: left;">2025</td>
@@ -592,21 +648,13 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">corroborated</td>
 <td style="text-align: left;">UCLA authors; paper states LiDAR data from LARIAC captured in 2020; UCLA access to LARIAC is through DSC</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Redivis and DataSquad</td>
-<td style="text-align: left;">National deaths-in-custody dataset (BioCritical Studies Lab)</td>
-<td style="text-align: left;">2024</td>
-<td style="text-align: left;">research project</td>
-<td style="text-align: left;">direct</td>
-<td style="text-align: left;">DSC contributed data integration and visualization; lab research recognized by a 2024 UCLA Public Impact Research Award (claim #2)</td>
-</tr>
 <tr class="odd">
 <td style="text-align: left;">Research computing</td>
 <td style="text-align: left;">Carceral Ecologies helicopter-surveillance analysis (Shapiro lab)</td>
 <td style="text-align: left;">2024</td>
 <td style="text-align: left;">research project</td>
 <td style="text-align: left;">direct</td>
-<td style="text-align: left;">One processing task fell from about 318 to about 2 minutes (claim #1); lab research recognized by a 2024 UCLA Public Impact Research Award</td>
+<td style="text-align: left;">One data-loading step fell from about 318 to about 2 minutes (claim #1); lab research recognized by a 2024 UCLA Public Impact Research Award</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Voter file and Redivis</td>
