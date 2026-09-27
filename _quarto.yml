@@ -15,6 +15,7 @@ project:
     - index.qmd
     - capability.qmd
     - research.qmd
+    - investments.qmd
     - about.qmd
     - consulting.qmd
     - instruction.qmd
@@ -45,6 +46,8 @@ website:
             text: Research enabled
           - href: capability.qmd
             text: Research capability built
+          - href: investments.qmd
+            text: Shared investments
       - text: "Evidence"
         menu:
           - href: consulting.qmd

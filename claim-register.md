@@ -221,3 +221,13 @@ last verification date should not be reused until re-checked.
 - **Source**: `ssda-dsc-history` `history.qmd`, "Consulting: from reference desk to research partner".
 - **Registry**: `consulting-history-2018-redesign` (to be added).
 - **Last verified**: 2026-09-27.
+
+## 19. Research supported by shared investments (investments.qmd)
+
+- **Approved wording**: as on `investments.qmd`. Verbs limited to "acquired," "made analysis-ready," "provides governed access," "hosts," "operates," "provisions," "supported." Standing line: the research belongs to the researchers; profiles do not claim the work could not have been done another way.
+- **Not approved**: "DSC enabled one-third of award winners"; linking the Dana Center grant or media coverage to DSC; counting Redivis users or workflows as projects; counting LARIAC-derived products as LARIAC use through DSC.
+- **Award line**: "Two of UCLA's six 2024 Public Impact Research Award recipients led research that DSC supported" (UCLA Newsroom; recipients Shapiro and Keel; claims #1, #2).
+- **LARIAC access**: UCLA is a LARIAC consortium member through the Library; DSC administers UCLA access (DSC director, 2026-09-27; 2018 LARIAC User Group slide on UCLA membership; DSC access guide, 2021).
+- **Outputs**: `data/processed/canonical/research_outputs_public.csv`; each row verified and permitted (enforced by `tests/test_public_outputs.R`). Permissions: FORCE11 presenters and named users (their public talk), Shapiro and Keel (Tim, 2026-09-27).
+- **Source register**: private, `dsc-stats-integration/restricted/research-enabled-register.csv`.
+- **Last verified**: 2026-09-27.
