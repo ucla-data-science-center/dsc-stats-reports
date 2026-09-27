@@ -78,7 +78,7 @@ DSC runs UCLA Dataverse and governed access to restricted data, the current form
 [`r hl("dataverse_datasets_released")`]{.pathway-figure}
 [released datasets in UCLA Dataverse, Feb 2026: about 376 deposited directly at UCLA and about 1,014 legacy SSDA datasets that Library staff harvested and curate.]{.pathway-unit}
 
-[Infrastructure evidence](infrastructure.qmd)
+[Research supported by shared investments](investments.qmd)
 :::
 
 :::

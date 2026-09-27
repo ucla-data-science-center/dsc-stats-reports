@@ -1,0 +1,86 @@
+---
+title: "Research Supported by Shared Investments"
+subtitle: "What DSC's data purchases, platforms, and computing have made possible, and what they need to keep working"
+toc: true
+toc-depth: 2
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+outputs <- read_csv("data/processed/canonical/research_outputs_public.csv", show_col_types = FALSE)
+```
+
+[]{.brand-el .brand-circular .page-mark aria-hidden="true"}
+
+DSC buys data, runs platforms, and maintains computing that individual labs could not easily provide for themselves. These shared investments support identifiable research, and each needs ongoing data, access, and technical stewardship to keep working. Two of UCLA's six 2024 Public Impact Research Award recipients led research that DSC supported ([UCLA Newsroom](https://newsroom.ucla.edu/stories/ucla-public-impact-research-awards-2024)).
+
+The research, analysis, findings, and publications described here belong to the researchers. Each profile documents what DSC supplied; none claims that the work could not have been done another way.
+
+## Voter file and governed access (Redivis)
+
+| | |
+|---|---|
+| Research barrier | National voter history arrives as thousands of state files, over 10 TB, too large to store locally and too inconsistent to analyze as delivered. Its license requires governed access. |
+| DSC investment | Acquired the L2 national voter file with a Library subject selector; a doctoral curator made it analysis-ready as one national table; DSC provides governed access through Redivis, a platform for restricted research data. |
+| Documented use | Redivis at UCLA: {{< var redivis.data_volume >}} of protected data, {{< var redivis.users >}} registered users, and {{< var redivis.workflows >}} workflows (users and workflows, not projects). Research uses named publicly: election administration, gentrification, Latino voting, and a project linking voter records with health records. |
+| Research outputs | See the verified outputs below: the FORCE11 2024 presentation and an award-winning dissertation on U.S. election administration. |
+| Evidence of the connection | A 2024 conference presentation co-given by the platform's founder and the UCLA curator; a paper using the L2 voter file that thanks the curator for access. |
+| Coverage and limits | Drawn from the presentation and the public work of the researchers it names. Not yet a census of Redivis projects. |
+| Continuing requirement | Data license renewal, platform subscription, curation of new releases, access administration, and onboarding for new researchers. |
+
+## Research computing
+
+| | |
+|---|---|
+| Research barrier | Some datasets exceed what a lab can host or process on its own machines. |
+| DSC investment | Hosts research servers and a deep learning machine, with staff and student support for processing and training. |
+| Documented use | Multi-year support for the Carceral Ecologies lab's helicopter-surveillance analysis. |
+| Research outputs | For one documented processing task, runtime fell from about 318 minutes to about 2, under the reported conditions (claim #1). The lab's research was later recognized by a 2024 UCLA Public Impact Research Award. |
+| Evidence of the connection | Case record and the researcher's own account, shared with permission. |
+| Coverage and limits | One engagement shown; a second (machine-learning analysis of animal behavior) awaits the researcher's confirmation. Job logs have not been compiled. |
+| Continuing requirement | Hardware maintenance, system administration, and staff who can support researchers on it. |
+
+## UCLA Dataverse
+
+| | |
+|---|---|
+| Research barrier | Researchers need a trusted place to deposit, cite, and share data, and UCLA's legacy social science archive needed a modern home. |
+| DSC investment | Operates UCLA Dataverse with campus sign-in, DOI minting, and preservation, and harvested the legacy social science archive into it. |
+| Documented use | {{< var dataverse.datasets_released >}} released datasets (February 2026), including about 1,014 legacy archive datasets, with download activity on the [infrastructure evidence page](infrastructure.qmd). |
+| Research outputs | Publications that depositors linked to their datasets are listed as [traceable publication links](infrastructure.qmd#traceable-publication-links). |
+| Evidence of the connection | DOI relationships supplied by depositors. |
+| Coverage and limits | Depositors do not always link publications, and a linked paper is often the depositor's own, so these links are not a measure of reuse. |
+| Continuing requirement | Platform operation, storage, curation, and DOI services. |
+
+## LARIAC aerial imagery and LiDAR
+
+| | |
+|---|---|
+| Research barrier | High-resolution aerial imagery and LiDAR for Los Angeles County is costly and licensed through a consortium of public agencies. |
+| DSC investment | UCLA is a member of the Los Angeles Region Imagery Acquisition Consortium (LARIAC) through the Library, and DSC is how the UCLA community gets the data: imagery, LiDAR, elevation models, and building footprints, free to UCLA researchers on request ([DSC access guide](https://storymaps.arcgis.com/stories/d200175d87ca4294bfc9cb32407d311d)). DSC also provisions EagleView imagery accounts. |
+| Documented use | 8 to 12 active EagleView users a year (2023 to 2026). Researchers from environment and sustainability, geography, and engineering, and campus Facilities for planning. |
+| Research outputs | A 2025 *npj Natural Hazards* study by UCLA authors built on 2020 LARIAC LiDAR (see below). |
+| Evidence of the connection | The paper states its LiDAR source; UCLA's access to LARIAC runs through DSC. |
+| Coverage and limits | Papers rarely name how they obtained the data. Other UCLA papers use LARIAC-derived products that may circulate outside the license, so they are not counted. |
+| Continuing requirement | Consortium membership, data storage, access administration, and account provisioning. |
+
+## Verified research outputs
+
+```{r outputs_table, echo=FALSE}
+outputs |>
+  arrange(investment, desc(year)) |>
+  transmute(Investment = investment,
+            Output = if_else(is.na(link), output, sprintf("[%s](%s)", output, link)),
+            Year = as.character(year), Type = type, `Connection to DSC` = connection_evidence) |>
+  knitr::kable()
+```
+
+## How outputs were selected
+
+We reviewed each investment's available records: project records, the public work of researchers named in DSC presentations, depositor links in UCLA Dataverse, and a full-text search of OpenAlex for LARIAC. An output is listed only when a public output exists and its connection to the investment is supported by an explicit citation, acknowledgment, or methods statement, or by a project record confirmed by the researcher, and when the researcher has agreed to be named. Citation counts and researcher prominence did not affect selection. Outputs still being confirmed, including work on machine-learning analysis of animal behavior and three further LARIAC papers, are not shown.
+
+::: {.callout-note collapse="true" title="Cite this page"}
+UCLA Library Data Science Center. (`r format(Sys.Date(), "%Y")`). *Research Supported by Shared Investments*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/investments.html>
+:::
+
+*Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
