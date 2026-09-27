@@ -221,7 +221,7 @@
     "href": "index.html#three-ways-dsc-contributes",
     "title": "DSC Statistics",
     "section": "Three ways DSC contributes",
-    "text": "Three ways DSC contributes\n\n\n\n\nResearch enabled\nResearchers across campus bring data problems to DSC for consultation, and some engagements become multi-year collaborations.\nabout 1,850 recorded consultations, 2017 to September 2026. A floor: recording practices and service capacity changed from mid-2024, so later counts cannot establish whether demand fell.\nConsultation evidence\n\n\n\n\n\nResearch capability built\nDSC moved from teaching its own campus to co-running instruction across the University of California, and campus volunteers it trained went on to lead much of the teaching.\n819 workshop sessions, May 2017 to May 2026. Registered seats by program are charted on the pathway page.\nCapability pathway\n\n\n\n\n\nShared infrastructure sustained\nDSC runs UCLA Dataverse and governed access to restricted data, the current form of the stewardship that began in 1961.\nFigure pending The Dataverse dataset count will appear once two sources are reconciled and the count is dated and registered.\nInfrastructure evidence\n\n\n\n\n1,908 confirmed UCLA researchers used DSC instruction or consultation, 2017 to September 2026. This is a floor: people are counted only when their identity could be confirmed."
+    "text": "Three ways DSC contributes\n\n\n\n\nResearch enabled\nResearchers across campus bring data problems to DSC for consultation, and some engagements become multi-year collaborations.\nabout 1,850 recorded consultations, 2017 to September 2026. Records are incomplete after mid-2024, so later years cannot measure demand.\nConsultation evidence\n\n\n\n\n\nResearch capability built\nDSC moved from teaching its own campus to co-running instruction across the University of California, and campus volunteers it trained went on to lead much of the teaching.\n819 workshop sessions, May 2017 to May 2026. Registered seats by program are charted on the pathway page.\nCapability pathway\n\n\n\n\n\nShared infrastructure sustained\nDSC runs UCLA Dataverse and governed access to restricted data, the current form of the stewardship that began in 1961.\nabout 1,390 released datasets in UCLA Dataverse, Feb 2026: about 376 deposited directly at UCLA and about 1,014 legacy SSDA datasets that Library staff harvested and curate.\nInfrastructure evidence\n\n\n\n\nAt least 1,908 confirmed UCLA researchers used DSC instruction or consultation, 2017 to September 2026. People are counted only when their identity could be confirmed."
   },
   {
     "objectID": "index.html#reports-and-methods",
@@ -277,7 +277,7 @@
     "href": "consulting.html#recorded-consultations-since-2017",
     "title": "Consulting Statistics",
     "section": "Recorded Consultations Since 2017",
-    "text": "Recorded Consultations Since 2017\nDSC has recorded about 1,850 research consultations since 2017 (claim-register #10). This series is a floor. Recording lapsed from mid-2024: Calendly ended, LibCal wasn’t in use until May 2025, and two reorganizations and staff departures cut logging. The drop after 2023 reflects that recording gap, not measured demand; LibCal shows the work continued. It is a different series from the 2023-2025 audit below, which adds DataSquad walk-ins and uses its own deduplication.\n\n\n\n\n\nYear\nRecorded consultations\nNote\n\n\n\n\n2017\n3\n\n\n\n2018\n37\n\n\n\n2019\n160\n\n\n\n2020\n185\n\n\n\n2021\n341\n\n\n\n2022\n389\n\n\n\n2023\n394\n\n\n\n2024\n~226\nFloor (recording lapsed)\n\n\n2025\n~60-65\nFloor (recording lapsed)\n\n\n2026\n~55\nFloor (recording lapsed)"
+    "text": "Recorded Consultations Since 2017\nDSC recorded about 1,850 research consultations from 2017 to September 2026 (claim-register #10). Records are incomplete after mid-2024: Calendly ended, LibCal wasn’t in use until May 2025, and two reorganizations and staff departures cut logging. Because of that gap, this series cannot measure how demand changed after 2023; LibCal shows the work continued. It is a different series from the 2023-2025 audit below, which adds DataSquad walk-ins and uses its own deduplication.\n\n\n\n\n\nYear\nRecorded consultations\nNote\n\n\n\n\n2017\n3\n\n\n\n2018\n37\n\n\n\n2019\n160\n\n\n\n2020\n185\n\n\n\n2021\n341\n\n\n\n2022\n389\n\n\n\n2023\n394\n\n\n\n2024\n~226\nFloor (recording lapsed)\n\n\n2025\n~60-65\nFloor (recording lapsed)\n\n\n2026\n~55\nFloor (recording lapsed)"
   },
   {
     "objectID": "consulting.html#at-a-glance-2023-2025-audit-20212026",
@@ -291,7 +291,7 @@
     "href": "consulting.html#direct-consultations",
     "title": "Consulting Statistics",
     "section": "Direct Consultations",
-    "text": "Direct Consultations\n\nBy YearBy DepartmentBy AffiliationBy Team"
+    "text": "Direct Consultations\n\nBy Year (consultation records file, 2021-2024)By DepartmentBy AffiliationBy Team\n\n\nThis chart counts rows in the consultation records file that also feeds the department and affiliation breakdowns. It is a different source from the reconciled series at the top of this page, which removes some bookings, so its yearly totals differ (for example, 2024)."
   },
   {
     "objectID": "consulting.html#project-work-task-metrics",
