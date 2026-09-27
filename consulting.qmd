@@ -195,7 +195,7 @@ if (data_loaded) {
     filter(!is.na(start_date_time)) |>
     count(year = year(start_date_time)) |>
     ggplot(aes(x = factor(year), y = n)) +
-    geom_col(fill = "#2774AE") +
+    geom_col(fill = "#005587") +
     coord_flip() +
     labs(x = NULL, y = "Consultations") +
     theme_minimal() +
@@ -223,7 +223,7 @@ if (data_loaded) {
   bscols(
     plot_ly(sd_dept, x = ~Consultations, y = ~reorder(Department, Consultations),
             type = "bar", orientation = "h",
-            marker = list(color = "#2774AE"),
+            marker = list(color = "#005587"),
             hovertemplate = "<b>%{y}</b><br>Consultations: %{x}<extra></extra>") |>
       layout(yaxis = list(title = ""),
              xaxis = list(title = "Consultations"),
@@ -254,7 +254,7 @@ if (data_loaded) {
   bscols(
     plot_ly(sd_affil, x = ~Consultations, y = ~reorder(Affiliation, Consultations),
             type = "bar", orientation = "h",
-            marker = list(color = "#2774AE"),
+            marker = list(color = "#005587"),
             hovertemplate = "<b>%{y}</b><br>Consultations: %{x}<extra></extra>") |>
       layout(yaxis = list(title = ""),
              xaxis = list(title = "Consultations"),
@@ -276,7 +276,7 @@ if (data_loaded) {
     count(group) |>
     ggplot(aes(x = group, y = n, fill = group)) +
     geom_col() +
-    scale_fill_manual(values = c("DSC" = "#2774AE", "Datasquad" = "#FFD100")) +
+    scale_fill_manual(values = c("DSC" = "#003B5C", "Datasquad" = "#FFB81C")) +
     labs(x = NULL, y = "Consultations") +
     theme_minimal() +
     theme(legend.position = "none")

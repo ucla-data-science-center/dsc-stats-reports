@@ -168,3 +168,19 @@ Add this to PR descriptions when layout/data changes are involved:
 ```
 
 Require total ≥ 28/40 for merge on any page touched by the PR.
+
+---
+
+## Release checks (pass/fail, before each published revision)
+
+Adopted 2026-09-26 with the design brief (`dsc-stats-integration/2026-09-26-validation-capture-stats-site-build-design.md`, item 15). These are not scored; a failure blocks the release.
+
+| # | Check | How |
+|---|---|---|
+| R1 | Render gate passes | `pixi run check` (claims, windows, units, suppression); CI runs it before render |
+| R2 | Phone width | 375px viewport: no horizontal scroll, pathway grid stacks, tables scroll inside their own box |
+| R3 | Keyboard and screen-reader order | Tab through each page: skip link, nav, headings in order, every link reachable, focus visible |
+| R4 | Chart text alternatives | Every figure has `fig-alt` and a caption; each chart has a table or text equivalent |
+| R5 | Table navigation | Tables have header rows and captions; DT search and paging work by keyboard |
+| R6 | Contrast in both themes | flatly and darkly: body text, KPI/pathway figures, notes, and links at 4.5:1 or better |
+| R7 | Print one pathway page | Browser print of `capability.html`: captions, expanded caveats, and source links survive; nav hidden |

@@ -1,14 +1,26 @@
+# Theme profiles: `dsc` (DSC's 2019 identity colors) or `ucla-tints` (UCLA
+# secondary palette). Switch the whole site by changing `default` below; preview
+# the other one with `pixi run render --profile ucla-tints`.
+profile:
+  default: dsc
+  group:
+    - [dsc, ucla-tints]
+
 project:
   type: website
   output-dir: docs
+  resources:
+    - images/brand/**   # logo and identity elements (some referenced only from CSS)
   render:
     - index.qmd
+    - capability.qmd
     - about.qmd
     - consulting.qmd
     - instruction.qmd
     - infrastructure.qmd
     - metrics-governance.md
     - dsc-retrospective-2017-2026.qmd
+    - style-preview.qmd   # not in the navbar; font options for Tim
     # dsc_report2024.qmd excluded from nav; render separately if needed
 
 execute:
@@ -16,13 +28,22 @@ execute:
 
 website:
   title: "DSC Statistics"
+  favicon: images/brand/dsc-cube.svg
   description: "UCLA Library Data Science Center — service metrics and infrastructure reporting."
   navbar:
     background: primary
+    # DSC logo from the 2019 identity package (white version; the bar is blue in both themes)
+    logo: images/brand/dsc-logo-white.svg
+    logo-alt: "UCLA Library Data Science Center"
+    title: "Statistics"
     left:
       - href: index.qmd
         text: Home
-      - text: "Statistics"
+      - text: "Pathways"
+        menu:
+          - href: capability.qmd
+            text: Research capability built
+      - text: "Evidence"
         menu:
           - href: consulting.qmd
             text: Consulting
@@ -44,11 +65,9 @@ website:
 
 format:
   html:
-    theme:
-      light: flatly
-      dark: darkly
     css: styles.css
     include-in-header: _head.html
+    include-after-body: _brand-strip.html
     smooth-scroll: true
     toc: true
     toc-depth: 2

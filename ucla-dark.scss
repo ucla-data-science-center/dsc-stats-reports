@@ -1,0 +1,36 @@
+/*-- scss:defaults --*/
+// Dark counterpart of ucla-light.scss: same UCLA tints, stepped for a dark surface.
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+$ucla-darkest-blue: #003B5C;
+$ucla-lighter-blue: #8BB8E8;
+$ucla-lightest-blue: #DAEBFE;
+$ucla-darker-gold:  #FFC72C;
+
+$body-bg: #14202b;
+$body-color: #e6edf3;
+$primary: $ucla-lighter-blue;
+$link-color: $ucla-lighter-blue;
+$navbar-bg: $ucla-darkest-blue;
+$headings-color: $ucla-lightest-blue;
+
+$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+// Inter throughout (Tim, 2026-09-26): free, screen-legible, tabular figures, one font to load.
+$headings-font-family: $font-family-sans-serif;
+$headings-font-weight: 700;
+
+/*-- scss:rules --*/
+h1, h2, h3 { letter-spacing: -0.01em; }
+body.quarto-dark {
+  --ucla-blue: #{$ucla-lighter-blue};
+  --ucla-blue-deep: #{$ucla-lightest-blue};
+  --ucla-gold: #{$ucla-darker-gold};
+  --library-surface: #1d3347;
+}
+h2 {
+  border-bottom: 2px solid $ucla-darker-gold;
+  padding-bottom: 0.2rem;
+}
+.callout-note, .history-band {
+  background-color: #1d3347;
+}

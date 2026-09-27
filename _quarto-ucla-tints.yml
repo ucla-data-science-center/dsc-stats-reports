@@ -1,0 +1,7 @@
+# Theme profile: UCLA secondary palette (Darkest/Darker/Lightest Blue, gold accents).
+# Switch to it by setting `profile: default: ucla-tints` in _quarto.yml.
+format:
+  html:
+    theme:
+      light: [flatly, ucla-light.scss]
+      dark: [darkly, ucla-dark.scss]
