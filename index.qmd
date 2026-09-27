@@ -12,7 +12,7 @@ read_if <- function(path) {
   if (file.exists(path)) read_csv(path, show_col_types = FALSE) else tibble()
 }
 
-# Reconciled headline figures (dsc-stats-integration; claim-register.md #9, #10, #13)
+# Reconciled headline figures (dsc-stats-integration; claim-register.md #9, #10, #13, #16)
 # TODO(reach-v4): the reach line reads people_reached_confirmed_ucla.
 # When Tim lifts the provisional flag on person-level reach v4 (dsc-stats-integration
 # PROVENANCE.md, "Person-level reach: definition"), replace that one row in
@@ -22,7 +22,7 @@ hl <- function(key) {
   x <- headline |> filter(metric_id == key) |> pull(display)
   if (length(x) == 0) "—" else x[[1]]
 }
-reach_note <- "confirmed UCLA researchers used DSC instruction or consultation, 2017 to September 2026. This is a floor: people are counted only when their identity could be confirmed."
+reach_note <- "confirmed UCLA researchers used DSC instruction or consultation, 2017 to September 2026. People are counted only when their identity could be confirmed."
 ```
 
 The Data Science Center (DSC) supports UCLA researchers with data consultation, instruction, and the infrastructure that keeps research data usable. This site is the evidence layer: each figure below states its unit and window and links to the page where it is built.
@@ -50,7 +50,7 @@ DSC's work shows up in research outputs, not only in service counts. Two documen
 Researchers across campus bring data problems to DSC for consultation, and some engagements become multi-year collaborations.
 
 [`r hl("consultations_recorded_series")`]{.pathway-figure}
-[recorded consultations, 2017 to September 2026. A floor: recording practices and service capacity changed from mid-2024, so later counts cannot establish whether demand fell.]{.pathway-unit}
+[recorded consultations, 2017 to September 2026. Records are incomplete after mid-2024, so later years cannot measure demand.]{.pathway-unit}
 
 [Consultation evidence](consulting.qmd)
 :::
@@ -75,8 +75,8 @@ DSC moved from teaching its own campus to co-running instruction across the Univ
 
 DSC runs UCLA Dataverse and governed access to restricted data, the current form of the stewardship that began in 1961.
 
-[Figure pending]{.pathway-figure .pending}
-[The Dataverse dataset count will appear once two sources are reconciled and the count is dated and registered.]{.pathway-unit}
+[`r hl("dataverse_datasets_released")`]{.pathway-figure}
+[released datasets in UCLA Dataverse, Feb 2026: about 376 deposited directly at UCLA and about 1,014 legacy SSDA datasets that Library staff harvested and curate.]{.pathway-unit}
 
 [Infrastructure evidence](infrastructure.qmd)
 :::
@@ -84,7 +84,7 @@ DSC runs UCLA Dataverse and governed access to restricted data, the current form
 :::
 
 ::: {.reach-strip}
-[`r hl("people_reached_confirmed_ucla")`]{.reach-value} `r reach_note`
+At least [`r hl("people_reached_confirmed_ucla")`]{.reach-value} `r reach_note`
 :::
 
 ## Reports and methods

@@ -140,7 +140,7 @@ series_total <- read_if("data/processed/canonical/headline_aggregates.csv") |>
 if (length(series_total) == 0) series_total <- "—"
 ```
 
-DSC has recorded **`r series_total` research consultations** since 2017 (claim-register #10). This series is a floor. Recording lapsed from mid-2024: Calendly ended, LibCal wasn't in use until May 2025, and two reorganizations and staff departures cut logging. The drop after 2023 reflects that recording gap, not measured demand; LibCal shows the work continued. It is a different series from the 2023-2025 audit below, which adds DataSquad walk-ins and uses its own deduplication.
+DSC recorded **`r series_total` research consultations** from 2017 to September 2026 (claim-register #10). Records are incomplete after mid-2024: Calendly ended, LibCal wasn't in use until May 2025, and two reorganizations and staff departures cut logging. Because of that gap, this series cannot measure how demand changed after 2023; LibCal shows the work continued. It is a different series from the 2023-2025 audit below, which adds DataSquad walk-ins and uses its own deduplication.
 
 ```{r series_table, echo=FALSE}
 if (nrow(consult_series) > 0) {
@@ -187,7 +187,9 @@ if (nrow(consult_series) > 0) {
 
 ::: {.panel-tabset}
 
-### By Year
+### By Year (consultation records file, 2021-2024)
+
+This chart counts rows in the consultation records file that also feeds the department and affiliation breakdowns. It is a different source from the reconciled series at the top of this page, which removes some bookings, so its yearly totals differ (for example, 2024).
 
 ```{r chart_year, echo=FALSE, fig.alt=alt_year}
 if (data_loaded) {
