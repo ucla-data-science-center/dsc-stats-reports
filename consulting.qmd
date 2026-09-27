@@ -14,31 +14,26 @@ library(plotly)
 library(crosstalk)
 source("src/etl/suppression.R")
 
-# ── Consultation records (graceful fallback) ──────────────────
-data_loaded <- FALSE
-dsc_consult  <- tibble()
-
-for (p in c(
-  "data/processed/consultations/dsc_consult_merged.rds",
-  "data/consultations/Data/dsc_consult_merged.rds",
-  "data/consultations/dsc_consult_merged.rds"
-)) {
-  if (file.exists(p)) {
-    dsc_consult <- readRDS(p) |>
-      mutate(ucla_affiliation = case_when(
-        ucla_affiliation %in% c("Graduate", "Graduate Student",
-                                "Visiting Graduate Student") ~ "Graduate Student",
-        ucla_affiliation %in% c("Undergrauate 3rd & Undergraduate",
-                                "Undergraduate") ~ "Undergraduate",
-        TRUE ~ ucla_affiliation
-      ))
-    data_loaded <- TRUE
-    break
-  }
+# ── Consultation records: public aggregates only ───────────
+# The row-level records file is not in the public repository (it holds free-text
+# fields that can contain personal contact details). These suppressed aggregates
+# are built locally by src/etl/consult_public_aggregates.R.
+pub <- function(name) {
+  path <- file.path("data/processed/consultations/public", name)
+  if (file.exists(path)) read_csv(path, show_col_types = FALSE) else tibble()
 }
-
-if (!data_loaded) {
-  message("dsc_consult_merged.rds not found — charts will show placeholder text.")
+rec_year   <- pub("consult_records_by_year.csv")
+rec_dept   <- pub("consult_records_by_department.csv")
+rec_affil  <- pub("consult_records_by_affiliation.csv")
+rec_team   <- pub("consult_records_by_team.csv")
+rec_window <- pub("consult_records_window.csv")
+data_loaded <- nrow(rec_year) > 0
+rec_window_label <- if (nrow(rec_window) > 0) {
+  paste(format(rec_window$first_date, "%b %Y"), "to", format(rec_window$last_date, "%b %Y"))
+} else "window unknown"
+suppressed_note <- function(n, unit) {
+  if (length(n) == 0 || is.na(n) || n == 0) "" else
+    sprintf(" %d %s with fewer than 5 are combined into one row, or omitted if that row is also under 5.", n, unit)
 }
 
 # ── Audit outputs (all graceful) ──────────────────────────────
@@ -65,36 +60,17 @@ no_data_msg <- function() {
 
 # ── Pre-computed alt text for charts ─────────────────────────
 if (data_loaded) {
-  .yr <- dsc_consult |> filter(!is.na(start_date_time)) |>
-    count(year = year(start_date_time)) |> arrange(year)
   alt_year <- sprintf(
-    "Horizontal bar chart: DSC consultations by year from %d to %d. %s.",
-    min(.yr$year), max(.yr$year),
-    paste(.yr$year, .yr$n, sep = ": ", collapse = "; ")
+    "Horizontal bar chart: rows in the consultation records file by year, %s. %s. 2024 covers January to June only.",
+    rec_window_label, paste(rec_year$year, rec_year$records, sep = ": ", collapse = "; ")
   )
-  .dept <- dsc_consult |>
-    filter(!is.na(department), !department %in% c("DSC", "Library", "UCLA")) |>
-    count(department, sort = TRUE) |> head(15)
-  alt_dept <- sprintf(
-    "Horizontal bar chart: top %d departments by consultation count. Highest: %s (%d).",
-    nrow(.dept), .dept$department[1], .dept$n[1]
-  )
-  .affil <- dsc_consult |> filter(!is.na(ucla_affiliation)) |>
-    count(ucla_affiliation, sort = TRUE) |> head(6)
-  alt_affil <- sprintf(
-    "Horizontal bar chart: consultations by researcher affiliation. Top group: %s (%d).",
-    .affil$ucla_affiliation[1], .affil$n[1]
-  )
-  .grp <- dsc_consult |> filter(!is.na(group)) |> count(group)
   alt_group <- sprintf(
-    "Bar chart: consultations by team. %s.",
-    paste(.grp$group, .grp$n, sep = " = ", collapse = "; ")
+    "Bar chart: consultation records by team, %s. %s.",
+    rec_window_label, paste(rec_team$group, rec_team$records, sep = " = ", collapse = "; ")
   )
 } else {
-  alt_year  <- "Consultations by year (data not loaded)"
-  alt_dept  <- "Top departments by consultations (data not loaded)"
-  alt_affil <- "Consultations by affiliation (data not loaded)"
-  alt_group <- "DSC vs DataSquad split (data not loaded)"
+  alt_year  <- "Consultation records by year (data not loaded)"
+  alt_group <- "Consultation records by team (data not loaded)"
 }
 
 data_range_label <- if (nrow(audit_coverage) > 0) {
@@ -187,15 +163,14 @@ if (nrow(consult_series) > 0) {
 
 ::: {.panel-tabset}
 
-### By Year (consultation records file, 2021-2024)
+### By Year (consultation records file, `r rec_window_label`)
 
-This chart counts rows in the consultation records file that also feeds the department and affiliation breakdowns. It is a different source from the reconciled series at the top of this page, which removes some bookings, so its yearly totals differ (for example, 2024).
+This chart counts rows in the consultation records file that also feeds the department and affiliation breakdowns. The file runs from `r rec_window_label`, so 2024 covers only part of the year. It is a different source from the reconciled series at the top of this page, which removes some bookings, so its yearly totals differ.
 
 ```{r chart_year, echo=FALSE, fig.alt=alt_year}
 if (data_loaded) {
-  dsc_consult |>
-    filter(!is.na(start_date_time)) |>
-    count(year = year(start_date_time)) |>
+  rec_year |>
+    rename(n = records) |>
     ggplot(aes(x = factor(year), y = n)) +
     geom_col(fill = "#005587") +
     coord_flip() +
@@ -209,12 +184,8 @@ if (data_loaded) {
 
 ```{r chart_dept, echo=FALSE}
 if (data_loaded) {
-  internal_depts <- c("DSC", "Library", "UCLA")
-  dept_counts <- dsc_consult |>
-    filter(!is.na(department), !department %in% internal_depts) |>
-    count(department, sort = TRUE) |>
-    suppress_small_cells("department", "n", other_label = "Other departments (each fewer than 5)") |>
-    rename(Department = department, Consultations = n)
+  dept_counts <- rec_dept |>
+    rename(Department = department, Consultations = records)
 
   sd_dept <- SharedData$new(dept_counts)
 
@@ -233,7 +204,7 @@ if (data_loaded) {
     DT::datatable(sd_dept, rownames = FALSE,
                   colnames = c("Department", "Consultations"),
                   options = list(pageLength = 10, dom = "tp"),
-                  caption = paste0("Departments, linked to chart above.", suppression_note(dept_counts, "departments")))
+                  caption = paste0("Departments, consultation records file, ", rec_window_label, ".", suppressed_note(rec_window$suppressed_departments, "departments")))
   )
 } else { no_data_msg() }
 ```
@@ -242,12 +213,8 @@ if (data_loaded) {
 
 ```{r chart_affil, echo=FALSE}
 if (data_loaded) {
-  affil_counts <- dsc_consult |>
-    filter(!is.na(ucla_affiliation)) |>
-    count(ucla_affiliation, sort = TRUE) |>
-    # Small cells, including free-text data-entry noise, fold into one row
-    suppress_small_cells("ucla_affiliation", "n", other_label = "Other affiliations (each fewer than 5)") |>
-    rename(Affiliation = ucla_affiliation, Consultations = n)
+  affil_counts <- rec_affil |>
+    rename(Affiliation = ucla_affiliation, Consultations = records)
 
   sd_affil <- SharedData$new(affil_counts)
 
@@ -264,7 +231,7 @@ if (data_loaded) {
     DT::datatable(sd_affil, rownames = FALSE,
                   colnames = c("Affiliation", "Consultations"),
                   options = list(pageLength = 10, dom = "t"),
-                  caption = paste0("Linked to chart above.", suppression_note(affil_counts, "affiliations")))
+                  caption = paste0("Affiliations, consultation records file, ", rec_window_label, ".", suppressed_note(rec_window$suppressed_affiliations, "affiliations")))
   )
 } else { no_data_msg() }
 ```
@@ -273,9 +240,8 @@ if (data_loaded) {
 
 ```{r chart_group, echo=FALSE, fig.alt=alt_group}
 if (data_loaded) {
-  dsc_consult |>
-    filter(!is.na(group)) |>
-    count(group) |>
+  rec_team |>
+    rename(n = records) |>
     ggplot(aes(x = group, y = n, fill = group)) +
     geom_col() +
     scale_fill_manual(values = c("DSC" = "#003B5C", "Datasquad" = "#FFB81C")) +

@@ -50,3 +50,12 @@ data/processed/repo_cleanup/
 .dolt/
 *.db
 .beads-credential-key
+
+# Row-level consultation and registration data: never public (contain personal
+# contact details). Kept locally / in the dsc-stats-integration restricted area.
+# consulting.qmd publishes only data/processed/consultations/public/*.csv.
+data/raw/consultations/
+data/processed/consultations/*.rds
+data/processed/consultations/*.rda
+archive/data_legacy_link/
+archive/dsc-stats-eval/data/
