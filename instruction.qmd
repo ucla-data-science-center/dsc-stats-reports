@@ -267,7 +267,9 @@ if (nrow(seats) > 0) {
 
 ::: {.panel-tabset}
 
-### By Year
+### By Year (attendee-level records)
+
+Attendee-level records only, May 2017 to September 2024 (2024 is partial). This is a different series from the registered-seat chart above.
 
 ```{r chart_year, echo=FALSE, fig.alt=alt_year}
 if (data_loaded) {

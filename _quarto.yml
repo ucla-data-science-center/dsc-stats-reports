@@ -20,7 +20,6 @@ project:
     - infrastructure.qmd
     - metrics-governance.md
     - dsc-retrospective-2017-2026.qmd
-    - style-preview.qmd   # not in the navbar; font options for Tim
     # dsc_report2024.qmd excluded from nav; render separately if needed
 
 execute:
