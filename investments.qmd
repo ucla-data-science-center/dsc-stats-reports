@@ -30,7 +30,7 @@ DSC works with five kinds of research material. Only the first is a repository D
 
 | Material | What DSC does | Where the material lives | Evidence |
 |---|---|---|---|
-| Repository datasets | Operates UCLA Dataverse (campus sign-in, DOIs, preservation) and curates the legacy social science archive harvested into it | UCLA Dataverse, run by DSC | [UCLA Dataverse](#ucla-dataverse); [infrastructure page](infrastructure.qmd) |
+| Repository datasets | Operates UCLA Dataverse (campus sign-in, DOIs, preservation), where Library staff curate the legacy social science archive harvested into it | UCLA Dataverse, run by DSC | [UCLA Dataverse](#ucla-dataverse); [infrastructure page](infrastructure.qmd) |
 | Large or restricted data | Acquired the L2 national voter file with a Library subject selector, scripted its ingest, set up the data use agreement and user management, and provides governed access | Redivis, under the vendor license | [Voter file](#voter-file-and-governed-access-redivis) |
 | Spatial data and imagery | Provides UCLA's access to LARIAC imagery and LiDAR and EagleView accounts, and GIS advice on using them | Consortium and vendor platforms | [LARIAC](#lariac-aerial-imagery-and-lidar); [helicopter case](research.qmd) |
 | 3D capture and models | Scans, processes, and hosts 3D models for browser access | pointcloud.ucla.edu, run by DSC; the objects and their stories belong to partners | [3D case](research.qmd) |
