@@ -24,15 +24,15 @@ last verification date should not be reused until re-checked.
 - **Contribution language allowed**: "supported," "cleaned and integrated," "provided," "moved onto DSC computing"; not "caused" or "produced" the research.
 - **Last verified**: 2026-09-27.
 
-## 2. BioCritical Studies Lab award recognition
+## 2. BioCritical Studies Lab collaboration
 
-- **Approved wording**: "DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA's 2024 Public Impact Research Awards."
-- **Not approved**: "DSC research won a public-impact award" (DSC did not win the award; the research it supported did).
-- **Reporting period**: multi-year engagement, award dated 2024.
+- **Approved wording**: "DataSquad students have worked on the lab's national dataset since 2021: merging and reconciling sources, identifying missed deaths, statistical comparisons, dashboards and maps, and integration code and a codebook the lab uses to update the dataset itself." Also: "DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA's 2024 Public Impact Research Awards."
+- **Not approved**: "DSC research won a public-impact award"; any claim that DSC contributed to Keel's book *The Coroner's Silence* (2025) or is acknowledged in it (unverified; the page says only that the book "examines the same question"); stating the NIH, NSF, and RWJF grants in DSC's voice (they appear only as the lab manager's statement).
+- **Reporting period**: 2021 to 2024. Phase 1, 2021-22: two DataSquad students (merging four national datasets, cleaning, missed deaths, chi-square comparisons, Tableau dashboards and LA maps). Phase 2, 2023: DSC staff and a DataSquad student on data management and documentation (team meeting notes). Phase 3: a DataSquad student wrote the integration code, codebook, and update tools; exact years not confirmed from dated records.
 - **Unit of observation**: one research engagement.
-- **Source**: `data/processed/consultations/impact_case_studies.csv`, row 2.
-- **Contribution language allowed**: "contributed to," "supported" — not "won" or "produced."
-- **Last verified**: 2026-09-12.
+- **Sources**: UCLA Library news, "DataSquad: Civilian deaths at hand of police," 2022-05-20 (public; names two students); endorsement letter from the lab's assistant director, 2024-08-13 (private file; marked for public use); DataSquad team notes 2021-11 to 2022-05 and DSC consulting meetup notes 2023 (internal); DSC director's account, 2026-09-27; award: socgen.ucla.edu news item, 2024-08-16; book: afam.ucla.edu, 2026-02-18; `data/processed/consultations/impact_case_studies.csv` row 2.
+- **Contribution language allowed**: "worked on," "merged," "built," "maintain"; not "won," "produced," or "co-authored."
+- **Last verified**: 2026-09-27.
 
 ## 3. carp2025 trajectory finding
 

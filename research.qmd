@@ -103,6 +103,18 @@ As the lab acquired more data, DSC helped it scale. In March 2023 DSC staff met 
 
 The research, its findings, and the public attention it has drawn belong to the lab. DSC's part was the data work, computing, and training behind it. Shapiro received a 2024 UCLA Public Impact Research Award for the lab's work ([Institute for Society and Genetics, August 2024](https://socgen.ucla.edu/2024/08/16/isg-faculty-nicholas-shapiro-and-terence-keel-awarded-uclas-2024-public-impact-research-awards/)).
 
+## A second collaboration: deaths at the hands of police
+
+Terence Keel's BioCritical Studies Lab, in UCLA's Institute for Society and Genetics, studies deaths in police custody and at the hands of police across the United States. No single public source counts these deaths reliably, so the lab keeps its own national dataset, merging several crowdsourced sources into one record that it revises as new cases surface.
+
+DataSquad students have worked on that dataset since 2021. In 2021 and 2022, Julia Wood and Ethan Allavarpu merged four national datasets, reconciled the discrepancies between them, identified deaths that some sources had missed, ran statistical comparisons of death rates across states and localities, and built dashboards and Los Angeles maps for the lab ([UCLA Library, May 2022](https://www.library.ucla.edu/about/news/datasquad-civilian-deaths-at-hand-of-police)). DSC staff later helped the lab organize and document its data, and DataSquad student Lawrence Lee wrote the integration code and codebook the lab uses to update the dataset itself.
+
+> "There is a lack of comprehensive and reliable data on death in custody in the United States, and the work the DataSquad has done has helped us address this need and has allowed us to maintain this dataset over time and through revisions."
+>
+> Grace Sosa, assistant director, BioCritical Studies Lab, August 2024 (quoted with permission)
+
+In the same letter, Sosa writes that the lab has used the dataset to complete projects funded by the National Institutes of Health, the National Science Foundation, and the Robert Wood Johnson Foundation. Keel, like Shapiro, received a 2024 UCLA Public Impact Research Award ([Institute for Society and Genetics, August 2024](https://socgen.ucla.edu/2024/08/16/isg-faculty-nicholas-shapiro-and-terence-keel-awarded-uclas-2024-public-impact-research-awards/)), and his 2025 book, *The Coroner's Silence* ([UCLA African American Studies](https://afam.ucla.edu/2026/02/18/the-coroners-silence-death-records-and-the-hidden-victims-of-police-violence/)), examines the same question. The research and its findings belong to the lab; DSC's part was building and maintaining the data underneath.
+
 ::: {.callout-note .long-view}
 ## The long view (history, as of 2026)
 
@@ -125,6 +137,7 @@ The consultation evidence page holds the full tables. Jump to:
 | `r hl("consultations_recorded_series")` recorded consultations | 2017 to Sept 2026 | scheduled appointment | 2026-09-27 | #10 |
 | At least `r hl("people_reached_confirmed_ucla")` UCLA researchers | 2017 to Sept 2026 | person, confirmed | 2026-09-26 | #13 |
 | Carceral Ecologies collaboration; 318 to 2 minute data-loading step | 2019 to 2025 | one engagement | 2026-09-27 | #1 |
+| BioCritical Studies Lab collaboration | 2021 to 2024 | one engagement | 2026-09-27 | #2 |
 | Student employees on payroll | 2018 to Jul 2026 | monthly average headcount | 2026-09-27 | #17 |
 | Consulting history | 1961 to 2026 | historical account | 2026-09-27 | #18 |
 
