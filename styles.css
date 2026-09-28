@@ -461,7 +461,8 @@ footer.footer .nav-footer-right {
   order: 0 !important;   /* Quarto reorders footer columns on small screens */
   width: auto;
 }
-footer.footer .nav-footer p { margin: 0 0 0.35rem; line-height: 1.85; }
+footer.footer .nav-footer p { margin: 0 0 0.4rem; line-height: 2; }
+footer.footer .footer-note { grid-column: 1 / -1; color: #C9DCEE; font-size: 0.85rem; margin-top: 0.25rem; }
 footer.footer .footer-heading {
   display: block;
   color: #FFD100;
@@ -470,9 +471,14 @@ footer.footer .footer-heading {
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
-footer.footer .nav-footer a { color: #ffffff; text-decoration: none; }
+footer.footer .nav-footer a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.45);
+  text-underline-offset: 3px;
+}
 footer.footer .nav-footer a:hover,
-footer.footer .nav-footer a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+footer.footer .nav-footer a:focus-visible { text-decoration-color: #FFD100; }
 footer.footer .nav-footer a:focus-visible { outline: 2px solid #FFD100; outline-offset: 2px; }
 footer.footer .footer-repo-actions {
   grid-column: 1 / -1;
