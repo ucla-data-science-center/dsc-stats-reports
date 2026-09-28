@@ -12,7 +12,7 @@
 
 [{{< var dataverse.downloads_total >}}]{.kpi-value}
 [File-level download events since 2020, as of Feb 2026]{.kpi-label}
-[{{< var dataverse.downloads_2020 >}} in Jan 2020 → {{< var dataverse.downloads_total >}} today]{.kpi-note}
+[{{< var dataverse.downloads_2020 >}} in Jan 2020 → {{< var dataverse.downloads_total >}} in Feb 2026; see the infrastructure page for the current count]{.kpi-note}
 
 :::
 

@@ -1,9 +1,9 @@
-[Dataverse has grown from {{< var dataverse.datasets_2020 >}} datasets in 2020 to roughly {{< var dataverse.datasets_released >}} released today.]{.lede}
+[Dataverse has grown from {{< var dataverse.datasets_2020 >}} datasets in 2020 to roughly {{< var dataverse.datasets_released >}} released by February 2026.]{.lede}
 
 Dataverse, UCLA's institutional repository, which DSC operates, has grown from
 {{< var dataverse.datasets_2020 >}} datasets and {{< var dataverse.downloads_2020 >}}
 downloads in January 2020 to roughly **{{< var dataverse.datasets_released >}}
-released datasets and over {{< var dataverse.downloads_total >}} downloads** today
+released datasets and over {{< var dataverse.downloads_total >}} downloads** as of February 2026
 ({{< var dataverse.datasets_with_drafts >}} counting drafts and restricted deposits).
 This is the same hosting commitment the Library made in the 2014 transfer ("necessary
 technological infrastructure for continued hosting of software, data, and data
