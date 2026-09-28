@@ -19,7 +19,7 @@ series   <- read_if("data/processed/canonical/consultations_by_year.csv")
 capacity <- read_if("data/processed/canonical/service_capacity_by_year.csv")
 
 alt_combined <- if (nrow(series) > 0 && nrow(capacity) > 0) sprintf(
-  "Three horizontal bar charts on the same year rows, 2017 to 2026. Recorded consultations: %s (2024 onward are floors). Staff time in FTE: %s. Average students on payroll per month: %s.",
+  "Three horizontal bar charts on the same year rows, 2017 to 2026. Recorded consultations: %s (2024 onward are floors). Staff time in FTE: %s. Average students on payroll per month: %s. Year labels 2024 and 2025 carry event markers A to D, explained below the chart.",
   paste(series$year, series$display, sep = ": ", collapse = "; "),
   paste(capacity$year, coalesce(as.character(capacity$dsc_staff_fte + capacity$contributed_staff_fte), "no record"), sep = ": ", collapse = "; "),
   paste(capacity$year, coalesce(as.character(capacity$student_avg_monthly), "no record"), sep = ": ", collapse = "; ")) else "Recorded consultations and service capacity by year (data not loaded)"
@@ -63,7 +63,7 @@ if (nrow(series) > 0 && nrow(capacity) > 0) {
     geom_text(data = totals |> mutate(year = factor(year, levels = yrs), panel = factor(panel, levels = panels)),
               aes(y = year, x = coalesce(value, 0), label = label), inherit.aes = FALSE, hjust = -0.15, size = 4) +
     facet_wrap(~panel, scales = "free_x", nrow = 1) +
-    scale_y_discrete(drop = FALSE) +
+    scale_y_discrete(drop = FALSE, labels = function(y) recode(y, "2024" = "2024 (A, B)", "2025" = "2025 (C, D)")) +
     scale_x_continuous(expand = expansion(mult = c(0, 0.28)), n.breaks = 4) +
     scale_fill_manual(values = fills, breaks = names(fills), name = NULL) +
     labs(x = NULL, y = NULL) +
@@ -74,6 +74,15 @@ if (nrow(series) > 0 && nrow(capacity) > 0) {
     guides(fill = guide_legend(nrow = 1))
 }
 ```
+
+Events marked on the chart:
+
+- **A, 2024:** UCLA cut the GIS librarian position. GIS requests continued.
+- **B, mid-2024:** Calendly ended and no scheduling system replaced it, so most consultations went unrecorded.
+- **C, May 2025:** LibCal adopted; recording resumed.
+- **D, July to October 2025:** student hiring under campus review; one student remained on payroll.
+
+The [2017 to 2026 timeline](dsc-retrospective-2017-2026.qmd#sec-buildout) places these alongside what DSC built.
 
 Recorded counts from mid-2024 on are floors: the scheduling system lapsed while staff and student capacity fell, so these years cannot show whether demand changed. Consultations are interactions, not people.
 
@@ -95,6 +104,13 @@ These three were chosen to show different kinds of documented support, not typic
 
 ### Police helicopter surveillance (Carceral Ecologies)
 
+::: {.sequence}
+[**Research need** The lab's flight-tracking data outgrew what it could host and process itself.]{.step}
+[**What DSC did** Cleaned and integrated the flight data, advised on spatial analysis, refactored the R code, and moved the work onto DSC computing.]{.step}
+[**What the research gained** Analyzable flight tables joined to Los Angeles neighborhoods, and one data-loading step about 159 times as fast.]{.step}
+[**What still depends on DSC** The hosted R server and technical help as the lab's data keeps growing.]{.step}
+:::
+
 The Carceral Ecologies lab, directed by Nicholas Shapiro in UCLA's Institute for Society and Genetics, studies the health and mental-health effects of law-enforcement helicopter surveillance across Los Angeles County from 2017 through 2022 ([lab project page](https://carceralecologies.org/projects/)). Its public findings include that LAPD helicopters fly lowest over largely Black and Hispanic neighborhoods, with a median of about 550 feet over Watts at night ([CalMatters, July 2024](https://calmatters.org/commentary/2024/07/california-longstanding-bias-police-helicopters/)).
 
 When COVID closed the prisons where the lab had done environmental field sampling, Shapiro moved its work to data analysis, and the flight-trajectory dataset soon outgrew what the lab could host itself. In his words, DSC and DataSquad supported the lab "through technical assistance, helping one of my research students (who became staff) grow her R skills, and in hosting the R server that makes this research possible."
@@ -113,6 +129,13 @@ The research and its findings belong to the lab; Shapiro received a 2024 UCLA Pu
 
 ### Deaths in custody (BioCritical Studies Lab)
 
+::: {.sequence}
+[**Research need** No single, reliable national dataset of deaths in custody existed.]{.step}
+[**What DSC did** DataSquad students merged and reconciled the sources, found missed deaths, built maps and dashboards, and wrote codebooks for new data.]{.step}
+[**What the research gained** A national dataset the lab maintains, with tools it uses to update the data itself.]{.step}
+[**What still depends on DSC** Recurring DataSquad work as the sources change and are revised.]{.step}
+:::
+
 In January 2021, Terence Keel's BioCritical Studies Lab, in UCLA's Institute for Society and Genetics, set out to build a single dataset of deaths in custody across the United States from 2000 to 2020. Those deaths are reported by several crowd-based sources, including The Guardian, Fatal Encounters, and Mapping Police Violence, each with its own variables and standards, and the dataset has to be revised as the sources change.
 
 DataSquad students Julia Wood and Ethan Allavarpu merged the sources, reconciled discrepancies between them, and identified deaths that some sources had missed. They then built maps and dashboards, including Los Angeles maps, and ran statistical comparisons of death rates that, in the words of the lab's assistant director, were "instrumental in informing us which locations we should prioritize" ([UCLA Library, May 2022](https://www.library.ucla.edu/about/news/datasquad-civilian-deaths-at-hand-of-police)). DSC staff later helped the lab organize and document its data. In 2024 DataSquad student Lawrence Lee developed two codebooks that let the lab integrate and clean new data from any source, and taught the lab to use them so it could update the dataset on its own.
@@ -126,6 +149,13 @@ Keeping the national dataset usable through new sources and revisions has depend
 In the same letter, Sosa writes that the lab has used the dataset to complete projects funded by the National Institutes of Health, the National Science Foundation, and the Robert Wood Johnson Foundation. The research is the lab's; Keel, like Shapiro, received a 2024 UCLA Public Impact Research Award ([Institute for Society and Genetics, August 2024](https://socgen.ucla.edu/2024/08/16/isg-faculty-nicholas-shapiro-and-terence-keel-awarded-uclas-2024-public-impact-research-awards/)).
 
 ### 3D capture for the humanities (Refugee Material Culture Initiative)
+
+::: {.sequence}
+[**Research need** Preserve refugee art and artifacts digitally, for a museum exhibit and for teaching.]{.step}
+[**What DSC did** 3D scanned the Boat of Hope, processed the models, and set up a web viewer.]{.step}
+[**What the research gained** A public 3D model anyone can explore in a browser, also used in Nguyen's course.]{.step}
+[**What still depends on DSC** Continued hosting on pointcloud.ucla.edu, a server DSC built and runs.]{.step}
+:::
 
 Classics professor Kelly Nguyen's Refugee Material Culture Initiative, a collaboration with the Vietnamese Heritage Museum in Garden Grove, digitally preserves art and artifacts made and used by refugees ([Cotsen Institute of Archaeology](https://ioa.ucla.edu/content/refugee-material-culture-initiative)). Doug Daniels, DSC's emerging technologies librarian, 3D scanned the "Boat of Hope," a six-meter river sampan that carried nine refugees out of Vietnam in 1984, and prepared the models for the museum's digital exhibit ([the initiative's page on Doug](https://dal.ucla.edu/rmci/taxonomy/term/130)).
 

@@ -1,0 +1,24 @@
+date,precision,track,label,chart,source
+2017-04-17,day,built,Tim Dennis starts as director,FALSE,Tim's 2017-2019 Office Timeline chart
+2017-09-07,day,built,First Library Carpentry workshop at UCLA,TRUE,Tim's 2017-2019 Office Timeline chart
+2017-10-16,day,built,First Software Carpentry workshop at UCLA,FALSE,Tim's 2017-2019 Office Timeline chart
+2017-10-17,day,built,"Social science workshop sequence (data literacy, SQL, R, Python), Oct-Nov 2017",FALSE,Tim's 2017-2019 Office Timeline chart
+2018-03-05,day,built,SSDA moves into Young Research Library,FALSE,Tim's 2017-2019 Office Timeline chart
+2018-04-01,month,built,Archive becomes the Data Science Center,TRUE,"Tim's chart (Apr 2018); #ucladatascience in use by Oct 16, 2018 (@ucla_ssda post); Library location page first archived Jun 28, 2019 (Wayback Machine)"
+2018-05-01,month,built,Carpentries membership,FALSE,Tim's 2017-2019 Office Timeline chart
+2018-10-01,month,built,UCLA Dataverse launches,TRUE,Tim's chart; first dataset published Oct 31 2018
+2018-11-06,day,built,Research Data Services Task Force report,FALSE,Tim's 2017-2019 Office Timeline chart
+2018-12-10,day,capacity,Norman Powell's first gift to DSC,TRUE,Tim's 2017-2019 Office Timeline chart
+2019-01-09,day,built,"First UCLA cohort of eight Carpentries instructors trained and certified, Jan-Aug 2019",FALSE,Tim's 2017-2019 Office Timeline chart
+2019-07-24,day,built,First UCLA-trained instructors teach their own workshop,TRUE,Tim's 2017-2019 Office Timeline chart
+2019-09-25,day,built,"AfAm 188 / Million Dollar Hoods technical workshop, Sep-Dec 2019",FALSE,Tim's 2017-2019 Office Timeline chart
+2019-12-15,day,capacity,Norman Powell's second gift to DSC,FALSE,Tim's 2017-2019 Office Timeline chart
+2020-01-01,year,capacity,"DataSquad starts, funded by Norman Powell's gift",TRUE,_partials/datasquad.qmd
+2020-06-01,year,built,DSC co-founds the UC Carpentries network,TRUE,claim-register.md #15
+2022-01-01,year,built,Redivis governed-data platform launches,TRUE,_partials/redivis-l2.qmd
+2022-06-01,year,built,pointcloud.ucla.edu 3D server built,TRUE,research.qmd; claim-register.md #20
+2023-01-01,year,capacity,Library adds DataSquad funding,TRUE,_partials/datasquad.qmd
+2024-01-01,year,capacity,GIS librarian position cut,TRUE,_partials/gis-support.qmd
+2024-07-01,month,capacity,Scheduling system lapses,TRUE,service_capacity_by_year.csv; research.qmd
+2025-07-01,month,capacity,"Student hiring under campus review, Jul-Oct 2025",TRUE,service_capacity_by_year.csv
+2026-06-01,year,capacity,"Staff time at 4.0 FTE, down from 5.7 in 2022-23",TRUE,service_capacity_by_year.csv; claim-register.md #17

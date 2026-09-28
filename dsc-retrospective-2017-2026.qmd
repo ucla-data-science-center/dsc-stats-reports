@@ -35,6 +35,10 @@ ended in 2024 when the GIS librarian position was eliminated; DSC still receives
 
 {{< include _partials/lineage-timeline.qmd >}}
 
+## 2017 to 2026: what was built, and when capacity changed {#sec-buildout}
+
+{{< include _partials/buildout-timeline.qmd >}}
+
 ## DSC today, by the numbers {#sec-numbers}
 
 {{< include _partials/kpi-headline.qmd >}}
