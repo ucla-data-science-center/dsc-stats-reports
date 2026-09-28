@@ -82,7 +82,7 @@ Events marked on the chart:
 - **C, May 2025:** LibCal adopted; recording resumed.
 - **D, July to October 2025:** student hiring under campus review; one student remained on payroll.
 
-The [2017 to 2026 timeline](dsc-retrospective-2017-2026.qmd#sec-buildout) places these alongside what DSC built.
+The [2017 to 2026 timeline](capability.qmd#sec-buildout) places these alongside what DSC built.
 
 Recorded counts from mid-2024 on are floors: the scheduling system lapsed while staff and student capacity fell, so these years cannot show whether demand changed. Consultations are interactions, not people.
 

@@ -13,9 +13,9 @@ date,precision,track,label,chart,source
 2019-07-24,day,built,First UCLA-trained instructors teach their own workshop,TRUE,Tim's 2017-2019 Office Timeline chart
 2019-09-25,day,built,"AfAm 188 / Million Dollar Hoods technical workshop, Sep-Dec 2019",FALSE,Tim's 2017-2019 Office Timeline chart
 2019-12-15,day,capacity,Norman Powell's second gift to DSC,FALSE,Tim's 2017-2019 Office Timeline chart
-2020-01-01,year,capacity,"DataSquad starts, funded by Norman Powell's gift",TRUE,_partials/datasquad.qmd
+2020-01-01,year,capacity,"DataSquad funded by Norman Powell's gift (formal program from 2021)",TRUE,_partials/datasquad.qmd; history.qmd
 2020-06-01,year,built,DSC co-founds the UC Carpentries network,TRUE,claim-register.md #15
-2022-01-01,year,built,Redivis governed-data platform launches,TRUE,_partials/redivis-l2.qmd
+2022-01-01,year,built,"Redivis piloted (governed service from Jan 2023)",TRUE,_partials/redivis-l2.qmd; history.qmd
 2022-06-01,year,built,pointcloud.ucla.edu 3D server built,TRUE,research.qmd; claim-register.md #20
 2023-01-01,year,capacity,Library adds DataSquad funding,TRUE,_partials/datasquad.qmd
 2024-01-01,year,capacity,GIS librarian position cut,TRUE,_partials/gis-support.qmd

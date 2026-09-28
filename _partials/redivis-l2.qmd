@@ -8,8 +8,9 @@ Consortium for Political and Social Research">ICPSR</abbr> and Roper. The platfo
 holds about {{< var redivis.data_volume >}} of <abbr class="term" title="Data
 protection levels covering FERPA, PII, and HIPAA-regulated research data">P3/P4-compliant</abbr>
 data across {{< var redivis.users >}} registered users and over {{< var redivis.workflows >}}
-workflows, and has processed **{{< var redivis.petabytes_processed >}}** cumulatively
-since it launched in 2022.
+workflows. Piloted in 2022 and run as a governed service since January 2023, it has
+processed **{{< var redivis.petabytes_processed >}}** in total through 2025, 2.9 PB of that in
+2024 alone.
 
 The flagship dataset is the **L2 historic voter file**, over 10TB of national voter
 history purchased by DSC and a Library subject selector. It arrived as thousands of

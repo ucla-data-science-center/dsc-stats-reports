@@ -86,6 +86,14 @@ What ties the rows together is the archive's working knowledge: how data is desc
 | Coverage and limits | Papers rarely name how they obtained the data. Other UCLA papers use LARIAC-derived products that may circulate outside the license, so they are not counted. |
 | Continuing requirement | Consortium membership, data storage, access administration, and account provisioning. |
 
+## GIS and geospatial support {#sec-gis}
+
+{{< include _partials/gis-support.qmd >}}
+
+## 3D capture and Potree {#sec-3d}
+
+{{< include _partials/emerging-tech-3d.qmd >}}
+
 ## Documented projects and outputs
 
 We reviewed 13 candidate projects and outputs; 5 are verified and shown here. The rest await researcher confirmation or stronger evidence. "Direct" means the output or the researcher states DSC's role; "corroborated" means the connection is established through a related paper, presentation, or access record.

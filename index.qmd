@@ -28,7 +28,7 @@ fte_peak <- if (nrow(staff_fte) > 0) sprintf("%.1f", max(staff_fte$fte)) else "â
 fte_now  <- if (nrow(staff_fte) > 0) sprintf("%.1f", staff_fte$fte[which.max(staff_fte$year)]) else "â€”"
 ```
 
-**UCLA researchers have used DSC for data and technical work that crosses lab and department boundaries.** At least `r hl("people_reached_confirmed_ucla")` confirmed UCLA researchers used its instruction or consultation from 2017 to September 2026. DSC also made a 10 TB national voter file analysis-ready, provides governed access to restricted data, and operates UCLA's research-data repository. Its staff time fell from `r fte_peak` FTE in 2022-23 to `r fte_now` in 2025-26. The question for the university is who will be accountable for these functions as DSC's capacity changes: connecting them, setting standards, maintaining the infrastructure, and carrying the expertise forward.
+**UCLA researchers have used DSC for data and technical work that crosses lab and department boundaries.** At least `r hl("people_reached_confirmed_ucla")` confirmed UCLA researchers used its instruction or consultation from 2017 to September 2026. DSC also made a 10 TB national voter file analysis-ready, provides governed access to restricted data, and operates UCLA's research-data repository. Its staff time, counting DSC staff and time contributed by other Library units, fell from `r fte_peak` FTE in 2022-23 to `r fte_now` in 2025-26. The question for the university is who will be accountable for these functions as DSC's capacity changes: connecting them, setting standards, maintaining the infrastructure, and carrying the expertise forward.
 
 
 ## What the evidence establishes
@@ -93,7 +93,7 @@ The materials have changed, from survey datasets to large and restricted files, 
 
 This site is the evidence layer: each figure states its unit and window and links to the page where it is built. People reached are counted only when their identity could be confirmed.
 
-- [DSC retrospective, 2017-2026](dsc-retrospective-2017-2026.qmd): the narrative account of the Data Science Center era
+- [History of the archive since 1961](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html): the institutional history, from the Political Behavior Archive to the Data Science Center (a signed draft by the DSC director)
 - [About and methodology](about.qmd): definitions, sources, and how figures are counted
 - [Metrics governance](metrics-governance.md): counting rules for consultations, tasks, tickets, and instruction
 - [Claim register](https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/claim-register.md): approved wording, window, unit, and source for every headline figure
