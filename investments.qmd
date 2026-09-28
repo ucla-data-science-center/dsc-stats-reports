@@ -57,7 +57,7 @@ What ties the rows together is the archive's working knowledge: how data is desc
 | Research barrier | Some datasets exceed what a lab can host or process on its own machines. |
 | DSC investment | Hosts research servers and a deep learning machine, with staff and student support for processing and training. |
 | Documented use | Multi-year support for the Carceral Ecologies lab's helicopter-surveillance analysis. |
-| Research outputs | For one documented processing task, runtime fell from about 318 minutes to about 2, under the reported conditions (claim #1). The lab's research was later recognized by a 2024 UCLA Public Impact Research Award. |
+| Research outputs | One measured data-loading step fell from about 318 minutes to about 2, about 159 times as fast (claim #1). The lab's research was later recognized by a 2024 UCLA Public Impact Research Award. |
 | Evidence of the connection | Case record and the researcher's own account, shared with permission. |
 | Coverage and limits | One engagement shown; a second (machine-learning analysis of animal behavior) awaits the researcher's confirmation. Job logs have not been compiled. |
 | Continuing requirement | Hardware maintenance, system administration, and staff who can support researchers on it. |
