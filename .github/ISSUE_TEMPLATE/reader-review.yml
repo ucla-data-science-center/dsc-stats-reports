@@ -71,7 +71,7 @@ body:
     attributes:
       value: |
         ### Part 2: after reading
-        Now read as much of the site as you like. The [Research Enabled by DSC](https://ucla-data-science-center.github.io/dsc-stats-reports/research.html) and [Shared investments](https://ucla-data-science-center.github.io/dsc-stats-reports/investments.html) pages carry most of the argument.
+        Now read as much of the site as you like. The [Research enabled](https://ucla-data-science-center.github.io/dsc-stats-reports/research.html) and [Shared investments](https://ucla-data-science-center.github.io/dsc-stats-reports/investments.html) pages carry most of the argument.
 
   - type: checkboxes
     id: pages
@@ -79,7 +79,7 @@ body:
       label: Which pages did you read?
       options:
         - label: Home
-        - label: Research Enabled by DSC
+        - label: Research enabled
         - label: Research capability built
         - label: Shared investments
         - label: Evidence pages (Consulting, Instruction, Infrastructure)

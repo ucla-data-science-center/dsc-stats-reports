@@ -1,5 +1,5 @@
 ---
-title: "Research Enabled by DSC"
+title: "Research Enabled"
 subtitle: "Pathway: one-on-one research data support at UCLA, and the capacity behind it"
 toc: true
 toc-depth: 3
@@ -171,7 +171,7 @@ The consultation evidence page holds the full tables. Jump to:
 Suppression rule: department, organizational-parent, and affiliation breakdowns fold any unit under 5 into one combined row, which is omitted if it is also under 5. Approved wording and sources: [claim-register.md](https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/claim-register.md).
 
 ::: {.callout-note collapse="true" title="Cite this page"}
-UCLA Library Data Science Center. (`r format(Sys.Date(), "%Y")`). *Research Enabled by DSC*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/research.html>
+UCLA Library Data Science Center. (`r format(Sys.Date(), "%Y")`). *Research Enabled*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/research.html>
 :::
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
