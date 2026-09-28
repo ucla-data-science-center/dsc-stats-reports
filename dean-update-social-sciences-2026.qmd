@@ -78,7 +78,7 @@ Social Sciences, the kind of reach the 2014 transfer was meant to enable.
 {{< include _partials/social-science-constituency.qmd >}}
 
 The Archive's operating fund from the 2014 transfer still pays its recurring costs,
-including ICPSR (~$47K/year) and the Roper Center (~$8K/year), and now AWS and Redivis
+including ICPSR and the Roper Center, and now AWS and Redivis
 as well; the Library has added to that fund as those costs grew. The Archive's gift
 fund, the Data Archive Purchase Fund, came over with the transfer too and buys data
 for campus researchers, including the L2 voter file and LARIAC imagery.

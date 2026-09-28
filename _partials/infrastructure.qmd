@@ -11,8 +11,8 @@ analysis tools"), grown considerably since.
 
 Dataverse and the point-cloud server run on AWS, and Redivis is a licensed platform.
 Their recurring costs, along with the Archive's core memberships (<abbr class="term"
-title="Inter-university Consortium for Political and Social Research">ICPSR</abbr>,
-~$47K/year, and the Roper Center, ~$8K/year), come out of the Archive's operating fund
+title="Inter-university Consortium for Political and Social Research">ICPSR</abbr> and
+the Roper Center), come out of the Archive's operating fund
 from the 2014 transfer, which the Library has added to as those costs grew. Norman
 Powell's gift covered AWS for about two years after DSC got its own AWS account, and
 University Librarian discretionary funds backed Redivis for its first two years. The

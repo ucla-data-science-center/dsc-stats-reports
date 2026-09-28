@@ -33,7 +33,7 @@ ggplot(tl) +
   geom_label(aes(x = date, y = y, label = str_wrap(label, 26), colour = track,
                  vjust = if_else(track == "built", 0, 1),
                  hjust = if_else(right, 1, 0)),
-             size = 3.4, label.size = 0, fill = "white", lineheight = 0.95,
+             size = 3.4, linewidth = 0, fill = "white", lineheight = 0.95,
              label.padding = unit(0.15, "lines")) +
   annotate("text", x = as.Date("2016-10-01"), y = c(0.35, -0.35), label = c("Built", "Capacity"),
            hjust = 1, fontface = "bold", colour = cols, size = 4.2) +
