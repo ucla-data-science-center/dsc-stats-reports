@@ -238,3 +238,13 @@ last verification date should not be reused until re-checked.
 - **Sources**: UCLA Newsroom, Librarians of the Year, 2026-07-07; UCLA Humanities, digital archaeology day, 2026-04-28 (course title, attendance); Cotsen Institute RMCI page; RMCI page for Doug Daniels (dal.ucla.edu); pointcloud.ucla.edu boat narrative; DSC director's account 2026-09-27 (student roles, Potree setup, instructional use); 2026 Librarian of the Year nomination draft and Doug Daniels's self-assessment (private; two weeks in Iceland, remote processing, library workstation, 2022 server build); DSC consulting meetup notes 2023 (student joined the lab in April 2023; drone equipment arrived May 2023).
 - **Contribution language allowed**: "scanned," "surveyed," "processed," "prepared," "hosts," "co-organized"; not "produced" or "authored" the research.
 - **Last verified**: 2026-09-27.
+
+## 21. DSC build-out timeline, 2017-2026 (retrospective)
+
+- **Approved wording**: event labels as in `data/reference/timeline_events_2017_2026.csv` (rows with `chart = TRUE` appear in the chart; all rows appear in the dated list).
+- **Naming date**: "Archive becomes the Data Science Center" is dated April 2018. Evidence: Tim's contemporaneous timeline (Apr 1, 2018); #ucladatascience in use on the @ucla_ssda account by Oct 16, 2018; the Library's Data Science Center location page first captured by the Wayback Machine on Jun 28, 2019. The formal public name may postdate the working name.
+- **Not approved**: reading gaps between dates as inactivity; year-only events placed at a specific month.
+- **Reporting period**: 2017-2026.
+- **Unit of observation**: dated institutional events.
+- **Sources**: Tim's 2017-2019 Office Timeline chart (furniture and keynote rows dropped by Tim, 2026-09-28; Norman Powell gifts approved for public use); site partials and `service_capacity_by_year.csv` for 2020-2026, as cited per row.
+- **Last verified**: 2026-09-28.

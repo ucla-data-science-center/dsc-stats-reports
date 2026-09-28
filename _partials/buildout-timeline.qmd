@@ -1,0 +1,61 @@
+```{r buildout-timeline-setup, include=FALSE}
+library(tidyverse)
+tl_all <- read_csv("data/reference/timeline_events_2017_2026.csv", show_col_types = FALSE) |>
+  mutate(date = as.Date(date), track = factor(track, levels = c("built", "capacity")))
+tl <- tl_all |> filter(chart) |> arrange(track, date) |>
+  mutate(right = date > as.Date("2025-01-01"),
+         x0 = if_else(right, date - 700, date), x1 = if_else(right, date, date + 700))
+# Greedy lanes: put each label in the lowest lane where it clears the previous
+# label's horizontal extent (a wrapped label plus a gap spans about 21 months).
+tl$lane <- NA_integer_
+for (tr in levels(tl$track)) {
+  ends <- as.Date(character())
+  for (i in which(tl$track == tr)) {
+    lane <- which(ends < tl$x0[i])[1]
+    if (is.na(lane)) { lane <- length(ends) + 1 }
+    ends[lane] <- tl$x1[i]; tl$lane[i] <- lane
+  }
+}
+tl <- tl |> mutate(y = if_else(track == "built", 0.5 + 1.0 * (lane - 1), -0.5 - 1.0 * (lane - 1)))
+ylim <- max(abs(tl$y)) + 0.9
+tl_alt <- paste0("Timeline of DSC, 2017 to 2026, in two tracks. What was built: ",
+  paste(format(tl$date[tl$track == "built"], "%Y"), tl$label[tl$track == "built"], sep = " ", collapse = "; "),
+  ". Capacity and funding: ",
+  paste(format(tl$date[tl$track == "capacity"], "%Y"), tl$label[tl$track == "capacity"], sep = " ", collapse = "; "), ".")
+```
+
+```{r buildout-timeline, echo=FALSE, fig.width=11, fig.height=6.5, fig.alt=tl_alt, fig.cap="Above the line: services and programs as they entered DSC's portfolio. Below: funding and capacity changes. Positions within a year are approximate where only the year is known. The full dated list, with sources, follows the chart."}
+cols <- c(built = "#2774AE", capacity = "#8A5A00")
+ggplot(tl) +
+  geom_hline(yintercept = 0, colour = "#1b2733", linewidth = 0.6) +
+  geom_segment(aes(x = date, xend = date, y = 0, yend = y, colour = track), linewidth = 0.4) +
+  geom_point(aes(x = date, y = 0, colour = track), size = 3) +
+  geom_label(aes(x = date, y = y, label = str_wrap(label, 26), colour = track,
+                 vjust = if_else(track == "built", 0, 1),
+                 hjust = if_else(right, 1, 0)),
+             size = 3.4, label.size = 0, fill = "white", lineheight = 0.95,
+             label.padding = unit(0.15, "lines")) +
+  annotate("text", x = as.Date("2016-10-01"), y = c(0.35, -0.35), label = c("Built", "Capacity"),
+           hjust = 1, fontface = "bold", colour = cols, size = 4.2) +
+  scale_colour_manual(values = cols, guide = "none") +
+  scale_x_date(breaks = seq(as.Date("2017-01-01"), as.Date("2026-01-01"), by = "year"), date_labels = "%Y",
+               limits = as.Date(c("2016-01-01", "2026-12-31")), expand = c(0, 0)) +
+  scale_y_continuous(limits = c(-ylim, ylim), expand = c(0, 0)) +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 13) +
+  theme(axis.text.y = element_blank(), panel.grid = element_blank(),
+        axis.text.x = element_text(face = "bold"))
+```
+
+<details class="more-info">
+<summary>All dated events, with sources</summary>
+
+```{r buildout-timeline-list, echo=FALSE, results='asis'}
+fmt <- function(d, p) case_when(p == "day" ~ format(d, "%b %-d, %Y"), p == "month" ~ format(d, "%b %Y"), TRUE ~ format(d, "%Y"))
+tl_all |> arrange(date) |>
+  mutate(line = paste0("- **", fmt(date, precision), "** (", if_else(track == "built", "built", "capacity"), "): ",
+                       label, ". *Source: ", source, ".*")) |>
+  pull(line) |> cat(sep = "\n")
+```
+
+</details>
