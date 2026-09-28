@@ -561,6 +561,15 @@ ul.task-list li input[type="checkbox"] {
   <span class="brand-el brand-bigcircle"></span>
   <span class="brand-el brand-linechart2"></span>
 </div>
+<script>
+  // On pages without a table of contents, Quarto puts "Edit this page" inside the
+  // middle footer column. Give it its own row under the three link groups.
+  document.addEventListener("DOMContentLoaded", function () {
+    var footer = document.querySelector("footer .nav-footer");
+    var actions = footer && footer.querySelector(".toc-actions");
+    if (actions) { actions.classList.add("footer-repo-actions"); footer.appendChild(actions); }
+  });
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -978,13 +987,21 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><a href="https://ucla-data-science-center.github.io/dsc-stats-reports/">Research Enabled by DSC</a> · <a href="https://ucla-data-science-center.github.io/ssda-dsc-history/history.html">History of the archive since 1961</a> · <a href="https://ucla-data-science-center.github.io/dsc-stats-reports/about.html">How figures are counted</a></p>
+<p><span class="footer-heading">Read further</span></p>
+<p><a href="https://ucla-data-science-center.github.io/dsc-stats-reports/">Research Enabled by DSC</a><br>
+<a href="https://ucla-data-science-center.github.io/ssda-dsc-history/history.html">History of the archive since 1961</a><br>
+<a href="https://ucla-data-science-center.github.io/dsc-stats-reports/about.html">How figures are counted</a></p>
 </div>   
     <div class="nav-footer-center">
-<p><a href="https://dataverse.ucla.edu/">UCLA Dataverse</a> · <a href="https://ucla-datasquad.github.io/">DataSquad student projects</a> · <a href="https://www.library.ucla.edu/visit/locations/data-science-center/">Data Science Center at UCLA Library</a></p>
+<p><span class="footer-heading">Related</span></p>
+<p><a href="https://dataverse.ucla.edu/">UCLA Dataverse</a><br>
+<a href="https://ucla-datasquad.github.io/">DataSquad student projects</a><br>
+<a href="https://www.library.ucla.edu/visit/locations/data-science-center/">Data Science Center at UCLA Library</a></p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/edit/main/about.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/about.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p><a href="https://uclalibrary.atlassian.net/servicedesk/customer/portal/5">Request a research consultation</a> · <a href="https://github.com/ucla-data-science-center/dsc-stats-reports/issues/new?template=correction.yml">Report a correction</a></p>
+<p><span class="footer-heading">Get in touch</span></p>
+<p><a href="https://uclalibrary.atlassian.net/servicedesk/customer/portal/5">Request a research consultation</a><br>
+<a href="https://github.com/ucla-data-science-center/dsc-stats-reports/issues/new?template=correction.yml">Report a correction</a></p>
 </div>
   </div>
 </footer>
