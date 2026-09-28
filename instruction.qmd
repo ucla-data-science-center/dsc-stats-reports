@@ -140,7 +140,7 @@ if (data_loaded) {
 }
 ```
 
-*For DSC staff and library administration: workshop attendance from attendee-level and validated aggregate sources.*
+*Evidence page: registered seats and workshop attendance from attendee-level and validated aggregate sources, with their definitions and limits.*
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
 

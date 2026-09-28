@@ -84,7 +84,6 @@ Events marked on the chart:
 
 The [2017 to 2026 timeline](capability.qmd#sec-buildout) places these alongside what DSC built.
 
-Recorded counts from mid-2024 on are floors: the scheduling system lapsed while staff and student capacity fell, so these years cannot show whether demand changed. Consultations are interactions, not people.
 
 ::: {.callout-note collapse="true" title="How the consultation series is counted"}
 - About 340 to 395 consultations a year were recorded at full recording (2021-2023), some growing into multi-year collaborations.
@@ -96,7 +95,6 @@ Recorded counts from mid-2024 on are floors: the scheduling system lapsed while 
 Two supporting measures:
 
 - **At least `r hl("people_reached_confirmed_ucla")` confirmed UCLA researchers** used DSC instruction or consultation, 2017 to September 2026 (a floor, counted only where identity could be confirmed).
-- **Scheduling systems changed three times:** Calendly to mid-2024, no scheduling system until May 2025, then LibCal. Consultations continued in the gap, but most went unrecorded.
 
 ## Three collaborations
 
@@ -153,7 +151,7 @@ In the same letter, Sosa writes that the lab has used the dataset to complete pr
 ::: {.sequence}
 [**Research need** Preserve refugee art and artifacts digitally, for a museum exhibit and for teaching.]{.step}
 [**What DSC did** 3D scanned the Boat of Hope, processed the models, and set up a web viewer.]{.step}
-[**What the research gained** A public 3D model anyone can explore in a browser, also used in Nguyen's course.]{.step}
+[**What the research gained** A public 3D model anyone can explore in a browser.]{.step}
 [**What still depends on DSC** Continued hosting on pointcloud.ucla.edu, a server DSC built and runs.]{.step}
 :::
 

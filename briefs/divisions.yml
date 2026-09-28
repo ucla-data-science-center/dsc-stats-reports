@@ -15,8 +15,9 @@ humanities:
         refugees. Doug Daniels, DSC's emerging technologies librarian, 3D scanned the
         "Boat of Hope," a river sampan that carried nine refugees out of Vietnam in 1984,
         and prepared the models for the museum's digital exhibit. The model is hosted on
-        pointcloud.ucla.edu, a server DSC built and runs, and is used in Nguyen's course
-        "Decolonizing Refugee Data from Rome to Vietnam."
+        pointcloud.ucla.edu, a server DSC built and runs. In Nguyen's course "Decolonizing
+        Refugee Data from Rome to Vietnam," students build digital exhibitions from
+        artifacts like these.
       supplied: "3D capture, processing, and continued public hosting"
       link: "https://www.pointcloud.ucla.edu/VHM/narrative_all.html"
     - title: "Digital archaeology day (April 2026)"
