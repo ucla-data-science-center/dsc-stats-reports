@@ -79,7 +79,7 @@ Two supporting measures:
 ::: {.callout-note .long-view}
 ## The long view (history, as of 2026)
 
-Instruction went through three eras. From 2017 the unit taught locally, one campus, in person, and by January 2020 campus volunteers trained through the program were leading the workshops. In 2020 the pandemic made cross-campus coordination cheap, and the systemwide UC Carpentries network was co-founded in response, with Berkeley, San Diego, Santa Barbara, Merced, and Riverside as partners. From 2023 that network operated at system scale, a program other campuses schedule around. [Read the teaching section of the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html#teaching-the-carpentries-and-an-instructor-network)
+Instruction went through three eras. From 2017 the unit taught locally, one campus, in person, and by January 2020 campus volunteers trained through the program were leading the workshops. In 2020 the pandemic made cross-campus coordination cheap, and the systemwide UC Carpentries network was co-founded in response, with Berkeley, San Diego, Santa Barbara, Merced, and Riverside as partners. From 2023 that network operated at system scale, a program other campuses schedule around. [Read the teaching section of the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html#teaching-spread-the-skills-further-than-a-small-staff-could-reach)
 :::
 
 ## Open-science lessons and research software {#sec-software}

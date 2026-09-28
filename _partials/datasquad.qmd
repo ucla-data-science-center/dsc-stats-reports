@@ -13,9 +13,10 @@ expand the team and add in-person hours. In 2024, DataSquad absorbed the LuxLab
 student program after its funding source, CLICC funds, became restricted, merging two
 student-support lines into one.
 
-It's also a verified career pipeline, not just a service to faculty: all
-{{< var datasquad.placement_n >}} identified graduates of the {{< var datasquad.placement_cohort >}}
-cohort found placements, at employers including {{< var datasquad.placement_names >}}. Several of the same students worked
+It also prepares students for data careers. DSC documented post-graduation destinations for
+{{< var datasquad.placement_n >}} DataSquad graduates from {{< var datasquad.placement_cohort >}}, and all
+of them found placements, at employers including {{< var datasquad.placement_names >}}. That is
+a tracked group, not an outcome rate for every student in the program. Several of the same students worked
 on DataSquad's highest-profile faculty projects before landing those placements.
 Lawrence Lee, who built the codebooks the BioCritical Studies Lab uses to update its
 dataset, is now a Software Development Engineer at Amazon.
