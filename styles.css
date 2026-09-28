@@ -429,3 +429,63 @@ main blockquote p:last-child:not(:first-child) {
 @media (max-width: 767.98px) { .sequence { grid-template-columns: 1fr; } }
 body.quarto-dark .sequence .step { background: #1d2b38; }
 body.quarto-dark .sequence .step strong { color: #8BB8E8; }
+
+/* ── Site footer: navy band, gold rule, three labelled link groups ──
+   White on #003B5C is about 11:1; gold #FFD100 headings about 8:1; the
+   muted #C9DCEE repo links about 8:1. Same palette in light and dark mode. */
+footer.footer {
+  background: #003B5C;
+  border-top: 4px solid #FFD100;
+  margin-top: 2.5rem;
+}
+footer.footer .nav-footer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 1.25rem;
+  align-items: start;
+  background: transparent;
+  border: 0;
+  color: #ffffff;
+  font-size: 1rem;
+  min-height: 0;
+}
+footer.footer .nav-footer-left,
+footer.footer .nav-footer-center,
+footer.footer .nav-footer-right {
+  display: block;
+  text-align: left;
+  margin: 0;
+  order: 0 !important;   /* Quarto reorders footer columns on small screens */
+  width: auto;
+}
+footer.footer .nav-footer p { margin: 0 0 0.35rem; line-height: 1.85; }
+footer.footer .footer-heading {
+  display: block;
+  color: #FFD100;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+footer.footer .nav-footer a { color: #ffffff; text-decoration: none; }
+footer.footer .nav-footer a:hover,
+footer.footer .nav-footer a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+footer.footer .nav-footer a:focus-visible { outline: 2px solid #FFD100; outline-offset: 2px; }
+footer.footer .footer-repo-actions {
+  grid-column: 1 / -1;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 0.75rem;
+  margin: 0.5rem 0 0;
+  font-size: 0.88rem;
+}
+footer.footer .footer-repo-actions li { margin: 0 !important; padding: 0; }  /* Quarto auto-centers the first item */
+footer.footer .footer-repo-actions ul { display: flex; flex-wrap: wrap; justify-content: flex-start; text-align: left; gap: 0.25rem 1.5rem; margin: 0; padding: 0; list-style: none; }
+footer.footer .footer-repo-actions a { color: #C9DCEE; }
+footer.footer .footer-repo-actions .bi { margin-right: 0.35rem; }
+footer.footer .footer-repo-actions .bi.empty { display: none; }
+@media (max-width: 767.98px) {
+  footer.footer .nav-footer { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem 1rem 1rem; }
+}

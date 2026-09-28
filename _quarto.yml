@@ -71,15 +71,21 @@ website:
   # Shared footer; the history site carries the same link groups
   page-footer:
     left: |
-      [Research Enabled by DSC](https://ucla-data-science-center.github.io/dsc-stats-reports/) ·
-      [History of the archive since 1961](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html) ·
+      [Read further]{.footer-heading}
+
+      [Research Enabled by DSC](https://ucla-data-science-center.github.io/dsc-stats-reports/)\
+      [History of the archive since 1961](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html)\
       [How figures are counted](https://ucla-data-science-center.github.io/dsc-stats-reports/about.html)
     center: |
-      [UCLA Dataverse](https://dataverse.ucla.edu/) ·
-      [DataSquad student projects](https://ucla-datasquad.github.io/) ·
+      [Related]{.footer-heading}
+
+      [UCLA Dataverse](https://dataverse.ucla.edu/)\
+      [DataSquad student projects](https://ucla-datasquad.github.io/)\
       [Data Science Center at UCLA Library](https://www.library.ucla.edu/visit/locations/data-science-center/)
     right: |
-      [Request a research consultation](https://uclalibrary.atlassian.net/servicedesk/customer/portal/5) ·
+      [Get in touch]{.footer-heading}
+
+      [Request a research consultation](https://uclalibrary.atlassian.net/servicedesk/customer/portal/5)\
       [Report a correction](https://github.com/ucla-data-science-center/dsc-stats-reports/issues/new?template=correction.yml)
 
 format:
