@@ -54,7 +54,7 @@ ggplot(tl) +
 fmt <- function(d, p) case_when(p == "day" ~ format(d, "%b %-d, %Y"), p == "month" ~ format(d, "%b %Y"), TRUE ~ format(d, "%Y"))
 tl_all |> arrange(date) |>
   mutate(line = paste0("- **", fmt(date, precision), "** (", if_else(track == "built", "built", "capacity"), "): ",
-                       label, ". *Source: ", source, ".*")) |>
+                       label, ". Source: ", gsub("@", "\\@", source, fixed = TRUE), ".")) |>
   pull(line) |> cat(sep = "\n")
 ```
 
