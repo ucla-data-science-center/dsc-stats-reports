@@ -62,7 +62,7 @@ DSC moved from teaching its own campus to co-running instruction across the Univ
 [`r hl("instruction_sessions_lifetime")`]{.pathway-figure}
 [workshop sessions, May 2017 to May 2026. Registered seats by program are charted on the pathway page.]{.pathway-unit}
 
-[Capability pathway](capability.qmd)
+[Research capability built pathway](capability.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-4 .pathway}
@@ -75,7 +75,7 @@ DSC runs UCLA Dataverse and governed access to restricted data, the current form
 [`r hl("dataverse_datasets_released")`]{.pathway-figure}
 [released datasets in UCLA Dataverse, Feb 2026: about 376 deposited directly at UCLA and about 1,014 legacy SSDA datasets that Library staff harvested and curate.]{.pathway-unit}
 
-[Research supported by shared investments](investments.qmd)
+[Shared investments pathway](investments.qmd)
 :::
 
 :::

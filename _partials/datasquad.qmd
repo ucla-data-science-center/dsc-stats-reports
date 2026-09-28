@@ -2,8 +2,8 @@
 
 DataSquad is DSC's peer-consulting model: undergraduate and graduate student
 consultants providing sustained project support alongside DSC staff's direct
-consultations. It logged **{{< var datasquad.tasks_2025 >}} reportable project tasks in 2025**,
-much of it sustained, hands-on project support rather than one-off questions. Task
+consultations. Much of its work is sustained, hands-on project support rather than one-off
+questions. Task
 tracking in Trello began in 2023, so the rise from {{< var datasquad.tasks_2023 >}} tasks
 that year partly reflects record-keeping, not only more work.
 

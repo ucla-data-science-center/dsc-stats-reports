@@ -108,7 +108,7 @@ yoy_tasks <- local({
 })
 ```
 
-*For DSC staff and library administration — direct consultation counts, project task metrics, and patron breakdowns.*
+*Evidence page: consultation counts, project task metrics, and breakdowns by department and affiliation, with their definitions and limits.*
 
 ## Recorded Consultations Since 2017
 
@@ -372,9 +372,9 @@ if (nrow(qual_highlights) > 0) {
 - **Direct consultations**: LibInsight scheduled exports + manual logs (DSC staff); DataSquad walk-in sign-in forms
 - **Canceled appointments** excluded from all direct consultation counts
 - **Deduplication**: manual LibInsight logs matched against scheduled exports using a same-provider/same-minute heuristic; ~`r kpi("libinsight_manual_logs_heuristic_duplicate_count")` duplicates removed
-- **Task metrics** (Trello cards, comment-weighted activity) are shown separately — not comparable to consultation counts
+- **Task metrics** (Trello cards, comment-weighted activity) are shown separately and are not comparable to consultation counts
 - **Reportable filter**: excludes `Inbox`, `Future Projects/Ideas`, `Team Info` lists; includes archived completed cards
-- **YoY comparisons** (2023 → 2024): direct consultation decline reflects shifting data sources and intake channels, not necessarily service volume; task card growth reflects expanded Trello adoption in 2024, not a proportional workload increase
+- **YoY comparisons** (2023 → 2024): direct consultation decline reflects shifting data sources and intake channels, not necessarily service volume; task card growth partly reflects how Trello use grew after 2023, not only more work
 - Full rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
 :::
 

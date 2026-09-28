@@ -8,7 +8,7 @@ doctoral student from the Cotsen Institute of Archaeology. A separate Lux Lab
 collaboration, a surgical probe holder built with an undergraduate student, is now in
 clinical use at Ronald Reagan UCLA Medical Center.
 
-**Potree**, the spatial-visualization platform DSC runs alongside Dataverse, is what
+**pointcloud.ucla.edu**, the Potree-based viewer DSC runs alongside Dataverse, is what
 turns this work into something researchers can use rather than just store: 3D scans
 and point-cloud data become interactive models, explorable in a browser instead of
 sitting as a static file in an archive.

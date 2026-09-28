@@ -320,13 +320,13 @@ if not df_impact.empty:
         )
 ```
 
-::: {.callout-warning collapse="true" title="Known limitations — Dataverse infrastructure (migration in progress)"}
+::: {.callout-warning collapse="true" title="Known limitations: Dataverse infrastructure"}
 These impact metrics **undercount real scholarly reach** due to known infrastructure issues being addressed in an ongoing Dataverse migration:
 
 - **Dataverse 5.14 DataCite export bug**: The `publication` metadata field (paper DOI linked by depositors) is not exported to DataCite as `relatedIdentifiers`. As a result, UCLA Dataverse datasets show **0 citations in DataCite**, even when they are cited. Citation counts here are retrieved directly from OpenAlex as a workaround.
 - **Make Data Count (MDC) not enabled**: Per-dataset view and download metrics are unavailable. Only aggregate download totals are reported.
 - **Restricted and draft datasets excluded**: ~562 of 942 datasets in the index are inaccessible without authentication and are not included in this analysis.
-- **ISBN-linked datasets not tracked**: 160 datasets are linked to book chapters (via ISBN). These represent real scholarship connections — primarily from large archaeology collections — but citation counts are not retrievable via OpenAlex.
+- **ISBN-linked datasets not tracked**: 160 datasets are linked to book chapters (via ISBN). These represent real scholarship connections, mostly from large archaeology collections, but citation counts are not retrievable via OpenAlex.
 - **Depositor coverage gap**: ~200 publicly accessible datasets have no publication link at all. Improving intake guidance for depositors would increase coverage.
 
 **Expected improvements after migration to Dataverse 6.x**: DataCite relatedIdentifiers export fixed, MDC enablement possible.
@@ -341,7 +341,7 @@ These impact metrics **undercount real scholarly reach** due to known infrastruc
 - **Dataverse datasets/files/downloads**: Cumulative counts from the UCLA Dataverse `/api/info/metrics` endpoint — stored in `data/raw/infrastructure/datasets_files_published_monthly.csv`
 - **Downloads**: File-level events as reported by Dataverse. Includes automated and bot traffic; not filtered for human-only access
 - **S3 storage**: Fetched live from AWS CloudWatch at render time. May be unavailable without valid AWS credentials; CloudWatch reports storage metrics once daily
-- **Traceable publication links**: Publication DOIs from Dataverse metadata API; citation counts from OpenAlex. Undercounts real impact — see limitations callout above.
+- **Traceable publication links**: Publication DOIs from Dataverse metadata API; citation counts from OpenAlex. Undercounts real impact; see the limitations note above.
 - Full rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
 :::
 
