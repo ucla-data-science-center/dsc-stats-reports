@@ -422,6 +422,7 @@ main blockquote p:last-child:not(:first-child) {
 
 /* Research-case sequence: need -> DSC work -> gain -> continuing dependency */
 .sequence { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin: 0.75rem 0 1.25rem; }
+.sequence > p { display: contents; }  /* Pandoc wraps the four spans in one paragraph; let each span be a grid cell */
 .sequence .step { display: block; background: var(--dsc-surface, #F3F8FC); border-top: 3px solid #2774AE;
   padding: 0.6rem 0.75rem; font-size: 0.92rem; line-height: 1.4; position: relative; }
 .sequence .step strong { display: block; color: #2774AE; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 0.2rem; }
@@ -494,4 +495,44 @@ footer.footer .footer-repo-actions .bi { margin-right: 0.35rem; }
 footer.footer .footer-repo-actions .bi.empty { display: none; }
 @media (max-width: 767.98px) {
   footer.footer .nav-footer { grid-template-columns: 1fr; gap: 1rem; padding: 1.5rem 1rem 1rem; }
+}
+
+/* ── Functional icons (Bootstrap Icons, already loaded by Quarto) ──
+   Decorative only: the "/ ''" alt text keeps screen readers from announcing
+   the glyphs; the link and label text carries the meaning. */
+
+/* 1. Links that leave this site (navbar and footer) */
+.navbar a.nav-link[href*="ssda-dsc-history"] .menu-text::after,
+footer .nav-footer a[href^="http"]:not([href^="https://ucla-data-science-center.github.io/dsc-stats-reports"]):not(.toc-action):not([href*="template=correction"])::after {
+  font-family: "bootstrap-icons";
+  content: "\f1c5";
+  content: "\f1c5" / "";
+  font-size: 0.7em;
+  margin-left: 0.3em;
+  vertical-align: 0.1em;
+  opacity: 0.8;
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* 2. Research-case sequence: need / DSC work / gain / still depends */
+.sequence .step strong::before {
+  font-family: "bootstrap-icons";
+  margin-right: 0.4em;
+  font-weight: normal;
+}
+.sequence .step:nth-child(1) strong::before { content: "\f505"; content: "\f505" / ""; }
+.sequence .step:nth-child(2) strong::before { content: "\f5db"; content: "\f5db" / ""; }
+.sequence .step:nth-child(3) strong::before { content: "\f1c7"; content: "\f1c7" / ""; }
+.sequence .step:nth-child(4) strong::before { content: "\f470"; content: "\f470" / ""; }
+
+/* 4. The one action in "Help improve this record" we most want found */
+footer .nav-footer a[href*="template=correction"]::before {
+  font-family: "bootstrap-icons";
+  content: "\f3cc";
+  content: "\f3cc" / "";
+  margin-right: 0.4em;
+  display: inline-block;
+  text-decoration: none;
+  color: #FFD100;
 }
