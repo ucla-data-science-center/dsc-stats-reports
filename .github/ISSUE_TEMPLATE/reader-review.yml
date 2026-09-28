@@ -1,0 +1,145 @@
+name: Reader review of the DSC site
+description: For invited readers. About 15 minutes. Tells us what the site gets across, what you doubted, and what is missing.
+title: "Reader review: <your role>"
+labels: ["reader-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reading. The site is meant to show campus leaders what research capacity the UCLA Library Data Science Center (DSC) has built, and the evidence behind each figure. Your first impressions are the most useful thing you can give us, so please answer in order.
+
+        **This repository is public, so anything you write here can be seen by anyone.** If a comment involves a person, a budget, or anything you would rather not post, leave it out and send it to Tim Dennis directly.
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: Which best describes you?
+      options:
+        - Dean or associate dean
+        - Faculty member
+        - Academic Senate or library committee member
+        - Library leadership or staff
+        - Research administration or compliance
+        - DSC staff, student employee, or alum
+        - Someone outside UCLA
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: familiarity
+    attributes:
+      label: Before today, how well did you know DSC's work?
+      options:
+        - Not at all
+        - I had heard of it
+        - I or my group have used it
+        - I have worked closely with it
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Part 1: the first 30 seconds
+        Open the [home page](https://ucla-data-science-center.github.io/dsc-stats-reports/), read it for about 30 seconds, then answer these three **before** clicking anywhere else. Short answers in your own words are best; there are no wrong ones.
+
+  - type: textarea
+    id: contribution
+    attributes:
+      label: In a sentence or two, what does DSC contribute to UCLA?
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependency
+    attributes:
+      label: Name one piece of research or infrastructure that depends on DSC's work.
+      description: If nothing came to mind, say so. That is useful to know.
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: What question or decision do you think the site is asking UCLA to face?
+      description: If you are not sure it asks one, say so.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ### Part 2: after reading
+        Now read as much of the site as you like. The [Research Enabled by DSC](https://ucla-data-science-center.github.io/dsc-stats-reports/research.html) and [Shared investments](https://ucla-data-science-center.github.io/dsc-stats-reports/investments.html) pages carry most of the argument.
+
+  - type: checkboxes
+    id: pages
+    attributes:
+      label: Which pages did you read?
+      options:
+        - label: Home
+        - label: Research Enabled by DSC
+        - label: Research capability built
+        - label: Shared investments
+        - label: Evidence pages (Consulting, Instruction, Infrastructure)
+        - label: About
+        - label: DSC retrospective, 2017 to 2026
+
+  - type: textarea
+    id: doubted
+    attributes:
+      label: Which figure or claim did you doubt, or want to check? Could you find where it came from?
+      description: Name the page and quote a few words so we can find it. Tell us where you clicked to check it, and whether that answered your question.
+
+  - type: dropdown
+    id: strongest-example
+    attributes:
+      label: Which research example was most convincing to you?
+      options:
+        - Police helicopter surveillance (Carceral Ecologies)
+        - Deaths in custody (BioCritical Studies Lab)
+        - 3D capture of the Boat of Hope (Refugee Material Culture Initiative)
+        - None of them
+        - I did not read them
+
+  - type: textarea
+    id: examples-why
+    attributes:
+      label: What made that example work, and what made the others weaker?
+      description: Too long, too technical, unclear what DSC did versus what the lab did, not relevant to your area? Anything helps.
+
+  - type: textarea
+    id: overstated
+    attributes:
+      label: Did anything read as overstated, defensive, or misleading?
+      description: Also tell us if something seemed understated or buried.
+
+  - type: textarea
+    id: missing
+    attributes:
+      label: What would you need to see to act on this in your role?
+      description: For example, a department's or division's own numbers, what a function costs, who else on campus provides it, or what happens if it stops.
+
+  - type: textarea
+    id: forward
+    attributes:
+      label: If you forwarded one page to a colleague, which would it be and to whom (by role, not name)?
+
+  - type: textarea
+    id: corrections
+    attributes:
+      label: Factual corrections
+      description: Names, dates, roles, or events you know firsthand that the site gets wrong. Please include how you know.
+
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else?
+
+  - type: checkboxes
+    id: followup
+    attributes:
+      label: Follow-up
+      options:
+        - label: Tim may contact me about my answers.
