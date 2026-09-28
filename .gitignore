@@ -62,3 +62,7 @@ archive/dsc-stats-eval/data/
 
 # Dataverse deposit packages (built locally by scripts/dataverse/build_package.py)
 release/
+
+# Dean briefs: rendered per division, reviewed before sharing
+briefs/out/
+briefs/.quarto/
