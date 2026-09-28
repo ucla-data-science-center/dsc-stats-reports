@@ -1,0 +1,6 @@
+# Dean briefs: one template, rendered per division. Kept out of the public
+# website project on purpose; outputs go to briefs/out/ (gitignored) and are
+# checked by someone who knows the division before they are shared.
+project:
+  type: default
+  output-dir: out

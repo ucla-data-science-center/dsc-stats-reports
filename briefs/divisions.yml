@@ -1,0 +1,51 @@
+# Per-division content for dean-brief.qmd. Every example must match an approved
+# claim-register entry; cite its number. "verified" = documented use by this
+# division; everything under shared_services is available to it, not proven used.
+humanities:
+  label: "UCLA College, Division of Humanities"
+  short: "Humanities"
+  noun: "the humanities"
+  parent_pattern: "^UCLA College .* Humanities$"
+  examples:
+    - title: "The Boat of Hope, in 3D (Refugee Material Culture Initiative)"
+      claim: 20
+      text: >-
+        Classics professor Kelly Nguyen's Refugee Material Culture Initiative, with the
+        Vietnamese Heritage Museum, digitally preserves art and artifacts made and used by
+        refugees. Doug Daniels, DSC's emerging technologies librarian, 3D scanned the
+        "Boat of Hope," a river sampan that carried nine refugees out of Vietnam in 1984,
+        and prepared the models for the museum's digital exhibit. The model is hosted on
+        pointcloud.ucla.edu, a server DSC built and runs, and is used in Nguyen's course
+        "Decolonizing Refugee Data from Rome to Vietnam."
+      supplied: "3D capture, processing, and continued public hosting"
+      link: "https://www.pointcloud.ucla.edu/VHM/narrative_all.html"
+    - title: "Digital archaeology day (April 2026)"
+      claim: 20
+      text: >-
+        Nguyen, working with Doug Daniels, organized a digital archaeology day that brought
+        more than 50 Westminster High School students and more than 30 elders from Little
+        Saigon to campus.
+      supplied: "3D equipment, methods, and staff time"
+      link: "https://humanities.ucla.edu/news/digital-archaeology-day-kelly-nguyen/"
+social_sciences:
+  label: "UCLA College, Division of Social Sciences"
+  short: "Social Sciences"
+  noun: "the social sciences"
+  parent_pattern: "^UCLA College .* Social Sciences$"
+  examples:
+    - title: "The Social Science Data Archive, still in use"
+      claim: 16
+      text: >-
+        DSC's roots are the Political Behavior Archive, founded in 1961, which became the
+        Social Science Data Archive. About 1,014 of the roughly 1,390 released datasets in
+        UCLA Dataverse are legacy SSDA holdings, harvested and curated by Library staff.
+      supplied: "Repository operation and stewardship of the legacy archive"
+      link: "https://dataverse.ucla.edu/"
+    - title: "A 10-terabyte national voter file, made usable"
+      claim: 19
+      text: >-
+        DSC turned the L2 national voter file, delivered as thousands of inconsistent
+        state files, into a single analysis-ready dataset on Redivis, a governed platform
+        for restricted research data that DSC piloted.
+      supplied: "Data engineering and governed access"
+      link: "https://ucla-data-science-center.github.io/dsc-stats-reports/investments.html"
