@@ -1,0 +1,48 @@
+name: Correction or missing context
+description: Something on the site is wrong, out of date, or missing. Public; see the note below for anything private.
+title: "Correction: <page>"
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. **This repository is public, so what you write here can be seen by anyone.** If your correction involves a person, unpublished information, or anything you would rather not post, send it to the DSC director directly instead of filing it here.
+
+        For help with your own research data, use the [Library's consultation request form](https://uclalibrary.atlassian.net/servicedesk/customer/portal/5), not this form.
+  - type: input
+    id: page
+    attributes:
+      label: Page and section
+      description: Paste the page address, and name the section or quote a few words.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong or missing?
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: How do you know?
+      description: A source, a document, or your own role in the events. Links help.
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to DSC or the archive
+      options:
+        - Former or current staff or student employee
+        - Researcher who worked with DSC
+        - Library colleague
+        - Other
+  - type: dropdown
+    id: quote
+    attributes:
+      label: May we quote you on the site?
+      options:
+        - "No"
+        - Yes, without my name
+        - Yes, with my name
+    validations:
+      required: true

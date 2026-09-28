@@ -82,6 +82,18 @@ Two supporting measures:
 Instruction went through three eras. From 2017 the unit taught locally, one campus, in person, and by January 2020 campus volunteers trained through the program were leading the workshops. In 2020 the pandemic made cross-campus coordination cheap, and the systemwide UC Carpentries network was co-founded in response, with Berkeley, San Diego, Santa Barbara, Merced, and Riverside as partners. From 2023 that network operated at system scale, a program other campuses schedule around. [Read the teaching section of the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html#teaching-the-carpentries-and-an-instructor-network)
 :::
 
+## Open-science lessons and research software {#sec-software}
+
+{{< include _partials/software-curation.qmd >}}
+
+## DataSquad: student consultants {#sec-datasquad}
+
+{{< include _partials/datasquad.qmd >}}
+
+## 2017 to 2026: what was built, and when capacity changed {#sec-buildout}
+
+{{< include _partials/buildout-timeline.qmd >}}
+
 ## Detailed evidence
 
 The instruction evidence page holds the full tables. Jump to:

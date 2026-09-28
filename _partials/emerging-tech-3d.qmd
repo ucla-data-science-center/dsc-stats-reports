@@ -3,7 +3,7 @@
 The award, one of two given university-wide by LAUC-LA in a {{< var doug.award_nominations >}}-nomination,
 peer-selected cycle, recognized partnerships across archaeology, digital humanities,
 medical sciences, materials science, and Egyptology, including the Refugee Material
-Culture Initiative above and a drone survey of Iceland's Mosfell Valley with a
+Culture Initiative ([Research enabled](research.qmd#three-collaborations)) and a drone survey of Iceland's Mosfell Valley with a
 doctoral student from the Cotsen Institute of Archaeology. A separate Lux Lab
 collaboration, a surgical probe holder built with an undergraduate student, is now in
 clinical use at Ronald Reagan UCLA Medical Center.

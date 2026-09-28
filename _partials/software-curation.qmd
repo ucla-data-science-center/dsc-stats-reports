@@ -9,9 +9,9 @@ grant**. It exists because the need is real: a 2025 scan of roughly
 research code cannot legally be reused or built on.
 
 Alongside it, a **{{< var software.imls_amount >}} IMLS grant** (Laura Bush 21st
-Century Librarian Program, {{< var software.imls_grant_number >}}) funded a
-14-lesson open science curriculum built by and for librarians, developed by two
-cohorts across 2023-2024. Tim Dennis served as Program Director, Todd Grappone as
+Century Librarian Program, {{< var software.imls_grant_number >}}) funded an
+open science curriculum built by and for librarians: 15 peer-reviewed lessons (14 were
+proposed), each with a DOI, developed by two cohorts across 2023-2024. Tim Dennis served as Program Director, Todd Grappone as
 Co-PI, and Zhiyuan Yao, DSC's GIS librarian at the time, as Program Coordinator. All
 lessons are built on The Carpentries Workbench and released under CC-BY 4.0; one,
 DMP 101, has already been formally adopted into the Library Carpentry curriculum,

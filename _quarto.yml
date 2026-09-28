@@ -59,14 +59,28 @@ website:
       - href: about.qmd
         text: About
       - href: https://ucla-data-science-center.github.io/ssda-dsc-history/history.html
-        text: DSC History
+        text: History
     right:
       - icon: github
         href: https://github.com/ucla-data-science-center/dsc-stats-reports
         aria-label: GitHub repository
+  # "Edit this page", "View source", and "Report an issue" links on every page
+  repo-url: https://github.com/ucla-data-science-center/dsc-stats-reports
+  repo-branch: main
+  repo-actions: [edit, source, issue]
+  # Shared footer; the history site carries the same link groups
   page-footer:
-    left: "UCLA Library Data Science Center"
-    right: "Data baked in at render. [About & methodology](about.qmd)."
+    left: |
+      [Research Enabled by DSC](https://ucla-data-science-center.github.io/dsc-stats-reports/) ·
+      [History of the archive since 1961](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html) ·
+      [How figures are counted](https://ucla-data-science-center.github.io/dsc-stats-reports/about.html)
+    center: |
+      [UCLA Dataverse](https://dataverse.ucla.edu/) ·
+      [DataSquad student projects](https://ucla-datasquad.github.io/) ·
+      [Data Science Center at UCLA Library](https://www.library.ucla.edu/visit/locations/data-science-center/)
+    right: |
+      [Request a research consultation](https://uclalibrary.atlassian.net/servicedesk/customer/portal/5) ·
+      [Report a correction](https://github.com/ucla-data-science-center/dsc-stats-reports/issues/new?template=correction.yml)
 
 format:
   html:
