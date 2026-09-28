@@ -28,22 +28,22 @@ execute:
   freeze: false
 
 website:
-  title: "DSC Statistics"
+  title: "Research Enabled by DSC"
   favicon: images/brand/dsc-cube.svg
-  description: "UCLA Library Data Science Center — service metrics and infrastructure reporting."
+  description: "What the UCLA Library Data Science Center contributes to research at UCLA, and the evidence behind each figure."
   navbar:
     background: primary
     # DSC logo from the 2019 identity package (white version; the bar is blue in both themes)
     logo: images/brand/dsc-logo-white.svg
     logo-alt: "UCLA Library Data Science Center"
-    title: "Statistics"
+    title: "Research Enabled by DSC"
     left:
       - href: index.qmd
         text: Home
       - text: "Pathways"
         menu:
           - href: research.qmd
-            text: Research enabled by DSC
+            text: Research enabled
           - href: capability.qmd
             text: Research capability built
           - href: investments.qmd

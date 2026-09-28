@@ -4,7 +4,7 @@ authors:
 - family-names: "Dennis"
   given-names: "Tim"
   orcid: "https://orcid.org/0000-0000-0000-0000"
-title: "DSC Statistics Dashboard"
+title: "Research Enabled by DSC"
 version: 0.1.0
 date-released: 2026-01-06
 url: "https://github.com/ucla-data-science-center/dsc-stats-reports"

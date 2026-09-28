@@ -1,6 +1,6 @@
 <!-- Shared by the retrospective and the dean update. Keep in line with
 research.qmd and claim-register.md #1, #2 and #20; the full accounts and
-sources are on the Research Enabled by DSC page. -->
+sources are on the Research enabled page (research.qmd). -->
 
 ::: {.spotlight}
 
@@ -53,4 +53,4 @@ is hosted.
 
 :::
 
-Full accounts and sources: [Research Enabled by DSC](https://ucla-data-science-center.github.io/dsc-stats-reports/research.html#three-collaborations).
+Full accounts and sources: [Research enabled](https://ucla-data-science-center.github.io/dsc-stats-reports/research.html#three-collaborations).

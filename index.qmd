@@ -1,5 +1,5 @@
 ---
-title: "DSC Statistics"
+title: "Research Enabled by DSC"
 subtitle: "What the UCLA Library Data Science Center contributes to research at UCLA, and the evidence behind each figure"
 toc: false
 ---
@@ -33,7 +33,7 @@ fte_now  <- if (nrow(staff_fte) > 0) sprintf("%.1f", staff_fte$fte[which.max(sta
 
 ## What the evidence establishes
 
-DSC's work shows up in research outputs, not only in service counts. Three documented collaborations on the [Research Enabled by DSC page](research.qmd) show different kinds of DSC support: data preparation and computing for a helicopter-surveillance study, where one data-loading step ran about 159 times faster; a national deaths-in-custody dataset a lab now updates itself; and 3D capture of a refugee boat for a humanities initiative. More are on the [shared investments page](investments.qmd). [How cases are selected](research.qmd#three-collaborations).
+DSC's work shows up in research outputs, not only in service counts. Three documented collaborations on the [Research enabled page](research.qmd) show different kinds of DSC support: data preparation and computing for a helicopter-surveillance study, where one data-loading step ran about 159 times faster; a national deaths-in-custody dataset a lab now updates itself; and 3D capture of a refugee boat for a humanities initiative. More are on the [shared investments page](investments.qmd). [How cases are selected](research.qmd#three-collaborations).
 
 ## Three ways DSC contributes
 
@@ -42,14 +42,14 @@ DSC's work shows up in research outputs, not only in service counts. Three docum
 ::: {.g-col-12 .g-col-md-4 .pathway}
 []{.brand-el .brand-node1 aria-hidden="true"}
 
-### Research enabled by DSC
+### Research enabled
 
 Researchers across campus bring data problems to DSC for consultation, and some engagements become multi-year collaborations.
 
 [`r hl("consultations_recorded_series")`]{.pathway-figure}
 [recorded consultations, 2017 to September 2026. Records are incomplete after mid-2024, so later years cannot measure demand.]{.pathway-unit}
 
-[Research enabled by DSC pathway](research.qmd)
+[Research enabled pathway](research.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-4 .pathway}
@@ -99,7 +99,7 @@ This site is the evidence layer: each figure states its unit and window and link
 - [Claim register](https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/claim-register.md): approved wording, window, unit, and source for every headline figure
 
 ::: {.callout-note collapse="true" title="Cite this page"}
-UCLA Library Data Science Center. (`r format(Sys.Date(), "%Y")`). *DSC Statistics*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/>
+UCLA Library Data Science Center. (`r format(Sys.Date(), "%Y")`). *Research Enabled by DSC*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/>
 :::
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*

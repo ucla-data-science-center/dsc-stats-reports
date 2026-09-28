@@ -120,7 +120,7 @@ went on, but the record of it didn't.
   range of work. A broader set covering instruction and infrastructure
   engagements specifically is in progress.
 
-Full evidence, methods, and current data: DSC Statistics
+Full evidence, methods, and current data: Research Enabled by DSC
 (<https://ucla-data-science-center.github.io/dsc-stats-reports/>) ·
 institutional history: UCLA's Social Science Data Archive, 1961-present
 (<https://ucla-data-science-center.github.io/ssda-dsc-history/history.html>)

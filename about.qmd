@@ -6,7 +6,7 @@ title: "About This Site"
 
 This site shows what research capacity the UCLA Library Data Science Center (DSC) has built, and the evidence behind each figure. It is written for campus leadership, faculty, and library and research administrators weighing how DSC's functions will be carried forward, not as an internal service dashboard.
 
-The site is an evidence layer. The home page and the three pathway pages ([Research Enabled by DSC](research.qmd), [Research capability built](capability.qmd), and [Shared investments](investments.qmd)) make the argument; the evidence pages ([Consulting](consulting.qmd), [Instruction](instruction.qmd), [Infrastructure](infrastructure.qmd)) hold the underlying records. Every headline figure has an entry in the project's claim register, which records its approved wording, time window, unit, and source, and a check in the build refuses to publish a headline figure without one.
+The site is an evidence layer. The home page and the three pathway pages ([Research enabled](research.qmd), [Research capability built](capability.qmd), and [Shared investments](investments.qmd)) make the argument; the evidence pages ([Consulting](consulting.qmd), [Instruction](instruction.qmd), [Infrastructure](infrastructure.qmd)) hold the underlying records. Every headline figure has an entry in the project's claim register, which records its approved wording, time window, unit, and source, and a check in the build refuses to publish a headline figure without one.
 
 The research examples are illustrative, not representative, and the research in them belongs to the labs and initiatives named. People are named only with permission or where they are DSC staff or student employees credited for their own work.
 
@@ -102,7 +102,7 @@ The [Metrics Governance](metrics-governance.md) document defines:
 
 When referencing figures from this site in reports or presentations:
 
-> UCLA Library Data Science Center. (*Year*). *DSC Statistics*. UCLA Library. Retrieved [date] from [site URL].
+> UCLA Library Data Science Center. (*Year*). *Research Enabled by DSC*. UCLA Library. Retrieved [date] from [site URL].
 
 Include the data coverage period (e.g., "2021–present") and note the source system (e.g., "LibInsight scheduled exports") when quoting specific numbers. For methodology questions, consult the Metrics Governance document or contact the DSC.
 
