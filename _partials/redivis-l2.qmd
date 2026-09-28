@@ -1,9 +1,9 @@
 [DSC turned a 10-terabyte national voter file, delivered as thousands of inconsistent state files, into a resource researchers across campus now use directly.]{.lede}
 
-DSC piloted **Redivis**, a secure platform for restricted research data, initially
-supported by University Librarian discretionary funds. It's since grown into a
-sustained subscription, about {{< var redivis.annual_cost >}} as of 2026, paid
-through Library central finance alongside <abbr class="term" title="Inter-university
+DSC piloted **Redivis**, a secure platform for restricted research data, backed for its
+first two years by University Librarian discretionary funds. It's since become a
+sustained subscription, about {{< var redivis.annual_cost >}} as of 2026, paid from
+the Archive's operating fund alongside <abbr class="term" title="Inter-university
 Consortium for Political and Social Research">ICPSR</abbr> and Roper. The platform
 holds about {{< var redivis.data_volume >}} of <abbr class="term" title="Data
 protection levels covering FERPA, PII, and HIPAA-regulated research data">P3/P4-compliant</abbr>

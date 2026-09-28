@@ -18,7 +18,7 @@ date,precision,track,label,chart,source
 2022-01-01,year,built,Redivis piloted (governed service from Jan 2023),TRUE,Shared investments page; the archive history
 2022-06-01,year,built,pointcloud.ucla.edu 3D server built,TRUE,Research enabled page; claim register #20
 2023-01-01,year,capacity,Library adds DataSquad funding,TRUE,DataSquad section on this page
-2024-01-01,year,capacity,GIS librarian position cut,TRUE,"Shared investments page, GIS section"
+2024-08-01,month,capacity,"GIS librarian leaves; position never refilled, later cut",TRUE,"Shared investments page, GIS section"
 2024-07-01,month,capacity,Scheduling system lapses,TRUE,staffing and scheduling records (Research enabled page)
 2025-07-01,month,capacity,"Student hiring under campus review, Jul-Oct 2025",TRUE,staffing and payroll records (Research enabled page)
 2026-06-01,year,capacity,"Staff time at 4.0 FTE, down from 5.7 in 2022-23",TRUE,staffing records; claim register #17
