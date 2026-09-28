@@ -6,3 +6,12 @@
   <span class="brand-el brand-bigcircle"></span>
   <span class="brand-el brand-linechart2"></span>
 </div>
+<script>
+  // On pages without a table of contents, Quarto puts "Edit this page" inside the
+  // middle footer column. Give it its own row under the three link groups.
+  document.addEventListener("DOMContentLoaded", function () {
+    var footer = document.querySelector("footer .nav-footer");
+    var actions = footer && footer.querySelector(".toc-actions");
+    if (actions) { actions.classList.add("footer-repo-actions"); footer.appendChild(actions); }
+  });
+</script>
