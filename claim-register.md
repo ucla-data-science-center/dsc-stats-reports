@@ -211,7 +211,7 @@ last verification date should not be reused until re-checked.
 - **Registry**: `dsc-service-capacity-students` (to be added to `dsc-evidence-registry`).
 - **Last verified**: 2026-09-27.
 
-## 18. Consulting history (Research enabled long-view callout)
+## 18. Consulting history (Research enabled by DSC long-view callout)
 
 - **Approved wording**: as in `research.qmd`: early archive reference help; the 2018 redesign widening consulting to the full research life cycle; a shift from single appointments to months-long project support from about 2023.
 - **Not approved**: the history's 1,175 service-interactions figure (a separate 2023-2025 audit, not reconciled with claim #10).

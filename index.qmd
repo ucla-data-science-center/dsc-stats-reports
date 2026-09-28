@@ -42,14 +42,14 @@ DSC's work shows up in research outputs, not only in service counts. Three docum
 ::: {.g-col-12 .g-col-md-4 .pathway}
 []{.brand-el .brand-node1 aria-hidden="true"}
 
-### Research enabled
+### Research enabled by DSC
 
 Researchers across campus bring data problems to DSC for consultation, and some engagements become multi-year collaborations.
 
 [`r hl("consultations_recorded_series")`]{.pathway-figure}
 [recorded consultations, 2017 to September 2026. Records are incomplete after mid-2024, so later years cannot measure demand.]{.pathway-unit}
 
-[Research enabled pathway](research.qmd)
+[Research enabled by DSC pathway](research.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-4 .pathway}
