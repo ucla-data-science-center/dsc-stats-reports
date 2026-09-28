@@ -248,3 +248,17 @@ last verification date should not be reused until re-checked.
 - **Unit of observation**: dated institutional events.
 - **Sources**: Tim's 2017-2019 Office Timeline chart (furniture and keynote rows dropped by Tim, 2026-09-28; Norman Powell gifts approved for public use); site partials and `service_capacity_by_year.csv` for 2020-2026, as cited per row.
 - **Last verified**: 2026-09-28.
+
+## 22. How the Archive's systems and data were paid for
+
+- **Approved wording**: "The operating fund from the 2014 transfer pays the recurring costs (ICPSR, Roper, AWS, Redivis), and the Library has added to it as those costs grew. The gift fund, the Data Archive Purchase Fund (604970/56972), buys data: the L2 voter file, LARIAC imagery, and licensed English corpora in UCLA Dataverse." Powell funds covered AWS for about two years after DSC got its own AWS account; University Librarian discretionary funds backed Redivis for its first two years.
+- **Not approved**: "ICPSR and Roper moved off the gift fund onto the Library's general membership budget, freeing the gift fund for AWS" (wrong; corrected 2026-09-28 on both sites and in the dean update). "Paid through Library central finance" for Redivis.
+- **Source**: the director's firsthand account, 2026-09-28; fund name and number from the 2014 transfer agreement. Years of Powell's AWS coverage and the Library's added amounts not yet reconstructed from transaction records.
+- **Last verified**: 2026-09-28.
+
+## 23. GIS librarian position
+
+- **Approved wording**: "DSC's GIS librarian left for a faculty position in August 2024; the position was never refilled and was later cut."
+- **Not approved**: "UCLA cut the GIS librarian position in 2024" (the departure came first; the cut followed a period of vacancy).
+- **Source**: the director, 2026-09-28.
+- **Last verified**: 2026-09-28.

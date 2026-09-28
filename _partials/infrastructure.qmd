@@ -9,11 +9,13 @@ This is the same hosting commitment the Library made in the 2014 transfer ("nece
 technological infrastructure for continued hosting of software, data, and data
 analysis tools"), grown considerably since.
 
-Dataverse and Redivis are funded through the original SSDA gift fund, University
-Librarian discretionary funds, and the Library's central budget. The Archive's core
-subscriptions (<abbr class="term" title="Inter-university Consortium for Political
-and Social Research">ICPSR</abbr>, ~$47K/year, and the Roper Center, ~$8K/year) moved
-years ago onto the Library's general membership fund, the same treatment other
-research libraries give large database subscriptions. That freed the Archive's
-original gift fund to cover the AWS infrastructure costs for Dataverse and Potree
-instead.
+Dataverse and the point-cloud server run on AWS, and Redivis is a licensed platform.
+Their recurring costs, along with the Archive's core memberships (<abbr class="term"
+title="Inter-university Consortium for Political and Social Research">ICPSR</abbr>,
+~$47K/year, and the Roper Center, ~$8K/year), come out of the Archive's operating fund
+from the 2014 transfer, which the Library has added to as those costs grew. Norman
+Powell's gift covered AWS for about two years after DSC got its own AWS account, and
+University Librarian discretionary funds backed Redivis for its first two years. The
+Archive's gift fund, the Data Archive Purchase Fund, pays for data instead: the L2
+voter file, the LARIAC aerial imagery, and licensed English text corpora held in UCLA
+Dataverse for UCLA faculty and graduate students.
