@@ -43,7 +43,7 @@ website:
       - text: "Pathways"
         menu:
           - href: research.qmd
-            text: Research enabled
+            text: Research enabled by DSC
           - href: capability.qmd
             text: Research capability built
           - href: investments.qmd
