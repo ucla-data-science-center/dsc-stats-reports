@@ -23,44 +23,44 @@
   {
     "objectID": "consulting.html",
     "href": "consulting.html",
-    "title": "Consulting Statistics",
+    "title": "Consulting and project support",
     "section": "",
-    "text": "Evidence page: consultation counts, project task metrics, and breakdowns by department and affiliation, with their definitions and limits."
+    "text": "How much consulting DSC recorded, who used it, and what project work followed. Definitions and the separate audit are at the end.\nDSC recorded about 1,850 scheduled research consultations from 2017 to September 2026 (claim-register #10), with DSC staff and DataSquad student consultants alike. These are appointments, not people: one researcher can book many."
   },
   {
     "objectID": "consulting.html#recorded-consultations-since-2017",
     "href": "consulting.html#recorded-consultations-since-2017",
-    "title": "Consulting Statistics",
-    "section": "Recorded Consultations Since 2017",
-    "text": "Recorded Consultations Since 2017\nDSC recorded about 1,850 research consultations from 2017 to September 2026 (claim-register #10). The series counts scheduled appointments, with DSC staff and DataSquad consultants alike; DataSquad’s in-person walk-in sign-ins are not included. Records are incomplete after mid-2024: Calendly ended, LibCal wasn’t in use until May 2025, and two reorganizations and staff departures cut logging. Because of that gap, this series cannot measure how demand changed after 2023; LibCal shows the work continued. It is a different series from the 2023-2025 audit below, which adds DataSquad walk-ins and uses its own deduplication.\n\n\n\n\n\nYear\nRecorded consultations\nNote\n\n\n\n\n2017\n3\n\n\n\n2018\n37\n\n\n\n2019\n160\n\n\n\n2020\n185\n\n\n\n2021\n341\n\n\n\n2022\n389\n\n\n\n2023\n394\n\n\n\n2024\n~226\nFloor (recording lapsed)\n\n\n2025\n~60-65\nFloor (recording lapsed)\n\n\n2026\n~55\nFloor (recording lapsed)"
-  },
-  {
-    "objectID": "consulting.html#consultation-audit-a-separate-series",
-    "href": "consulting.html#consultation-audit-a-separate-series",
-    "title": "Consulting Statistics",
-    "section": "2023-2025 Consultation Audit (a separate series)",
-    "text": "2023-2025 Consultation Audit (a separate series)\nLast rendered: September 29, 2026\n\n\nDirect Consultations 741 DSC + DataSquad combined; canceled excluded. Recording coverage differs by year, so year-to-year change is not shown\n\n\nDSC Staff 462 LibInsight scheduled exports\n\n\nDataSquad 142 Walk-in sign-ins\n\n\nTask Cards (Reportable) 204 Trello; backlog/admin lists excluded. Trello tracking began in 2023"
+    "title": "Consulting and project support",
+    "section": "Recorded consultations over time",
+    "text": "Recorded consultations over time\nScheduled appointments by calendar year, 2017 to September 2026.\n\n\n\n\n\n\n\n\n\nRecords are incomplete after mid-2024. Calendly ended, LibCal wasn’t in use until May 2025, and two reorganizations and staff departures cut logging. The later counts are what was recorded, not estimates of the missing activity, so this series cannot show how demand changed after 2023.\n\n\n\n\n\n\nNoteView annual counts\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYear\nRecorded consultations\nRecords\nSource\n\n\n\n\n2017\n3\nComplete\nCalendly (old-Mac transfer); internal rows removed\n\n\n2018\n37\nComplete\nCalendly (old-Mac transfer); internal rows removed\n\n\n2019\n160\nComplete\nCalendly (old-Mac transfer); internal rows removed\n\n\n2020\n185\nComplete\nCalendly (old-Mac transfer); internal rows removed\n\n\n2021\n341\nComplete\nclean_dsc_2021-consults.csv\n\n\n2022\n389\nComplete\nclean_dsc_2022_consults.csv\n\n\n2023\n394\nComplete\nclean_dsc_2023-consults.csv\n\n\n2024\n~226\nIncomplete after mid-2024\nCalendly Jan-May (165) + LibInsight Jun-Dec (61)\n\n\n2025\n~60-65\nIncomplete after mid-2024\nLibInsight ~46 + LibCal ~20 net-new\n\n\n2026\n~55\nIncomplete after mid-2024\nLibCal to Sept + some LibInsight; partial year"
   },
   {
     "objectID": "consulting.html#direct-consultations",
     "href": "consulting.html#direct-consultations",
-    "title": "Consulting Statistics",
-    "section": "Direct Consultations",
-    "text": "Direct Consultations\n\nBy Year (consultation records file, Jan 2021 to Jun 2024)By DepartmentBy AffiliationBy Team\n\n\nThis chart counts rows in the consultation records file that also feeds the department and affiliation breakdowns. The file runs from Jan 2021 to Jun 2024, so 2024 covers only part of the year. Unlike the series at the top of this page, which counts scheduled appointments (with DSC staff and DataSquad consultants alike), this file also includes DataSquad’s in-person walk-in sign-ins. That is why its 2024 total is larger: for January to May 2024 the scheduled appointments in both sources agree (166 here, 165 in the series)."
+    "title": "Consulting and project support",
+    "section": "Who used consulting?",
+    "text": "Who used consulting?\nJanuary 2021 to June 2024 records with a recorded department. Consultation records, not unique people.\n\n\n\n\n\n\n\n\n\nAnother 119 records come from departments with fewer than 5 each; they are grouped in the table below, not shown as one bar.\n\n\n\n\n\n\nNoteAll departments (searchable)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConsultations by researcher role\n\n\n\n\n\n\n\n\n\nSame records file, Jan 2021 to Jun 2024. 867 of the 1,533 records have no role recorded and are not shown. That is missing information, separate from the small roles combined into one row."
   },
   {
-    "objectID": "consulting.html#project-work-task-metrics",
-    "href": "consulting.html#project-work-task-metrics",
-    "title": "Consulting Statistics",
-    "section": "Project Work & Task Metrics",
-    "text": "Project Work & Task Metrics\nThese metrics represent follow-on project work assigned to DataSquad members. They are not direct consultations.\n\nSummaryTask Activity by Year\n\n\n\n\n\n\n\nMetric\nValue\n\n\n\n\nDirect Consultations (Combined, Deduped)\n741\n\n\nDataSquad Task Cards (Reportable)\n204\n\n\nDataSquad Task Activity (Reportable, Comment-Weighted)\n612\n\n\nDataSquad Direct + Reportable Task Activity\n754"
+    "objectID": "consulting.html#student-project-work",
+    "href": "consulting.html#student-project-work",
+    "title": "Consulting and project support",
+    "section": "Student project work",
+    "text": "Student project work\nDataSquad students documented 204 project tasks from 2023 to 2025. A task is one piece of follow-on project work tracked on the team’s Trello board, such as cleaning a dataset, writing code, or preparing a map, after a consultation turned into a project. Tasks are not consultations and are not added to the consultation counts. Tracking on Trello became routine in 2023, so earlier project work is not counted."
   },
   {
     "objectID": "consulting.html#research-impact",
     "href": "consulting.html#research-impact",
-    "title": "Consulting Statistics",
-    "section": "Research Impact",
-    "text": "Research Impact\nThese are illustrative cases selected to show different forms of contribution, not a representative sample of DSC and DataSquad’s work. The full accounts, with sources, are on the Research enabled page. They show how support extends into sustained technical collaboration beyond single consultations.\n\nCarceral Ecologies\nPartners: UCLA Institute for Society and Genetics (Nicholas Shapiro)\nDSC and UCLA DataSquad provided multi-year research support for the Carceral Ecologies Lab, including R server infrastructure, data processing support, and student training for work on a helicopter surveillance dataset. In collaboration with DSC staff, DataSquad contributors helped build a workflow that made iterative analysis feasible at research scale.\nMeasurable outcomes: One measured piece of the work cut the time to load the data from about 318 minutes to about 2 (claim #1). A student researcher built R and GIS skills through the collaboration.\nRecognition: The research belongs to the lab; Shapiro received a 2024 UCLA Public Impact Research Award for it.\n\n\nBioCritical Studies Lab\nPartners: UCLA (Grace Sosa; Terence Keel)\nDSC and UCLA DataSquad supported the BioCritical Studies Lab through a multi-year collaboration focused on data integration, statistical analysis, and visualization for a large deaths-in-custody research dataset. DataSquad consultants worked with DSC staff to build sustainable tools and workflows that improved maintainability and ongoing use of the data.\nMeasurable outcomes: Substantial dataset cleanup and transformation for geographic analysis and visualization, with workflows designed for continued updates and reuse.\nRecognition: DSC contributed data integration, analysis, and visualization support to research later recognized through UCLA’s 2024 Public Impact Research Awards (claim #2).\n\n\n\n\n\n\n\n\n\n\n\n\n\nperiod label\nworkstream\naudience\nrequest theme\nwork performed\noutcome\n\n\n\n\n2025 Q1\ndatasquad\nfaculty\ndata management\nReviewed repository options, metadata needs, and access constraints for course use\nIdentified a workable publication/access path and follow-up implementation steps\n\n\n2025 Q1\ndsc\nstudent\ngeospatial analysis\nProvided troubleshooting and workflow guidance for GIS data integration\nUnblocked next analysis steps and clarified tool-specific workflow decisions\n\n\n2025 Q1\ndatasquad\nstaff\nprogramming workflow\nInvestigated code/tooling options and documented a reproducible approach\nDelivered a documented approach the requester could continue independently\n\n\n\n\n\n\nSee also: Instruction → workshop attendance · Infrastructure → Dataverse and AWS metrics · About & methodology\n\n\n\n\n\n\n\nNoteData notes\n\n\n\n\n\n\nDirect consultations: LibInsight scheduled exports + manual logs (DSC staff); DataSquad walk-in sign-in forms\nCanceled appointments excluded from all direct consultation counts\nDeduplication: manual LibInsight logs matched against scheduled exports using a same-provider/same-minute heuristic; ~4 duplicates removed\nTask metrics (Trello cards, comment-weighted activity) are shown separately and are not comparable to consultation counts\nReportable filter: excludes Inbox, Future Projects/Ideas, Team Info lists; includes archived completed cards\nYoY comparisons (2023 → 2024): direct consultation decline reflects shifting data sources and intake channels, not necessarily service volume; task card growth partly reflects how Trello use grew after 2023, not only more work\nFull rules: Metrics Governance · About & methodology\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteCite this page\n\n\n\n\n\nUCLA Library Data Science Center. (2026). Consulting Statistics. Retrieved from https://ucla-data-science-center.github.io/dsc-stats-reports/consulting.html\n\n\n\nLast rendered: September 29, 2026"
+    "title": "Consulting and project support",
+    "section": "What this work supported",
+    "text": "What this work supported\nSome consultations became multi-year collaborations. Two examples, with full accounts on the Research enabled page:\n\nPolice helicopter surveillance: DSC staff and DataSquad students cleaned and joined a lab’s flight data, and one data-loading step went from about 318 minutes to about 2.\nDeaths in custody: DataSquad students merged and reconciled several sources into a national dataset the lab now maintains and updates itself."
+  },
+  {
+    "objectID": "consulting.html#sources",
+    "href": "consulting.html#sources",
+    "title": "Consulting and project support",
+    "section": "Sources and counting rules",
+    "text": "Sources and counting rules\nThree different record sets appear on this page. They are kept separate because they count different things:\n\n\n\n\n\n\n\n\nRecord set\nWindow\nUsed for\n\n\n\n\nScheduled consultation series\n2017 to September 2026\nThe headline count and the annual chart\n\n\nConsultation records file\nJan 2021 to Jun 2024\nDepartment and researcher-role breakdowns (includes DataSquad walk-in sign-ins)\n\n\n2023-2025 consultation audit\nJanuary 2023 to 2025\nChecking the records; project task counts\n\n\n\n\n\n\n\n\n\nNoteThe 2023-2025 consultation audit\n\n\n\n\n\nThe audit combined DSC’s LibInsight appointments with DataSquad’s LibInsight appointments and walk-in sign-ins, excluded canceled appointments, and removed likely duplicate manual logs. It found 741 direct consultations (claim-register #7). It is a check on the records, not a second headline: its definition and window differ from the series above.\n\nDSC staff appointments (LibInsight): 462\nDataSquad consultations (LibInsight and sign-ins): 142\nA narrower combined count using fewer DataSquad sources: 604. The 741 total is larger because it includes more DataSquad sign-in sources; the parts above do not sum to it.\nLikely duplicate manual logs removed: about 4 (same provider, same minute)\n\n\n\n\nSource coverage: rows and date ranges per data system\n\n\n\n\n\n\n\n\nSource\nRecord type\nRows\nDate range\n\n\n\n\ndatasquad_signin\nwalkin_consult\n56\n2023-10-31 – 2024-06-05\n\n\nlibinsights\nmanual_consult_log\n93\n2025-01-09 – 2026-02-13\n\n\nlibinsights\nscheduled_consult\n1,353\n2021-01-04 – 2025-03-27\n\n\ntrello\ntrello_task_comment_weighted\n640\n2021-11-10 – 2025-03-25\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNoteTask-tracking methods\n\n\n\n\n\n\nDocumented project tasks are Trello cards on the DataSquad board, excluding the Inbox, Future Projects/Ideas, and Team Info lists and including archived completed cards. All cards, including those lists: 219.\nThe audit also weighted each card by its comments (612 activity rows). That measure is kept for internal checks and is not comparable to consultation counts.\nGrowth in task counts after 2023 partly reflects wider use of Trello, not only more work.\nFull rules: Metrics Governance · About & methodology\n\n\n\n\n\nSee also: Instruction → workshop attendance · Infrastructure → Dataverse and AWS metrics · About & methodology\n\n\n\n\n\n\nNoteCite this page\n\n\n\n\n\nUCLA Library Data Science Center. (2026). Consulting and project support. Retrieved from https://ucla-data-science-center.github.io/dsc-stats-reports/consulting.html\n\n\n\nLast rendered: September 29, 2026"
   },
   {
     "objectID": "investments.html",
@@ -249,7 +249,7 @@
     "href": "research.html#detailed-evidence",
     "title": "Research Enabled",
     "section": "Detailed evidence",
-    "text": "Detailed evidence\nThe consultation evidence page holds the full tables. Jump to:\n\nRecorded consultations by year\nConsultation records by record type, department, and affiliation (records file, January 2021 to June 2024; breakdowns suppress any unit under 5)\nResearch impact cases\nMethodology"
+    "text": "Detailed evidence\nThe consultation evidence page holds the full tables. Jump to:\n\nRecorded consultations by year\nConsultation records by department and researcher role (records file, January 2021 to June 2024; breakdowns suppress any unit under 5)\nResearch impact cases\nMethodology"
   },
   {
     "objectID": "research.html#sources-and-claim-record",
