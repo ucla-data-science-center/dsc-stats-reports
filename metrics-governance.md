@@ -31,7 +31,7 @@ Primary sources:
 Unit:
 - One consultation record / event row (unless a different rule is explicitly documented)
 
-## 2) Task / Workload Metrics (Project Work)
+### 2) Task / Workload Metrics (Project Work)
 
 These represent internal/assigned work performed by DSC/DataSquad, not direct consultations.
 
@@ -49,7 +49,7 @@ Primary sources:
 Unit:
 - Task/card/issue (`task_count_*`) OR activity on a task (`comment_count`, `update_count`)
 
-## 3) Ticket / Service Request Metrics (Jira Service Desk)
+### 3) Ticket / Service Request Metrics (Jira Service Desk)
 
 These represent service requests submitted and tracked in a ticketing system.
 
@@ -62,7 +62,7 @@ Examples:
 Unit:
 - Ticket/issue or ticket activity
 
-## 4) Instruction Attendance Metrics
+### 4) Instruction Attendance Metrics
 
 These represent attendance instances at DSC-supported workshops and instructional events.
 

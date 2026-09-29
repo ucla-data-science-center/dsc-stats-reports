@@ -33,7 +33,7 @@ fte_now  <- if (nrow(staff_fte) > 0) sprintf("%.1f", staff_fte$fte[which.max(sta
 
 ## What the evidence establishes
 
-DSC's work shows up in research outputs, not only in service counts. Three documented collaborations on the [Research enabled page](research.qmd) show different kinds of DSC support: data preparation and computing for a helicopter-surveillance study, where one data-loading step ran about 159 times faster; a national deaths-in-custody dataset a lab now updates itself; and 3D capture of a refugee boat for a humanities initiative. More are on the [shared investments page](investments.qmd). [How cases are selected](research.qmd#three-collaborations).
+DSC's work shows up in research outputs, not only in service counts. Three documented collaborations on the [Research enabled page](research.qmd) show different kinds of DSC support: data preparation and computing for a helicopter-surveillance study, where one data-loading step went from about 318 minutes to about 2; a national deaths-in-custody dataset a lab now updates itself; and 3D capture of a refugee boat for a humanities initiative. More are on the [shared investments page](investments.qmd). [How cases are selected](research.qmd#three-collaborations).
 
 ## Three ways DSC contributes
 
@@ -91,7 +91,7 @@ The materials have changed, from survey datasets to large and restricted files, 
 
 ## Reports and methods
 
-This site is the evidence layer: each figure states its unit and window and links to the page where it is built. People reached are counted only when their identity could be confirmed.
+This site documents the work and the records behind it: each figure states its unit and window and links to the page where it is built. People reached are counted only when their identity could be confirmed.
 
 - [History of the archive since 1961](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html): the institutional history, from the Political Behavior Archive to the Data Science Center (a signed draft by the DSC director)
 - [About and methodology](about.qmd): definitions, sources, and how figures are counted

@@ -9,6 +9,7 @@ jupyter: python3
 
 ```{python setup}
 #| echo: false
+#| output: false
 #| message: false
 #| warning: false
 
@@ -41,7 +42,7 @@ try:
         df_history_filtered = df_history[df_history['date'] < live_start]
         df_aws = pd.concat([df_history_filtered, df_live], ignore_index=True)
 except Exception as e:
-    print(f"Live AWS fetch failed ({e}). Falling back to CSV only.")
+    print(f"Live AWS fetch failed ({e}). Falling back to CSV only.", file=sys.stderr)
     df_aws = df_history
 
 df_s3           = aws_processing.fetch_s3_storage_stats()
@@ -134,14 +135,18 @@ try:
     fig.tight_layout()
     plt.show()
 except Exception as e:
-    print(f"Dataverse data missing: {e}")
+    print(f"Dataverse data missing: {e}", file=sys.stderr)
+    print("Dataverse figures are not available for this build.")
 ```
 
 ### Monthly Activity
 
+Bars show the positive month-to-month change in the cumulative counts. Removals or corrections
+are not visible here, so this is net growth, not a count of everything published.
+
 ```{python dv_monthly}
 #| echo: false
-#| fig-alt: "Three stacked bar charts showing monthly Dataverse activity over the last 24 months. Top: new datasets per month (blue). Middle: new files per month (gold). Bottom: monthly download volume (green)."
+#| fig-alt: "Three stacked bar charts showing monthly Dataverse activity over the last 24 months. Top: positive net change in published datasets per month (blue). Middle: positive net change in published files per month (gold). Bottom: monthly download volume (green)."
 try:
     df_dv['month_new_datasets'] = df_dv['datasets_published'].diff().fillna(0).clip(lower=0)
     df_dv['month_new_files']    = df_dv['files_published'].diff().fillna(0).clip(lower=0)
@@ -153,13 +158,13 @@ try:
 
     ax1.bar(df_recent['date'], df_recent['month_new_datasets'],
             color='#005587', alpha=0.8, width=20)
-    ax1.set_ylabel('New Datasets', fontweight='bold')
+    ax1.set_ylabel('Net new datasets', fontweight='bold')
     ax1.set_ylim(bottom=0)
-    ax1.set_title('Monthly Publication Activity (Last 24 Months)', fontsize=13, fontweight='bold')
+    ax1.set_title('Monthly net change in published items (last 24 months)', fontsize=13, fontweight='bold')
 
     ax2.bar(df_recent['date'], df_recent['month_new_files'],
             color='#FFD100', alpha=0.8, width=20)
-    ax2.set_ylabel('New Files', fontweight='bold')
+    ax2.set_ylabel('Net new files', fontweight='bold')
     ax2.set_ylim(bottom=0)
 
     ax3.bar(df_recent['date'], df_recent['month_downloads'],
@@ -173,7 +178,8 @@ try:
     fig.tight_layout()
     plt.show()
 except Exception as e:
-    print(f"Error calculating monthly activity: {e}")
+    print(f"Error calculating monthly activity: {e}", file=sys.stderr)
+    print("Monthly Dataverse activity is not available for this build.")
 ```
 
 ## S3 Storage
@@ -185,10 +191,10 @@ except Exception as e:
 #| results: asis
 if not df_s3.empty:
     table_data = [
-        [r['bucket'], f"{r['size_gb']:.2f} GB", r['last_updated'].strftime('%Y-%m-%d')]
+        [r['bucket'], f"{r['size_gb']:.2f} GiB", r['last_updated'].strftime('%Y-%m-%d')]
         for _, r in df_s3.sort_values('size_gb', ascending=False).iterrows()
     ]
-    print_markdown_table(["Bucket Name", "Size (GB)", "Last Updated"], table_data)
+    print_markdown_table(["Bucket Name", "Size (GiB)", "Last Updated"], table_data)
 else:
     print("S3 storage data unavailable (live AWS connection required).")
 ```
@@ -201,8 +207,8 @@ else:
 if not df_potree_growth.empty:
     last = df_potree_growth.iloc[-1]; first = df_potree_growth.iloc[0]
     change = last['size_gb'] - first['size_gb']
-    print(f"DSC hosts about {last['size_gb'] / 1000:,.1f} TB of 3D point-cloud data for research "
-          f"visualization (Potree), as of {last['date']:%Y-%m-%d}. Storage changed by {change:+,.1f} GB "
+    print(f"DSC hosts about {last['size_gb'] / 1024:,.1f} TiB of 3D point-cloud data for research "
+          f"visualization (Potree), as of {last['date']:%Y-%m-%d}. Storage changed by {change:+,.1f} GiB "
           f"({change / first['size_gb'] * 100:+.1f}%) over the preceding 365 days.")
 else:
     print("Potree storage data unavailable (CloudWatch reports this metric once daily).")
@@ -213,12 +219,12 @@ else:
 
 ### Monthly Spend Share by Application
 
-Operational view for DSC staff: each application's share of positive monthly
-AWS charges, not absolute dollar amounts.
+Operational view for DSC staff: each application's share of monthly AWS charges,
+not absolute dollar amounts.
 
 ```{python aws_trends}
 #| echo: false
-#| fig-alt: "Stacked bar chart of each application's share of positive monthly AWS charges, by month. Credits and refunds are excluded and reported in the note below the chart."
+#| fig-alt: "Stacked bar chart of each application's share of monthly AWS charges, by month. Shares use each application's net charges for the month; an application whose credits exceeded its charges in a month is shown as zero."
 if not df_aws.empty:
     df_aws['month_label'] = df_aws['date'].dt.strftime('%Y-%m')
     monthly = df_aws.groupby(['month_label', 'application'])['cost'].sum().unstack(fill_value=0)
@@ -239,8 +245,9 @@ if not df_aws.empty:
     ax.legend(title='Application', bbox_to_anchor=(1.02, 1), loc='upper left', frameon=False)
     plt.tight_layout()
     plt.show()
-    print(f"Credits or refunds offset charges in {credit_months} of {len(monthly)} months; "
-          "they are excluded from the shares above.")
+    print(f"Shares use each application's net charges for the month, so credits and refunds are "
+          f"netted in. In {credit_months} of {len(monthly)} months at least one application's credits "
+          "exceeded its charges; it is shown as zero for that month.")
 ```
 
 :::
@@ -264,7 +271,7 @@ df_links = pd.read_csv(_links_files[-1]) if _links_files else pd.DataFrame()
 #| echo: false
 #| output: asis
 if df_impact.empty or df_links.empty:
-    print("*Run `pixi run update-dataverse-impact` to generate scholarship impact data.*")
+    print("*Publication-link data is not available for this build.*")
 else:
     found       = df_impact[df_impact['openalex_id'] != 'not_found']
     n_papers    = len(found)

@@ -23,7 +23,7 @@ alt_seats <- seats_alt_text(seats)
 
 []{.brand-el .brand-linechart1 .page-mark aria-hidden="true"}
 
-## Finding and scope
+## What the teaching record shows
 
 DSC instruction grew from workshops for its own campus into instruction co-run across the University of California, and it trained campus volunteers who went on to lead much of the teaching. The evidence covers workshops from May 2017 through September 2026 and counts registrations and sessions, not individual learning outcomes.
 
@@ -51,10 +51,9 @@ if (nrow(seats) > 0) seats_chart(seats)
 
 :::
 
-Two supporting measures:
+Also counted:
 
 - **`r hl("instruction_sessions_lifetime")` workshop sessions**, May 2017 to May 2026 (a session is one distinct event and date).
-- **At least 39 people** from two separately defined UC Carpentries cohorts (September 2025, and 2021, 2022 and 2024) were subsequently observed in research or data-intensive roles, from public evidence. This is an early trajectory signal, not a tracer study; it does not show that the workshops caused those roles.
 
 ## A program example: the UC Carpentries network
 
@@ -79,7 +78,7 @@ Two supporting measures:
 ::: {.callout-note .long-view}
 ## The long view (history, as of 2026)
 
-Instruction went through three eras. From 2017 the unit taught locally, one campus, in person, and by January 2020 campus volunteers trained through the program were leading the workshops. In 2020 the pandemic made cross-campus coordination cheap, and the systemwide UC Carpentries network was co-founded in response, with Berkeley, San Diego, Santa Barbara, Merced, and Riverside as partners. From 2023 that network operated at system scale, a program other campuses schedule around. [Read the teaching section of the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html#teaching-spread-the-skills-further-than-a-small-staff-could-reach)
+Instruction went through three eras. From 2017 the unit taught locally, one campus, in person, and by January 2020 campus volunteers trained through the program were leading the workshops. In 2020 online delivery made it possible to teach across campuses without travel, and the systemwide UC Carpentries network was co-founded in response, with Berkeley, San Diego, Santa Barbara, Merced, and Riverside as partners. From 2023 that network operated at system scale. [Read the teaching section of the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html#teaching-spread-the-skills-further-than-a-small-staff-could-reach)
 :::
 
 ## Open-science lessons and research software {#sec-software}
@@ -109,7 +108,6 @@ The instruction evidence page holds the full tables. Jump to:
 |---|---|---|---|---|
 | `r hl("instruction_registered_seats")` registered seats | May 2017 to Sept 2026 (2026 partial) | registered seat | 2026-09-26 | #12 |
 | `r hl("instruction_sessions_lifetime")` sessions | May 2017 to May 2026 | session (event, date) | 2026-09-24 | #9 |
-| At least 39 people in research roles | 2021-2025 cohorts | person, public confirmation | 2026-09-12 | #5 |
 | Three instruction eras | 2017-2026 | historical account | 2026-09-26 | #15 |
 
 Suppression rule: department, organizational-parent, and affiliation breakdowns fold any unit under 5 into one combined row, which is omitted if it is also under 5. The claim register gives approved wording, exclusions, and source for each figure: [claim-register.md](https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/claim-register.md).

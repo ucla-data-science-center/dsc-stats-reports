@@ -27,7 +27,7 @@ alt_combined <- if (nrow(series) > 0 && nrow(capacity) > 0) sprintf(
 
 []{.brand-el .brand-node1 .page-mark aria-hidden="true"}
 
-## Finding and scope
+## Staffing and recorded consultations
 
 DSC's staff time fell from 5.7 FTE in 2022-23 to 4.0 in 2025-26, and student help fell by half in 2025, while consultation records became incomplete. Researchers across UCLA bring data problems to DSC, and some of those consultations become multi-year collaborations. DSC recorded `r hl("consultations_recorded_series")` scheduled consultations from 2017 to September 2026. Recorded counts rise and fall with the staff and students available to do the work and with the system used to record it, so they show the work delivered, not the demand for it.
 
@@ -92,7 +92,7 @@ The [2017 to 2026 timeline](capability.qmd#sec-buildout) places these alongside 
 - The series counts scheduled appointments, with DSC staff and DataSquad consultants alike. DataSquad's in-person walk-in sign-ins are shown separately on the [consultation evidence page](consulting.qmd).
 :::
 
-Two supporting measures:
+Also counted:
 
 - **At least `r hl("people_reached_confirmed_ucla")` confirmed UCLA researchers** used DSC instruction or consultation, 2017 to September 2026 (a floor, counted only where identity could be confirmed).
 
@@ -105,7 +105,7 @@ These three were chosen to show different kinds of documented support, not typic
 ::: {.sequence}
 [**Research need** The lab's flight-tracking data outgrew what it could host and process itself.]{.step}
 [**What DSC did** Cleaned and integrated the flight data, advised on spatial analysis, refactored the R code, and moved the work onto DSC computing.]{.step}
-[**What the research gained** Analyzable flight tables joined to Los Angeles neighborhoods, and one data-loading step about 159 times as fast.]{.step}
+[**What the research gained** Analyzable flight tables joined to Los Angeles neighborhoods, and one data-loading step cut from about 318 minutes to about 2.]{.step}
 [**What still depends on DSC** The hosted R server and technical help as the lab's data keeps growing.]{.step}
 :::
 
@@ -115,7 +115,7 @@ When COVID closed the prisons where the lab had done environmental field samplin
 
 A student researcher on the team first learned R and GIS from DSC staff in a 2019 African American Studies course taught with DSC. In 2022 she came back with the team's flight-tracking data, twelve monthly files of about a million rows each, and met DSC staff and DataSquad consultants more than 30 times that year ([her 2023 interview](https://ucla-datasquad.github.io/2023/07/27/kate-m-helicopter-data.html)). Together they converted the raw flight records into analyzable tables, identified individual flights, filtered out impossible altitude readings, and joined millions of positions to Los Angeles neighborhoods ([her analysis code](https://github.com/kmcinerny/LA_Law_Enforcement_Heli)). DSC's GIS librarian advised on the spatial analysis, recommending a density-based clustering method for classifying the flight data and helping fix geometry problems in the spatial files. When the processing outgrew her laptop that fall, DSC moved the data onto its deep learning machine and gave her access to its hosted R server.
 
-As the lab acquired more data, DSC helped it scale. In March 2023 DSC staff met with Shapiro's team, set up the lab's new statistician on the deep learning machine, and loaded five years of additional data the lab had purchased. Over the following months DSC staff and DataSquad students worked with the statistician to process the dataset in batches and speed up elevation lookups about tenfold by switching data sources ([shared code](https://github.com/ucla-data-science-center/helicopter-data)). One measured piece of that work cut the time to load the data from about 318 minutes to about 2, about 159 times as fast ([DataSquad project page](https://ucla-datasquad.github.io/)). DSC staff on the collaboration included Tim Dennis, Leigh Phan, Zhiyuan Yao, and Kristian Allen.
+As the lab acquired more data, DSC helped it scale. In March 2023 DSC staff met with Shapiro's team, set up the lab's new statistician on the deep learning machine, and loaded five years of additional data the lab had purchased. Over the following months DSC staff and DataSquad students worked with the statistician to process the dataset in batches and speed up elevation lookups about tenfold by switching data sources ([shared code](https://github.com/ucla-data-science-center/helicopter-data)). One measured piece of that work cut the time to load the data from about 318 minutes to about 2 ([DataSquad project page](https://ucla-datasquad.github.io/)). DSC staff on the collaboration included Tim Dennis, Leigh Phan, Zhiyuan Yao, and Kristian Allen.
 
 In Shapiro's account, the lab's ability to keep analyzing its growing flight data has depended on that technical help and on the R server DSC hosts.
 
@@ -172,7 +172,7 @@ The scholarship belongs to Nguyen's initiative and the Cotsen researchers. Doug 
 ::: {.callout-note .long-view}
 ## The long view (history, as of 2026)
 
-The archive answered research questions from its early years: data discovery, codebooks, and help with statistical software. The 2018 redesign widened consulting to the whole research life cycle, from data management plans to publication and preservation, and added GIS, 3D capture, machine learning, research software, and reproducible workflows. From about 2023 the work shifted from single appointments toward project support that ran for months. [Read the consulting section of the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html#consulting-from-reference-desk-to-research-partner)
+The archive answered research questions from its early years: data discovery, codebooks, and help with statistical software. The 2018 redesign widened consulting to the whole research life cycle, from data management plans to publication and preservation, and added GIS, 3D capture, machine learning, research software, and reproducible workflows. From about 2023 the work shifted from single appointments toward project support that ran for months. [Read the consulting section of the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history-companion.html#consulting-from-reference-desk-to-research-partner)
 :::
 
 ## Detailed evidence

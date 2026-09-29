@@ -36,7 +36,7 @@ DSC works with five kinds of research material. Only the first is a repository D
 | 3D capture and models | Scans, processes, and hosts 3D models for browser access | pointcloud.ucla.edu, run by DSC; the objects and their stories belong to partners | [3D case](research.qmd) |
 | Research software and workflows | Staff and DataSquad students write and teach code with labs, and DSC runs the R server and deep learning machine the code runs on | Lab and public code repositories; DSC servers | [Research computing](#research-computing); [helicopter and deaths-in-custody cases](research.qmd) |
 
-What ties the rows together is the archive's working knowledge: how data is described, licensed, secured, and prepared so others can use it. Under any arrangement, someone has to be accountable for connecting these functions, setting standards across them, maintaining the infrastructure, and carrying that expertise forward.
+What ties the rows together is the archive's practice: documentation, licenses, access controls, and preservation, so others can use the data. Under any arrangement, someone has to be accountable for connecting these functions, setting standards across them, maintaining the infrastructure, and carrying that expertise forward.
 
 ## Voter file and governed access (Redivis)
 
@@ -57,7 +57,7 @@ What ties the rows together is the archive's working knowledge: how data is desc
 | Research barrier | Some datasets exceed what a lab can host or process on its own machines. |
 | DSC investment | Hosts research servers and a deep learning machine, with staff and student support for processing and training. |
 | Documented use | Multi-year support for the Carceral Ecologies lab's helicopter-surveillance analysis. |
-| Research outputs | One measured data-loading step fell from about 318 minutes to about 2, about 159 times as fast (claim #1). The lab's research was later recognized by a 2024 UCLA Public Impact Research Award. |
+| Research outputs | One measured data-loading step fell from about 318 minutes to about 2 (claim #1), a service improvement that supported the research rather than an output of it. The lab's research was later recognized by a 2024 UCLA Public Impact Research Award. |
 | Evidence of the connection | Case record and the researcher's own account, shared with permission. |
 | Coverage and limits | One engagement shown; a second (machine-learning analysis of animal behavior) awaits the researcher's confirmation. Job logs have not been compiled. |
 | Continuing requirement | Hardware maintenance, system administration, and staff who can support researchers on it. |

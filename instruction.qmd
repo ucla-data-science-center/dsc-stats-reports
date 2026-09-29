@@ -221,7 +221,7 @@ if (nrow(seats) > 0) {
 - **Aggregates only**: row-level registration and attendance data stay outside this repository
 :::
 
-## At a Glance: Attendee-Level File (`r data_range_label`)
+## Attendance records available for analysis (`r data_range_label`)
 
 ::: {.kpi-row .grid}
 
@@ -256,7 +256,7 @@ if (nrow(seats) > 0) {
 :::
 
 ::: {.g-col-6 .g-col-md-4 .kpi-card}
-[UCLA Organizational Parent Known]{.kpi-label}
+[School, division, or other unit identified]{.kpi-label}
 [`r fmt(kpi_organizational_parent)`]{.kpi-value}
 [`r percent(kpi_organizational_parent / kpi_ucla, accuracy = 0.1)` of validated UCLA attendance]{.kpi-note}
 :::

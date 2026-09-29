@@ -1,9 +1,9 @@
-[$2.09M in competitive federal and foundation funding supports this work.]{.lede}
+[Two outside awards support this work: an IMLS grant to UCLA and a Sloan Foundation grant to the multi-campus UC OSPO Network.]{.lede}
 
 DSC's open source program office (<abbr class="term" title="Open Source Program
 Office">OSPO</abbr>) work, licensing review, repository best practices, and release
-guidance, is funded through a **{{< var software.sloan_amount >}} Sloan Foundation
-grant**. It exists because the need is real: a 2025 scan of roughly
+guidance, is part of the UC OSPO Network, funded by a **{{< var software.sloan_amount >}} Sloan Foundation
+grant** to the network as a whole (a multi-campus award, not a grant to DSC). It exists because the need is real: a 2025 scan of roughly
 {{< var software.license_scan_n >}} UC-affiliated code repositories found
 {{< var software.license_scan_pct >}} carried no license at all, meaning most UC
 research code cannot legally be reused or built on.
