@@ -126,18 +126,18 @@ The series counts scheduled appointments from Calendly (2017 to mid-2024), then 
 
 *Scheduled appointments by calendar year, 2017 to September 2026.*
 
-```{r series_chart, echo=FALSE, fig.height=4.2, fig.alt=if (nrow(consult_series) > 0) paste0("Horizontal bar chart of recorded scheduled consultations by year, earliest at top. Complete records: ", paste(sprintf("%d, %s", consult_series$year[!consult_series$is_floor], consult_series$display[!consult_series$is_floor]), collapse = "; "), ". Incomplete records after mid-2024: ", paste(sprintf("%d, %s", consult_series$year[consult_series$is_floor], consult_series$display[consult_series$is_floor]), collapse = "; "), ". 2026 is partial.") else "Consultation series not loaded"}
+```{r series_chart, echo=FALSE, fig.height=4.2, fig.alt=if (nrow(consult_series) > 0) paste0("Horizontal bar chart of recorded scheduled consultations by year, earliest at top. Before the recording gap: ", paste(sprintf("%d, %s", consult_series$year[!consult_series$is_floor], consult_series$display[!consult_series$is_floor]), collapse = "; "), ". Incomplete records after mid-2024: ", paste(sprintf("%d, %s", consult_series$year[consult_series$is_floor], consult_series$display[consult_series$is_floor]), collapse = "; "), ". 2026 is partial.") else "Consultation series not loaded"}
 if (nrow(consult_series) > 0) {
   consult_series |>
-    mutate(status = if_else(is_floor, "Incomplete records, 2024-2026", "Complete records"),
-           status = factor(status, levels = c("Complete records", "Incomplete records, 2024-2026")),
+    mutate(status = if_else(is_floor, "Incomplete records, 2024-2026", "Before the recording gap"),
+           status = factor(status, levels = c("Before the recording gap", "Incomplete records, 2024-2026")),
            label = if_else(year == max(year), paste0(display, " (partial year)"), display),
            year = factor(year, levels = rev(sort(unique(year))))) |>
     ggplot(aes(x = value, y = year, fill = status)) +
     geom_col(width = 0.7) +
     geom_text(aes(label = label), hjust = -0.1, size = 3.5) +
     facet_grid(status ~ ., scales = "free_y", space = "free_y") +
-    scale_fill_manual(values = c("Complete records" = "#2774AE",
+    scale_fill_manual(values = c("Before the recording gap" = "#2774AE",
                                  "Incomplete records, 2024-2026" = "#8C8279"), guide = "none") +
     scale_x_continuous(expand = expansion(mult = c(0, 0.25))) +
     labs(x = "Recorded consultations", y = NULL) +
@@ -154,7 +154,7 @@ if (nrow(consult_series) > 0) {
 if (nrow(consult_series) > 0) {
   consult_series |>
     transmute(Year = as.character(year), `Recorded consultations` = display,
-              Records = if_else(is_floor, "Incomplete after mid-2024", "Complete"),
+              Records = if_else(is_floor, "Incomplete after mid-2024", "Before the recording gap"),
               Source = source) |>
     knitr::kable(align = c("l", "r", "l", "l"))
 }
@@ -208,6 +208,17 @@ if (data_loaded) {
 total_records <- sum(rec_year$records)
 affil_listed <- sum(rec_affil$records)
 affil_missing <- total_records - affil_listed
+# The difference is "no role recorded" only if every role record is dated (true as of
+# 2026-09-29: the one undated record has no role) and the combined small-role row is
+# published. Otherwise fall back to the neutral wording.
+small_role_row_shown <- any(grepl("^Other affiliations", rec_affil$ucla_affiliation)) ||
+  coalesce(rec_window$suppressed_affiliations[1], 0) == 0
+missing_role_note <- if (small_role_row_shown && affil_missing >= 0) {
+  sprintf("%s of the %s records have no role recorded and are not shown. That is missing information, separate from the small roles combined into one row.",
+          comma(affil_missing), comma(total_records))
+} else {
+  sprintf("%s of the %s records are not represented in this breakdown.", comma(max(affil_missing, 0)), comma(total_records))
+}
 alt_affil <- if (nrow(rec_affil) > 0) paste0("Horizontal bar chart of consultation records by researcher role, ", rec_window_label, ": ",
   paste(rec_affil$ucla_affiliation, rec_affil$records, collapse = "; "), ".") else "Affiliation chart (data not loaded)"
 ```
@@ -227,7 +238,7 @@ if (data_loaded && nrow(rec_affil) > 0) {
 } else { no_data_msg() }
 ```
 
-Same records file, `r rec_window_label`. `r if (data_loaded) sprintf("%s of the %s records have no role recorded and are not shown. That is missing information, separate from the small roles combined into one row.", comma(affil_missing), comma(total_records)) else ""`
+Same records file, `r rec_window_label`. `r if (data_loaded) missing_role_note else ""`
 
 ## Student project work
 
