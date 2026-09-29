@@ -6,7 +6,7 @@ title: "About This Site"
 
 This site shows what research capacity the UCLA Library Data Science Center (DSC) has built, and the evidence behind each figure. It is written for campus leadership, faculty, and library and research administrators weighing how DSC's functions will be carried forward, not as an internal service dashboard.
 
-The site is an evidence layer. The home page and the three pathway pages ([Research enabled](research.qmd), [Research capability built](capability.qmd), and [Shared investments](investments.qmd)) make the argument; the evidence pages ([Consulting](consulting.qmd), [Instruction](instruction.qmd), [Infrastructure](infrastructure.qmd)) hold the underlying records. Every headline figure has an entry in the project's claim register, which records its approved wording, time window, unit, and source, and a check in the build refuses to publish a headline figure without one.
+This site documents the work and the records behind it. The home page and the three pathway pages ([Research enabled](research.qmd), [Research capability built](capability.qmd), and [Shared investments](investments.qmd)) make the argument; the evidence pages ([Consulting](consulting.qmd), [Instruction](instruction.qmd), [Infrastructure](infrastructure.qmd)) hold the underlying records. Every headline figure has an entry in the project's claim register, which records its approved wording, time window, unit, and source, and a check in the build refuses to publish a headline figure without one.
 
 The research examples are illustrative, not representative, and the research in them belongs to the labs and initiatives named. People are named only with permission or where they are DSC staff or student employees credited for their own work.
 
@@ -16,7 +16,7 @@ It is rendered from source data and published as a static site on GitHub Pages.
 
 ## Update Cadence
 
-Each page shows a "Last rendered" date at the bottom reflecting when data was baked in — this is not a live feed. The site is re-rendered manually when source data is refreshed.
+Each page shows a "Last rendered" date at the bottom. That is when the page was built, not how current the data is: a new render can reuse an older data file, so each chart and table states its own data window. The site rebuilds on every change to the repository and can also be rebuilt by hand.
 
 | Data stream | Typical refresh |
 |---|---|
@@ -25,7 +25,7 @@ Each page shows a "Last rendered" date at the bottom reflecting when data was ba
 | Instruction (LibInsight workshops) | At end of academic year |
 | AWS usage trends | Monthly (Cost Explorer API pull) |
 | UCLA Dataverse metrics | Monthly (Dataverse API pull) |
-| S3 storage (CloudWatch) | Real-time at render |
+| S3 storage (CloudWatch) | Daily measurement; latest available day at render |
 
 To request a data refresh, open an issue in the [GitHub repository](https://github.com/ucla-data-science-center/dsc-stats-reports) or contact the site maintainer.
 

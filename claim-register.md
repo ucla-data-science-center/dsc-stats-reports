@@ -55,6 +55,7 @@ last verification date should not be reused until re-checked.
 
 ## 5. Combined trajectory count (carp2025 + ucworkshop)
 
+- **Status (2026-09-29)**: withdrawn from the public pages after the September 29 editorial review. Role-start dates were not captured and roles may predate attendance, so the count cannot show a trajectory. Kept here for the record; `leadership-brief.qmd` still cites it.
 - **Approved wording**: "Across two separately defined cohorts (September 2025, and 2021/2022/2024), public evidence confirmed at least 39 people subsequently observed in research or data-intensive roles."
 - **Not approved**: presenting 39 as one cohort, or as a tracer study, or implying systematic/complete coverage.
 - **Numerator/denominator**: 39 confirmed of 166 combined qualifying attendees (43 + 123).

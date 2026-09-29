@@ -127,7 +127,7 @@ def fetch_s3_historical_growth(bucket_name, days=90, profile='ucla-library-dsc')
         for dp in response['Datapoints']:
             data.append({
                 'date': dp['Timestamp'],
-                'size_gb': dp['Average'] / (1024**3)
+                'size_gb': dp['Average'] / (1024**3),  # GiB (binary), despite the key name
             })
             
         df = pd.DataFrame(data)

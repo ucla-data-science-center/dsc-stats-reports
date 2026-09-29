@@ -17,7 +17,7 @@ times in 2022.
 > *"This work wouldn't have happened without your team!"*
 > — Nicholas Shapiro, director of Carceral Ecologies, November 2024 (quoted with permission)
 
-[**Outcome:** one measured piece of the work cut the time to load the data from about 318 minutes to about 2, about 159 times as fast. The research and its findings belong to the lab; Shapiro received a 2024 UCLA Public Impact Research Award for it.]{.impact}
+[**Outcome:** one measured piece of the work cut the time to load the data from about 318 minutes to about 2. The research and its findings belong to the lab; Shapiro received a 2024 UCLA Public Impact Research Award for it.]{.impact}
 
 :::
 
