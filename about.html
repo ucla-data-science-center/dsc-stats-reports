@@ -376,15 +376,19 @@ ul.task-list li input[type="checkbox"] {
 <section id="purpose" class="level2">
 <h2 class="anchored" data-anchor-id="purpose">Purpose</h2>
 <p>This site shows what research capacity the UCLA Library Data Science Center (DSC) has built, and the evidence behind each figure. It is written for campus leadership, faculty, and library and research administrators weighing how DSC’s functions will be carried forward, not as an internal service dashboard.</p>
-<p>The site is an evidence layer. The home page and the three pathway pages (<a href="./research.html">Research enabled</a>, <a href="./capability.html">Research capability built</a>, and <a href="./investments.html">Shared investments</a>) make the argument; the evidence pages (<a href="./consulting.html">Consulting</a>, <a href="./instruction.html">Instruction</a>, <a href="./infrastructure.html">Infrastructure</a>) hold the underlying records. Every headline figure has an entry in the project’s claim register, which records its approved wording, time window, unit, and source, and a check in the build refuses to publish a headline figure without one.</p>
+<p>This site documents the work and the records behind it. The home page and the three pathway pages (<a href="./research.html">Research enabled</a>, <a href="./capability.html">Research capability built</a>, and <a href="./investments.html">Shared investments</a>) make the argument; the evidence pages (<a href="./consulting.html">Consulting</a>, <a href="./instruction.html">Instruction</a>, <a href="./infrastructure.html">Infrastructure</a>) hold the underlying records. Every headline figure has an entry in the project’s claim register, which records its approved wording, time window, unit, and source, and a check in the build refuses to publish a headline figure without one.</p>
 <p>The research examples are illustrative, not representative, and the research in them belongs to the labs and initiatives named. People are named only with permission or where they are DSC staff or student employees credited for their own work.</p>
 <p>It is rendered from source data and published as a static site on GitHub Pages.</p>
 <hr>
 </section>
 <section id="update-cadence" class="level2">
 <h2 class="anchored" data-anchor-id="update-cadence">Update Cadence</h2>
-<p>Each page shows a “Last rendered” date at the bottom reflecting when data was baked in — this is not a live feed. The site is re-rendered manually when source data is refreshed.</p>
+<p>Each page shows a “Last rendered” date at the bottom. That is when the page was built, not how current the data is: a new render can reuse an older data file, so each chart and table states its own data window. The site rebuilds on every change to the repository and can also be rebuilt by hand.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Data stream</th>
@@ -414,7 +418,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>S3 storage (CloudWatch)</td>
-<td>Real-time at render</td>
+<td>Daily measurement; latest available day at render</td>
 </tr>
 </tbody>
 </table>
