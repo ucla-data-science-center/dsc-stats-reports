@@ -1,5 +1,5 @@
 ---
-title: "Consulting Statistics"
+title: "Consulting and project support"
 format:
   html:
     toc: true
@@ -10,8 +10,6 @@ format:
 library(tidyverse)
 library(lubridate)
 library(scales)
-library(plotly)
-library(crosstalk)
 source("src/etl/suppression.R")
 
 # ── Consultation records: public aggregates only ───────────
@@ -108,275 +106,161 @@ yoy_tasks <- local({
 })
 ```
 
-*Evidence page: consultation counts, project task metrics, and breakdowns by department and affiliation, with their definitions and limits.*
-
-## Recorded Consultations Since 2017
+*How much consulting DSC recorded, who used it, and what project work followed. Definitions and the separate audit are at the end.*
 
 ```{r series_setup, include=FALSE}
 consult_series <- read_if("data/processed/canonical/consultations_by_year.csv")
 series_total <- read_if("data/processed/canonical/headline_aggregates.csv") |>
   filter(metric_id == "consultations_recorded_series") |> pull(display)
 if (length(series_total) == 0) series_total <- "—"
+last_full_year <- if (nrow(consult_series) > 0) max(consult_series$year[!consult_series$is_floor]) else NA
 ```
 
-DSC recorded **`r series_total` research consultations** from 2017 to September 2026 (claim-register #10). The series counts scheduled appointments, with DSC staff and DataSquad consultants alike; DataSquad's in-person walk-in sign-ins are not included. Records are incomplete after mid-2024: Calendly ended, LibCal wasn't in use until May 2025, and two reorganizations and staff departures cut logging. Because of that gap, this series cannot measure how demand changed after 2023; LibCal shows the work continued. It is a different series from the 2023-2025 audit below, which adds DataSquad walk-ins and uses its own deduplication.
+DSC recorded **`r series_total` scheduled research consultations** from 2017 to September 2026 (claim-register #10), with DSC staff and DataSquad student consultants alike. These are appointments, not people: one researcher can book many.
 
+::: {.callout-note collapse="true" title="Definition and sources"}
+The series counts scheduled appointments from Calendly (2017 to mid-2024), then LibInsight and LibCal. DataSquad's in-person walk-in sign-ins are not included. Internal meetings and canceled appointments are removed.
+:::
+
+## Recorded consultations over time {#recorded-consultations-since-2017}
+
+*Scheduled appointments by calendar year, 2017 to September 2026.*
+
+```{r series_chart, echo=FALSE, fig.height=4.2, fig.alt=if (nrow(consult_series) > 0) paste0("Horizontal bar chart of recorded scheduled consultations by year, earliest at top. Complete records: ", paste(sprintf("%d, %s", consult_series$year[!consult_series$is_floor], consult_series$display[!consult_series$is_floor]), collapse = "; "), ". Incomplete records after mid-2024: ", paste(sprintf("%d, %s", consult_series$year[consult_series$is_floor], consult_series$display[consult_series$is_floor]), collapse = "; "), ". 2026 is partial.") else "Consultation series not loaded"}
+if (nrow(consult_series) > 0) {
+  consult_series |>
+    mutate(status = if_else(is_floor, "Incomplete records, 2024-2026", "Complete records"),
+           status = factor(status, levels = c("Complete records", "Incomplete records, 2024-2026")),
+           label = if_else(year == max(year), paste0(display, " (partial year)"), display),
+           year = factor(year, levels = rev(sort(unique(year))))) |>
+    ggplot(aes(x = value, y = year, fill = status)) +
+    geom_col(width = 0.7) +
+    geom_text(aes(label = label), hjust = -0.1, size = 3.5) +
+    facet_grid(status ~ ., scales = "free_y", space = "free_y") +
+    scale_fill_manual(values = c("Complete records" = "#2774AE",
+                                 "Incomplete records, 2024-2026" = "#8C8279"), guide = "none") +
+    scale_x_continuous(expand = expansion(mult = c(0, 0.25))) +
+    labs(x = "Recorded consultations", y = NULL) +
+    theme_minimal() +
+    theme(panel.grid.major.y = element_blank(), panel.grid.minor = element_blank(),
+          strip.text.y = element_text(angle = 0, hjust = 0, face = "bold"))
+}
+```
+
+**Records are incomplete after mid-2024.** Calendly ended, LibCal wasn't in use until May 2025, and two reorganizations and staff departures cut logging. The later counts are what was recorded, not estimates of the missing activity, so this series cannot show how demand changed after `r last_full_year`.
+
+::: {.callout-note collapse="true" title="View annual counts"}
 ```{r series_table, echo=FALSE}
 if (nrow(consult_series) > 0) {
   consult_series |>
     transmute(Year = as.character(year), `Recorded consultations` = display,
-              Note = if_else(is_floor, "Floor (recording lapsed)", "")) |>
-    knitr::kable(align = c("l", "r", "l"))
+              Records = if_else(is_floor, "Incomplete after mid-2024", "Complete"),
+              Source = source) |>
+    knitr::kable(align = c("l", "r", "l", "l"))
 }
 ```
-
-## 2023-2025 Consultation Audit (a separate series)
-
-*Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
-
-::: {.kpi-row .grid}
-
-::: {.g-col-6 .g-col-md-3 .kpi-card}
-[Direct Consultations]{.kpi-label}
-[`r kpi("direct_consults_combined_deduped_count")`]{.kpi-value}
-[DSC + DataSquad combined; canceled excluded. Recording coverage differs by year, so year-to-year change is not shown]{.kpi-note}
 :::
 
-::: {.g-col-6 .g-col-md-3 .kpi-card}
-[DSC Staff]{.kpi-label}
-[`r kpi("dsc_direct_consults_libinsights_count")`]{.kpi-value}
-[LibInsight scheduled exports]{.kpi-note}
-:::
+## Who used consulting? {#direct-consultations}
 
-::: {.g-col-6 .g-col-md-3 .kpi-card}
-[DataSquad]{.kpi-label}
-[`r kpi("datasquad_direct_consults_count")`]{.kpi-value}
-[Walk-in sign-ins]{.kpi-note}
-:::
+*January 2021 to June 2024 records with a recorded department. Consultation records, not unique people.*
 
-::: {.g-col-6 .g-col-md-3 .kpi-card}
-[Task Cards (Reportable)]{.kpi-label}
-[`r kpi("datasquad_trello_task_cards_reportable_count")`]{.kpi-value}
-[Trello; backlog/admin lists excluded. Trello tracking began in 2023]{.kpi-note}
-:::
+```{r dept_setup, include=FALSE}
+other_label <- "Other departments (each fewer than 5)"
+dept_named <- rec_dept |> filter(department != other_label) |> arrange(desc(records), department)
+dept_other <- rec_dept |> filter(department == other_label) |> pull(records)
+dept_top <- head(dept_named, 10)
+alt_dept <- if (nrow(dept_top) > 0) paste0("Horizontal bar chart of the ten departments with the most consultation records, January 2021 to June 2024, largest first: ",
+  paste(dept_top$department, dept_top$records, collapse = "; "), ".") else "Department chart (data not loaded)"
+```
 
-:::
-
-## Direct Consultations
-
-::: {.panel-tabset}
-
-### By Year (consultation records file, `r rec_window_label`)
-
-This chart counts rows in the consultation records file that also feeds the department and affiliation breakdowns. The file runs from `r rec_window_label`, so 2024 covers only part of the year. Unlike the series at the top of this page, which counts scheduled appointments (with DSC staff and DataSquad consultants alike), this file also includes DataSquad's in-person walk-in sign-ins. That is why its 2024 total is larger: for January to May 2024 the scheduled appointments in both sources agree (166 here, 165 in the series).
-
-```{r chart_year, echo=FALSE, fig.alt=alt_year, fig.height=3.6}
-if (data_loaded && nrow(rec_year_team) > 0) {
-  type_levels <- c("Scheduled appointments", "Other", "DataSquad walk-in sign-ins")
-  rec_year_team |>
-    mutate(type = factor(recode(group, DSC = "Scheduled appointments", Datasquad = "DataSquad walk-in sign-ins"),
-                         levels = rev(type_levels)),
-           year = factor(year, levels = rev(sort(unique(year))))) |>
-    ggplot(aes(y = year, x = records, fill = type)) +
-    geom_col(width = 0.65, color = "white", linewidth = 0.4) +
-    scale_fill_manual(values = c("Scheduled appointments" = "#2774AE", "Other" = "#8C8279",
-                                 "DataSquad walk-in sign-ins" = "#FFB81C"),
-                      breaks = type_levels, name = NULL) +
-    labs(y = NULL, x = "Records",
-         title = "Consultation records file by record type (2024: January to early June only)") +
+```{r chart_dept, echo=FALSE, fig.height=4.8, fig.alt=alt_dept}
+if (data_loaded && nrow(dept_top) > 0) {
+  dept_top |>
+    mutate(department = factor(str_wrap(department, 28), levels = rev(str_wrap(department, 28)))) |>
+    ggplot(aes(x = records, y = department)) +
+    geom_col(fill = "#2774AE", width = 0.7) +
+    geom_text(aes(label = records), hjust = -0.2, size = 3.5) +
+    scale_x_continuous(expand = expansion(mult = c(0, 0.12))) +
+    labs(x = "Consultation records", y = NULL, title = "Ten largest recorded departments") +
     theme_minimal() +
-    theme(panel.grid.major.y = element_blank(), legend.position = "bottom")
+    theme(panel.grid.major.y = element_blank(), panel.grid.minor = element_blank())
 } else { no_data_msg() }
 ```
 
-### By Department
+`r if (length(dept_other)) sprintf("Another %s records come from departments with fewer than 5 each; they are grouped in the table below, not shown as one bar.", comma(dept_other)) else ""`
 
-```{r chart_dept, echo=FALSE}
+::: {.callout-note collapse="true" title="All departments (searchable)"}
+```{r dept_table, echo=FALSE}
 if (data_loaded) {
-  dept_counts <- rec_dept |>
-    rename(Department = department, Consultations = records)
+  bind_rows(dept_named, rec_dept |> filter(department == other_label)) |>
+    DT::datatable(rownames = FALSE, colnames = c("Department", "Consultation records"),
+                  options = list(pageLength = 15, dom = "ftp"),
+                  caption = paste0("Consultation records file, ", rec_window_label, ". Named departments first; the combined group is listed last.",
+                                   suppressed_note(rec_window$suppressed_departments, "departments")))
+}
+```
+:::
 
-  sd_dept <- SharedData$new(dept_counts)
+### Consultations by researcher role
 
-  # Filter widget + linked chart + linked table
-  filter_select("dept_filter", "Search department:", sd_dept, ~Department,
-                multiple = FALSE)
-
-  bscols(
-    plot_ly(sd_dept, x = ~Consultations, y = ~reorder(Department, Consultations),
-            type = "bar", orientation = "h",
-            marker = list(color = "#005587"),
-            hovertemplate = "<b>%{y}</b><br>Consultations: %{x}<extra></extra>") |>
-      layout(yaxis = list(title = ""),
-             xaxis = list(title = "Consultations"),
-             margin = list(l = 5)),
-    DT::datatable(sd_dept, rownames = FALSE,
-                  colnames = c("Department", "Consultations"),
-                  options = list(pageLength = 10, dom = "tp"),
-                  caption = paste0("Departments, consultation records file, ", rec_window_label, ".", suppressed_note(rec_window$suppressed_departments, "departments")))
-  )
-} else { no_data_msg() }
+```{r affil_setup, include=FALSE}
+total_records <- sum(rec_year$records)
+affil_listed <- sum(rec_affil$records)
+affil_missing <- total_records - affil_listed
+alt_affil <- if (nrow(rec_affil) > 0) paste0("Horizontal bar chart of consultation records by researcher role, ", rec_window_label, ": ",
+  paste(rec_affil$ucla_affiliation, rec_affil$records, collapse = "; "), ".") else "Affiliation chart (data not loaded)"
 ```
 
-### By Affiliation
-
-```{r chart_affil, echo=FALSE}
-if (data_loaded) {
-  affil_counts <- rec_affil |>
-    rename(Affiliation = ucla_affiliation, Consultations = records)
-
-  sd_affil <- SharedData$new(affil_counts)
-
-  filter_checkbox("affil_filter", "Filter affiliation:", sd_affil, ~Affiliation)
-
-  bscols(
-    plot_ly(sd_affil, x = ~Consultations, y = ~reorder(Affiliation, Consultations),
-            type = "bar", orientation = "h",
-            marker = list(color = "#005587"),
-            hovertemplate = "<b>%{y}</b><br>Consultations: %{x}<extra></extra>") |>
-      layout(yaxis = list(title = ""),
-             xaxis = list(title = "Consultations"),
-             margin = list(l = 5)),
-    DT::datatable(sd_affil, rownames = FALSE,
-                  colnames = c("Affiliation", "Consultations"),
-                  options = list(pageLength = 10, dom = "t"),
-                  caption = paste0("Affiliations, consultation records file, ", rec_window_label, ".", suppressed_note(rec_window$suppressed_affiliations, "affiliations")))
-  )
-} else { no_data_msg() }
-```
-
-### By Team
-
-```{r chart_group, echo=FALSE, fig.alt=alt_group}
-if (data_loaded) {
-  rec_team |>
-    rename(n = records) |>
-    ggplot(aes(x = group, y = n, fill = group)) +
-    geom_col() +
-    scale_fill_manual(values = c("DSC" = "#003B5C", "Datasquad" = "#FFB81C")) +
-    labs(x = NULL, y = "Consultations") +
+```{r chart_affil, echo=FALSE, fig.height=3.2, fig.alt=alt_affil}
+if (data_loaded && nrow(rec_affil) > 0) {
+  rec_affil |>
+    mutate(role = str_wrap(ucla_affiliation, 24),
+           role = factor(role, levels = rev(role))) |>
+    ggplot(aes(x = records, y = role)) +
+    geom_col(fill = "#2774AE", width = 0.7) +
+    geom_text(aes(label = records), hjust = -0.2, size = 3.5) +
+    scale_x_continuous(expand = expansion(mult = c(0, 0.12))) +
+    labs(x = "Consultation records", y = NULL) +
     theme_minimal() +
-    theme(legend.position = "none")
+    theme(panel.grid.major.y = element_blank(), panel.grid.minor = element_blank())
 } else { no_data_msg() }
 ```
 
-:::
+Same records file, `r rec_window_label`. `r if (data_loaded) sprintf("%s of the %s records have no role recorded and are not shown. That is missing information, separate from the small roles combined into one row.", comma(affil_missing), comma(total_records)) else ""`
 
-## Project Work & Task Metrics
+## Student project work
 
-These metrics represent follow-on project work assigned to DataSquad members. They are **not** direct consultations.
-
-::: {.panel-tabset}
-
-### Summary
-
-```{r task_table, echo=FALSE}
-if (nrow(audit_summary) == 0) {
-  cat("*Run `Rscript src/etl/consultation_audit_summary.R` to generate task metrics.*\n")
-} else {
-  audit_summary |>
-    filter(metric_id %in% c(
-      "direct_consults_combined_deduped_count",
-      "datasquad_trello_task_cards_reportable_count",
-      "datasquad_trello_task_activity_comment_weighted_reportable_count",
-      "datasquad_total_with_trello_reportable_count"
-    )) |>
-    transmute(
-      Metric = recode(metric_id,
-        direct_consults_combined_deduped_count =
-          "Direct Consultations (Combined, Deduped)",
-        datasquad_trello_task_cards_reportable_count =
-          "DataSquad Task Cards (Reportable)",
-        datasquad_trello_task_activity_comment_weighted_reportable_count =
-          "DataSquad Task Activity (Reportable, Comment-Weighted)",
-        datasquad_total_with_trello_reportable_count =
-          "DataSquad Direct + Reportable Task Activity"
-      ),
-      Value = comma(value)
-    ) |>
-    knitr::kable(align = c("l", "r"))
-}
+```{r task_setup, include=FALSE}
+task_cards <- kpi("datasquad_trello_task_cards_reportable_count")
 ```
 
-### Task Activity by Year
+DataSquad students documented **`r task_cards` project tasks** from 2023 to 2025. A task is one piece of follow-on project work tracked on the team's Trello board, such as cleaning a dataset, writing code, or preparing a map, after a consultation turned into a project. Tasks are not consultations and are not added to the consultation counts. Tracking on Trello became routine in 2023, so earlier project work is not counted.
 
-```{r task_year, echo=FALSE, fig.alt="Two bar charts of DataSquad project work logged in Trello by year, 2023 to 2025, reportable tasks only: task cards and comment-weighted activity. Values are labeled on each bar. Trello tracking began in 2023, so early years undercount."}
-if (nrow(audit_task_mode) == 0) {
-  cat("*Task-mode audit file not found.*\n")
-} else {
-  audit_task_mode |>
-    filter(task_metric %in% c("trello_reportable_task_cards", "trello_reportable_comment_weighted")) |>
-    mutate(metric_family = if_else(grepl("cards", task_metric),
-                                   "Reportable task cards", "Comment-weighted activity")) |>
-    ggplot(aes(x = factor(year), y = n)) +
-    geom_col(fill = "#2774AE", width = 0.6) +
-    geom_text(aes(label = n), vjust = -0.4, size = 3.5) +
-    facet_wrap(~metric_family, scales = "free_y") +
-    scale_y_continuous(expand = expansion(mult = c(0, 0.12))) +
-    labs(
-      x = NULL, y = NULL,
-      title = "DataSquad project work logged in Trello (tracking began in 2023)",
-      caption = "Reportable tasks only (excludes backlog, admin, and archived lists). Growth from 2023 partly reflects adoption of Trello tracking."
-    ) +
-    theme_minimal() +
-    theme(panel.grid.major.x = element_blank(), panel.grid.minor = element_blank())
-}
-```
+## What this work supported {#research-impact}
 
-:::
+Some consultations became multi-year collaborations. Two examples, with full accounts on the [Research enabled page](research.qmd#three-collaborations):
 
-## Research Impact
+- [Police helicopter surveillance](research.qmd#police-helicopter-surveillance-carceral-ecologies): DSC staff and DataSquad students cleaned and joined a lab's flight data, and one data-loading step went from about 318 minutes to about 2.
+- [Deaths in custody](research.qmd#deaths-in-custody-biocritical-studies-lab): DataSquad students merged and reconciled several sources into a national dataset the lab now maintains and updates itself.
 
-These are illustrative cases selected to show different forms of contribution, not a representative sample of DSC and DataSquad's work. The full accounts, with sources, are on the [Research enabled page](research.qmd#three-collaborations). They show how support extends into sustained technical collaboration beyond single consultations.
+## Sources and counting rules {#sources}
 
-```{r impact, echo=FALSE, results='asis'}
-if (nrow(impact_case_studies) == 0) {
-  cat("*Add rows to `data/processed/consultations/impact_case_studies.csv` to render case studies here.*\n")
-} else {
-  impact_case_studies |>
-    filter(coalesce(include_in_dashboard, TRUE)) |>
-    arrange(display_order) |>
-    pwalk(function(case_title, partners, summary,
-                   measurable_outcomes, impact_signals, ...) {
-      cat("### ", case_title, "\n\n", sep = "")
-      if (!is.na(partners) && partners != "")
-        cat("**Partners:** ", partners, "\n\n", sep = "")
-      if (!is.na(summary) && summary != "")
-        cat(summary, "\n\n")
-      if (!is.na(measurable_outcomes) && measurable_outcomes != "")
-        cat("**Measurable outcomes:** ", measurable_outcomes, "\n\n", sep = "")
-      if (!is.na(impact_signals) && impact_signals != "")
-        cat("**Recognition:** ", impact_signals, "\n\n", sep = "")
-    })
-}
-```
+Three different record sets appear on this page. They are kept separate because they count different things:
 
-```{r qualitative, echo=FALSE}
-if (nrow(qual_highlights) > 0) {
-  display_cols <- c("period_label", "workstream", "audience",
-                    "request_theme", "work_performed", "outcome")
-  qual_highlights |>
-    select(all_of(intersect(display_cols, names(qual_highlights)))) |>
-    rename_with(~str_replace_all(., "_", " ")) |>
-    knitr::kable(align = "l")
-}
-```
+| Record set | Window | Used for |
+|---|---|---|
+| Scheduled consultation series | 2017 to September 2026 | The headline count and the annual chart |
+| Consultation records file | `r rec_window_label` | Department and researcher-role breakdowns (includes DataSquad walk-in sign-ins) |
+| 2023-2025 consultation audit | January 2023 to 2025 | Checking the records; project task counts |
 
----
+::: {.callout-note collapse="true" title="The 2023-2025 consultation audit"}
+The audit combined DSC's LibInsight appointments with DataSquad's LibInsight appointments and walk-in sign-ins, excluded canceled appointments, and removed likely duplicate manual logs. It found **`r kpi("direct_consults_combined_deduped_count")` direct consultations** (claim-register #7). It is a check on the records, not a second headline: its definition and window differ from the series above.
 
-**See also:** [Instruction <span aria-hidden="true">→</span>](instruction.qmd) workshop attendance · [Infrastructure <span aria-hidden="true">→</span>](infrastructure.qmd) Dataverse and AWS metrics · [About & methodology](about.qmd)
-
----
-
-::: {.callout-note collapse="true" .data-notes title="Data notes"}
-- **Direct consultations**: LibInsight scheduled exports + manual logs (DSC staff); DataSquad walk-in sign-in forms
-- **Canceled appointments** excluded from all direct consultation counts
-- **Deduplication**: manual LibInsight logs matched against scheduled exports using a same-provider/same-minute heuristic; ~`r kpi("libinsight_manual_logs_heuristic_duplicate_count")` duplicates removed
-- **Task metrics** (Trello cards, comment-weighted activity) are shown separately and are not comparable to consultation counts
-- **Reportable filter**: excludes `Inbox`, `Future Projects/Ideas`, `Team Info` lists; includes archived completed cards
-- **YoY comparisons** (2023 → 2024): direct consultation decline reflects shifting data sources and intake channels, not necessarily service volume; task card growth partly reflects how Trello use grew after 2023, not only more work
-- Full rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
-:::
+- DSC staff appointments (LibInsight): `r kpi("dsc_direct_consults_libinsights_count")`
+- DataSquad consultations (LibInsight and sign-ins): `r kpi("datasquad_direct_consults_count")`
+- A narrower combined count using fewer DataSquad sources: `r kpi("direct_consults_dsc_plus_datasquad_count")`. The 741 total is larger because it includes more DataSquad sign-in sources; the parts above do not sum to it.
+- Likely duplicate manual logs removed: about `r kpi("libinsight_manual_logs_heuristic_duplicate_count")` (same provider, same minute)
 
 ```{r coverage, echo=FALSE}
 if (nrow(audit_coverage) > 0) {
@@ -387,19 +271,27 @@ if (nrow(audit_coverage) > 0) {
       Source        = source,
       `Record type` = subtype,
       Rows          = comma(rows),
-      `Date range`  = paste(format(min_date, "%Y-%m-%d"), "\u2013",
+      `Date range`  = paste(format(min_date, "%Y-%m-%d"), "–",
                             format(max_date, "%Y-%m-%d"))
     ) |>
-    DT::datatable(
-      rownames = FALSE,
-      options  = list(pageLength = 10, dom = "tp"),
-      caption  = "Source coverage: rows and date ranges per data system"
-    )
+    knitr::kable(caption = "Source coverage: rows and date ranges per data system")
 }
 ```
+:::
+
+::: {.callout-note collapse="true" title="Task-tracking methods"}
+- Documented project tasks are Trello cards on the DataSquad board, excluding the `Inbox`, `Future Projects/Ideas`, and `Team Info` lists and including archived completed cards. All cards, including those lists: `r kpi("datasquad_trello_task_cards_all_count")`.
+- The audit also weighted each card by its comments (`r kpi("datasquad_trello_task_activity_comment_weighted_reportable_count")` activity rows). That measure is kept for internal checks and is not comparable to consultation counts.
+- Growth in task counts after 2023 partly reflects wider use of Trello, not only more work.
+- Full rules: [Metrics Governance](metrics-governance.md) · [About & methodology](about.qmd)
+:::
+
+---
+
+**See also:** [Instruction <span aria-hidden="true">→</span>](instruction.qmd) workshop attendance · [Infrastructure <span aria-hidden="true">→</span>](infrastructure.qmd) Dataverse and AWS metrics · [About & methodology](about.qmd)
 
 ::: {.callout-note collapse="true" title="Cite this page"}
-UCLA Library Data Science Center. (`r year(Sys.Date())`). *Consulting Statistics*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/consulting.html>
+UCLA Library Data Science Center. (`r year(Sys.Date())`). *Consulting and project support*. Retrieved from <https://ucla-data-science-center.github.io/dsc-stats-reports/consulting.html>
 :::
 
 *Last rendered: `r format(Sys.Date(), "%B %d, %Y")`*
