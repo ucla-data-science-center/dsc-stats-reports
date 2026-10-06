@@ -58,8 +58,12 @@ website:
             text: Infrastructure
       - href: about.qmd
         text: About
-      - href: https://ucla-data-science-center.github.io/ssda-dsc-history/history.html
-        text: History
+      - text: "Archive history"
+        menu:
+          - text: "The history, 1961 to 2026"
+            href: https://ucla-data-science-center.github.io/ssda-dsc-history/history.html
+          - text: "Evidence companion"
+            href: https://ucla-data-science-center.github.io/ssda-dsc-history/history-companion.html
     right:
       - icon: github
         href: https://github.com/ucla-data-science-center/dsc-stats-reports
