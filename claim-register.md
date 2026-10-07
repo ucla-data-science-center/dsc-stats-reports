@@ -259,7 +259,7 @@ last verification date should not be reused until re-checked.
 
 ## 23. GIS librarian position
 
-- **Approved wording**: "DSC's GIS librarian left for a faculty position in August 2024; the position was never refilled and was later cut."
-- **Not approved**: "UCLA cut the GIS librarian position in 2024" (the departure came first; the cut followed a period of vacancy).
-- **Source**: the director, 2026-09-28.
-- **Last verified**: 2026-09-28.
+- **Approved wording**: "DSC's GIS librarian left for a faculty position in August 2024; the position was not refilled until the Library posted a new Mercator Geospatial Information and Maps Librarian position on October 5, 2026."
+- **Not approved**: "never refilled and was later cut" (superseded; the Library posted JPF11374 on 2026-10-05). "UCLA cut the GIS librarian position in 2024" (the departure came first, then a vacancy).
+- **Source**: the director, 2026-09-28; Library job posting JPF11374 (https://recruit.apo.ucla.edu/JPF11374), opened and accessed 2026-10-05.
+- **Last verified**: 2026-10-07.
