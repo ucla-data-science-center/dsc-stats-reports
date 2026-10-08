@@ -1,10 +1,10 @@
-[DSC's GIS librarian left in August 2024 and the position was not refilled until the Library posted a new [Mercator Geospatial Information and Maps Librarian](https://recruit.apo.ucla.edu/JPF11374) position on October 5, 2026. GIS requests continued.]{.lede}
+[DSC's Spatial Data Science Librarian left in August 2024. The Library posted a new [Mercator Geospatial Information and Maps Librarian](https://recruit.apo.ucla.edu/JPF11374) position on October 5, 2026. How that position will cover the former role's responsibilities remains a question. GIS requests continued.]{.lede}
 
 Geography was DSC's single largest departmental workshop audience from 2020 to April 2024: 64 of the
 {{< var instruction.total_attendees >}} UCLA-affiliated workshop attendance records from 2020 to April 2024,
 more than any other department over that period as a whole.
 
-Until they left for a faculty position in August 2024, DSC's GIS librarian handled
+Until they left for a faculty position in August 2024, DSC's Spatial Data Science Librarian handled
 {{< var gis.consult_low >}} to {{< var gis.consult_high >}} booked consultations a
 year (2021 to 2023) across Urban Planning, Public Affairs, Environment and
 Sustainability, and Digital Humanities. They also co-taught a graduate Public Health

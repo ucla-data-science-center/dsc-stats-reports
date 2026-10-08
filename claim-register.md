@@ -257,9 +257,9 @@ last verification date should not be reused until re-checked.
 - **Source**: the director's firsthand account, 2026-09-28; fund name and number from the 2014 transfer agreement. Years of Powell's AWS coverage and the Library's added amounts not yet reconstructed from transaction records.
 - **Last verified**: 2026-09-28.
 
-## 23. GIS librarian position
+## 23. Spatial Data Science Librarian position
 
-- **Approved wording**: "DSC's GIS librarian left for a faculty position in August 2024; the position was not refilled until the Library posted a new Mercator Geospatial Information and Maps Librarian position on October 5, 2026."
+- **Approved wording**: "DSC's Spatial Data Science Librarian left for a faculty position in August 2024. The Library posted a new Mercator Geospatial Information and Maps Librarian position on October 5, 2026. How that position will cover the former role's responsibilities remains a question."
 - **Not approved**: "never refilled and was later cut" (superseded; the Library posted JPF11374 on 2026-10-05). "UCLA cut the GIS librarian position in 2024" (the departure came first, then a vacancy).
 - **Source**: the director, 2026-09-28; Library job posting JPF11374 (https://recruit.apo.ucla.edu/JPF11374), opened and accessed 2026-10-05.
-- **Last verified**: 2026-10-07.
+- **Last verified**: 2026-10-08. (The role's title is Spatial Data Science Librarian per the Library's 2019 public posting, https://iassistdata.org/jobs-repository/2019-08-06-00614/; the posting is not a filled position.)
