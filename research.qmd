@@ -77,7 +77,7 @@ if (nrow(series) > 0 && nrow(capacity) > 0) {
 
 Events marked on the chart:
 
-- **A, August 2024:** DSC's GIS librarian left for a faculty position; the position was not refilled until the Library posted a new [Mercator Geospatial Information and Maps Librarian](https://recruit.apo.ucla.edu/JPF11374) position on October 5, 2026. GIS requests continued.
+- **A, August 2024:** DSC's Spatial Data Science Librarian left for a faculty position. The Library posted a new [Mercator Geospatial Information and Maps Librarian](https://recruit.apo.ucla.edu/JPF11374) position on October 5, 2026. How that position will cover the former role's responsibilities remains a question. GIS requests continued.
 - **B, mid-2024:** Calendly ended and no scheduling system replaced it, so most consultations went unrecorded.
 - **C, May 2025:** LibCal adopted; recording resumed.
 - **D, July to October 2025:** student hiring under campus review; one student remained on payroll.
