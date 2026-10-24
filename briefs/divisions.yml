@@ -28,6 +28,41 @@ humanities:
         Saigon to campus.
       supplied: "3D equipment, methods, and staff time"
       link: "https://humanities.ucla.edu/news/digital-archaeology-day-kelly-nguyen/"
+    - title: "Paris Past and Present and Enriched Timelines (Art History)"
+      claim: 0
+      text: >-
+        Art History professor Meredith Cohen directs two funded digital projects. On her past
+        two research trips she used DSC's 3D documentation expertise and a 3D terrestrial laser
+        scanner Doug Daniels procured. In her 1 September note to you, she called these services
+        crucial to her work.
+      supplied: "3D scanning equipment and technical expertise for documentation and analysis"
+      link: "https://paris.cdh.ucla.edu/"
+    # claim: 0 = not yet in the claim register. Written from Doug Daniels's Slack text (2026-10-23).
+    # Outside sources found (opened 2026-10-23): the Sasanian Epigraphic Collection page (silicone imprints,
+    # "only complete holding", 3rd and 4th century C.E.); pourdavoud.ucla.edu/people/m-rahim-shayegan/
+    # (Professor, Amuzegar Chair, NELC; founding director of the Pourdavoud Institute), also confirmed on his
+    # department page nelc.ucla.edu/person/m-rahim-shayegan/ ("Professor, Amuzegar Chair in Ancient Iranian;
+    # Director, Iranian Studies; Director, Pourdavoud Institute"); and
+    # pourdavoud.ucla.edu/people/jeffrey-newman/ (Research Associate, PhD Egyptology UCLA 2025, works on
+    # 3D imaging and cultural heritage preservation). NOT sourced outside Doug: the IDEA name and that these
+    # two founded it, the 3D scanning of the molds by DSC, the storage plan, and the statement about
+    # setbacks. Neither people page mentions IDEA, the molds, or DSC. Confirm with Doug or the Pourdavoud
+    # Institute before this goes to the dean.
+    - title: "The Iranian Digital Epigraphic Archive and the Sasanian molds (Pourdavoud Institute)"
+      claim: 0
+      text: >-
+        The Iranian Digital Epigraphic Archive (IDEA) was founded by Prof. Rahim Shayegan, the
+        Pourdavoud Institute's director, and Dr. Jeffrey Newman, a research associate there, to
+        give the study of Iranian epigraphy a digital platform. Its current work is digitizing and publishing a corpus of silicone
+        molds housed at UCLA, which UCLA's Islamic Studies pages call the only complete holding
+        of Sasanian royal and private inscriptions of the third and fourth centuries C.E.
+        Because of the ongoing conflict in Iran, the original inscriptions are largely
+        inaccessible and threatened. Doug Daniels of DSC provided the equipment and training to
+        3D scan the molds and make usable digital facsimiles, and helped plan long-term storage
+        and dissemination of the project's digital data. He says the project would face
+        significant setbacks without DSC.
+      supplied: "3D scanning equipment and training, digital facsimiles, and a plan for long-term storage and dissemination"
+      link: "https://islamicstudies.ucla.edu/resource/sasanian-epigraphic-collection/"
 social_sciences:
   label: "UCLA College, Division of Social Sciences"
   short: "Social Sciences"
@@ -50,3 +85,77 @@ social_sciences:
         for restricted research data that DSC piloted.
       supplied: "Data engineering and governed access"
       link: "https://ucla-data-science-center.github.io/dsc-stats-reports/investments.html"
+# Cotsen Institute of Archaeology brief (not a college division). Use is counted by department, not by
+# parent division. Drafted 2026-10-23 from the Cotsen letter facts (strategy/emails/2026-10-20_deleon-cotsen-letter-facts_*.md
+# in the reorg workspace) and the Dataverse audit. Items marked CONFIRM are not sourced outside Doug or Tim.
+cotsen:
+  label: "UCLA Cotsen Institute of Archaeology"
+  short: "Cotsen"
+  noun: "archaeology at Cotsen"
+  faculty: "Cotsen researchers"
+  unit_word: "Institute"
+  # Workshop departments that map to Cotsen: Anthropology, Archaeology, Conservation, and the Institute itself.
+  department_pattern: "^(Anthropology|Archaeology|Conservation of Archaeological and Ethnographic Materials|Cotsen Institute of Archaeology)$"
+  examples:
+    # CONFIRM the count with Deidre Brin. 157 = datasets whose own record cites a Cotsen Institute Press
+    # publication (full harvest of the public API, 2026-10-23); 116 were published in 2021, 41 in 2023-2025.
+    - title: "Cotsen Press data in UCLA Dataverse"
+      claim: 0
+      text: >-
+        UCLA Dataverse holds the supplementary data for Cotsen Institute Press publications:
+        excavation records, artifact catalogs, and measurements for the Monumenta Archaeologica
+        series and the Cotsen Advanced Seminars, shared through the Press's Digital Information
+        Gateway. As of 23 October 2026, 157 datasets cite a Cotsen Institute Press publication in
+        their own records, 116 published in 2021 and 41 since. They include Paso de la Amada,
+        the Archaeology of Grotta Scaloria, The History and Archaeology of Jaffa 2, and Bikeri.
+        The Press also uses eScholarship for the books themselves.
+      supplied: "Repository hosting, persistent identifiers, preservation, and support for depositors"
+      link: "https://dig.ucla.edu/"
+    # Doug Daniels's statements. The cuneiform scanning is supported by his 2020 IS241 paper (reorg workspace
+    # corpus/data/2020-03-17-is241-3d-cuneiform-preservation-needs-assessment.md): the Library's DIIT team scanned all three
+    # Special Collections cuneiform collections with an Artec Space Spider. Per Tim, this was a DSC service (DSC was part of
+    # DIIT until 2024; the Lux Lab joined DSC in 2020), so it is attributed to DSC. That collection is the Library's, named for the
+    # donor, not a Cotsen Institute holding. Scanning at Cotsen and the Fowler is still only Doug's word.
+    - title: "3D scanning and the point cloud server"
+      claim: 0
+      text: >-
+        Doug Daniels, DSC's emerging technologies librarian, supports the full 3D research
+        workflow: choosing capture methods, scanning, processing and troubleshooting the data,
+        and preparing models for analysis, publication, teaching, and printing. His work covers
+        objects, architecture, and landscapes through structured-light scanning, photogrammetry,
+        and LiDAR, including scanning at Cotsen and the Fowler Museum and the 3D scanning of the
+        Library's Lloyd E. Cotsen Cuneiform Tablets Collection (215 tablets). Models are published on pointcloud.ucla.edu, a server DSC
+        built and runs, so collaborators and students can open large datasets without specialist
+        software. Scanning is staff-operated project work, not a borrowing program.
+      supplied: "3D capture, processing, publication, and hosting"
+      link: "https://www.pointcloud.ucla.edu/"
+    - title: "American Industry in Bikol (Archaeology)"
+      claim: 0
+      text: >-
+        Stephen Acabado, who chairs the Archaeology Interdepartmental Program, and graduate
+        student Robin Meyer-Lorey published "Manifest Destiny in Southeast Asia: Archaeology of
+        American Colonial Industry in the Philippines, 1898-1987" in American Antiquity (2024).
+        The project's data, including drone photographs, are in UCLA Dataverse.
+      supplied: "Repository hosting and persistent identifiers for the project's data"
+      link: "https://dataverse.ucla.edu/dataverse/americanindustrybikol"
+    # Role-only on purpose (10/15 decision): no student name, no field site, no grant. No public source link.
+    - title: "Drone surveys for a Cotsen doctoral student's fieldwork"
+      claim: 0
+      text: >-
+        The Library-owned drone kit, with LiDAR and photogrammetry payloads, was assembled by
+        Doug Daniels and lent to researchers across campus. Cotsen researchers were among its
+        heaviest users, including a Cotsen doctoral student's field survey, and a Cotsen
+        professor used it in teaching in Spring 2026. DSC processed the flight data and made it
+        viewable in a browser. The Library has announced that lending ends this fall; no plan
+        for the equipment or the projects that depend on it has been shared.
+      supplied: "Drone kit, flight data processing, and browser hosting"
+    # Nguyen's Cotsen link verified 2026-10-23: ioa.ucla.edu/node/1687 (her Cotsen page) and ioa.ucla.edu/node/1802
+    # (Refugee Material Culture Initiative: Faculty Director Kelly Nguyen; research affiliates include Doug Daniels).
+    - title: "Digital archaeology day (April 2026)"
+      claim: 20
+      text: >-
+        Kelly Nguyen (Classics), working with Doug Daniels, organized a digital archaeology day
+        that brought more than 50 Westminster High School students and more than 30 elders from
+        Little Saigon to campus.
+      supplied: "3D equipment, methods, and staff time"
+      link: "https://humanities.ucla.edu/news/digital-archaeology-day-kelly-nguyen/"

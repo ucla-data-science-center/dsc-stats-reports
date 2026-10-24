@@ -1,6 +1,6 @@
 ---
-title: "What the Data Science Center supplies to `r yaml::read_yaml('divisions.yml')[[params$division]]$short`"
-subtitle: "A brief for the dean, UCLA Library Data Science Center"
+title: "The Data Science Center and `r yaml::read_yaml('divisions.yml')[[params$division]]$short` research"
+subtitle: "Where Library data and 3D services meet your faculty's work"
 date: today
 params:
   division: humanities
@@ -22,6 +22,10 @@ source("../src/etl/suppression.R")
 
 div <- yaml::read_yaml("divisions.yml")[[params$division]]
 stopifnot(!is.null(div))
+# Optional per-entry fields: department_pattern (filter use by department, for a unit that is not a college division),
+# faculty, unit_word. Defaults keep the division briefs unchanged.
+faculty   <- div$faculty   %||% paste(div$short, "faculty")
+unit_word <- div$unit_word %||% "division"
 
 xwalk <- read_tsv("../data/reference/instruction/department_to_organizational_parent_v2.tsv",
                   show_col_types = FALSE) |>
@@ -32,7 +36,8 @@ load("../data/processed/instruction/ucla_workshops.rda")
 ws <- ucla_workshops |> left_join(xwalk, by = "standardized_department")
 ws_total  <- nrow(ws)
 ws_mapped <- sum(!is.na(ws$organizational_parent))
-ws_div    <- ws |> filter(grepl(div$parent_pattern, organizational_parent))
+ws_div    <- if (!is.null(div$department_pattern)) ws |> filter(grepl(div$department_pattern, standardized_department)) else
+             ws |> filter(grepl(div$parent_pattern, organizational_parent))
 ws_range  <- range(as.Date(ws$date), na.rm = TRUE)
 ws_depts  <- ws_div |> count(standardized_department, name = "n", sort = TRUE) |>
   suppress_small_cells("standardized_department", "n",
@@ -44,13 +49,16 @@ cons <- read_csv("../data/processed/consultations/public/consult_records_by_depa
   left_join(xwalk, by = c(department = "standardized_department"))
 cons_win <- read_csv("../data/processed/consultations/public/consult_records_window.csv",
                      show_col_types = FALSE)
-cons_div <- cons |> filter(grepl(div$parent_pattern, organizational_parent))
+cons_div <- if (!is.null(div$department_pattern)) cons |> filter(grepl(div$department_pattern, department)) else
+            cons |> filter(grepl(div$parent_pattern, organizational_parent))
 
 # Staff capacity (claim #17 and the home page)
 cap <- read_csv("../data/processed/canonical/service_capacity_by_year.csv", show_col_types = FALSE) |>
   mutate(fte = dsc_staff_fte + contributed_staff_fte) |> filter(!is.na(fte))
 fte_peak <- sprintf("%.1f", max(cap$fte))
 fte_now  <- sprintf("%.1f", cap$fte[which.max(cap$year)])
+# Doug's wording: "about 30%", not FTE numbers. Rounded to the nearest 5 percent.
+fte_drop <- round(100 * (1 - cap$fte[which.max(cap$year)] / max(cap$fte)) / 5) * 5
 
 hl <- read_csv("../data/processed/canonical/headline_aggregates.csv", show_col_types = FALSE)
 h  <- function(k) hl |> filter(metric_id == k) |> pull(display) |> first()
@@ -59,20 +67,20 @@ at_least <- function(n) if (n < 5) "fewer than 5" else paste("at least", comma(n
 comma <- scales::comma
 ```
 
-This brief shows what DSC supplies to research in `r div$noun`, what the division relies on that DSC runs for the whole campus, and the question a reorganization raises. The research belongs to the faculty and students named; DSC's part is stated in each case.
+This brief covers research in `r div$noun` that DSC has worked on, the campus services the `r unit_word` relies on, and one question the reorganization raises. The research belongs to the faculty and students named. DSC's part is stated each time.
 
-## Research DSC has supported
+## Research we have worked on
 
 ```{r examples, results='asis'}
 for (ex in div$examples) {
   cat("### ", ex$title, "\n\n", ex$text, "\n\n", sep = "")
-  cat("*What DSC supplied:* ", ex$supplied, ". [Source](", ex$link, ")\n\n", sep = "")
+  cat("*DSC's part:* ", ex$supplied, ".", if (!is.null(ex$link)) paste0(" [Source](", ex$link, ")"), "\n\n", sep = "")
 }
 ```
 
-## Documented use by the division
+## Documented use by the `r unit_word`
 
-These counts cover only records whose department is known and maps to the division. Records with no department are not counted anywhere, so these are floors, not the division's full use.
+These counts cover only records whose department is known and maps to the `r unit_word`. Records with no department are not counted anywhere, so these are floors, not the `r unit_word`'s full use.
 
 - **Workshops:** `r at_least(nrow(ws_div))` attendance records from `r div$short` departments, `r mon(ws_range[1])` to `r mon(ws_range[2])`. Across UCLA, only about half of attendance records in that window have a department that maps to a school or division (838 of 1,575, claim #6).
 - **Consultations:** `r at_least(sum(cons_div$records))` consultation records from `r div$short` departments, `r mon(cons_win$first_date)` to `r mon(cons_win$last_date)`. Departments with fewer than 5 records are not published, so the true figure is likely higher.
@@ -86,19 +94,27 @@ if (nrow(ws_depts) > 0) {
 
 `r suppression_note(ws_depts, "departments")`
 
-## What the division relies on that DSC runs for all of UCLA
+## Services `r div$short` shares with all of UCLA
 
-These are campus services available to `r div$noun`. They are not evidence that any particular department uses them.
+Any `r div$short` researcher can use these. They are not evidence that a particular department does.
 
 - **UCLA Dataverse**, the university's research-data repository: `r h("dataverse_datasets_released")` released datasets (Feb 2026).
 - **Governed access to restricted data** through Redivis, including the national voter file.
-- **3D capture and hosting** on pointcloud.ucla.edu.
+- **3D capture, publication, and hosting** on pointcloud.ucla.edu.
 - **Workshops and consultation** open to every UCLA researcher: `r h("instruction_sessions_lifetime")` workshop sessions since 2017, and at least `r h("people_reached_confirmed_ucla")` confirmed UCLA researchers reached campus-wide (not broken down by division).
 - **DataSquad**, the student consulting team that works on faculty projects.
 
-## The question for the division
+## The question for the `r unit_word`
 
-DSC's staff time fell from `r fte_peak` FTE in 2022-23 to `r fte_now` in 2025-26. The work above does not stop needing someone when a unit changes shape. **Who will maintain access, technical support, and stewardship for these functions in `r div$noun`, and with what capacity?**
+DSC's staff capacity fell by about `r fte_drop`% between 2022-23 and 2025-26. This work still needs someone when a unit changes shape. **Who will maintain access, technical support, and stewardship for these functions in `r div$noun`, and with what capacity?**
+
+## What would help
+
+Three things would help. None asks the Library to reverse the reorganization.
+
+1. A continuity briefing for `r faculty` on which 3D, data, and repository services continue, who staffs them, and where to ask.
+2. A named accountable owner for the methods, preservation, and data workflows that cross Library teams.
+3. Review milestones, so the `r unit_word` can see in a few months whether capacity held.
 
 ---
 
