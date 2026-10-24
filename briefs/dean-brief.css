@@ -1,0 +1,26 @@
+/* Layout for the dean and institute briefs only. Loaded after ../styles-dean-update.css so the shared
+   stylesheet (used by the Social Sciences handout) is unchanged. 2026-10-24 legibility review. */
+body { max-width: 720px; font-size: 1.05rem; }
+h3 { font-size: 1.12rem; font-weight: 700; }
+.author, p.author { margin: 0.2rem 0 0; font-size: 0.95rem; color: #444; }
+.in-brief {
+  background: var(--paper-tint);
+  border-left: 4px solid var(--ucla-blue-deep);
+  padding: 0.6rem 1.1rem 0.8rem;
+  margin: 1.1rem 0 1.5rem;
+}
+.in-brief h2 { margin-top: 0.2rem; border: 0; font-size: 1.15rem; }
+.in-brief ul { margin: 0.3rem 0 0; padding-left: 1.1rem; }
+.in-brief li { margin-bottom: 0.4rem; }
+.research-entry { margin-bottom: 1.2rem; }
+.research-entry h3 { margin-top: 0.8rem; }
+.research-entry p { margin: 0.3rem 0; }
+.table-note { font-size: 0.85rem; color: #555; margin-top: 0.3rem; }
+.evidence { margin-top: 2rem; }
+@media print {
+  body { max-width: 100%; font-size: 10.5pt; line-height: 1.4; }
+  h2, h3 { break-after: avoid; }
+  .in-brief, .research-entry, table { break-inside: avoid; }
+  .evidence { break-before: page; }
+  a { color: inherit; }
+}

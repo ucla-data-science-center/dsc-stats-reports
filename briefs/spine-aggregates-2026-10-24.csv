@@ -1,0 +1,18 @@
+division,row_type,item,events,people,first_year,last_year
+all,coverage,events_total,3867,NULL,2017,2026
+all,coverage,events_with_unit,2696,NULL,2018,2026
+all,coverage,ucla_email_events_total,2567,NULL,2017,2026
+all,coverage,ucla_email_events_with_unit,1956,NULL,2018,2026
+cotsen,kind,attendance,19,10,2020,2021
+cotsen,kind,consult,33,14,2020,2025
+cotsen,unit,Anthropology,28,NULL,NULL,NULL
+cotsen,unit,Archaeology,13,NULL,NULL,NULL
+cotsen,unit,Cotsen Institute of Archaeology,9,NULL,NULL,NULL
+humanities,kind,attendance,46,23,2020,2025
+humanities,kind,consult,119,26,2019,2025
+humanities,unit,Asian Languages & Cultures,22,NULL,NULL,NULL
+humanities,unit,Comparative Literature,35,NULL,NULL,NULL
+humanities,unit,Digital Humanities,54,NULL,NULL,NULL
+humanities,unit,Humanities,17,NULL,NULL,NULL
+humanities,unit,Linguistics,8,NULL,NULL,NULL
+humanities,unit,Spanish and Portuguese,17,NULL,NULL,NULL
