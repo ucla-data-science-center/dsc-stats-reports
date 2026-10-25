@@ -44,49 +44,78 @@ Use it with `project-registry.yaml` and repo-local documentation to stay aligned
 - Report what changed, why, and any unresolved risks.
 - Do not move, rename, or delete repositories unless explicitly instructed.
 
-<!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:ca08a54f -->
-## Beads Issue Tracker
+---
 
-This project uses **bd (beads)** for issue tracking. Run `bd prime` to see full workflow context and commands.
+## Runbook (from the former CLAUDE.md)
 
-### Quick Reference
+### Build & preview commands
 
 ```bash
-bd ready              # Find available work
-bd show <id>          # View issue details
-bd update <id> --claim  # Claim work
-bd close <id>         # Complete work
+pixi run render      # Render all QMD pages → docs/
+pixi run preview     # Live preview with auto-reload
+
+## ETL tasks (fetch fresh data)
+pixi run update-dataverse      # Fetch Dataverse metrics CSV
+pixi run update-dataverse-impact  # Fetch detailed Dataverse impact data
+pixi run clean-aws             # Fetch AWS cost data
+pixi run update-jira           # Fetch Jira Service Management tickets
 ```
 
-### Rules
+**Critical**: Always use `pixi run render`, never bare `quarto render`. On macOS/aarch64, the pixi task overrides `QUARTO_*` env vars to use system Quarto (`/Applications/quarto/`) because pixi's bundled aarch64 deno binary is broken.
 
-- Use `bd` for ALL task tracking — do NOT use TodoWrite, TaskCreate, or markdown TODO lists
-- Run `bd prime` for detailed command reference and session close protocol
-- Use `bd remember` for persistent knowledge — do NOT use MEMORY.md files
+### Architecture
 
-## Session Completion
+**Static Quarto website** → `docs/` → GitHub Pages (auto-deployed on push to `main` via `.github/workflows/publish.yml`)
 
-**When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until `git push` succeeds.
+### Report pages (dual-engine)
 
-**MANDATORY WORKFLOW:**
+| File | Engine | Data sources |
+|------|--------|-------------|
+| `index.qmd` | R/knitr | `consultation_audit_2023_2025_summary_tagged.csv`, `*_by_year_source.csv` |
+| `consulting.qmd` | R/knitr | same audit CSVs + `dsc_consult_merged.rds` |
+| `instruction.qmd` | R/knitr | `data/processed/instruction/ucla_workshops.rda` |
+| `infrastructure.qmd` | Python/jupyter | AWS Cost Explorer API + CloudWatch + Dataverse API + CSVs |
+| `about.qmd` | Markdown | static |
+| `metrics-governance.md` | Markdown | published as site page |
 
-1. **File issues for remaining work** - Create issues for anything that needs follow-up
-2. **Run quality gates** (if code changed) - Tests, linters, builds
-3. **Update issue status** - Close finished work, update in-progress items
-4. **PUSH TO REMOTE** - This is MANDATORY:
-   ```bash
-   git pull --rebase
-   bd dolt push
-   git push
-   git status  # MUST show "up to date with origin"
-   ```
-5. **Clean up** - Clear stashes, prune remote branches
-6. **Verify** - All changes committed AND pushed
-7. **Hand off** - Provide context for next session
+R pages use tidyverse/ggplot2/DT. The Python page (`infrastructure.qmd`) uses pandas/matplotlib/boto3 with graceful fallback to CSV when AWS credentials are absent.
 
-**CRITICAL RULES:**
-- Work is NOT complete until `git push` succeeds
-- NEVER stop before pushing - that leaves work stranded locally
-- NEVER say "ready to push when you are" - YOU must push
-- If push fails, resolve and retry until it succeeds
-<!-- END BEADS INTEGRATION -->
+### ETL pipeline (`src/etl/`)
+
+- `aws_processing.py` — AWS Cost Explorer + CloudWatch S3 metrics (boto3); auth via `AWS_ACCESS_KEY_ID`/`AWS_SECRET_ACCESS_KEY` env vars
+- `jira_jsm.py` — Jira Service Management export; auth via `JIRA_EMAIL`/`JIRA_API_TOKEN`
+- `dataverse_metrics.py` / `dataverse_impact.py` — UCLA Dataverse API; auth via `DATAVERSE_TOKEN`
+- R scripts in `src/etl/` produce the processed CSVs/RDS files consumed by QMD pages
+
+Credentials go in `.env` (gitignored); GitHub Actions secrets supply them in CI.
+
+### Key processed data files
+
+```
+data/processed/consultations/
+  consultation_audit_2023_2025_summary_tagged.csv   # KPI values (metric_id/value pairs)
+  consultation_audit_2023_2025_by_year_source.csv   # YoY by data source
+  consultation_audit_2023_2025_by_year_task_mode.csv
+  consultation_audit_source_coverage.csv            # date ranges per source
+  dsc_consult_merged.rds                            # full consult records (may be absent → graceful fallback)
+data/processed/instruction/
+  ucla_workshops.rda                                # workshop attendance records
+data/raw/infrastructure/
+  datasets_files_published_monthly.csv             # Dataverse cumulative metrics
+  AWS_Costs/*.csv                                  # monthly cost exports (fallback)
+```
+
+### Styling
+
+`styles.css` implements UCLA branding (blue `#2774ae`, gold `#ffd100`). Color contrast ratios are documented in comments — do not lighten UCLA blue (contrast 4.79:1 is at AA minimum). Dashboard is WCAG 2.1 AA compliant; all chart images require alt text.
+
+### Two known unfixable WCAG issues (Quarto framework bugs)
+
+- Duplicate IDs `quarto-text-highlighting-styles` / `quarto-bootstrap` on all pages
+- GitHub nav icon `<a>` has no accessible name (aria-label on child `<i>`, not `<a>`)
+
+### Environment notes
+
+- Symlink `/Users/timdennis/projects/dsc-stats-reports` → this repo fixes conda RPATH issues baked into pixi env
+- `pixi.lock` is committed; do not run `pixi install` manually unless dependencies changed in `pixi.toml`
+- `docs/` is committed to version control (enables manual GitHub Pages push without CI)
