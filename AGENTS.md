@@ -1,60 +1,16 @@
-# AGENTS.md
+# dsc-stats-reports
 
-## Purpose
-This file provides starter operating guidance for AI agents working on this project.
-Use it with `project-registry.yaml` and repo-local documentation to stay aligned with canonical project context.
+Statistics dashboard for the UCLA Library Data Science Center. Quarto site built from R and Python pipelines. Registry key: `dsc_stats_reporting`. Shared repo: branch and PR.
 
-## Canonical Repository
-- Project key: `dsc_stats_reporting`
-- Canonical repository path: `/Users/timdennis/projects/dsc-stats/dsc-stats-reports`
-- Status: active
+Tasks live in the hub note (`projctx task ... dsc_stats_reporting`). Beads (`bd`) is no longer used here.
 
-## Context Loading Order
-1. `~/projects/project-registry.yaml` for canonical project metadata
-2. Repo-local `GEMINI.md` (agent-specific guidance)
-3. Repo-local `AGENTS.md` (this file)
-
-## Related Paths
-- Website paths:
-  - (none)
-- Data paths:
-  - (none)
-- Non-canonical paths:
-  - (none)
-
-## Repo-Local Signals
-- `_quarto.yml` detected: a Quarto workflow may be in use.
-- `pixi.toml` detected: a pixi-managed environment may be in use.
-- `GEMINI.md` detected: include it when working with Gemini CLI.
-
-## Rules For Agents
-- Work in the canonical repository unless explicitly told otherwise.
-- Avoid creating duplicate working copies in Downloads or Documents.
-- If registry metadata conflicts with stale notes, prefer `project-registry.yaml`.
-- Prefer repo-local `README.md`, `CONTEXT.md`, and `AGENTS.md` when present.
-
-## File Placement Guidance
-- Keep this file at repository root as `AGENTS.md`.
-- Keep project-level policy updates in `~/projects/project-registry.yaml`.
-- Keep implementation details and task plans in repo-local docs where possible.
-
-## Output Expectations For Agents
-- Confirm target files before editing.
-- Prefer minimal, additive patches.
-- Report what changed, why, and any unresolved risks.
-- Do not move, rename, or delete repositories unless explicitly instructed.
-
----
-
-## Runbook (from the former CLAUDE.md)
-
-### Build & preview commands
+## Build & preview commands
 
 ```bash
 pixi run render      # Render all QMD pages → docs/
 pixi run preview     # Live preview with auto-reload
 
-## ETL tasks (fetch fresh data)
+# ETL tasks (fetch fresh data)
 pixi run update-dataverse      # Fetch Dataverse metrics CSV
 pixi run update-dataverse-impact  # Fetch detailed Dataverse impact data
 pixi run clean-aws             # Fetch AWS cost data
@@ -63,7 +19,7 @@ pixi run update-jira           # Fetch Jira Service Management tickets
 
 **Critical**: Always use `pixi run render`, never bare `quarto render`. On macOS/aarch64, the pixi task overrides `QUARTO_*` env vars to use system Quarto (`/Applications/quarto/`) because pixi's bundled aarch64 deno binary is broken.
 
-### Architecture
+## Architecture
 
 **Static Quarto website** → `docs/` → GitHub Pages (auto-deployed on push to `main` via `.github/workflows/publish.yml`)
 
@@ -114,7 +70,7 @@ data/raw/infrastructure/
 - Duplicate IDs `quarto-text-highlighting-styles` / `quarto-bootstrap` on all pages
 - GitHub nav icon `<a>` has no accessible name (aria-label on child `<i>`, not `<a>`)
 
-### Environment notes
+## Environment notes
 
 - Symlink `/Users/timdennis/projects/dsc-stats-reports` → this repo fixes conda RPATH issues baked into pixi env
 - `pixi.lock` is committed; do not run `pixi install` manually unless dependencies changed in `pixi.toml`
