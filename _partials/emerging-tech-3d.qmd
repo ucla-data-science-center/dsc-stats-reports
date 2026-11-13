@@ -14,4 +14,4 @@ and point-cloud data become interactive models, explorable in a browser instead 
 sitting as a static file in an archive.
 
 > *"Daniels' work has strengthened partnerships across campus and throughout the greater Los Angeles community while helping students succeed with their individual research projects."*
-> — Patrick Lavey, LAUC-LA Award Committee Chair, [UCLA Newsroom]({{< var links.doug_award >}})
+> — Patrick Lavey, LAUC-LA Award Committee Chair, [UCLA Newsroom](https://newsroom.ucla.edu/stories/doug-daniels-matthew-vest--ucla-librarians-of-the-year-2026)

@@ -13,5 +13,15 @@
     var footer = document.querySelector("footer .nav-footer");
     var actions = footer && footer.querySelector(".toc-actions");
     if (actions) { actions.classList.add("footer-repo-actions"); footer.appendChild(actions); }
+    // Mark the current page and its menu active in the navbar shared with the history site.
+    document.querySelectorAll(".navbar .dropdown-item").forEach(function (a) {
+      if (a.pathname === location.pathname) {
+        a.classList.add("active");
+        a.setAttribute("aria-current", "page");
+        var d = a.closest(".dropdown");
+        var t = d && d.querySelector(".nav-link.dropdown-toggle");
+        if (t) t.classList.add("active");
+      }
+    });
   });
 </script>

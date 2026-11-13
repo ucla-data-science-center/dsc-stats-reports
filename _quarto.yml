@@ -36,28 +36,29 @@ website:
     # DSC logo from the 2019 identity package (white version; the bar is blue in both themes)
     logo: images/brand/dsc-logo-white.svg
     logo-alt: "UCLA Library Data Science Center"
-    title: "Research Enabled by DSC"
+    logo-href: index.html
+    title: "Data Science Center record"
+    # Same title and menus as the history site (ssda-dsc-history/nav/shared-navbar.yml).
+    # Keep the order and labels identical in both repos.
     left:
-      - href: index.qmd
-        text: Home
-      - text: "Pathways"
+      - text: "Research enabled"
         menu:
+          - href: index.qmd
+            text: "Home"
           - href: research.qmd
-            text: Research enabled
+            text: "Research enabled"
           - href: capability.qmd
-            text: Research capability built
+            text: "Research capability built"
           - href: investments.qmd
-            text: Shared investments
-      - text: "Evidence"
-        menu:
+            text: "Shared investments"
           - href: consulting.qmd
-            text: Consulting
+            text: "Consulting"
           - href: instruction.qmd
-            text: Instruction
+            text: "Instruction"
           - href: infrastructure.qmd
-            text: Infrastructure
-      - href: about.qmd
-        text: About
+            text: "Infrastructure"
+          - href: about.qmd
+            text: "About and methodology"
       - text: "Archive history"
         menu:
           - text: "The history, 1961 to 2026"
