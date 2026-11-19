@@ -102,7 +102,7 @@ social_sciences:
   # Filled 2026-11-04 from claim-register.md (words worktree copy, which is newer than the dsc-stats-reports copy) and
   # the dsc-evidence-registry. DRAFT: every CONFIRM and UNSOURCED comment below needs a check by someone who knows the
   # division before this brief is shared. No student is named; faculty named only where claim #19 records permission.
-  did: "the campus research data repository and its legacy archive, governed access to restricted data, the ICPSR and Roper memberships, geospatial data, and data consulting and workshops"
+  did: "curation of the legacy Social Science Data Archive, an analysis-ready national voter file, data cleaning and code for working labs, and consulting and workshops"
   # 2026-11-19 (Tim): asks aligned with the petition and the 11/13 Roger/Davida one-pager; ICPSR, Roper, LARIAC and
   # geospatial added. Sources: memberships from dsc-reorg-response/corpus/finance/2026-11-08-memberships-invoices-summary-icpsr-roper-lariac.md
   # (Tim confirmed 11/13 that ICPSR and Roper are paid); "Research Services holds the budget" (Library 10/22, stated to Tim) is NOT used: Tim 11/19 says no one has said who pays; was
@@ -111,8 +111,8 @@ social_sciences:
   # GIS: registry gis-position-mercator-posting-2026 (verified; "does not name", never "excludes"); vacancy "since 2024"
   # from gis-librarian-consultation-volume (the ~120/yr figure is unverified and NOT used). Fund sources still not stated.
   team_line: "ran the campus research data repository, governed access to restricted data, UCLA's memberships in ICPSR and the Roper Center, geospatial data, and data consulting"
-  changes_line: "The Library has said the expertise and services remain the same. It has also said that DataSquad stops running as a coordinated program. The Spatial Data Science Librarian position has been vacant since 2024."
-  ask_short: "that you ask the Library to reinstate the Data Science Center, to name an archive lead and a person accountable for each service below, and to answer in writing before December 31, with a date to review the change with faculty."
+  changes_line: "The Library says the expertise and services remain the same, and that DataSquad no longer runs as a coordinated program. The Spatial Data Science Librarian position has been empty since 2024."
+  ask_short: "that you ask the Library, in writing and before December 31, to reinstate the Data Science Center, name an archive lead and an owner for each service below, and set a date to review the change with faculty."
   extra_sections:
     - heading: "Memberships and data access"
       # 2026-11-19 (Tim): ICPSR role = pipeline of UCLA data into ICPSR, education, local support. Budget line removed:
@@ -120,12 +120,12 @@ social_sciences:
       # 26-1220 dated 2025-11-26 (corpus/finance memberships summary). "Official Representative" (ICPSR's term) NOT used
       # until Tim confirms he holds it.
       body: |-
-        UCLA was a founding member of ICPSR in 1962, through the archive's predecessor. The Center held the campus memberships and data agreements below and made them work for UCLA researchers. A lapsed membership can cut access for every campus user at once.
+        UCLA was a founding member of ICPSR in 1962, through the archive's predecessor. The Center held the memberships and agreements below and did the local work that puts them in researchers' hands. A lapsed membership can cut off every UCLA user at once.
 
         | Membership or agreement | The Center's role | Now |
         |---|---|---|
-        | ICPSR | A pipeline of UCLA research data into ICPSR's archive, teaching researchers and students to find and use ICPSR data, and local support for campus users | Paid through June 2028. Who pays to renew, and who supports campus users, has not been stated |
-        | Roper Center for Public Opinion Research | The campus membership for public opinion data, and local support for campus users | Paid through April 2027; last year's renewal was invoiced in late November. Who pays to renew, and who supports campus users, has not been stated |
+        | ICPSR | A pipeline of UCLA research data into ICPSR's archive, teaching researchers and students to find and use ICPSR data, and local support for campus users | Paid through June 2028. No one has said who pays to renew or who supports campus users |
+        | Roper Center for Public Opinion Research | The campus membership for public opinion data, and local support for campus users | Paid through April 2027. Last year's renewal invoice arrived in late November; no one has said who pays this time, or who supports users |
         | LARIAC (Los Angeles Region Imagery Acquisition Consortium) | UCLA's agreement for Los Angeles County imagery and elevation data (LARIAC 8, 2026 to 2028), and work with the consortium so any UCLA researcher can use the data | No owner named to us |
         | Redivis | Governed access to restricted data, such as the L2 voter file below | No owner named to us |
     - heading: "Geospatial data stewardship and spatial methods"
@@ -139,7 +139,7 @@ social_sciences:
         The Library's 2019 posting for the Spatial Data Science Librarian, a Data Science Center position, gave the role "leadership for the Library in geospatial data collection," including "collecting, storing and preserving spatial research, purchased and open data." It required experience with Python or R applied to geospatial data. That librarian left in 2024, and the position stayed vacant.
 
         The Library's new posting, for a Geospatial Information and Maps Librarian (October 5, 2026; JPF11374), describes helping researchers find and use geospatial tools and methods, course support, platform access, print map collections and donor stewardship. Its duties do not include collecting, storing or preserving geospatial data, and Python and R move from required to preferred. No one has been named to us as responsible for stewarding UCLA's geospatial data, including the LARIAC imagery and elevation data.
-  asks_lead: "**Who is accountable for these services now?** The Library has said the expertise and services remain the same, but has not named who holds each one. We ask the Library for four things, in line with the campus petition to Provost Hunt and University Librarian Jackson ([petition](https://forms.gle/k6CbvuuAK4XcgagC6)):"
+  asks_lead: "**Who is accountable for these services now?** The Library has not named anyone. Our four asks match the campus petition to Provost Hunt and University Librarian Jackson ([petition](https://forms.gle/k6CbvuuAK4XcgagC6)):"
   asks:
     - "Reinstate the Data Science Center, with DataSquad, dedicated staff and resources."
     - "Name an archive lead accountable for curation, preservation and access in UCLA Dataverse and UCLA's geospatial collections, including the legacy Social Science Data Archive holdings and LARIAC."
