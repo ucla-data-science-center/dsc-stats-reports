@@ -9,7 +9,7 @@
   - Social Sciences: asks now lead with reinstatement (petition link), archive lead for Dataverse and geospatial collections, a named person per service including who pays to renew ICPSR and Roper, review date and written answer before Dec 31.
   - New sections: "Memberships and data access" (ICPSR founding member 1962; ICPSR role = pipeline into ICPSR, education, local support; ICPSR paid through June 2028, Roper through April 2027, LARIAC 8 2026 to 2028, Redivis) and "Geospatial data stewardship and spatial methods" (2019 Spatial Data Science Librarian posting vs the 2026 posting, text only).
   - BioCritical Studies Lab example rewritten as general support (Tim: do not overclaim). L2 "more than 10 terabytes" removed (unsourced).
-  - PDF: `briefs/out/2026-11-19_data-science-center_social-sciences-research.pdf` (headless Chrome print of the HTML; copy in `~/Documents/dsc-reorg-response/service-impact/send/`). Sent to Martha Bailey (CCPR) for the 11/20 call.
+  - PDF: `briefs/out/2026-11-19_data-science-center_social-sciences-research.pdf` (headless Chrome print of the HTML; copy in `~/Documents/dsc-reorg-response/service-impact/send/`). For the Martha Bailey (CCPR) call on 11/20; Tim attaching it (send not confirmed).
 
 ## Decisions made
 - Who pays for ICPSR and Roper is not stated. Why: Tim 11/19, no one has said who pays; the Library's 10/22 "Research Services holds the budget" statement is not used.
