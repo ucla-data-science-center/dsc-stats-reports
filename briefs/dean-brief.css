@@ -18,9 +18,23 @@ h3 { font-size: 1.12rem; font-weight: 700; }
 .table-note { font-size: 0.85rem; color: #555; margin-top: 0.3rem; }
 .evidence { margin-top: 2rem; }
 @media print {
-  body { max-width: 100%; font-size: 10.5pt; line-height: 1.4; }
+  @page { margin: 0.45in 0.6in; }
+  body { max-width: 100%; font-size: 9.2pt; line-height: 1.28; }
+  h1, .title { font-size: 1.5rem; margin-bottom: 0.2rem; }
+  h2 { margin-top: 0.8rem; }
   h2, h3 { break-after: avoid; }
-  .in-brief, .research-entry, table { break-inside: avoid; }
-  .evidence { break-before: page; }
+  .in-brief { margin: 0.6rem 0 0.8rem; padding: 0.4rem 0.9rem 0.5rem; }
+  .research-entry { margin-bottom: 0.5rem; }
+  .research-entry h3 { margin-top: 0.4rem; }
+  .in-brief { break-inside: avoid; }
+  tr { break-inside: avoid; }
+  .research-entry p { orphans: 3; widows: 3; }
+  .evidence { margin-top: 0.6rem; font-size: 8.5pt; line-height: 1.22; }
+  .evidence h2 { margin-top: 0.4rem; }
+  .evidence h3 { font-size: 1rem; margin: 0.4rem 0 0.2rem; }
+  table { font-size: 0.88em; margin: 0.3rem 0; }
+  table td, table th { padding: 0.05rem 0.5rem; }
+  ul, ol { margin: 0.2rem 0; }
+  p { margin: 0.3rem 0; }
   a { color: inherit; }
 }

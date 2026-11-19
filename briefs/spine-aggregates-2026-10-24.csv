@@ -17,3 +17,21 @@ humanities,unit,Humanities,17,NULL,NULL,NULL
 humanities,unit,Linguistics,8,NULL,NULL,NULL
 humanities,unit,Philosophy,7,NULL,NULL,NULL
 humanities,unit,Spanish and Portuguese,17,NULL,NULL,NULL
+social_sciences,kind,attendance,272,105,2020,2026
+social_sciences,kind,consult,192,78,2019,2025
+social_sciences,unit,American Indian Studies,5,NULL,NULL,NULL
+social_sciences,unit,Anthropology,27,NULL,NULL,NULL
+social_sciences,unit,Archaeology,13,NULL,NULL,NULL
+social_sciences,unit,Asian American Studies,6,NULL,NULL,NULL
+social_sciences,unit,Chicana/o and Central American Studies,8,NULL,NULL,NULL
+social_sciences,unit,Communication,56,NULL,NULL,NULL
+social_sciences,unit,Cotsen Institute of Archaeology,9,NULL,NULL,NULL
+social_sciences,unit,Economics,74,NULL,NULL,NULL
+social_sciences,unit,Gender Studies,16,NULL,NULL,NULL
+social_sciences,unit,Geography,35,NULL,NULL,NULL
+social_sciences,unit,History,16,NULL,NULL,NULL
+social_sciences,unit,Master of Social Science,26,NULL,NULL,NULL
+social_sciences,unit,Political Science,61,NULL,NULL,NULL
+social_sciences,unit,Social Science,6,NULL,NULL,NULL
+social_sciences,unit,Social Sciences,85,NULL,NULL,NULL
+social_sciences,unit,Sociology,25,NULL,NULL,NULL

@@ -1,7 +1,7 @@
 ---
 title: "The Data Science Center and `r yaml::read_yaml('divisions.yml')[[params$division]]$short` research"
-subtitle: "Where Library data and 3D services meet your faculty's work"
-author: "Tim Dennis, Director, Data Science Center, UCLA Library"
+subtitle: '`r { s <- yaml::read_yaml("divisions.yml")[[params$division]]$subtitle; if (is.null(s)) "Where Library data and 3D services meet your faculty''s work" else s }`'
+author: "Tim Dennis (led the Data Science Center until the August 2026 reorganization) and Doug Daniels (emerging technologies librarian, Data Science Center), UCLA Library. tdennis@library.ucla.edu, dougdaniels@library.ucla.edu"
 date: today
 date-format: "MMMM D, YYYY"
 params:
@@ -64,25 +64,41 @@ at_least <- function(n) if (n < 5) "fewer than 5" else paste("at least", comma(n
 comma <- scales::comma
 ```
 
-The Data Science Center (DSC) is the UCLA Library team that supports research data, 3D scanning, and data consulting. This brief covers research in `r div$noun` that DSC has worked on and what would help `r faculty`. The research belongs to the faculty and students named; DSC's part is stated each time.
+The Data Science Center (DSC) was the UCLA Library team that `r div$team_line %||% "supported research data, 3D scanning, and data consulting"`. On August 24, 2026 the Library dissolved it and moved its staff into Research Services. This brief covers research in `r div$noun` that DSC has worked on and what would help `r faculty`. The research belongs to the faculty and students named; DSC's part is stated each time.
 
 ::: {.in-brief}
 
 ## In brief
 
-- **What DSC did:** 3D scanning, text recognition, and data hosting for research in `r div$noun`, in the projects below.
-- **What is changing:** DSC's staff capacity fell by about `r fte_drop`% between 2022-23 and 2025-26. The Library has announced that drone lending ends this fall and that DataSquad stops running as a coordinated program.
-- **What we ask:** a continuity briefing, a named accountable owner, and review milestones. None asks the Library to reverse the reorganization.
+- **What DSC did:** `r div$did %||% "3D scanning, text recognition, and data hosting"` for research in `r div$noun`, in the projects below.
+- **Capacity and service changes:** DSC's staff capacity fell by about `r fte_drop`% between 2022-23 and 2025-26. `r div$changes_line %||% "The Library has announced that drone lending ends this fall and that DataSquad stops running as a coordinated program."`
+- **What we ask:** `r div$ask_short %||% "that you ask Library leadership for four things: the reasons the Center was retired and a written plan for this research, a named person accountable for each service, enough capacity to keep supporting it, and a check-in schedule."`
 
 :::
 
+```{r extra-sections, results='asis'}
+# Optional division sections (e.g. memberships, geospatial), rendered before "What would help".
+for (sec in div$extra_sections %||% list()) {
+  cat("## ", sec$heading, "\n\n", sec$body, "\n\n", sep = "")
+}
+```
+
 ## What would help
 
-This work still needs someone when a unit changes shape. **Who will maintain access, technical support, and stewardship for these functions in `r div$noun`, and with what capacity?** Three things would help:
-
-1. A continuity briefing for `r faculty` on which 3D, data, and repository services continue, who staffs them, and where to ask.
-2. A named accountable owner for the methods, preservation, and data workflows that cross Library teams.
-3. Review milestones, so the `r unit_word` can see in a few months whether capacity held.
+```{r asks, results='asis'}
+# Optional division override of the asks; default is the original four (Humanities, Cotsen).
+if (!is.null(div$asks)) {
+  cat(div$asks_lead, "\n\n", sep = "")
+  for (i in seq_along(div$asks)) cat(i, ". ", div$asks[[i]], "\n", sep = "")
+  cat("\n")
+} else {
+  cat("This work still needs someone when a unit changes shape. **Who will maintain access, technical support, and stewardship for these functions in ", div$noun, ", and with what capacity?** We would like four things:\n\n", sep = "")
+  cat("1. The reasons the Center was retired, and the written plan for the research it supported.\n")
+  cat("2. Who is accountable, by role, for the 3D, data, and repository services that ", faculty, " rely on, which of them continue today, and who to call.", div$briefing_extra %||% "", "\n", sep = "")
+  cat("3. Enough capacity to keep supporting this research, given the staff drop and service endings listed above.\n")
+  cat("4. A check-in at 12 and 24 months after the August 2026 reorganization on which services continue, who staffs them, and whether researchers can still get help, with faculty taking part.\n\n")
+}
+```
 
 ## Research we have worked on
 
@@ -102,11 +118,10 @@ for (ex in div$examples) {
 
 ### Documented use by the `r unit_word`
 
-These counts come from DSC's own workshop and consultation records for UCLA people, and cover only records where the department or field of study (self-reported) is known and maps to the `r unit_word`. Of `r scales::comma(cov_total)` records from people with a UCLA email address, `r scales::comma(cov_unit)` (about `r round(100*cov_unit/cov_total)`%) could be matched to any department, so these are floors, not the `r unit_word`'s full use.
+Counts come from DSC's workshop and consultation records for UCLA people, limited to records where the self-reported department or field of study is known and maps to the `r unit_word`. Of `r scales::comma(cov_total)` records campus-wide with a UCLA email address, `r scales::comma(cov_unit)` (about `r round(100*cov_unit/cov_total)`%) matched any department, so these are floors, not the `r unit_word`'s full use. Departments under 5 records are combined into one row or omitted; the totals below include them.`r if (!is.null(div$mapping_note)) paste0(" ", div$mapping_note) else ""`
 
 - **Consultations:** `r n_events("consult")` consultation records from `r n_people("consult")` people in `r div$short` departments, `r yrs("consult")`.
-- **Workshops:** `r n_events("attendance")` attendance records from `r n_people("attendance")` people, `r yrs("attendance")`. Most workshop registration forms after 2021 did not ask for a department, so later attendance often cannot be matched; the fall 2025 series asked for a field of study, which we treat as a department-level self-report (it appears here as "Humanities" in the table).
-`r if (!is.null(div$registrations)) paste0("- **Registration forms:** ", div$registrations)`
+- **Workshops:** `r n_events("attendance")` attendance records from `r n_people("attendance")` people, `r yrs("attendance")`. Most workshop registration forms after 2021 did not ask for a department, so later attendance often cannot be matched; the fall 2025 series asked for a field of study, which we treat as a department-level self-report`r if (params$division == "humanities") " (it appears here as 'Humanities' in the table)" else ""`.
 `r if (!is.null(div$topics)) paste0("- **What they came for:** ", div$topics)`
 `r if (!is.null(div$research_data)) paste0("- **Research data:** ", div$research_data)`
 `r if (!is.null(div$teaching)) paste0("- **Teaching:** ", div$teaching)`
@@ -116,14 +131,7 @@ knitr::kable(unit_rows, col.names = c("Department (consultations and workshop at
              format.args = list(big.mark = ","))
 ```
 
-::: {.table-note}
-Departments with fewer than 5 records are combined into one row, or omitted if that row is also under 5.
-:::
 
-### Services open to every UCLA researcher
-
-Available to `r div$short` researchers, and not evidence that a particular department used them: UCLA Dataverse, the university's research-data repository (`r h("dataverse_datasets_released")` released datasets, Feb 2026); governed access to restricted data through Redivis, including the national voter file; 3D capture, publication, and hosting on pointcloud.ucla.edu; workshops and consultation (`r h("instruction_sessions_lifetime")` workshop sessions since 2017, and at least `r h("people_reached_confirmed_ucla")` confirmed UCLA researchers reached campus-wide, not broken down by division); and DataSquad, the student consulting team that works on faculty projects.
-
-Figures, definitions, and sources: [Research Enabled by DSC](https://ucla-data-science-center.github.io/dsc-stats-reports/), where each figure has an entry in the site's claim register.
+Figures and sources: [Research Enabled by DSC](https://ucla-data-science-center.github.io/dsc-stats-reports/).
 
 :::
