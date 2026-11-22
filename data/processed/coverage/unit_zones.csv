@@ -1,0 +1,30 @@
+unit_key,zone
+anthro,North campus: humanities and social sciences
+arch,North campus: humanities and social sciences
+comm,North campus: humanities and social sciences
+dh,North campus: humanities and social sciences
+econ,North campus: humanities and social sciences
+geog,North campus: humanities and social sciences
+hist,North campus: humanities and social sciences
+mass,North campus: humanities and social sciences
+polisci,North campus: humanities and social sciences
+soc,North campus: humanities and social sciences
+span,North campus: humanities and social sciences
+anderson,Northeast campus: professional schools
+law,Northeast campus: professional schools
+policy,Northeast campus: professional schools
+urban,Northeast campus: professional schools
+educ,Central campus: education, information, psychology
+info,Central campus: education, information, psychology
+psych,Central campus: education, information, psychology
+eeb,South campus: sciences and engineering
+eng,South campus: sciences and engineering
+ioes,South campus: sciences and engineering
+math,South campus: sciences and engineering
+stats,South campus: sciences and engineering
+med,Health sciences
+neuro,Health sciences
+nurs,Health sciences
+ph,Health sciences
+lib,Not placed in a zone
+other,Not placed in a zone

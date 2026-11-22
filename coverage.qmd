@@ -1,0 +1,71 @@
+---
+title: "Coverage across campus"
+subtitle: "Who has used DSC services, by campus unit, and what consultations were about"
+toc: true
+toc-depth: 2
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+source("src/etl/coverage_charts.R")
+cov <- read_coverage()
+tp <- read_topics()
+```
+
+## What this page shows
+
+DSC services reached people in every campus zone, from the humanities to the health sciences. The counts below come from the reconciled DSC service record (export of 2026-11-22). Each person is placed in one campus unit, using the record and a 2026 lookup of people whose unit was not recorded.
+
+::: {.callout-important}
+## Read these counts as a floor
+
+A user is a person with any recorded use of a DSC service. People with no record, and people the record could not place, are not counted, so the real reach is larger. Units are grouped by campus location for this page. The grouping is an editorial choice, not an official UCLA classification. Counts for different units are not added together here, because a person can use DSC in more than one capacity and the units are not a partition of campus.
+:::
+
+## Users by unit
+
+```{r coverage_chart, echo=FALSE, fig.alt=coverage_alt(cov), fig.width=8, fig.height=8}
+coverage_chart(cov)
+```
+
+Counts under 5 are blank, and so are any sub-counts that would reveal a count under 5 by subtraction. UCLA people only. DSC staff are excluded.
+
+## The full table
+
+*Users* is people with any recorded use. *Attended* is users who attended at least one workshop. *Seen since 2024* is users with recorded use in 2024 or later. A blank cell is suppressed, not zero.
+
+```{r coverage_table, echo=FALSE}
+cov |>
+  transmute(Zone = as.character(zone), Unit = unit_label, Users = users,
+            Attended = users_attended, `Seen since 2024` = users_recent) |>
+  mutate(across(c(Users, Attended, `Seen since 2024`), \(x) ifelse(is.na(x), "", as.character(x)))) |>
+  DT::datatable(rownames = FALSE, filter = "top",
+                options = list(pageLength = 40, dom = "ft", ordering = TRUE),
+                caption = "Users by campus unit. Blank means suppressed. Source: DSC service record aggregates, 2026-11-22.")
+```
+
+"Other or unmapped" holds people whose unit could not be determined. It is large because most people appear in the record through a workshop registration with no unit stated. It is not a campus unit.
+
+## What consultations were about
+
+```{r topic_chart, echo=FALSE, fig.alt=topic_alt(tp), fig.width=8, fig.height=6}
+topic_chart(tp)
+```
+
+::: {.callout-note}
+## These are tagged appointments, not a consultation count
+
+Each consultation appointment was tagged by topic with a rule-based text match. The tags are estimates. An appointment can carry more than one tag and some carry none, so the bars do not add up to the number of consultations. For consultation counts see the [consulting page](consulting.qmd). Cells under 5 are marked `<5`. 2018 and 2026 are partial years and are left out of the chart. Every topic is lower in 2025 than in 2024. This page does not establish whether that is a real change or a gap in the record, so do not read it as a decline.
+:::
+
+## Sources and counting rules
+
+| | |
+|---|---|
+| Source | DSC service record aggregates: `unit-summary.csv` and `topic-by-year-suppressed.csv`, exported 2026-11-22 |
+| Grain | Users: one person, one unit. Topics: one appointment, one tag per row |
+| Suppression | Cells under 5 are hidden, plus sub-counts that would reveal them by subtraction |
+| Not comparable | Users are not consultations, seats, or tickets (see [metrics governance](metrics-governance.md)) |
+
+The files and their provenance are listed in `data/processed/coverage/README.md`.

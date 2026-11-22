@@ -15,6 +15,7 @@ project:
     - index.qmd
     - capability.qmd
     - research.qmd
+    - coverage.qmd
     - investments.qmd
     - about.qmd
     - consulting.qmd
