@@ -60,6 +60,8 @@ website:
             text: "Instruction"
           - href: infrastructure.qmd
             text: "Infrastructure"
+          - href: reach.qmd
+            text: "Where users are on campus"
           - href: about.qmd
             text: "About and methodology"
       - text: "Archive history"
