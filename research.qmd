@@ -182,6 +182,7 @@ The consultation evidence page holds the full tables. Jump to:
 - [Recorded consultations by year](consulting.qmd#recorded-consultations-since-2017)
 - [Consultation records by department and researcher role](consulting.qmd#direct-consultations) (records file, January 2021 to June 2024; breakdowns suppress any unit under 5)
 - [Research impact cases](consulting.qmd#research-impact)
+- [Coverage across campus](coverage.qmd) (users by campus unit and consultation topics, from suppressed aggregates)
 - [Methodology](about.qmd)
 
 ## Sources and claim record
