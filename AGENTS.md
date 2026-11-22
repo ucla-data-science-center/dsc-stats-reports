@@ -75,3 +75,13 @@ data/raw/infrastructure/
 - Symlink `/Users/timdennis/projects/dsc-stats-reports` → this repo fixes conda RPATH issues baked into pixi env
 - `pixi.lock` is committed; do not run `pixi install` manually unless dependencies changed in `pixi.toml`
 - `docs/` is committed to version control (enables manual GitHub Pages push without CI)
+
+## Data from the DSC record (dsc-stats-integration)
+
+Added 2026-11-22. The restricted workbench (`~/Documents/dsc-stats-integration`, private) holds the person-level service record. This repo is public, so it takes **aggregates only**.
+
+- **What this site may use:** `restricted/unit-summary.csv` from the workbench: users per campaign unit (27 units plus `other`, including new Engineering, Master of Social Science, Law, Archaeology/Cotsen, and UCLA Library), users who attended, and users seen since 2024. Cells under 5 are blank, and so are sub-counts that would reveal a small cell by subtraction. Topic counts come from `v_topic_by_year_suppressed`, under the same rule.
+- **How it arrives:** the workbench proposes in its `proposals/` folder. A person applies the change here through a pull request. Do not copy row-level files into this repo.
+- **Named people:** only approved exemplars (public, professional, credited). The workbench keeps the allow list.
+- **Exit check:** this clone runs a local pre-push hook (`~/.local/share/dsc-hooks/pre-push`) that blocks outgoing commits containing a known client email or name, plus gitleaks. The beads hooks still run. Bypass only on purpose (`--no-verify`).
+- **Permissions:** local reads across the DSC projects are pre-authorized (global agent policy, 2026-11-22). This is a shared repo, so changes still go through branch and PR, and a push needs Tim's OK.
