@@ -6,47 +6,313 @@ humanities:
   short: "Humanities"
   noun: "the humanities"
   parent_pattern: "^UCLA College .* Humanities$"
+  # Registration forms (restricted/inbox: UC LDW 2022-2024 registrations, fall 2025 UC Carpentries Zoom registration + attendance), 2026-10-24.
+  # Scripts: dsc-stats-integration/authority/field_of_study.py and ldw_registrations.py; map: authority/field_of_study_map.csv.
+  # 107 UCLA registrants; 12 chose Humanities; 7 of them attended at least one session. Not in the spine; local file in dsc-stats-integration/restricted/inbox/Backup for UC Carpentries 2025 stats.
+  registrations: "UCLA registrants who chose Humanities as their field on the registration form: Love Data Week 2023, 15 people; Love Data Week 2024, 42; the fall 2025 UC Carpentries series, 12 registered and 7 attended (counted under Workshops above). Love Data Week registrants who named a Humanities department in 2022 to 2024: 24 registrations from 13 people (Linguistics, English, Art History). These are floors."
+  # Spine aggregates exported 2026-10-24 (Humanities Division units only). Consult types: "Data & Coding Consultation"
+  # and "Data & Coding Consulting" booking types combined (10 + 8). Workshop: R Workshop Series, Spring 2020 (8 records).
+  topics: "Data and coding consultations: 18 records. The one workshop series with 5 or more attendance records was the R workshop series (8)."
+  # Dataverse humanities audit, full API harvest 2026-10-23 (~/projects/dataverse-humanities-audit/output). Not in the claim register.
+  research_data: "226 of 410 locally deposited Dataverse datasets (55%) tie to humanities work, counting History, Archaeology, and the Cotsen Press; 1,022 harvested legacy records were not assessed."
+  # DH201 support: corpus/emails/2026-10-23-posner-dh201-class-support-dates.md. 2021 date is inferred from a Friday email saying "Tues".
+  teaching: "DSC staff helped in a Digital Humanities graduate course (March 2021, March 2022)."
   examples:
-    - title: "The Boat of Hope, in 3D (Refugee Material Culture Initiative)"
+    # Order and cuts follow the 2026-10-24 legibility review (Gemini, adjudicated with Tim): Paris first because
+    # Cohen's note went to the dean; Boat of Hope merged with the digital archaeology day (same faculty member).
+    # Cut from the brief, kept in the register (restricted/research-enabled-candidates-consulting-drive-2026-10-24.csv):
+    # the East Asian Library newspaper text mining. The Neckarhausen kinship database (a History project; History sits
+    # outside the Division) was cut, then restored 2026-10-24 at Tim's request once the Dataverse deposit was verified.
+    - title: "Paris Past and Present and Enriched Timelines (Art History)"
+      claim: 0
+      text: >-
+        Art History professor Meredith Cohen directs two funded digital projects and, on her
+        past two research trips, used DSC's 3D documentation expertise and a 3D terrestrial
+        laser scanner Doug Daniels procured. In her 1 September note to you, she called these
+        services crucial to her work.
+      supplied: "3D scanning equipment and technical expertise for documentation and analysis"
+      link: "https://paris.cdh.ucla.edu/"
+      link_text: "Paris Past and Present project"
+    - title: "The Boat of Hope in 3D, and a digital archaeology day (Classics)"
       claim: 20
       text: >-
         Classics professor Kelly Nguyen's Refugee Material Culture Initiative, with the
-        Vietnamese Heritage Museum, digitally preserves art and artifacts made and used by
-        refugees. Doug Daniels, DSC's emerging technologies librarian, 3D scanned the
-        "Boat of Hope," a river sampan that carried nine refugees out of Vietnam in 1984,
-        and prepared the models for the museum's digital exhibit. The model is hosted on
-        pointcloud.ucla.edu, a server DSC built and runs. In Nguyen's course "Decolonizing
-        Refugee Data from Rome to Vietnam," students build digital exhibitions from
-        artifacts like these.
-      supplied: "3D capture, processing, and continued public hosting"
+        Vietnamese Heritage Museum, had Doug Daniels, DSC's emerging technologies librarian, 3D
+        scan the "Boat of Hope," a river sampan that carried nine refugees out of Vietnam in
+        1984, and prepare the models for the museum's digital exhibit on the
+        pointcloud.ucla.edu server. In April 2026 Nguyen and Daniels brought more than 50 Westminster High
+        School students and more than 30 elders from Little Saigon to campus for a digital
+        archaeology day.
+      supplied: "3D capture, processing, and continued public hosting; equipment, methods, and staff time for the archaeology day"
       link: "https://www.pointcloud.ucla.edu/VHM/narrative_all.html"
-    - title: "Digital archaeology day (April 2026)"
-      claim: 20
+      link_text: "Boat of Hope exhibit"
+      link2: "https://humanities.ucla.edu/news/digital-archaeology-day-kelly-nguyen/"
+      link2_text: "digital archaeology day news"
+    # claim: 0 = not yet in the claim register. Written from Doug Daniels's Slack text (2026-10-23).
+    # Outside sources found (opened 2026-10-23): the Sasanian Epigraphic Collection page (silicone imprints,
+    # "only complete holding", 3rd and 4th century C.E.); pourdavoud.ucla.edu/people/m-rahim-shayegan/ (Professor,
+    # Amuzegar Chair, NELC; founding director of the Pourdavoud Institute); nelc.ucla.edu/person/m-rahim-shayegan/;
+    # pourdavoud.ucla.edu/people/jeffrey-newman/ (Research Associate). Tim 2026-10-24: Doug knows his work, the IDEA
+    # account is accepted as Doug's statement; no further confirmation needed for this internal brief.
+    - title: "The Iranian Digital Epigraphic Archive and the Sasanian molds (Pourdavoud Institute)"
+      claim: 0
       text: >-
-        Nguyen, working with Doug Daniels, organized a digital archaeology day that brought
-        more than 50 Westminster High School students and more than 30 elders from Little
-        Saigon to campus.
-      supplied: "3D equipment, methods, and staff time"
-      link: "https://humanities.ucla.edu/news/digital-archaeology-day-kelly-nguyen/"
+        The Iranian Digital Epigraphic Archive (IDEA), founded by Prof. Rahim Shayegan, the
+        Pourdavoud Institute's director, and Dr. Jeffrey Newman, is digitizing silicone molds
+        housed at UCLA that UCLA's Islamic Studies pages call the only complete holding of
+        Sasanian royal and private inscriptions of the third and fourth centuries C.E. Doug Daniels
+        provided the equipment and training to 3D scan the molds and helped plan long-term
+        storage and dissemination.
+      supplied: "3D scanning equipment and training, and help planning long-term storage and dissemination"
+      link: "https://islamicstudies.ucla.edu/resource/sasanian-epigraphic-collection/"
+      link_text: "Sasanian Epigraphic Collection"
+    # Verified 2026-10-24 against the public Dataverse API: collection NRDB (Neckarhausen Research Database), created
+    # 2022-01-13, 10 published datasets (2024-07-10 to 2026-05-17), DOIs 10.25346/S6/... Lifecycle from DSC consulting
+    # notes (2022-10 to 2023-06). History is outside the Humanities Division, so this entry may be better placed in a
+    # Social Sciences brief; Tim asked for it here. The researchers are not named in the brief.
+    - title: "From a historian's kinship records to a citable research database (History)"
+      claim: 0
+      text: >-
+        A History professor emeritus's kinship records from the village of Neckarhausen, about
+        8,800 records in the largest of five tables, were loaded, cleaned, and documented by DSC
+        staff and the DataSquad student team in 2022 to 2023. They are now the Neckarhausen
+        Research Database collection in UCLA Dataverse: ten published datasets with DOIs,
+        published July 2024 to May 2026.
+      supplied: "database loading, cleaning, and documentation, with DataSquad students; Dataverse hosting, DOIs, and preservation"
+      link: "https://dataverse.ucla.edu/dataverse/NRDB"
+      link_text: "Neckarhausen Research Database collection"
+      link2: "https://doi.org/10.25346/S6/J8VLAJ"
+      link2_text: "digital database (doi:10.25346/S6/J8VLAJ)"
+    # From DSC consulting notes (consulting Drive, read 2026-10-24); role-level, no names. Dates of the thread
+    # messages are not confirmed (project folder and notes are 2025-01).
+    - title: "German and Armenian texts, recognized by machine (Humanities Technology)"
+      claim: 0
+      text: >-
+        UCLA Humanities Technology's DH Accelerator brought DSC handwritten German tables, then
+        Armenian printed texts, and DSC staff tested ABBYY FineReader and other tools. For one
+        Armenian file whose digital text was unreadable because of wrong character encoding, DSC
+        re-ran recognition from scratch and the team confirmed the result was correct (January
+        to February 2025).
+      supplied: "OCR testing, tool comparison, and re-recognition of text with broken encoding"
 social_sciences:
   label: "UCLA College, Division of Social Sciences"
   short: "Social Sciences"
   noun: "the social sciences"
   parent_pattern: "^UCLA College .* Social Sciences$"
+  # Filled 2026-11-04 from claim-register.md (words worktree copy, which is newer than the dsc-stats-reports copy) and
+  # the dsc-evidence-registry. DRAFT: every CONFIRM and UNSOURCED comment below needs a check by someone who knows the
+  # division before this brief is shared. No student is named; faculty named only where claim #19 records permission.
+  did: "curation of the legacy Social Science Data Archive, an analysis-ready national voter file, data cleaning and code for working labs, and consulting and workshops"
+  # 2026-11-19 (Tim): asks aligned with the petition and the 11/13 Roger/Davida one-pager; ICPSR, Roper, LARIAC and
+  # geospatial added. Sources: memberships from dsc-reorg-response/corpus/finance/2026-11-08-memberships-invoices-summary-icpsr-roper-lariac.md
+  # (Tim confirmed 11/13 that ICPSR and Roper are paid); "Research Services holds the budget" (Library 10/22, stated to Tim) is NOT used: Tim 11/19 says no one has said who pays; was
+  # statement to Tim (stated, not quoted), as in service-impact/send/2026-11-13_research-data-responsibilities_onepager.pdf.
+  # ICPSR founding member 1962: evidence registry icpsr-founding-member-1962 (UCLA-side source, Tim's 2017 deck).
+  # GIS: registry gis-position-mercator-posting-2026 (verified; "does not name", never "excludes"); vacancy "since 2024"
+  # from gis-librarian-consultation-volume (the ~120/yr figure is unverified and NOT used). Fund sources still not stated.
+  team_line: "ran the campus research data repository, governed access to restricted data, UCLA's memberships in ICPSR and the Roper Center, geospatial data, and data consulting"
+  changes_line: "The Library says the expertise and services remain the same, and that DataSquad no longer runs as a coordinated program. The Spatial Data Science Librarian position has been empty since 2024."
+  ask_short: "that you ask the Library, in writing and before December 31, to reinstate the Data Science Center, name an archive lead and an owner for each service below, and set a date to review the change with faculty."
+  extra_sections:
+    - heading: "Memberships and data access"
+      # 2026-11-19 (Tim): ICPSR role = pipeline of UCLA data into ICPSR, education, local support. Budget line removed:
+      # the Library has not said who pays for these renewals. Roper "invoiced in late November" = last year's invoice
+      # 26-1220 dated 2025-11-26 (corpus/finance memberships summary). "Official Representative" (ICPSR's term) NOT used
+      # until Tim confirms he holds it.
+      body: |-
+        UCLA was a founding member of ICPSR in 1962, through the archive's predecessor. The Center held the memberships and agreements below and did the local work that puts them in researchers' hands. A lapsed membership can cut off every UCLA user at once.
+
+        | Membership or agreement | The Center's role | Now |
+        |---|---|---|
+        | ICPSR | A pipeline of UCLA research data into ICPSR's archive, teaching researchers and students to find and use ICPSR data, and local support for campus users | Paid through June 2028. No one has said who pays to renew or who supports campus users |
+        | Roper Center for Public Opinion Research | The campus membership for public opinion data, and local support for campus users | Paid through April 2027. Last year's renewal invoice arrived in late November; no one has said who pays this time, or who supports users |
+        | LARIAC (Los Angeles Region Imagery Acquisition Consortium) | UCLA's agreement for Los Angeles County imagery and elevation data (LARIAC 8, 2026 to 2028), and work with the consortium so any UCLA researcher can use the data | No owner named to us |
+        | Redivis | Governed access to restricted data, such as the L2 voter file below | No owner named to us |
+    - heading: "Geospatial data stewardship and spatial methods"
+      # 2026-11-19 (Tim): frame the gap as geospatial data stewardship/archiving and spatial methods, which the
+      # Spatial Data Science Librarian role held and the new posting does not. Quotes verbatim from the 2019 public posting
+      # (corpus/hr/2019-08-06-spatial-data-science-librarian-posting-iassist.md; registry gis-position-public-postings-2018-2019,
+      # verified). 2026 duties and qualifications from corpus/hr/2026-10-05-mercator-geospatial-maps-librarian-posting-JPF11374.md.
+      # Describe the texts only; no intent. The 2026 duties DO say "methods" ("identifying and utilizing appropriate geospatial
+      # tools, platforms, methods") and "managing geospatial platform access", so do not say methods or platforms are absent.
+      body: |-
+        The Library's 2019 posting for the Spatial Data Science Librarian, a Data Science Center position, gave the role "leadership for the Library in geospatial data collection," including "collecting, storing and preserving spatial research, purchased and open data." It required experience with Python or R applied to geospatial data. That librarian left in 2024, and the position stayed vacant.
+
+        The Library's new posting, for a Geospatial Information and Maps Librarian (October 5, 2026; JPF11374), describes helping researchers find and use geospatial tools and methods, course support, platform access, print map collections and donor stewardship. Its duties do not include collecting, storing or preserving geospatial data, and Python and R move from required to preferred. No one has been named to us as responsible for stewarding UCLA's geospatial data, including the LARIAC imagery and elevation data.
+  asks_lead: "**Who is accountable for these services now?** The Library has not named anyone. Our four asks match the campus petition to Provost Hunt and University Librarian Jackson ([petition](https://forms.gle/k6CbvuuAK4XcgagC6)):"
+  asks:
+    - "Reinstate the Data Science Center, with DataSquad, dedicated staff and resources."
+    - "Name an archive lead accountable for curation, preservation and access in UCLA Dataverse and UCLA's geospatial collections, including the legacy Social Science Data Archive holdings and LARIAC."
+    - "Name a person accountable for each service Social Sciences researchers rely on: the ICPSR and Roper memberships, Redivis and restricted data, geospatial data, LARIAC and ArcGIS Online, and data consulting. State in writing what continues, and who pays to renew the memberships."
+    - "Set a date to review the change with faculty input, and answer in writing before December 31."
+  # Optional template fields (additive; defaults keep Humanities and Cotsen unchanged).
+  subtitle: "Where Library data services meet research in the social sciences"
+  # Spine rows exported 2026-11-04 with authority/brief_aggregates_social_sciences.sql; membership from the site crosswalk
+  # department_to_organizational_parent_v2.tsv (parent "UCLA College — Social Sciences"). CCPR, Bunche Center, Labor Center
+  # and similar units are in the query but did not reach 5 records, so they appear only inside the totals.
+  mapping_note: "Records count as Social Sciences when the department is one of the Division's departments or centers in the Library's department crosswalk, including Economics, Political Science, Communication, Geography, Sociology, Anthropology, and History. Psychology is classed with Life Sciences there and is not counted. An event that names two departments is counted under each, so the department rows can add up to more than the totals. Anthropology, Archaeology, and the Cotsen Institute are also counted in the Cotsen brief."
+  # UNSOURCED, still open: topics (what they came for; needs a second export of workshop series with 5 or more records) and
+  # teaching. The 2025 dean-update draft's Geography figure (64 records) and "about 200 participants" used a different
+  # method and window; do not reuse them.
   examples:
-    - title: "The Social Science Data Archive, still in use"
+    # Claims #14, #16. Registry: ssda-1961-founding (verified), issr-transfer-1977 (verified), ssda-library-mou-2014.
+    # 1,014 + 376 = 1,390 (register #16; February 2026 snapshot).
+    - title: "The Social Science Data Archive, now in UCLA Dataverse"
       claim: 16
       text: >-
-        DSC's roots are the Political Behavior Archive, founded in 1961, which became the
-        Social Science Data Archive. About 1,014 of the roughly 1,390 released datasets in
-        UCLA Dataverse are legacy SSDA holdings, harvested and curated by Library staff.
-      supplied: "Repository operation and stewardship of the legacy archive"
+        Political scientist Dwaine Marvick founded the Political Behavior Archive at UCLA in 1961.
+        It became the Social Science Data Archive (SSDA) within the Institute for Social Science
+        Research in 1977 and moved to the Library in 2014. In February 2026, about 1,014 of the
+        roughly 1,390 released datasets in UCLA Dataverse were legacy SSDA holdings that Library
+        staff harvested and curate; about 376 were deposited directly at UCLA.
+      supplied: "Repository operation, DOIs, preservation, and curation of the legacy archive's datasets"
       link: "https://dataverse.ucla.edu/"
-    - title: "A 10-terabyte national voter file, made usable"
+      link_text: "UCLA Dataverse"
+    # Claim #19. Verbs limited to "acquired", "made analysis-ready", "provides governed access". Redivis user and
+    # workflow counts are not used (claim #19: not to be counted as projects). Pilot and service-start dates (2022,
+    # January 2023) appear only in the old dean-update partial, not in the register: UNSOURCED here, left out.
+    - title: "The L2 national voter file on Redivis (Political Science and other departments)"
       claim: 19
       text: >-
-        DSC turned the L2 national voter file, delivered as thousands of inconsistent
-        state files, into a single analysis-ready dataset on Redivis, a governed platform
-        for restricted research data that DSC piloted.
-      supplied: "Data engineering and governed access"
-      link: "https://ucla-data-science-center.github.io/dsc-stats-reports/investments.html"
+        The L2 national voter file arrived as thousands of inconsistent state files. DSC acquired it with a Library subject selector, consolidated it into one
+        analysis-ready dataset, and provides governed access to it on Redivis, a platform for
+        restricted research data that DSC piloted. Redivis's chief executive cited it as a
+        flagship use case in a 2024 FORCE11 presentation with the UCLA doctoral student who
+        curated it. The author of a 2025 Political Science dissertation on election administration
+        was named as a user of the file in that presentation.
+      supplied: "Acquisition, consolidation into one analysis-ready dataset, and governed access"
+      link: "https://doi.org/10.5281/zenodo.13181256"
+      link_text: "FORCE11 2024 presentation"
+      link2: "https://ucla-data-science-center.github.io/dsc-stats-reports/investments.html"
+      link2_text: "investments page"
+    # Claim #1. CONFIRM: the Institute for Society and Genetics is the lab's partner unit; whether ISG counts toward the
+    # Social Sciences Division is not established in any file read. Drop the entry if it does not. The student researcher
+    # in the source material is not named. The measured year of the 318-to-2-minute step is uncertain (2023-24), so none is given.
+    - title: "Carceral Ecologies helicopter-surveillance research (Institute for Society and Genetics)"
+      claim: 1
+      text: >-
+        DSC staff and DataSquad students cleaned and integrated the helicopter flight data of
+        Nicholas Shapiro's lab, provided GIS support, refactored the R code, and moved the analysis onto DSC
+        computing as the lab acquired larger datasets, in work from 2022 through 2025. One measured step
+        of that work cut the time to load the data from about 318 minutes to about 2. The research
+        belongs to the lab, which received a 2024 UCLA Public Impact Research Award.
+      supplied: "Data cleaning and integration, GIS advice, code refactoring, and DSC computing"
+      link: "https://github.com/ucla-data-science-center/helicopter-data"
+      link_text: "public code repository"
+    # Claim #2. CONFIRM the same division question as above (BioCritical Studies Lab, ISG). "Since 2021" and the three
+    # phases are from the lab's 2024-08-13 letter (private, marked for public use) and the 2022-05-20 Library news item.
+    - title: "BioCritical Studies Lab national deaths-in-custody dataset"
+      claim: 2
+      # 2026-11-19: general support wording to match the Keel one-pager (Tim: do not overclaim; the research is the lab's).
+      text: >-
+        From 2021 to 2025, DataSquad students and Center staff helped the lab with its national
+        deaths-in-custody dataset: data integration and cleaning, maps and charts, and the codebooks
+        the lab uses to update the dataset. In 2025 Center staff helped the lab publish three of its
+        data products, each with its codebook, in UCLA Dataverse.
+      supplied: "Data integration and cleaning, visualization, codebooks, and data publishing"
+      link: "https://dataverse.ucla.edu/dataverse/bcslab"
+      link_text: "the lab's Dataverse collection"
+      link2: "https://www.library.ucla.edu/about/news/datasquad-civilian-deaths-at-hand-of-police"
+      link2_text: "Library news item (2022)"
+    # Candidates NOT rendered, each needing a check before it can be added:
+    # - Neckarhausen Research Database (History): dataverse.ucla.edu/dataverse/NRDB, 10 datasets; text is in the
+    #   humanities entry above. The Humanities comments say History sits outside that Division. UNSOURCED: which
+    #   Division History belongs to for this brief. Not duplicated here.
+    # - LARIAC hazard-exposure paper, npj Natural Hazards 2025, doi:10.1038/s44304-024-00053-4 (register #19 outputs,
+    #   "corroborated"). UNSOURCED: the authors' departments and Division were not checked.
+    # - Geography workshop and GIS consultation demand (72 to 82 booked a year, 2021 to 2023): from the evidence
+    #   registry claim gis-librarian-consultation-volume, not in the claim register. Needs a register entry first.
+    # - Funding of the Archive (ICPSR, Roper, AWS, Redivis): NOT used. The registry (icpsr-roper-fund-move, 2026-08-03)
+    #   and claim #22 (corrected 2026-09-28) contradict each other on whether ICPSR and Roper moved off the gift fund.
+    #   Until the fund record is checked, the brief says nothing about who pays; if asked, "not confirmed".
+# Cotsen Institute of Archaeology brief (not a college division). Use is counted by department, not by
+# parent division. Drafted 2026-10-23 from the Cotsen letter facts (strategy/emails/2026-10-20_deleon-cotsen-letter-facts_*.md
+# in the reorg workspace) and the Dataverse audit. Items marked CONFIRM are not sourced outside Doug or Tim.
+cotsen:
+  label: "UCLA Cotsen Institute of Archaeology"
+  short: "Cotsen"
+  noun: "archaeology at Cotsen"
+  faculty: "Cotsen researchers"
+  # Deidre Brin comment 10/26: add trainings, workshops, analysis and visualization consultations. "Text recognition" dropped: no Cotsen entry supports it (it is a Humanities entry).
+  did: "3D scanning, data hosting, specialized trainings and workshops, and analysis and visualization consultations"
+  unit_word: "Institute"
+  # Workshop departments that map to Cotsen: Anthropology, Archaeology, Conservation, and the Institute itself.
+  department_pattern: "^(Anthropology|Archaeology|Conservation of Archaeological and Ethnographic Materials|Cotsen Institute of Archaeology)$"
+  # Spine aggregates exported 2026-10-24; units: Anthropology, Archaeology, Conservation of Cultural Heritage, Cotsen Institute.
+  topics: "The one workshop with 5 or more attendance records was Introduction to R (5)."
+  mapping_note: "Records count as Cotsen when the department is Anthropology, Archaeology, Conservation of Cultural Heritage, or the Cotsen Institute; Anthropology is the largest group."
+  briefing_extra: " For drone work, tell us whether flight-data processing and browser hosting will continue. Tell us whether staff-operated 3D scanning will continue."
+  examples:
+    # CONFIRM the count with Deidre Brin. 157 = datasets whose own record cites a Cotsen Institute Press
+    # publication (full harvest of the public API, 2026-10-23); 116 were published in 2021, 41 in 2023-2025.
+    - title: "Cotsen Press data in UCLA Dataverse"
+      claim: 0
+      text: >-
+        UCLA Dataverse holds the supplementary data for Cotsen Institute Press publications
+        (excavation records, artifact catalogs, and research data essential for reuse), shared
+        through the Press's Digital Information Gateway. As of 23 October 2026, 157 datasets cite a Cotsen Institute Press publication
+        in their own records, 116 published in 2021 and 41 since, including Paso de la Amada and
+        The People of Ancient Daunia. Dataverse also holds data from Cotsen research
+        beyond the Press, including student and faculty articles such as the Bikol project
+        below.
+      supplied: "Repository hosting, DOIs, preservation, and support for depositors"
+      link: "https://dig.ucla.edu/"
+      link_text: "Digital Information Gateway"
+      link2: "https://doi.org/10.25346/S6/EKGCOC"
+      link2_text: "example dataset (doi:10.25346/S6/EKGCOC)"
+    # Doug Daniels's statements. Cuneiform scanning is supported by his 2020 IS241 paper (reorg workspace
+    # corpus/data/2020-03-17-is241-3d-cuneiform-preservation-needs-assessment.md); per Tim it was a DSC service. The
+    # collection is the Library's, not a Cotsen Institute holding. Tim 2026-10-24: Doug knows his work; scanning at
+    # Cotsen and the Fowler is accepted as Doug's statement.
+    - title: "3D scanning and the point cloud server"
+      claim: 0
+      text: >-
+        Doug Daniels, DSC's emerging technologies librarian, supports the full 3D research
+        workflow, from choosing capture methods to preparing models for analysis, publication,
+        teaching, and printing, including scanning at Cotsen and the Fowler Museum and the 3D
+        scanning of the Library's Lloyd E. Cotsen Cuneiform Tablets Collection (215 tablets).
+        Models are published on pointcloud.ucla.edu, a server DSC built; scanning is
+        staff-operated project work, not a borrowing program. 3D models scanned for the Refugee
+        Material Culture Initiative are incorporated into online exhibitions created by Digital
+        Humanities students each year.
+      supplied: "3D capture, processing, publication, and hosting"
+      link: "https://www.pointcloud.ucla.edu/"
+      link_text: "point cloud server"
+    - title: "American Industry in Bikol (Archaeology)"
+      claim: 0
+      text: >-
+        Stephen Acabado, who chairs the Archaeology Interdepartmental Program, and graduate
+        student Robin Meyer-Lorey published "Manifest Destiny in Southeast Asia: Archaeology of
+        American Colonial Industry in the Philippines, 1898-1987" in American Antiquity (2024).
+        The project's Dataverse collection opened in July 2023, and six datasets, including
+        archival aerial photographs, modern ground and drone photographs, and the article's
+        figures, were published on 28 August 2024.
+      supplied: "Repository hosting and DOIs for the project's data"
+      link: "https://dataverse.ucla.edu/dataverse/americanindustrybikol"
+      link_text: "American Industry in Bikol data"
+      link2: "https://doi.org/10.25346/S6/I1EBKJ"
+      link2_text: "modern drone photographs (doi:10.25346/S6/I1EBKJ)"
+    # Role-only on purpose (10/15 decision). Tone change 2026-10-24: states the fact, drops the "no plan has been shared" sentence.
+    - title: "Drone surveys for a Cotsen doctoral student's fieldwork"
+      claim: 0
+      text: >-
+        Doug Daniels assembled the Library-owned drone kit, with LiDAR and photogrammetry payloads, and
+        lent it to researchers across campus; Cotsen researchers used it,
+        including a Cotsen doctoral student's field survey and a Cotsen professor's teaching in
+        Spring 2026. DSC processed the flight data and made it viewable in a browser, and
+        presented an overview of a full 3D pipeline for large datasets to Cotsen in March 2023.
+        The Library has announced that lending ends this fall.
+      supplied: "Drone kit, flight data processing, and browser hosting"
+    - title: "Intergenerational Digital Archaeology Day (April 2026)"
+      claim: 20
+      text: >-
+        Kelly Nguyen (Classics and Cotsen), working with Doug Daniels, organized a digital archaeology day
+        that brought more than 50 Westminster High School students and more than 30 elders from
+        Little Saigon to campus to demonstrate how the 3D scanning and other techniques used to
+        capture artifacts chosen by refugees can be digitally preserved and disseminated to
+        communities around the world, as well as utilized within local high school curricula.
+      supplied: "3D equipment, methods, and staff time"
+      link: "https://humanities.ucla.edu/news/digital-archaeology-day-kelly-nguyen/"
+      link_text: "Digital Archaeology Day news"
+      link2: "https://ioa.ucla.edu/content/refugee-material-culture-initiative"
+      link2_text: "RMCI"

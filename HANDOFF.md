@@ -1,26 +1,28 @@
-# Session Handoff — 2026-07-15
+# Session Handoff - 2026-11-19
+
+(Replaces the 2026-11-04 handoff. That text is in git history.)
 
 ## Accomplished
-- Pushed 4 pending commits to origin/main (rendered site output, admin-report scaffold, accessibility fixes, beads init)
-- Built `dean-update-social-sciences-2026.qmd` + `.html`: standalone dean-facing update for the Social Sciences Division, not in `_quarto.yml` render list, self-contained (embed-resources), won't auto-publish
-- Verified facts against `~/Documents/dsc-reorg-response/` corpus, `~/projects/gis-librarians-library`, and `~/peer-review-2025/evidence/` (most rigorous source found; corrected several numbers pulled from looser sources)
-- Applied humanizer pass (no em dashes, cut AI-writing patterns) and Smart Brevity structure (TL;DR box, bold lede per section)
-
-## Pending — pick up here next session
-- Tim's own read-through of `dean-update-social-sciences-2026.html` for tone/accuracy before it goes anywhere
-- Decide whether/how to send: to Allison first, directly to Dean Valenzuela's office, or hold — this is explicitly framed as the MOU's "periodic assessments" clause, NOT the held escalation memo (`~/Documents/dsc-reorg-response/strategy/mou-memo-DRAFT-HOLD.md`), keep those separate
-- Fix `institutions_analysis.csv` in `~/projects/gis-librarians-library`: `has_gis=FALSE` for UC Merced is wrong (confirmed has one, https://libguides.ucmerced.edu/profile-emutch) — feeds the public report's national count and UC-peer claim at tim-dennis.com/gis-librarians-library
-- Decide on `.beads/` + `AGENTS.md` in this repo (added via unrequested `bd init` commit, now on main) — Tim doesn't use beads elsewhere
+- 2026-11-04: filled the `social_sciences` entry in `briefs/divisions.yml` (SSDA in Dataverse, L2 voter file on Redivis, Carceral Ecologies, BioCritical Studies Lab), appended Social Sciences rows to `briefs/spine-aggregates-2026-10-24.csv` (272 attendance records from 105 people; 192 consult records from 78 people), added the optional `subtitle` field.
+- 2026-11-19 (Tim): aligned the Social Sciences brief with the petition and the 11/13 responsibilities one-pager.
+  - New optional template fields in `briefs/dean-brief.qmd`: `team_line`, `changes_line`, `ask_short`, `extra_sections`, `asks_lead`, `asks`. Defaults keep Humanities and Cotsen unchanged (Humanities text diff after re-render: date only).
+  - Social Sciences: asks now lead with reinstatement (petition link), archive lead for Dataverse and geospatial collections, a named person per service including who pays to renew ICPSR and Roper, review date and written answer before Dec 31.
+  - New sections: "Memberships and data access" (ICPSR founding member 1962; ICPSR role = pipeline into ICPSR, education, local support; ICPSR paid through June 2028, Roper through April 2027, LARIAC 8 2026 to 2028, Redivis) and "Geospatial data stewardship and spatial methods" (2019 Spatial Data Science Librarian posting vs the 2026 posting, text only).
+  - BioCritical Studies Lab example rewritten as general support (Tim: do not overclaim). L2 "more than 10 terabytes" removed (unsourced).
+  - PDF: `briefs/out/2026-11-19_data-science-center_social-sciences-research.pdf` (headless Chrome print of the HTML; copy in `~/Documents/dsc-reorg-response/service-impact/send/`). For the Martha Bailey (CCPR) call on 11/20; Tim attaching it (send not confirmed).
 
 ## Decisions made
-- Dean update stays separate from reorg/escalation framing: no SOR, drone, or union content
-- GIS section uses anonymized stats (no name, no link to the public gis-librarians-library report), corrected UC comparison: only UCLA and Santa Cruz lack dedicated GIS staff (UCSF excluded as non-comparable)
-- Redivis stats: 20TB stored + 4.8PB processed cumulatively since 2022 launch (verified via Redivis admin dashboard, replaces earlier wrong "2.9 petabytes" from donor-slide content)
-- Quotes (Shapiro, Sosa, Straus) corrected to verbatim wording from `~/peer-review-2025/evidence/testimonials/`
+- Who pays for ICPSR and Roper is not stated. Why: Tim 11/19, no one has said who pays; the Library's 10/22 "Research Services holds the budget" statement is not used.
+- "Official Representative" (ICPSR's term) not used until Tim confirms he holds it.
+- Posting comparison describes the two texts only. The 2026 duties do say "methods" and "managing geospatial platform access", so the brief does not claim either is absent.
+- Do not name students. Funding sources (gift fund vs membership fund) stay out; the registry and claim #22 disagree.
+
+## Open
+1. Doug is still listed as an author. Tim to confirm.
+2. Carceral Ecologies (ISG) and BioCritical Studies Lab: confirm they count toward the Social Sciences Division.
+3. Template intro still says "The research belongs to the faculty and students named". Tim cut that kind of line from the Keel email; decide for all briefs.
+4. Cotsen not re-rendered after the template change (defaults should keep it identical).
+5. Topics line (needs a second export) still not done.
 
 ## Files modified
-- `dean-update-social-sciences-2026.qmd`, `.html`, `styles-dean-update.css` — new, untracked, not yet committed
-- `CLAUDE.md`, `TODAY_PLAN_2026-02-25.md` — untracked, deliberately left out of git
-
-## Blockers / waiting on
-- Jamie Jamison name spelling: confirm before the doc is sent (Tim said "use Jamison for now," not yet verified with Jamie)
+- `briefs/dean-brief.qmd`, `briefs/divisions.yml`, `briefs/spine-aggregates-2026-10-24.csv`, `briefs/dean-brief.css` (print tightening, predates 11/19), `HANDOFF.md`
