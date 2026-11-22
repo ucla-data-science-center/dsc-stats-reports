@@ -303,6 +303,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Infrastructure</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./reach.html">
+ <span class="dropdown-text">Where users are on campus</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./about.html">
  <span class="dropdown-text">About and methodology</span></a>
   </li>  
@@ -342,11 +346,17 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#how-to-read-these-counts" id="toc-how-to-read-these-counts" class="nav-link active" data-scroll-target="#how-to-read-these-counts">How to read these counts</a></li>
+  </ul>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/edit/main/reach.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/reach.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -369,26 +379,44 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><span class="lede">People who registered for, attended, or consulted with the Data Science Center come from buildings across campus, from the humanities and social sciences on the north side to the health sciences and engineering on the south.</span></p>
-<p>The map and table count people by the building their department or school sits in. A person counts once, however many times they took part. The first column counts everyone with a recorded workshop registration, workshop attendance, consultation, support ticket, or Dataverse deposit. A registration counts even when there is no attendance record, because attendance was not recorded for every session. So the first column is a floor on people reached, not a count of attendees. The second column counts only people with a recorded attendance, consultation, support ticket, or deposit. Records begin in 2017 for consultations and at different dates for other sources, and run to November 2026. People without a usable email address, and people whose department we could not place, are not counted. UC Love Data Week registrations (2022 to 2024) are not included: those lists have names but no email addresses, so they could not be matched to the other records. DSC staff and DataSquad members, who ran the services, are not counted.</p>
-<div id="reach-map" role="img" aria-label="Map of UCLA campus buildings sized by the number of people who used the Data Science Center. The same figures are in the table below the map." style="height:520px;width:100%;border:1px solid #d9dee4;border-radius:6px">
+<p>The counts below are floors, not rates. A person counts once, however many times they took part. <a href="#how-to-read-these-counts">How to read these counts</a> explains what is and is not included.</p>
+<div class="column-page">
+<div id="reach-map" role="group" aria-label="Interactive map of UCLA campus buildings, sized by the number of people who registered for or used the Data Science Center. The table below the map has the same figures.">
 
 </div>
+<style>
+#reach-map{height:560px;width:100%;border:1px solid #d9dee4;border-radius:6px}
+@media (max-width:600px){#reach-map{height:380px}}
+.rl{position:absolute;pointer-events:none}
+.rl span{position:absolute;transform:translate(-50%,0);white-space:nowrap;font:600 11px system-ui,sans-serif;color:#1f2933;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff,0 0 3px #fff}
+.rleg{background:rgba(255,255,255,.92);padding:6px 9px;border-radius:6px;font:12px system-ui,sans-serif;color:#1f2933;line-height:1.2}
+.rleg i{display:inline-block;border-radius:50%;border:1.5px solid #2774ae;background:rgba(39,116,174,.35);vertical-align:middle;margin-right:5px}
+.rleg div{display:flex;align-items:center;margin-top:3px}
+</style>
 <link rel="stylesheet" href="assets/leaflet/leaflet.css">
 <script src="assets/leaflet/leaflet.js"></script>
 <script>
 (function(){
-  var B=[{"building": "Center for Health Sciences", "units": ["Medicine + Geffen", "Public Health units"], "users": 236, "recent": 70, "consult": 81, "confirmed": 158, "note": "Medicine and Public Health units are spread across the Health Sciences complex; shown at one point.", "lat": 34.0662222, "lon": -118.4437527}, {"building": "Boelter Hall", "units": ["Engineering"], "users": 119, "recent": 11, "consult": 19, "confirmed": 55, "note": "", "lat": 34.0688633, "lon": -118.4427818}, {"building": "Bunche Hall", "units": ["Economics", "Geography", "History", "Political Science"], "users": 108, "recent": 30, "consult": 33, "confirmed": 79, "note": "", "lat": 34.0741783, "lon": -118.4400048}, {"building": "Moore Hall", "units": ["Education", "Info Studies + LIS"], "users": 105, "recent": 22, "consult": 29, "confirmed": 82, "note": "", "lat": 34.070424, "lon": -118.4425863}, {"building": "Public Affairs Building", "units": ["Master of Social Science", "Public Policy / Affairs", "Urban Planning"], "users": 91, "recent": 21, "consult": 49, "confirmed": 80, "note": "", "lat": 34.0744004, "lon": -118.4391754}, {"building": "Young Research Library (YRL)", "units": ["UCLA Library"], "users": 91, "recent": 22, "consult": 45, "confirmed": 67, "note": "Library staff work in several libraries; shown at one point.", "lat": 34.0749744, "lon": -118.4414894}, {"building": "Anderson complex (Gold Hall)", "units": ["Anderson"], "users": 63, "recent": 7, "consult": 12, "confirmed": null, "note": "", "lat": 34.0736278, "lon": -118.4438854}, {"building": "Franz Hall", "units": ["Psychology"], "users": 63, "recent": 5, "consult": 7, "confirmed": 34, "note": "", "lat": 34.0695936, "lon": -118.4412568}, {"building": "Math Sciences Building", "units": ["Mathematics", "Statistics + SDS"], "users": 48, "recent": 14, "consult": 8, "confirmed": 31, "note": "Point is approximate.", "lat": 34.0690663, "lon": -118.4426067}, {"building": "Haines Hall", "units": ["Anthropology", "Sociology"], "users": 45, "recent": 6, "consult": 19, "confirmed": 29, "note": "", "lat": 34.0729095, "lon": -118.4412957}, {"building": "La Kretz Hall", "units": ["Env. & Sustainability"], "users": 43, "recent": 9, "consult": 14, "confirmed": 35, "note": "", "lat": 34.0675571, "lon": -118.4427134}, {"building": "Hershey Hall", "units": ["Ecology & Evol. Bio"], "users": 36, "recent": null, "consult": 6, "confirmed": 16, "note": "", "lat": 34.0668935, "lon": -118.4397854}, {"building": "Rolfe Hall", "units": ["Communication", "Spanish & Portuguese"], "users": 21, "recent": 11, "consult": 15, "confirmed": null, "note": "", "lat": 34.0739423, "lon": -118.441868}, {"building": "Gonda Neuroscience Building", "units": ["Neuroscience"], "users": 19, "recent": 10, "consult": 10, "confirmed": null, "note": "Neuroscience graduate program only; other neuroscience units sit elsewhere.", "lat": 34.0670979, "lon": -118.4443621}, {"building": "School of Law", "units": ["Law"], "users": 18, "recent": 6, "consult": 11, "confirmed": null, "note": "", "lat": 34.0730343, "lon": -118.4384081}, {"building": "Fowler Building A", "units": ["Archaeology / Cotsen"], "users": 15, "recent": null, "consult": 5, "confirmed": 10, "note": "", "lat": 34.0729334, "lon": -118.4433998}, {"building": "Factor Building", "units": ["Nursing"], "users": 10, "recent": null, "consult": 5, "confirmed": null, "note": "", "lat": 34.0667471, "lon": -118.4420179}];
-  var map=L.map('reach-map',{scrollWheelZoom:false}).setView([34.0705,-118.4425],16);
+  var B=[{"building": "Center for Health Sciences", "units": ["Medicine + Geffen", "Public Health units"], "users": 236, "recent": 70, "consult": 81, "confirmed": 158, "note": "Medicine and Public Health units are spread across the Health Sciences complex; shown at one point.", "lat": 34.0662222, "lon": -118.4437527, "short": "CHS"}, {"building": "Boelter Hall", "units": ["Engineering"], "users": 119, "recent": 11, "consult": 19, "confirmed": 55, "note": "", "lat": 34.0688633, "lon": -118.4427818, "short": "Boelter"}, {"building": "Bunche Hall", "units": ["Economics", "Geography", "History", "Political Science"], "users": 108, "recent": 30, "consult": 33, "confirmed": 79, "note": "", "lat": 34.0741783, "lon": -118.4400048, "short": "Bunche"}, {"building": "Moore Hall", "units": ["Education", "Info Studies + LIS"], "users": 105, "recent": 22, "consult": 29, "confirmed": 82, "note": "", "lat": 34.070424, "lon": -118.4425863, "short": "Moore"}, {"building": "Public Affairs Building", "units": ["Master of Social Science", "Public Policy / Affairs", "Urban Planning"], "users": 91, "recent": 21, "consult": 49, "confirmed": 80, "note": "", "lat": 34.0744004, "lon": -118.4391754, "short": "Public Affairs"}, {"building": "Young Research Library (YRL)", "units": ["UCLA Library"], "users": 91, "recent": 22, "consult": 45, "confirmed": 67, "note": "Library staff work in several libraries; shown at one point.", "lat": 34.0749744, "lon": -118.4414894, "short": "YRL"}, {"building": "Anderson complex (Gold Hall)", "units": ["Anderson"], "users": 63, "recent": 7, "consult": 12, "confirmed": null, "note": "", "lat": 34.0736278, "lon": -118.4438854, "short": "Anderson"}, {"building": "Franz Hall", "units": ["Psychology"], "users": 63, "recent": 5, "consult": 7, "confirmed": 34, "note": "", "lat": 34.0695936, "lon": -118.4412568, "short": "Franz"}, {"building": "Math Sciences Building", "units": ["Mathematics", "Statistics + SDS"], "users": 48, "recent": 14, "consult": 8, "confirmed": 31, "note": "Point is approximate.", "lat": 34.0690663, "lon": -118.4426067, "short": "Math Sci"}, {"building": "Haines Hall", "units": ["Anthropology", "Sociology"], "users": 45, "recent": 6, "consult": 19, "confirmed": 29, "note": "", "lat": 34.0729095, "lon": -118.4412957, "short": "Haines"}, {"building": "La Kretz Hall", "units": ["Env. & Sustainability"], "users": 43, "recent": 9, "consult": 14, "confirmed": 35, "note": "", "lat": 34.0675571, "lon": -118.4427134, "short": "La Kretz"}, {"building": "Hershey Hall", "units": ["Ecology & Evol. Bio"], "users": 36, "recent": null, "consult": 6, "confirmed": 16, "note": "", "lat": 34.0668935, "lon": -118.4397854, "short": "Hershey"}, {"building": "Rolfe Hall", "units": ["Communication", "Spanish & Portuguese"], "users": 21, "recent": 11, "consult": 15, "confirmed": null, "note": "", "lat": 34.0739423, "lon": -118.441868, "short": "Rolfe"}, {"building": "Gonda Neuroscience Building", "units": ["Neuroscience"], "users": 19, "recent": 10, "consult": 10, "confirmed": null, "note": "Neuroscience graduate program only; other neuroscience units sit elsewhere.", "lat": 34.0670979, "lon": -118.4443621, "short": "Gonda"}, {"building": "School of Law", "units": ["Law"], "users": 18, "recent": 6, "consult": 11, "confirmed": null, "note": "", "lat": 34.0730343, "lon": -118.4384081, "short": "Law"}, {"building": "Fowler Building A", "units": ["Archaeology / Cotsen"], "users": 15, "recent": null, "consult": 5, "confirmed": 10, "note": "", "lat": 34.0729334, "lon": -118.4433998, "short": "Fowler"}, {"building": "Factor Building", "units": ["Nursing"], "users": 10, "recent": null, "consult": 5, "confirmed": null, "note": "", "lat": 34.0667471, "lon": -118.4420179, "short": "Factor"}];
+  var mobile=L.Browser.mobile;
+  var map=L.map('reach-map',{scrollWheelZoom:false,dragging:!mobile,tap:false,maxZoom:19});
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
+  function rad(n){return 4+1.25*Math.sqrt(n);}
   B.forEach(function(b){
-    var r=6+Math.sqrt(b.users)*1.9;
+    var r=rad(b.users);
     var tip='<b>'+b.building+'</b><br>'+b.units.join(', ')+'<br>'+b.users+' people registered or used'+(b.confirmed!=null?'<br>'+b.confirmed+' with a recorded attendance, consultation or ticket':'')+(b.recent!=null?'<br>'+b.recent+' seen 2024 or later':'')+(b.consult!=null?'<br>'+b.consult+' had a consultation':'');
-    L.circleMarker([b.lat,b.lon],{radius:r,color:'#fff',weight:1.5,fillColor:'#2774ae',fillOpacity:.8}).bindTooltip(tip).addTo(map);
+    L.circleMarker([b.lat,b.lon],{radius:r,color:'#fff',weight:1.5,fillColor:'#2774ae',fillOpacity:.72}).bindTooltip(tip).addTo(map);
+    L.marker([b.lat,b.lon],{interactive:false,keyboard:false,icon:L.divIcon({className:'rl',iconSize:[0,0],html:'<span style="margin-top:'+Math.round(r+1)+'px">'+b.short+'</span>'})}).addTo(map);
   });
-  map.fitBounds(L.latLngBounds(B.map(function(b){return [b.lat,b.lon];})).pad(0.12));
+  var leg=L.control({position:'bottomleft'});
+  leg.onAdd=function(){var d=L.DomUtil.create('div','rleg');d.innerHTML='<div style="margin:0 0 2px">Circle area = people</div>'+[25,100,250].map(function(n){var w=Math.round(rad(n)*2);return '<div><i style="width:'+w+'px;height:'+w+'px"></i>'+n+'</div>';}).join('');return d;};
+  leg.addTo(map);
+  map.fitBounds(L.latLngBounds(B.map(function(b){return [b.lat,b.lon];})).pad(0.12),{maxZoom:17});
 })();
 </script>
-<p>Circle area follows the number of people. Hover or tap a circle for the building’s figures. The table has the same numbers.</p>
+</div>
+<p>Hover or tap a circle for the building’s figures. The table has the same numbers. <a href="https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/data/processed/reach/users_by_building.csv">Download the data (CSV)</a>.</p>
+<div style="overflow-x:auto">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -461,7 +489,7 @@ ul.task-list li input[type="checkbox"] {
 <td>Anderson complex (Gold Hall)</td>
 <td>Anderson</td>
 <td style="text-align: right;">63</td>
-<td style="text-align: right;">under 5 or not shown</td>
+<td style="text-align: right;">—</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">12</td>
 </tr>
@@ -502,14 +530,14 @@ ul.task-list li input[type="checkbox"] {
 <td>Ecology &amp; Evol. Bio</td>
 <td style="text-align: right;">36</td>
 <td style="text-align: right;">16</td>
-<td style="text-align: right;">under 5 or not shown</td>
+<td style="text-align: right;">—</td>
 <td style="text-align: right;">6</td>
 </tr>
 <tr class="odd">
 <td>Rolfe Hall</td>
 <td>Communication, Spanish &amp; Portuguese</td>
 <td style="text-align: right;">21</td>
-<td style="text-align: right;">under 5 or not shown</td>
+<td style="text-align: right;">—</td>
 <td style="text-align: right;">11</td>
 <td style="text-align: right;">15</td>
 </tr>
@@ -517,7 +545,7 @@ ul.task-list li input[type="checkbox"] {
 <td>Gonda Neuroscience Building</td>
 <td>Neuroscience</td>
 <td style="text-align: right;">19</td>
-<td style="text-align: right;">under 5 or not shown</td>
+<td style="text-align: right;">—</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: right;">10</td>
 </tr>
@@ -525,7 +553,7 @@ ul.task-list li input[type="checkbox"] {
 <td>School of Law</td>
 <td>Law</td>
 <td style="text-align: right;">18</td>
-<td style="text-align: right;">under 5 or not shown</td>
+<td style="text-align: right;">—</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">11</td>
 </tr>
@@ -534,21 +562,29 @@ ul.task-list li input[type="checkbox"] {
 <td>Archaeology / Cotsen</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">under 5 or not shown</td>
+<td style="text-align: right;">—</td>
 <td style="text-align: right;">5</td>
 </tr>
 <tr class="odd">
 <td>Factor Building</td>
 <td>Nursing</td>
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">under 5 or not shown</td>
-<td style="text-align: right;">under 5 or not shown</td>
+<td style="text-align: right;">—</td>
+<td style="text-align: right;">—</td>
 <td style="text-align: right;">5</td>
 </tr>
 </tbody>
 </table>
-<p>Window: records through November 2026; each source starts at a different date. A figure is left out when it, or the number of people it leaves out of the building’s total, is under 5. No totals across buildings are shown, so no hidden figure can be worked out by subtraction.</p>
+</div>
+<section id="how-to-read-these-counts" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-read-these-counts">How to read these counts</h2>
 <ul>
+<li><strong>Who is counted.</strong> People are placed by the building their department or school sits in. Each person counts once.</li>
+<li><strong>First column.</strong> Everyone with a recorded workshop registration, workshop attendance, consultation, support ticket, or Dataverse deposit. A registration counts even when there is no attendance record, because attendance was not recorded for every session. This column is a floor on people reached, not a count of attendees.</li>
+<li><strong>Second column.</strong> Only people with a recorded attendance, consultation, support ticket, or deposit.</li>
+<li><strong>Window.</strong> Records begin in 2017 for consultations and at different dates for other sources, and run to November 2026.</li>
+<li><strong>Not counted.</strong> People without a usable email address, and people whose department we could not place. UC Love Data Week registrations (2022 to 2024) are not included: those lists have names but no email addresses, so they could not be matched to the other records. DSC staff and DataSquad members, who ran the services, are not counted.</li>
+<li><strong>Small numbers.</strong> A figure is left out when it, or the number of people it leaves out of the building’s total, is under 5. A dash means the figure is not shown. No totals across buildings are shown, so no hidden figure can be worked out by subtraction.</li>
 <li><strong>Center for Health Sciences:</strong> Medicine and Public Health units are spread across the Health Sciences complex; shown at one point.</li>
 <li><strong>Young Research Library (YRL):</strong> Library staff work in several libraries; shown at one point.</li>
 <li><strong>Math Sciences Building:</strong> Point is approximate.</li>
@@ -557,6 +593,7 @@ ul.task-list li input[type="checkbox"] {
 <p>How the counts were made: <a href="./metrics-governance.html">metrics governance</a>. Locations come from each department’s published address.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <!-- Closing strip of DSC identity elements (2019 package): decorative only -->
@@ -1014,7 +1051,7 @@ ul.task-list li input[type="checkbox"] {
 <a href="https://ucla-datasquad.github.io/">DataSquad student projects</a><br>
 <a href="https://www.library.ucla.edu/visit/locations/data-science-center/">Data Science Center at UCLA Library</a><br>
 <a href="https://uclalibrary.atlassian.net/servicedesk/customer/portal/5">Request a research consultation</a></p>
-<div class="toc-actions"><ul><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/edit/main/reach.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/reach.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/edit/main/reach.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/reach.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p><span class="footer-heading">Help improve this record</span></p>
 <p><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/issues/new?template=correction.yml">Report a correction</a><br>
