@@ -11,6 +11,7 @@ project:
   output-dir: docs
   resources:
     - images/brand/**   # logo and identity elements (some referenced only from CSS)
+    - assets/leaflet/** # map library for reach.qmd
   render:
     - index.qmd
     - capability.qmd
@@ -21,6 +22,7 @@ project:
     - consulting.qmd
     - instruction.qmd
     - infrastructure.qmd
+    - reach.qmd
     - metrics-governance.md
     - dsc-retrospective-2017-2026.qmd
     # dsc_report2024.qmd excluded from nav; render separately if needed
