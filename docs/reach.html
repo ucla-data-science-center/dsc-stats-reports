@@ -385,7 +385,7 @@ ul.task-list li input[type="checkbox"] {
 
 </div>
 <style>
-#reach-map{height:560px;width:100%;border:1px solid #d9dee4;border-radius:6px}
+#reach-map{height:660px;width:100%;border:1px solid #d9dee4;border-radius:6px}
 @media (max-width:600px){#reach-map{height:380px}}
 .rl{position:absolute;pointer-events:none}
 .rl span{position:absolute;transform:translate(-50%,0);white-space:nowrap;font:600 11px system-ui,sans-serif;color:#1f2933;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff,0 0 3px #fff}
@@ -411,7 +411,7 @@ ul.task-list li input[type="checkbox"] {
   var leg=L.control({position:'bottomleft'});
   leg.onAdd=function(){var d=L.DomUtil.create('div','rleg');d.innerHTML='<div style="margin:0 0 2px">Circle area = people</div>'+[25,100,250].map(function(n){var w=Math.round(rad(n)*2);return '<div><i style="width:'+w+'px;height:'+w+'px"></i>'+n+'</div>';}).join('');return d;};
   leg.addTo(map);
-  map.fitBounds(L.latLngBounds(B.map(function(b){return [b.lat,b.lon];})).pad(0.12),{maxZoom:17});
+  map.fitBounds(L.latLngBounds(B.map(function(b){return [b.lat,b.lon];})),{paddingTopLeft:[30,34],paddingBottomRight:[30,64],maxZoom:17});
 })();
 </script>
 </div>
