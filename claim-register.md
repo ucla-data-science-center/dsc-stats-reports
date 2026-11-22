@@ -263,3 +263,15 @@ last verification date should not be reused until re-checked.
 - **Not approved**: "never refilled and was later cut" (superseded; the Library posted JPF11374 on 2026-10-05). "UCLA cut the GIS librarian position in 2024" (the departure came first, then a vacancy).
 - **Source**: the director, 2026-09-28; Library job posting JPF11374 (https://recruit.apo.ucla.edu/JPF11374), opened and accessed 2026-10-05.
 - **Last verified**: 2026-10-08. (The role's title is Spatial Data Science Librarian per the Library's 2019 public posting, https://iassistdata.org/jobs-repository/2019-08-06-00614/; the posting is not a filled position.)
+
+## 24. UCLA-affiliated workshop attendance records and the Geography count (gis-support partial)
+
+- **Approved wording**: "Geography was DSC's single largest departmental workshop audience from 2020 to April 2024: 64 of the 1,575 UCLA-affiliated workshop attendance records, more than any other department over that period as a whole."
+- **Not approved**: "1,676 UCLA attendees" (unsourced; the figure is the row count of the older `ucla_workshops.rda`, which holds UCLA and UCLA-like rows, see `data/raw/instruction/README.md`). "1,575 people" (a record is one registration for one workshop, not a person).
+- **Reporting period**: 2020 to April 2024. All 1,575 UCLA rows in the source fall in that window.
+- **Unit of observation**: one attendee-event row (one registration for one workshop session).
+- **Population/exclusions**: rows where `institution == "UCLA"` in `data/raw/instruction/dsc_workshops.csv`. Rows with unknown institution are not counted. The Geography count uses `standardized_department` from `load_instruction_attendee_data()` in `src/etl/instruction_aggregate.R`. An exact match on the raw free-text value "Geography" gives 60, so the standardization adds 4 rows.
+- **Missingness/coverage**: records with a blank or unmapped department are left out of the department ranking, and this pass did not count them. The next departments are Information Studies (60) and Library (58).
+- **Source**: `data/raw/instruction/dsc_workshops.csv` with `src/etl/instruction_aggregate.R`; shown in `_variables.yml` (`instruction.total_attendees`) and `_partials/gis-support.qmd`.
+- **Contribution language allowed**: "attendance records," "UCLA-affiliated."
+- **Last verified**: 2026-11-13, recomputed in two ways: a direct row count of the CSV (1,575) and the repo loader (1,575 rows; Geography 64, Information Studies 60, Library 58).
