@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data publication and reuse – Research Enabled by DSC</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/brand/dsc-cube.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4c1c7564f863846546ea2c2c4e7f5201.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c392612ad9c7fc3e28957578f706e1f5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-4c1c7564f863846546ea2c2c4e7f5201.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#003B5C">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#003B5C">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/brand/dsc-logo-white.svg" alt="UCLA Library Data Science Center" class="navbar-logo light-content">
+    <img src="./images/brand/dsc-logo-white.svg" alt="UCLA Library Data Science Center" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="index.html">
+    <span class="navbar-title">Data Science Center record</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research-enabled" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Research enabled</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research-enabled">    
+        <li>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">Home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./research.html">
+ <span class="dropdown-text">Research enabled</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./publication.html">
+ <span class="dropdown-text">Data publication and reuse</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./capability.html">
+ <span class="dropdown-text">Research capability built</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./investments.html">
+ <span class="dropdown-text">Shared investments</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./consulting.html">
+ <span class="dropdown-text">Consulting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./instruction.html">
+ <span class="dropdown-text">Instruction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./infrastructure.html">
+ <span class="dropdown-text">Infrastructure</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./reach.html">
+ <span class="dropdown-text">Where users are on campus</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./about.html">
+ <span class="dropdown-text">About and methodology</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-archive-history" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Archive history</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-archive-history">    
+        <li>
+    <a class="dropdown-item" href="https://ucla-data-science-center.github.io/ssda-dsc-history/history.html">
+ <span class="dropdown-text">The history, 1961 to 2026</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://ucla-data-science-center.github.io/ssda-dsc-history/history-companion.html">
+ <span class="dropdown-text">Evidence companion</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ucla-data-science-center/dsc-stats-reports"> <i class="bi bi-github" role="img" aria-label="GitHub repository">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#two-entry-examples" id="toc-two-entry-examples" class="nav-link active" data-scroll-target="#two-entry-examples">Two entry examples</a></li>
+  <li><a href="#studies-and-dscs-contribution" id="toc-studies-and-dscs-contribution" class="nav-link" data-scroll-target="#studies-and-dscs-contribution">Studies and DSC’s contribution</a></li>
+  <li><a href="#published-data-and-the-works-that-use-it" id="toc-published-data-and-the-works-that-use-it" class="nav-link" data-scroll-target="#published-data-and-the-works-that-use-it">Published data and the works that use it</a></li>
+  <li><a href="#other-ucla-studies-at-icpsr" id="toc-other-ucla-studies-at-icpsr" class="nav-link" data-scroll-target="#other-ucla-studies-at-icpsr">Other UCLA studies at ICPSR</a></li>
+  <li><a href="#a-ucla-article-that-used-icpsr-data" id="toc-a-ucla-article-that-used-icpsr-data" class="nav-link" data-scroll-target="#a-ucla-article-that-used-icpsr-data">A UCLA article that used ICPSR data</a></li>
+  <li><a href="#other-pathways" id="toc-other-pathways" class="nav-link" data-scroll-target="#other-pathways">Other pathways</a></li>
+  <li><a href="#coverage-and-methods" id="toc-coverage-and-methods" class="nav-link" data-scroll-target="#coverage-and-methods">Coverage and methods</a></li>
+  </ul>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/edit/main/publication.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/publication.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data publication and reuse</h1>
+<p class="subtitle lead">How UCLA research data reached ICPSR, UCLA Dataverse and Redivis, what DSC did on each, and what is known about its use</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On August 24, 2026, the UCLA Library dissolved DSC as a unit. This page is prepared by the DSC director from DSC records and cited sources. It is not an official Library statement. Counts were retrieved on 2026-10-28 and are floors, not totals.</p>
+</div>
+</div>
+<p><strong>DSC helped UCLA research teams prepare data for publication, ran the repository where much of it lives, and ran governed access for data that could not be released.</strong> Publication is one claim and DSC’s part in it is another. Each row below separates the two.</p>
+<section id="two-entry-examples" class="level2">
+<h2 class="anchored" data-anchor-id="two-entry-examples">Two entry examples</h2>
+<p><strong>COVID Prison Policy Index (<a href="https://doi.org/10.3886/ICPSR38730.v1">ICPSR 38730</a>).</strong> UCLA Law’s COVID Behind Bars project published a series of five studies at ICPSR. The index is also in UCLA Dataverse. DSC staff advised on documentation and codebooks, prepared or cleaned files, connected the team to ICPSR and the deposit process, and met with the team during curation, per the director’s account. Subsequent use: review pending. The ICPSR series page lists no associated publications as of 2026-10-28.</p>
+<p><strong>TransPop (<a href="https://doi.org/10.3886/ICPSR37938.v1">ICPSR 37938</a>).</strong> A Williams Institute study published at ICPSR. DSC’s work was of the same kind, on the same basis. 6 citations in OpenAlex and 10 in DataCite to the study DOI, as of 2026-10-28. These are citations to the study, not yet a reviewed list of works that analyze it.</p>
+</section>
+<section id="studies-and-dscs-contribution" class="level2">
+<h2 class="anchored" data-anchor-id="studies-and-dscs-contribution">Studies and DSC’s contribution</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Project family</th>
+<th>Records</th>
+<th>What the evidence supports</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>COVID Behind Bars (UCLA Law)</td>
+<td><a href="https://doi.org/10.3886/ICPSR38730.v1">COVID Prison Policy Index, ICPSR 38730</a>, and four more studies in the <a href="https://www.icpsr.umich.edu/sites/icpsr/view/collections/2160">series</a></td>
+<td>Project-level help preparing data for ICPSR (documentation, file preparation, connection to ICPSR, meeting during curation), per the director’s account. Scope on each study not documented.</td>
+<td>Confirmed at project level</td>
+</tr>
+<tr class="even">
+<td>TransPop (Williams Institute)</td>
+<td><a href="https://doi.org/10.3886/ICPSR37938.v1">ICPSR 37938</a></td>
+<td>Project-level help preparing data for ICPSR, per the director’s account. Scope on the study not documented.</td>
+<td>Confirmed at project level</td>
+</tr>
+<tr class="odd">
+<td>Generations (Williams Institute)</td>
+<td><a href="https://doi.org/10.3886/ICPSR37166.v2">ICPSR 37166</a>, ICPSR 38421</td>
+<td>DSC involvement is reported in the history and is not independently confirmed</td>
+<td>Reported, unconfirmed</td>
+</tr>
+<tr class="even">
+<td>Carceral Ecologies</td>
+<td><a href="https://doi.org/10.3886/ICPSR38958.v1">ICPSR 38958</a></td>
+<td>Consultation and deposit advice. DSC’s curation role is not stated.</td>
+<td>Consultation records only</td>
+</tr>
+<tr class="odd">
+<td>LAMAS and LACSS survey series</td>
+<td>14 records released 2016 to 2018</td>
+<td>The archive’s own releases, by Library archive staff, per the authors’ account. Use of these exact releases not yet traced.</td>
+<td>Authors’ account</td>
+</tr>
+<tr class="even">
+<td>L2 Voter History and Demographic Dataset (Redivis)</td>
+<td><a href="https://doi.org/10.60603/D37P4R">DOI 10.60603/D37P4R</a></td>
+<td>Curated by DSC. No public usage figures exist.</td>
+<td>Documented</td>
+</tr>
+</tbody>
+</table>
+<p>Five studies from one project are one collaboration, not five. “Helped the team prepare data” is the claim. “DSC curated the study” is not, because ICPSR curates to the level of individual variables and DSC’s per-study scope is not documented.</p>
+</section>
+<section id="published-data-and-the-works-that-use-it" class="level2">
+<h2 class="anchored" data-anchor-id="published-data-and-the-works-that-use-it">Published data and the works that use it</h2>
+<p>These are UCLA Dataverse datasets whose depositors linked a supporting article. The authors of the article produced the data, so these are original-team works, not independent reuse.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>Article it supports</th>
+<th>Relationship</th>
+<th>Evidence for the data</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://doi.org/10.25346/S6/LFAVXU">Replication data, Moon nighttime temperature and rock abundance</a></td>
+<td>Powell and others, <a href="https://doi.org/10.1029/2022JE007532"><em>JGR Planets</em>, 2023</a>, cited 57 times</td>
+<td>Original-team article</td>
+<td>5 citations (DataCite), 7 (OpenAlex); 2,410 file downloads</td>
+</tr>
+<tr class="even">
+<td><a href="https://doi.org/10.25346/S6/ZSW7UN">Global Atmospheric Rivers Database v4</a></td>
+<td>Guan and Waliser, <a href="https://doi.org/10.1038/s41597-024-03258-4"><em>Scientific Data</em>, 2024</a>, cited 37 times</td>
+<td>Original-team article</td>
+<td>12 citations (DataCite), 13 (OpenAlex); 8,394 file downloads</td>
+</tr>
+<tr class="odd">
+<td><a href="https://doi.org/10.25346/S6/Y4F9LJ">Fault Displacement Hazard Initiative database</a></td>
+<td>Sarmiento and others, <a href="https://doi.org/10.1177/87552930241262766"><em>Earthquake Spectra</em>, 2024</a>, cited 22 times</td>
+<td>Original-team article</td>
+<td>4 citations (both indexes); 1,774 file downloads</td>
+</tr>
+</tbody>
+</table>
+<p>Works by other teams that analyze the ICPSR studies above are not yet compiled. ICPSR keeps a <a href="https://www.icpsr.umich.edu/sites/icpsr/find-data/citations/bibliography-faqs">Bibliography of Data-related Literature</a> that links publications to each study. Checking it for these studies is the next step, and each work will be labeled as original-team analysis, secondary analysis, or substantive discussion.</p>
+</section>
+<section id="other-ucla-studies-at-icpsr" class="level2">
+<h2 class="anchored" data-anchor-id="other-ucla-studies-at-icpsr">Other UCLA studies at ICPSR</h2>
+<p>UCLA’s ICPSR membership was run through DSC. Tim Dennis is UCLA’s <a href="https://www.icpsr.umich.edu/sites/icpsr/membership/manage-membership/rep-guide">Official Representative</a> and Jamie Jamison is its Designated Representative. These roles promote ICPSR data on campus, answer deposit questions, and keep UCLA’s membership active. ICPSR’s membership staff announce UCLA releases to both representatives, and they told them about these. They show UCLA research data reaching the national archive, with DSC’s membership and campus role in the picture. DSC’s direct help on each study is not documented on this page.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>ICPSR study</th>
+<th>UCLA unit</th>
+<th>Announced to UCLA’s representatives</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://doi.org/10.3886/ICPSR39821.v1">STTR Collaboration Project Summary Files, 7 countries, 2010-2017</a> (39821)</td>
+<td>David Geffen School of Medicine</td>
+<td>2026-07-28</td>
+</tr>
+<tr class="even">
+<td><a href="https://doi.org/10.3886/ICPSR39789.v1">Effectiveness of Peer Navigation to Link Released HIV-Positive Jail Inmates to HIV Care (LINK LA), 2012-2016</a> (39789)</td>
+<td>David Geffen School of Medicine</td>
+<td>2026-07-09</td>
+</tr>
+<tr class="odd">
+<td><a href="https://doi.org/10.3886/ICPSR39778.v1">CIRP Freshman Survey, Community Colleges, 1995-2007</a> (39778)</td>
+<td>School of Education and Information Studies, Higher Education Research Institute</td>
+<td>2026-06-19</td>
+</tr>
+<tr class="even">
+<td><a href="https://doi.org/10.3886/ICPSR39670.v1">Midlife in the United States (MIDUS Refresher 2), 2022-2024</a> (39670)</td>
+<td>Psychiatry and Biobehavioral Sciences</td>
+<td>2026-03-02</td>
+</tr>
+<tr class="odd">
+<td><a href="https://doi.org/10.3886/ICPSR39316.v1">Randomized Controlled Trial of a Novel Mindset Intervention for Depression and Immune Dysregulation, 2022-2023</a> (39316)</td>
+<td>Semel Institute</td>
+<td>2025-09-19</td>
+</tr>
+<tr class="even">
+<td><a href="https://doi.org/10.3886/ICPSR39126.v1">Randomized Controlled Trial of the Scenarios and Solutions Gang Prevention Program, California, 2022-2023</a> (39126)</td>
+<td>UCLA, per ICPSR</td>
+<td>2025-02-10</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="a-ucla-article-that-used-icpsr-data" class="level2">
+<h2 class="anchored" data-anchor-id="a-ucla-article-that-used-icpsr-data">A UCLA article that used ICPSR data</h2>
+<p>Alley, Gassen and Slavich, <a href="https://www.icpsr.umich.edu/sites/icpsr/find-data/citations">“The effects of childhood adversity on twenty-five disease biomarkers and twenty health conditions in adulthood: Differences by sex and stressor type”</a>, <em>Brain, Behavior, and Immunity</em> 123 (2025), 164-176. ICPSR’s Bibliography of Data-related Literature links it to four Midlife in the United States studies (ICPSR 4652, 29282, 36532, 36901).</p>
+<p>Relationship: analysis of MIDUS data held at ICPSR by UCLA researchers. This is use of ICPSR data, not a DSC deposit. It shows what the bibliography record looks like, and the same kind of record is the next step for the studies featured above.</p>
+</section>
+<section id="other-pathways" class="level2">
+<h2 class="anchored" data-anchor-id="other-pathways">Other pathways</h2>
+<ul>
+<li><strong>UCLA Dataverse</strong>, the open route, started in 2018. DSC staff ran it: setup, accounts, DOIs, support and upkeep. For many projects it is also the first place DSC helps with curation. Staff advise on documentation and structure, then tell ICPSR and pass the project on, per the director’s account. See <a href="./infrastructure.html">Infrastructure</a> for deposits, downloads and linked papers.</li>
+<li><strong>ICPSR</strong>, the national route. ICPSR curates to the level of individual variables and offers national discovery. DSC helped projects prepare.</li>
+<li><strong>Redivis</strong>, the governed route, for data that could not be handed out. DSC curated the L2 voter files.</li>
+</ul>
+<p><a href="https://ucla-data-science-center.github.io/ssda-dsc-history/history.html#publishing-continued-three-pathways-for-data">The long account is in the history</a>.</p>
+</section>
+<section id="coverage-and-methods" class="level2">
+<h2 class="anchored" data-anchor-id="coverage-and-methods">Coverage and methods</h2>
+<blockquote class="blockquote">
+<p>This is a dated, incomplete record of identified publications and data use. Study publication and DSC involvement are verified separately. Project-level support does not establish the work performed on every release. Original-team publications, secondary analyses, and substantive discussions are labeled separately. A publication may use the same underlying data without obtaining it from the repository shown here.</p>
+</blockquote>
+<ul>
+<li><strong>Sources:</strong> ICPSR, DataCite, OpenAlex, Crossref (article citations), and the Dataverse file-download counter. Counts were retrieved on 2026-10-28. Index counts are not added together.</li>
+<li><strong>Citations to a study are not reuse.</strong> A citation to a dataset DOI or to a linked paper shows that someone cited it. The 258 citations on the Infrastructure page count papers that depositors linked to datasets, not times the data were reused.</li>
+<li><strong>Downloads are file events.</strong> They include automated traffic and are not unique users.</li>
+<li><strong>Attribution:</strong> DSC’s role rests on the director’s account unless a row says otherwise. DSC consultation records show Dataverse help to the COVID Behind Bars team, for example template setup in 2022 and deposit questions in 2026. Public records establish the studies, DOIs and articles, not who did the work.</li>
+<li><strong>Unresolved:</strong> Generations and the LAMAS and LACSS releases, as marked in the table. The other UCLA studies carry no DSC claim.</li>
+<li>Rules for counting: <a href="./about.html">About and methodology</a>, <a href="./metrics-governance.html">Metrics governance</a>.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<!-- Closing strip of DSC identity elements (2019 package): decorative only -->
+<div class="brand-strip" aria-hidden="true">
+  <span class="brand-el brand-lineflat"></span>
+  <span class="brand-el brand-smallcircle"></span>
+  <span class="brand-el brand-node2"></span>
+  <span class="brand-el brand-bigcircle"></span>
+  <span class="brand-el brand-linechart2"></span>
+</div>
+<script>
+  // On pages without a table of contents, Quarto puts "Edit this page" inside the
+  // middle footer column. Give it its own row under the three link groups.
+  document.addEventListener("DOMContentLoaded", function () {
+    var footer = document.querySelector("footer .nav-footer");
+    var actions = footer && footer.querySelector(".toc-actions");
+    if (actions) { actions.classList.add("footer-repo-actions"); footer.appendChild(actions); }
+    // Mark the current page and its menu active in the navbar shared with the history site.
+    document.querySelectorAll(".navbar .dropdown-item").forEach(function (a) {
+      if (a.pathname === location.pathname) {
+        a.classList.add("active");
+        a.setAttribute("aria-current", "page");
+        var d = a.closest(".dropdown");
+        var t = d && d.querySelector(".nav-link.dropdown-toggle");
+        if (t) t.classList.add("active");
+      }
+    });
+  });
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><span class="footer-heading">Explore</span></p>
+<p><a href="https://ucla-data-science-center.github.io/dsc-stats-reports/">Research Enabled by DSC</a><br>
+<a href="https://ucla-data-science-center.github.io/ssda-dsc-history/history.html">Archive history since 1961</a><br>
+<a href="https://ucla-data-science-center.github.io/dsc-stats-reports/about.html">How figures are counted</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><span class="footer-heading">Use the services</span></p>
+<p><a href="https://dataverse.ucla.edu/">UCLA Dataverse</a><br>
+<a href="https://ucla-datasquad.github.io/">DataSquad student projects</a><br>
+<a href="https://www.library.ucla.edu/visit/locations/data-science-center/">Data Science Center at UCLA Library</a><br>
+<a href="https://uclalibrary.atlassian.net/servicedesk/customer/portal/5">Request a research consultation</a></p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/edit/main/publication.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/blob/main/publication.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p><span class="footer-heading">Help improve this record</span></p>
+<p><a href="https://github.com/ucla-data-science-center/dsc-stats-reports/issues/new?template=correction.yml">Report a correction</a><br>
+<a href="https://github.com/ucla-data-science-center/dsc-stats-reports">View the source on GitHub</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
