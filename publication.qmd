@@ -1,0 +1,80 @@
+---
+title: "Data publication and reuse"
+subtitle: "How UCLA research data reached ICPSR, UCLA Dataverse and Redivis, what DSC did on each, and what is known about its use"
+toc: true
+---
+
+::: {.callout-note}
+On August 24, 2026, the UCLA Library dissolved DSC as a unit. This page is prepared by the DSC director from DSC records and cited sources. It is not an official Library statement. Counts were retrieved on 2026-10-28 and are floors, not totals.
+:::
+
+**DSC helped UCLA research teams prepare data for publication, ran the repository where much of it lives, and ran governed access for data that could not be released.** Publication is one claim and DSC's part in it is another. Each row below separates the two.
+
+## Two entry examples
+
+**COVID Prison Policy Index ([ICPSR 38730](https://doi.org/10.3886/ICPSR38730.v1)).** UCLA Law's COVID Behind Bars project published a series of five studies at ICPSR. The index is also in UCLA Dataverse. DSC staff advised on documentation and codebooks, prepared or cleaned files, connected the team to ICPSR and the deposit process, and met with the team during curation, per the director's account. Subsequent use: review pending. The ICPSR series page lists no associated publications as of 2026-10-28.
+
+**TransPop ([ICPSR 37938](https://doi.org/10.3886/ICPSR37938.v1)).** A Williams Institute study published at ICPSR. DSC's work was of the same kind, on the same basis. 6 citations in OpenAlex and 10 in DataCite to the study DOI, as of 2026-10-28. These are citations to the study, not yet a reviewed list of works that analyze it.
+
+## Studies and DSC's contribution
+
+| Project family | Records | What the evidence supports | Status |
+|---|---|---|---|
+| COVID Behind Bars (UCLA Law) | [COVID Prison Policy Index, ICPSR 38730](https://doi.org/10.3886/ICPSR38730.v1), and four more studies in the [series](https://www.icpsr.umich.edu/sites/icpsr/view/collections/2160) | Project-level help preparing data for ICPSR (documentation, file preparation, connection to ICPSR, meeting during curation), per the director's account. Scope on each study not documented. | Confirmed at project level |
+| TransPop (Williams Institute) | [ICPSR 37938](https://doi.org/10.3886/ICPSR37938.v1) | Project-level help preparing data for ICPSR, per the director's account. Scope on the study not documented. | Confirmed at project level |
+| Generations (Williams Institute) | [ICPSR 37166](https://doi.org/10.3886/ICPSR37166.v2), ICPSR 38421 | DSC involvement is reported in the history and is not independently confirmed | Reported, unconfirmed |
+| Carceral Ecologies | [ICPSR 38958](https://doi.org/10.3886/ICPSR38958.v1) | Consultation and deposit advice. DSC's curation role is not stated. | Consultation records only |
+| LAMAS and LACSS survey series | 14 records released 2016 to 2018 | The archive's own releases, by Library archive staff, per the authors' account. Use of these exact releases not yet traced. | Authors' account |
+| L2 Voter History and Demographic Dataset (Redivis) | [DOI 10.60603/D37P4R](https://doi.org/10.60603/D37P4R) | Curated by DSC. No public usage figures exist. | Documented |
+
+Five studies from one project are one collaboration, not five. "Helped the team prepare data" is the claim. "DSC curated the study" is not, because ICPSR curates to the level of individual variables and DSC's per-study scope is not documented.
+
+## Published data and the works that use it
+
+These are UCLA Dataverse datasets whose depositors linked a supporting article. The authors of the article produced the data, so these are original-team works, not independent reuse.
+
+| Dataset | Article it supports | Relationship | Evidence for the data |
+|---|---|---|---|
+| [Replication data, Moon nighttime temperature and rock abundance](https://doi.org/10.25346/S6/LFAVXU) | Powell and others, [*JGR Planets*, 2023](https://doi.org/10.1029/2022JE007532), cited 57 times | Original-team article | 5 citations (DataCite), 7 (OpenAlex); 2,410 file downloads |
+| [Global Atmospheric Rivers Database v4](https://doi.org/10.25346/S6/ZSW7UN) | Guan and Waliser, [*Scientific Data*, 2024](https://doi.org/10.1038/s41597-024-03258-4), cited 37 times | Original-team article | 12 citations (DataCite), 13 (OpenAlex); 8,394 file downloads |
+| [Fault Displacement Hazard Initiative database](https://doi.org/10.25346/S6/Y4F9LJ) | Sarmiento and others, [*Earthquake Spectra*, 2024](https://doi.org/10.1177/87552930241262766), cited 22 times | Original-team article | 4 citations (both indexes); 1,774 file downloads |
+
+Works by other teams that analyze the ICPSR studies above are not yet compiled. ICPSR keeps a [Bibliography of Data-related Literature](https://www.icpsr.umich.edu/sites/icpsr/find-data/citations/bibliography-faqs) that links publications to each study. Checking it for these studies is the next step, and each work will be labeled as original-team analysis, secondary analysis, or substantive discussion.
+
+## Other UCLA studies at ICPSR
+
+UCLA's ICPSR membership was run through DSC. Tim Dennis is UCLA's [Official Representative](https://www.icpsr.umich.edu/sites/icpsr/membership/manage-membership/rep-guide) and Jamie Jamison is its Designated Representative. These roles promote ICPSR data on campus, answer deposit questions, and keep UCLA's membership active. ICPSR's membership staff announce UCLA releases to both representatives, and they told them about these. They show UCLA research data reaching the national archive, with DSC's membership and campus role in the picture. DSC's direct help on each study is not documented on this page.
+
+| ICPSR study | UCLA unit | Announced to UCLA's representatives |
+|---|---|---|
+| [STTR Collaboration Project Summary Files, 7 countries, 2010-2017](https://doi.org/10.3886/ICPSR39821.v1) (39821) | David Geffen School of Medicine | 2026-07-28 |
+| [Effectiveness of Peer Navigation to Link Released HIV-Positive Jail Inmates to HIV Care (LINK LA), 2012-2016](https://doi.org/10.3886/ICPSR39789.v1) (39789) | David Geffen School of Medicine | 2026-07-09 |
+| [CIRP Freshman Survey, Community Colleges, 1995-2007](https://doi.org/10.3886/ICPSR39778.v1) (39778) | School of Education and Information Studies, Higher Education Research Institute | 2026-06-19 |
+| [Midlife in the United States (MIDUS Refresher 2), 2022-2024](https://doi.org/10.3886/ICPSR39670.v1) (39670) | Psychiatry and Biobehavioral Sciences | 2026-03-02 |
+| [Randomized Controlled Trial of a Novel Mindset Intervention for Depression and Immune Dysregulation, 2022-2023](https://doi.org/10.3886/ICPSR39316.v1) (39316) | Semel Institute | 2025-09-19 |
+| [Randomized Controlled Trial of the Scenarios and Solutions Gang Prevention Program, California, 2022-2023](https://doi.org/10.3886/ICPSR39126.v1) (39126) | UCLA, per ICPSR | 2025-02-10 |
+
+## A UCLA article that used ICPSR data
+
+Alley, Gassen and Slavich, ["The effects of childhood adversity on twenty-five disease biomarkers and twenty health conditions in adulthood: Differences by sex and stressor type"](https://www.icpsr.umich.edu/sites/icpsr/find-data/citations), *Brain, Behavior, and Immunity* 123 (2025), 164-176. ICPSR's Bibliography of Data-related Literature links it to four Midlife in the United States studies (ICPSR 4652, 29282, 36532, 36901).
+
+Relationship: analysis of MIDUS data held at ICPSR by UCLA researchers. This is use of ICPSR data, not a DSC deposit. It shows what the bibliography record looks like, and the same kind of record is the next step for the studies featured above.
+
+## Other pathways
+
+- **UCLA Dataverse**, the open route, started in 2018. DSC staff ran it: setup, accounts, DOIs, support and upkeep. For many projects it is also the first place DSC helps with curation. Staff advise on documentation and structure, then tell ICPSR and pass the project on, per the director's account. See [Infrastructure](infrastructure.qmd) for deposits, downloads and linked papers.
+- **ICPSR**, the national route. ICPSR curates to the level of individual variables and offers national discovery. DSC helped projects prepare.
+- **Redivis**, the governed route, for data that could not be handed out. DSC curated the L2 voter files.
+
+[The long account is in the history](https://ucla-data-science-center.github.io/ssda-dsc-history/history.html#publishing-continued-three-pathways-for-data).
+
+## Coverage and methods
+
+> This is a dated, incomplete record of identified publications and data use. Study publication and DSC involvement are verified separately. Project-level support does not establish the work performed on every release. Original-team publications, secondary analyses, and substantive discussions are labeled separately. A publication may use the same underlying data without obtaining it from the repository shown here.
+
+- **Sources:** ICPSR, DataCite, OpenAlex, Crossref (article citations), and the Dataverse file-download counter. Counts were retrieved on 2026-10-28. Index counts are not added together.
+- **Citations to a study are not reuse.** A citation to a dataset DOI or to a linked paper shows that someone cited it. The 258 citations on the Infrastructure page count papers that depositors linked to datasets, not times the data were reused.
+- **Downloads are file events.** They include automated traffic and are not unique users.
+- **Attribution:** DSC's role rests on the director's account unless a row says otherwise. DSC consultation records show Dataverse help to the COVID Behind Bars team, for example template setup in 2022 and deposit questions in 2026. Public records establish the studies, DOIs and articles, not who did the work.
+- **Unresolved:** Generations and the LAMAS and LACSS releases, as marked in the table. The other UCLA studies carry no DSC claim.
+- Rules for counting: [About and methodology](about.qmd), [Metrics governance](metrics-governance.md).
