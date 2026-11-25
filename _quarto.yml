@@ -14,6 +14,7 @@ project:
     - assets/leaflet/** # map library for reach.qmd
   render:
     - index.qmd
+    - publication.qmd
     - capability.qmd
     - research.qmd
     - coverage.qmd
@@ -50,6 +51,8 @@ website:
             text: "Home"
           - href: research.qmd
             text: "Research enabled"
+          - href: publication.qmd
+            text: "Data publication and reuse"
           - href: capability.qmd
             text: "Research capability built"
           - href: investments.qmd
